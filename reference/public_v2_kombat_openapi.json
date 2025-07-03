@@ -44,7 +44,7 @@
           {
             "name": "isIntersection",
             "in": "query",
-            "description": "Keywords (True:ALL/False:ANY) the domains contain.",
+            "description": "Keywords the domains contain. True means ALL of the domains must contain the keywords. False means ANY of the domains must contain the keywords.",
             "required": true,
             "schema": {
               "type": "boolean",
