@@ -1,3 +1,6 @@
 - adhistoryapi_getdomainadhistory_get
 - adhistoryapi_gettermadhistory_get
 - adhistoryapi_gettermadhistorywithstats_get
+- adhistoryapi_getdomainadhistory_get-1
+- adhistoryapi_gettermadhistory_get-1
+- adhistoryapi_gettermadhistorywithstats_get-1
