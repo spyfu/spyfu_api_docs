@@ -1,7 +1,7 @@
 ---
 title: Paid Kombat Keywords
 excerpt: >-
-  <h3>Kombat</h3>Studying one competitor can offer plenty of entry points for
+  Studying one competitor can offer plenty of entry points for
   further research. When you compare keywords from <b>multiple competitors</b>,
   it's a surefire way to find the core keywords you don't already buy. And now
   with a major feature update inside Kombat, <b>you can compare as many domains
