@@ -14,7 +14,7 @@
       "get": {
         "operationId": "AdHistoryApi_GetDomainAdHistory_GET",
         "summary": "Ad history by domain",
-        "description": "<h3>Ad History</h3>The SpyFu Ad History API helps you<br><a href=\"https://help.spyfu.com/en/articles/\" target=\"_blank\">Read how to use this</a><h4>Endpoint Overview</h4>Ad history by domain",
+        "description": "<h3>Ad History</h3>Roland<br><a href=\"https://help.spyfu.com/en/articles/\" target=\"_blank\">Read how to use this</a><h4>Endpoint Overview</h4>Ad history by domain",
         "parameters": [
           {
             "name": "domain",
