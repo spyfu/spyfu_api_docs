@@ -9,6 +9,17 @@
       "url": "/apis/domain_stats_api"
     }
   ],
+  "security": [
+    {
+      "Basic_Authentication_Token": []
+    },
+    {
+      "Query_Parameter_Token": []
+    },
+    {
+      "HMAC_Authentication_Header": []
+    }
+  ],
   "paths": {
     "/v2/getAllDomainStats": {
       "get": {
@@ -76,7 +87,138 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PublicApiDomainStatsWrapperOutputDto"
+                  "type": "object",
+                  "properties": {
+                    "resultCount": {
+                      "description": "Number of results returned",
+                      "type": "integer",
+                      "format": "int32",
+                      "examples": [
+                        1
+                      ],
+                      "readOnly": true
+                    },
+                    "domain": {
+                      "description": "Searched domain",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "examples": [
+                        "woot.com"
+                      ]
+                    },
+                    "results": {
+                      "type": [
+                        "array",
+                        "null"
+                      ],
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "searchMonth": {
+                            "description": "Month these results were scraped",
+                            "type": "integer",
+                            "format": "int32",
+                            "examples": [
+                              5
+                            ]
+                          },
+                          "searchYear": {
+                            "description": "Year these results were scraped",
+                            "type": "integer",
+                            "format": "int32",
+                            "examples": [
+                              2021
+                            ]
+                          },
+                          "averageOrganicRank": {
+                            "description": "The average organic ranking for the month",
+                            "type": "number",
+                            "format": "double",
+                            "examples": [
+                              41.080215
+                            ]
+                          },
+                          "monthlyPaidClicks": {
+                            "description": "Estimated number of clicks this domain gets from all of its paid keywords, calculated off of its average ad position for each individual keyword for that month.",
+                            "type": "number",
+                            "format": "double",
+                            "examples": [
+                              61181.88
+                            ]
+                          },
+                          "averageAdRank": {
+                            "description": "The average ad position for the month",
+                            "type": "number",
+                            "format": "double",
+                            "examples": [
+                              1.0255591
+                            ]
+                          },
+                          "totalOrganicResults": {
+                            "description": "Total number of unique organic keywords we saw for this domain during the given month. When one of these keywords is searched on Google, a page from this domain appears in one of the Top 100 search results.",
+                            "type": "integer",
+                            "format": "int32",
+                            "examples": [
+                              302731
+                            ]
+                          },
+                          "monthlyBudget": {
+                            "description": "This is an estimate of what the domain spent in Google Ads during the most recent month.  We take all of the domain's paid keywords and use the click-through curve to get an idea of how much the domain spent overall.  That leave us with an estimated spending figure that we show at the top of the domain results page.We spread that average over one month to give you a figure you can compare other budgets to.",
+                            "type": "number",
+                            "format": "double",
+                            "examples": [
+                              6721.39
+                            ]
+                          },
+                          "monthlyOrganicValue": {
+                            "description": "Depending on the domain's ranking for each keyword, we assign a value (SEO Value) just like how each paid keyword has a certain cost per click (CPC). Consider this the SEO counterpart to the ad budget--a rollup of all of its organic terms and their collective value that their clicks bring in.",
+                            "type": "number",
+                            "format": "double",
+                            "examples": [
+                              384233.16
+                            ]
+                          },
+                          "totalAdsPurchased": {
+                            "description": "Total number of unique paid keywords we saw for this domain. To make the list, we would have seen this domain's ad on the first page of results when searching the keyword. This is a rolling total over the last 14 scrapes.",
+                            "type": "integer",
+                            "format": "int32",
+                            "examples": [
+                              599
+                            ]
+                          },
+                          "monthlyOrganicClicks": {
+                            "description": "This shows how much traffic the domain got during the given month from organic SERP results pages.",
+                            "type": "number",
+                            "format": "double",
+                            "examples": [
+                              290145
+                            ]
+                          },
+                          "strength": {
+                            "description": "We rate domains to show how strong they are in a niche so that you can gauge how important a link from that site would be. A domain with a high score here (closer to 100) consistently ranks on top searches. It pulls in high amounts of quality traffic, and it carries high authority across many competitive keywords.",
+                            "type": "integer",
+                            "format": "int32",
+                            "examples": [
+                              0
+                            ]
+                          },
+                          "totalInverseRank": {
+                            "description": "Each of the keywords organic rankings gets a value.  We start with position 1 rankings getting a value of 50, position 2 a value of 49, position 15 a value of 35, and so on.  We add all of the domain's ranking values together to get the total shown for every month.",
+                            "type": "integer",
+                            "format": "int64",
+                            "examples": [
+                              4971564
+                            ]
+                          }
+                        },
+                        "additionalProperties": false
+                      },
+                      "readOnly": true
+                    }
+                  },
+                  "additionalProperties": false
                 }
               }
             }
@@ -162,7 +304,138 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PublicApiDomainStatsWrapperOutputDto"
+                  "type": "object",
+                  "properties": {
+                    "resultCount": {
+                      "description": "Number of results returned",
+                      "type": "integer",
+                      "format": "int32",
+                      "examples": [
+                        1
+                      ],
+                      "readOnly": true
+                    },
+                    "domain": {
+                      "description": "Searched domain",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "examples": [
+                        "woot.com"
+                      ]
+                    },
+                    "results": {
+                      "type": [
+                        "array",
+                        "null"
+                      ],
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "searchMonth": {
+                            "description": "Month these results were scraped",
+                            "type": "integer",
+                            "format": "int32",
+                            "examples": [
+                              5
+                            ]
+                          },
+                          "searchYear": {
+                            "description": "Year these results were scraped",
+                            "type": "integer",
+                            "format": "int32",
+                            "examples": [
+                              2021
+                            ]
+                          },
+                          "averageOrganicRank": {
+                            "description": "The average organic ranking for the month",
+                            "type": "number",
+                            "format": "double",
+                            "examples": [
+                              41.080215
+                            ]
+                          },
+                          "monthlyPaidClicks": {
+                            "description": "Estimated number of clicks this domain gets from all of its paid keywords, calculated off of its average ad position for each individual keyword for that month.",
+                            "type": "number",
+                            "format": "double",
+                            "examples": [
+                              61181.88
+                            ]
+                          },
+                          "averageAdRank": {
+                            "description": "The average ad position for the month",
+                            "type": "number",
+                            "format": "double",
+                            "examples": [
+                              1.0255591
+                            ]
+                          },
+                          "totalOrganicResults": {
+                            "description": "Total number of unique organic keywords we saw for this domain during the given month. When one of these keywords is searched on Google, a page from this domain appears in one of the Top 100 search results.",
+                            "type": "integer",
+                            "format": "int32",
+                            "examples": [
+                              302731
+                            ]
+                          },
+                          "monthlyBudget": {
+                            "description": "This is an estimate of what the domain spent in Google Ads during the most recent month.  We take all of the domain's paid keywords and use the click-through curve to get an idea of how much the domain spent overall.  That leave us with an estimated spending figure that we show at the top of the domain results page.We spread that average over one month to give you a figure you can compare other budgets to.",
+                            "type": "number",
+                            "format": "double",
+                            "examples": [
+                              6721.39
+                            ]
+                          },
+                          "monthlyOrganicValue": {
+                            "description": "Depending on the domain's ranking for each keyword, we assign a value (SEO Value) just like how each paid keyword has a certain cost per click (CPC). Consider this the SEO counterpart to the ad budget--a rollup of all of its organic terms and their collective value that their clicks bring in.",
+                            "type": "number",
+                            "format": "double",
+                            "examples": [
+                              384233.16
+                            ]
+                          },
+                          "totalAdsPurchased": {
+                            "description": "Total number of unique paid keywords we saw for this domain. To make the list, we would have seen this domain's ad on the first page of results when searching the keyword. This is a rolling total over the last 14 scrapes.",
+                            "type": "integer",
+                            "format": "int32",
+                            "examples": [
+                              599
+                            ]
+                          },
+                          "monthlyOrganicClicks": {
+                            "description": "This shows how much traffic the domain got during the given month from organic SERP results pages.",
+                            "type": "number",
+                            "format": "double",
+                            "examples": [
+                              290145
+                            ]
+                          },
+                          "strength": {
+                            "description": "We rate domains to show how strong they are in a niche so that you can gauge how important a link from that site would be. A domain with a high score here (closer to 100) consistently ranks on top searches. It pulls in high amounts of quality traffic, and it carries high authority across many competitive keywords.",
+                            "type": "integer",
+                            "format": "int32",
+                            "examples": [
+                              0
+                            ]
+                          },
+                          "totalInverseRank": {
+                            "description": "Each of the keywords organic rankings gets a value.  We start with position 1 rankings getting a value of 50, position 2 a value of 49, position 15 a value of 35, and so on.  We add all of the domain's ranking values together to get the total shown for every month.",
+                            "type": "integer",
+                            "format": "int64",
+                            "examples": [
+                              4971564
+                            ]
+                          }
+                        },
+                        "additionalProperties": false
+                      },
+                      "readOnly": true
+                    }
+                  },
+                  "additionalProperties": false
                 }
               }
             }
@@ -280,7 +553,138 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PublicApiDomainStatsWrapperOutputDto"
+                  "type": "object",
+                  "properties": {
+                    "resultCount": {
+                      "description": "Number of results returned",
+                      "type": "integer",
+                      "format": "int32",
+                      "examples": [
+                        1
+                      ],
+                      "readOnly": true
+                    },
+                    "domain": {
+                      "description": "Searched domain",
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "examples": [
+                        "woot.com"
+                      ]
+                    },
+                    "results": {
+                      "type": [
+                        "array",
+                        "null"
+                      ],
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "searchMonth": {
+                            "description": "Month these results were scraped",
+                            "type": "integer",
+                            "format": "int32",
+                            "examples": [
+                              5
+                            ]
+                          },
+                          "searchYear": {
+                            "description": "Year these results were scraped",
+                            "type": "integer",
+                            "format": "int32",
+                            "examples": [
+                              2021
+                            ]
+                          },
+                          "averageOrganicRank": {
+                            "description": "The average organic ranking for the month",
+                            "type": "number",
+                            "format": "double",
+                            "examples": [
+                              41.080215
+                            ]
+                          },
+                          "monthlyPaidClicks": {
+                            "description": "Estimated number of clicks this domain gets from all of its paid keywords, calculated off of its average ad position for each individual keyword for that month.",
+                            "type": "number",
+                            "format": "double",
+                            "examples": [
+                              61181.88
+                            ]
+                          },
+                          "averageAdRank": {
+                            "description": "The average ad position for the month",
+                            "type": "number",
+                            "format": "double",
+                            "examples": [
+                              1.0255591
+                            ]
+                          },
+                          "totalOrganicResults": {
+                            "description": "Total number of unique organic keywords we saw for this domain during the given month. When one of these keywords is searched on Google, a page from this domain appears in one of the Top 100 search results.",
+                            "type": "integer",
+                            "format": "int32",
+                            "examples": [
+                              302731
+                            ]
+                          },
+                          "monthlyBudget": {
+                            "description": "This is an estimate of what the domain spent in Google Ads during the most recent month.  We take all of the domain's paid keywords and use the click-through curve to get an idea of how much the domain spent overall.  That leave us with an estimated spending figure that we show at the top of the domain results page.We spread that average over one month to give you a figure you can compare other budgets to.",
+                            "type": "number",
+                            "format": "double",
+                            "examples": [
+                              6721.39
+                            ]
+                          },
+                          "monthlyOrganicValue": {
+                            "description": "Depending on the domain's ranking for each keyword, we assign a value (SEO Value) just like how each paid keyword has a certain cost per click (CPC). Consider this the SEO counterpart to the ad budget--a rollup of all of its organic terms and their collective value that their clicks bring in.",
+                            "type": "number",
+                            "format": "double",
+                            "examples": [
+                              384233.16
+                            ]
+                          },
+                          "totalAdsPurchased": {
+                            "description": "Total number of unique paid keywords we saw for this domain. To make the list, we would have seen this domain's ad on the first page of results when searching the keyword. This is a rolling total over the last 14 scrapes.",
+                            "type": "integer",
+                            "format": "int32",
+                            "examples": [
+                              599
+                            ]
+                          },
+                          "monthlyOrganicClicks": {
+                            "description": "This shows how much traffic the domain got during the given month from organic SERP results pages.",
+                            "type": "number",
+                            "format": "double",
+                            "examples": [
+                              290145
+                            ]
+                          },
+                          "strength": {
+                            "description": "We rate domains to show how strong they are in a niche so that you can gauge how important a link from that site would be. A domain with a high score here (closer to 100) consistently ranks on top searches. It pulls in high amounts of quality traffic, and it carries high authority across many competitive keywords.",
+                            "type": "integer",
+                            "format": "int32",
+                            "examples": [
+                              0
+                            ]
+                          },
+                          "totalInverseRank": {
+                            "description": "Each of the keywords organic rankings gets a value.  We start with position 1 rankings getting a value of 50, position 2 a value of 49, position 15 a value of 35, and so on.  We add all of the domain's ranking values together to get the total shown for every month.",
+                            "type": "integer",
+                            "format": "int64",
+                            "examples": [
+                              4971564
+                            ]
+                          }
+                        },
+                        "additionalProperties": false
+                      },
+                      "readOnly": true
+                    }
+                  },
+                  "additionalProperties": false
                 }
               }
             }
@@ -366,7 +770,48 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PublicApiSearchDateListOutputDto"
+                  "type": "object",
+                  "properties": {
+                    "resultCount": {
+                      "description": "Number of results returned",
+                      "type": "integer",
+                      "format": "int32",
+                      "examples": [
+                        100
+                      ],
+                      "readOnly": true
+                    },
+                    "results": {
+                      "type": [
+                        "array",
+                        "null"
+                      ],
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "dateString": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "month": {
+                            "type": "integer",
+                            "format": "int32",
+                            "readOnly": true
+                          },
+                          "year": {
+                            "type": "integer",
+                            "format": "int32",
+                            "readOnly": true
+                          }
+                        },
+                        "additionalProperties": false
+                      },
+                      "readOnly": true
+                    }
+                  },
+                  "additionalProperties": false
                 }
               }
             }
@@ -519,7 +964,106 @@
               "null"
             ],
             "items": {
-              "$ref": "#/components/schemas/PublicApiDomainStatsOutputItemDto"
+              "type": "object",
+              "properties": {
+                "searchMonth": {
+                  "description": "Month these results were scraped",
+                  "type": "integer",
+                  "format": "int32",
+                  "examples": [
+                    5
+                  ]
+                },
+                "searchYear": {
+                  "description": "Year these results were scraped",
+                  "type": "integer",
+                  "format": "int32",
+                  "examples": [
+                    2021
+                  ]
+                },
+                "averageOrganicRank": {
+                  "description": "The average organic ranking for the month",
+                  "type": "number",
+                  "format": "double",
+                  "examples": [
+                    41.080215
+                  ]
+                },
+                "monthlyPaidClicks": {
+                  "description": "Estimated number of clicks this domain gets from all of its paid keywords, calculated off of its average ad position for each individual keyword for that month.",
+                  "type": "number",
+                  "format": "double",
+                  "examples": [
+                    61181.88
+                  ]
+                },
+                "averageAdRank": {
+                  "description": "The average ad position for the month",
+                  "type": "number",
+                  "format": "double",
+                  "examples": [
+                    1.0255591
+                  ]
+                },
+                "totalOrganicResults": {
+                  "description": "Total number of unique organic keywords we saw for this domain during the given month. When one of these keywords is searched on Google, a page from this domain appears in one of the Top 100 search results.",
+                  "type": "integer",
+                  "format": "int32",
+                  "examples": [
+                    302731
+                  ]
+                },
+                "monthlyBudget": {
+                  "description": "This is an estimate of what the domain spent in Google Ads during the most recent month.  We take all of the domain's paid keywords and use the click-through curve to get an idea of how much the domain spent overall.  That leave us with an estimated spending figure that we show at the top of the domain results page.We spread that average over one month to give you a figure you can compare other budgets to.",
+                  "type": "number",
+                  "format": "double",
+                  "examples": [
+                    6721.39
+                  ]
+                },
+                "monthlyOrganicValue": {
+                  "description": "Depending on the domain's ranking for each keyword, we assign a value (SEO Value) just like how each paid keyword has a certain cost per click (CPC). Consider this the SEO counterpart to the ad budget--a rollup of all of its organic terms and their collective value that their clicks bring in.",
+                  "type": "number",
+                  "format": "double",
+                  "examples": [
+                    384233.16
+                  ]
+                },
+                "totalAdsPurchased": {
+                  "description": "Total number of unique paid keywords we saw for this domain. To make the list, we would have seen this domain's ad on the first page of results when searching the keyword. This is a rolling total over the last 14 scrapes.",
+                  "type": "integer",
+                  "format": "int32",
+                  "examples": [
+                    599
+                  ]
+                },
+                "monthlyOrganicClicks": {
+                  "description": "This shows how much traffic the domain got during the given month from organic SERP results pages.",
+                  "type": "number",
+                  "format": "double",
+                  "examples": [
+                    290145
+                  ]
+                },
+                "strength": {
+                  "description": "We rate domains to show how strong they are in a niche so that you can gauge how important a link from that site would be. A domain with a high score here (closer to 100) consistently ranks on top searches. It pulls in high amounts of quality traffic, and it carries high authority across many competitive keywords.",
+                  "type": "integer",
+                  "format": "int32",
+                  "examples": [
+                    0
+                  ]
+                },
+                "totalInverseRank": {
+                  "description": "Each of the keywords organic rankings gets a value.  We start with position 1 rankings getting a value of 50, position 2 a value of 49, position 15 a value of 35, and so on.  We add all of the domain's ranking values together to get the total shown for every month.",
+                  "type": "integer",
+                  "format": "int64",
+                  "examples": [
+                    4971564
+                  ]
+                }
+              },
+              "additionalProperties": false
             },
             "readOnly": true
           }
@@ -544,7 +1088,26 @@
               "null"
             ],
             "items": {
-              "$ref": "#/components/schemas/SearchDate"
+              "type": "object",
+              "properties": {
+                "dateString": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "month": {
+                  "type": "integer",
+                  "format": "int32",
+                  "readOnly": true
+                },
+                "year": {
+                  "type": "integer",
+                  "format": "int32",
+                  "readOnly": true
+                }
+              },
+              "additionalProperties": false
             },
             "readOnly": true
           }
@@ -593,16 +1156,5 @@
         "in": "header"
       }
     }
-  },
-  "security": [
-    {
-      "Basic_Authentication_Token": []
-    },
-    {
-      "Query_Parameter_Token": []
-    },
-    {
-      "HMAC_Authentication_Header": []
-    }
-  ]
+  }
 }
