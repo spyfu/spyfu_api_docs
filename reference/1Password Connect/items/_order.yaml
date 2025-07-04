@@ -1,0 +1,6 @@
+- getvaultitems
+- createvaultitem
+- deletevaultitem
+- getvaultitembyid
+- patchvaultitem
+- updatevaultitem
