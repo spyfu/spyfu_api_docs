@@ -9,6 +9,17 @@
       "url": "/apis/competitors_api"
     }
   ],
+  "security": [
+    {
+      "Basic_Authentication_Token": []
+    },
+    {
+      "Query_Parameter_Token": []
+    },
+    {
+      "HMAC_Authentication_Header": []
+    }
+  ],
   "paths": {
     "/v2/ppc/getTopCompetitors": {
       "get": {
@@ -108,7 +119,54 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PublicApiCompetitorWrapperOutputDto"
+                  "type": "object",
+                  "properties": {
+                    "resultCount": {
+                      "description": "Number of results returned",
+                      "type": "integer",
+                      "format": "int32",
+                      "examples": [
+                        50
+                      ],
+                      "readOnly": true
+                    },
+                    "totalMatchingResults": {
+                      "description": "The total number of results available that matches the query including\r\nitems that might not be included in the returned results/page.",
+                      "type": "integer",
+                      "format": "int64"
+                    },
+                    "results": {
+                      "type": [
+                        "array",
+                        "null"
+                      ],
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "domain": {
+                            "description": "This is the domain of the competitor that advertises on many of the same keywords that you buy in Google Ads. The more keywords you share of each other's, the higher they will be listed here as an ad rival.",
+                            "type": [
+                              "string",
+                              "null"
+                            ],
+                            "examples": [
+                              "woot.com"
+                            ]
+                          },
+                          "commonTerms": {
+                            "description": "This is the count of unique keywords that this domain and your domain both advertise on.",
+                            "type": "integer",
+                            "format": "int32",
+                            "examples": [
+                              1432
+                            ]
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    }
+                  },
+                  "additionalProperties": false
                 }
               }
             }
@@ -226,7 +284,54 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PublicApiCompetitorWrapperOutputDto"
+                  "type": "object",
+                  "properties": {
+                    "resultCount": {
+                      "description": "Number of results returned",
+                      "type": "integer",
+                      "format": "int32",
+                      "examples": [
+                        50
+                      ],
+                      "readOnly": true
+                    },
+                    "totalMatchingResults": {
+                      "description": "The total number of results available that matches the query including\r\nitems that might not be included in the returned results/page.",
+                      "type": "integer",
+                      "format": "int64"
+                    },
+                    "results": {
+                      "type": [
+                        "array",
+                        "null"
+                      ],
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "domain": {
+                            "description": "This is the domain of the competitor that advertises on many of the same keywords that you buy in Google Ads. The more keywords you share of each other's, the higher they will be listed here as an ad rival.",
+                            "type": [
+                              "string",
+                              "null"
+                            ],
+                            "examples": [
+                              "woot.com"
+                            ]
+                          },
+                          "commonTerms": {
+                            "description": "This is the count of unique keywords that this domain and your domain both advertise on.",
+                            "type": "integer",
+                            "format": "int32",
+                            "examples": [
+                              1432
+                            ]
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    }
+                  },
+                  "additionalProperties": false
                 }
               }
             }
@@ -344,7 +449,110 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PublicApiCombinedCompetitorsWrapperOutputDto"
+                  "type": "object",
+                  "properties": {
+                    "resultCount": {
+                      "description": "Number of results returned",
+                      "type": "integer",
+                      "format": "int32",
+                      "examples": [
+                        50
+                      ],
+                      "readOnly": true
+                    },
+                    "totalMatchingResults": {
+                      "description": "The total number of results available that matches the query including\r\nitems that might not be included in the returned results/page.",
+                      "type": "integer",
+                      "format": "int64"
+                    },
+                    "combinedCompetitors": {
+                      "type": [
+                        "array",
+                        "null"
+                      ],
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "rank": {
+                            "type": "number",
+                            "format": "float"
+                          },
+                          "domain": {
+                            "description": "This is the domain of the competitor that advertises on many of the same keywords that you buy in Google Ads. The more keywords you share of each other's, the higher they will be listed here as an ad rival.",
+                            "type": [
+                              "string",
+                              "null"
+                            ],
+                            "examples": [
+                              "woot.com"
+                            ]
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "ppcCompetitors": {
+                      "type": [
+                        "array",
+                        "null"
+                      ],
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "domain": {
+                            "description": "This is the domain of the competitor that advertises on many of the same keywords that you buy in Google Ads. The more keywords you share of each other's, the higher they will be listed here as an ad rival.",
+                            "type": [
+                              "string",
+                              "null"
+                            ],
+                            "examples": [
+                              "woot.com"
+                            ]
+                          },
+                          "commonTerms": {
+                            "description": "This is the count of unique keywords that this domain and your domain both advertise on.",
+                            "type": "integer",
+                            "format": "int32",
+                            "examples": [
+                              1432
+                            ]
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "seoCompetitors": {
+                      "type": [
+                        "array",
+                        "null"
+                      ],
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "domain": {
+                            "description": "This is the domain of the competitor that advertises on many of the same keywords that you buy in Google Ads. The more keywords you share of each other's, the higher they will be listed here as an ad rival.",
+                            "type": [
+                              "string",
+                              "null"
+                            ],
+                            "examples": [
+                              "woot.com"
+                            ]
+                          },
+                          "commonTerms": {
+                            "description": "This is the count of unique keywords that this domain and your domain both advertise on.",
+                            "type": "integer",
+                            "format": "int32",
+                            "examples": [
+                              1432
+                            ]
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    }
+                  },
+                  "additionalProperties": false
                 }
               }
             }
@@ -410,7 +618,24 @@
               "null"
             ],
             "items": {
-              "$ref": "#/components/schemas/PublicApiCombinedCompetitorsOutputDto"
+              "type": "object",
+              "properties": {
+                "rank": {
+                  "type": "number",
+                  "format": "float"
+                },
+                "domain": {
+                  "description": "This is the domain of the competitor that advertises on many of the same keywords that you buy in Google Ads. The more keywords you share of each other's, the higher they will be listed here as an ad rival.",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "examples": [
+                    "woot.com"
+                  ]
+                }
+              },
+              "additionalProperties": false
             }
           },
           "ppcCompetitors": {
@@ -419,7 +644,28 @@
               "null"
             ],
             "items": {
-              "$ref": "#/components/schemas/PublicApiCompetitorsOutputDto"
+              "type": "object",
+              "properties": {
+                "domain": {
+                  "description": "This is the domain of the competitor that advertises on many of the same keywords that you buy in Google Ads. The more keywords you share of each other's, the higher they will be listed here as an ad rival.",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "examples": [
+                    "woot.com"
+                  ]
+                },
+                "commonTerms": {
+                  "description": "This is the count of unique keywords that this domain and your domain both advertise on.",
+                  "type": "integer",
+                  "format": "int32",
+                  "examples": [
+                    1432
+                  ]
+                }
+              },
+              "additionalProperties": false
             }
           },
           "seoCompetitors": {
@@ -428,7 +674,28 @@
               "null"
             ],
             "items": {
-              "$ref": "#/components/schemas/PublicApiCompetitorsOutputDto"
+              "type": "object",
+              "properties": {
+                "domain": {
+                  "description": "This is the domain of the competitor that advertises on many of the same keywords that you buy in Google Ads. The more keywords you share of each other's, the higher they will be listed here as an ad rival.",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "examples": [
+                    "woot.com"
+                  ]
+                },
+                "commonTerms": {
+                  "description": "This is the count of unique keywords that this domain and your domain both advertise on.",
+                  "type": "integer",
+                  "format": "int32",
+                  "examples": [
+                    1432
+                  ]
+                }
+              },
+              "additionalProperties": false
             }
           }
         },
@@ -457,7 +724,28 @@
               "null"
             ],
             "items": {
-              "$ref": "#/components/schemas/PublicApiCompetitorsOutputDto"
+              "type": "object",
+              "properties": {
+                "domain": {
+                  "description": "This is the domain of the competitor that advertises on many of the same keywords that you buy in Google Ads. The more keywords you share of each other's, the higher they will be listed here as an ad rival.",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "examples": [
+                    "woot.com"
+                  ]
+                },
+                "commonTerms": {
+                  "description": "This is the count of unique keywords that this domain and your domain both advertise on.",
+                  "type": "integer",
+                  "format": "int32",
+                  "examples": [
+                    1432
+                  ]
+                }
+              },
+              "additionalProperties": false
             }
           }
         },
@@ -507,16 +795,5 @@
         "in": "header"
       }
     }
-  },
-  "security": [
-    {
-      "Basic_Authentication_Token": []
-    },
-    {
-      "Query_Parameter_Token": []
-    },
-    {
-      "HMAC_Authentication_Header": []
-    }
-  ]
+  }
 }

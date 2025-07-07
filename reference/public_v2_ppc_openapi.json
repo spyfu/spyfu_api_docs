@@ -9,6 +9,17 @@
       "url": "/apis/serp_api"
     }
   ],
+  "security": [
+    {
+      "Basic_Authentication_Token": []
+    },
+    {
+      "Query_Parameter_Token": []
+    },
+    {
+      "HMAC_Authentication_Header": []
+    }
+  ],
   "paths": {
     "/v2/ppc/getPaidSerps": {
       "get": {
@@ -263,7 +274,154 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PublicApiPaidSerpKeywordWrapperOutputDto"
+                  "type": "object",
+                  "properties": {
+                    "resultCount": {
+                      "description": "Number of results returned",
+                      "type": "integer",
+                      "format": "int32",
+                      "examples": [
+                        100
+                      ],
+                      "readOnly": true
+                    },
+                    "results": {
+                      "type": [
+                        "array",
+                        "null"
+                      ],
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "keyword": {
+                            "description": "When you search a term or phrase (AKA a \"keyword\"), there are usually thousands of results. If a domain appears within the top 50 results, we consider that search term to be one of its organic (SEO) keywords.",
+                            "type": [
+                              "string",
+                              "null"
+                            ],
+                            "examples": [
+                              "slickdeals"
+                            ],
+                            "readOnly": true
+                          },
+                          "termId": {
+                            "description": "The Term ID for this keyword.",
+                            "type": [
+                              "string",
+                              "null"
+                            ],
+                            "examples": [
+                              "39100280"
+                            ],
+                            "readOnly": true
+                          },
+                          "adPosition": {
+                            "description": "The Ad Position for this keyword for this domain.",
+                            "type": [
+                              "integer",
+                              "null"
+                            ],
+                            "format": "int32",
+                            "examples": [
+                              1
+                            ],
+                            "readOnly": true
+                          },
+                          "adCount": {
+                            "description": "The total number of ads for this keyword for this domain.",
+                            "type": [
+                              "integer",
+                              "null"
+                            ],
+                            "format": "int32",
+                            "examples": [
+                              1
+                            ],
+                            "readOnly": true
+                          },
+                          "dateSearched": {
+                            "description": "The date when this Keyword was added to our Database",
+                            "type": "string",
+                            "format": "date-time",
+                            "examples": [
+                              "1"
+                            ],
+                            "readOnly": true
+                          },
+                          "title": {
+                            "description": "The title of the SERP.",
+                            "type": [
+                              "string",
+                              "null"
+                            ],
+                            "examples": [
+                              "Increase your website traffic."
+                            ],
+                            "readOnly": true
+                          },
+                          "bodyHtml": {
+                            "description": "The HTML for the body of the SERP.",
+                            "type": [
+                              "string",
+                              "null"
+                            ],
+                            "readOnly": true
+                          },
+                          "domain": {
+                            "description": "The Domain for this SERP.",
+                            "type": [
+                              "string",
+                              "null"
+                            ],
+                            "examples": [
+                              "spyfu.com"
+                            ],
+                            "readOnly": true
+                          },
+                          "searchVolume": {
+                            "description": "This shows the number of searches done this past month across the US on Google.com (or searches done on Google within the selected country for our other country options). We blend data from multiple sources to give a better snapshot of search activity on this keyword, so it won’t be identical to Google’s metrics for search volume.",
+                            "type": [
+                              "integer",
+                              "null"
+                            ],
+                            "format": "int64",
+                            "examples": [
+                              700000
+                            ],
+                            "readOnly": true
+                          },
+                          "keywordDifficulty": {
+                            "description": "We’ve calculated how difficult it would be to rank on this keyword. The score is based on a scale of 1-100, 100 being the most difficult to rank for. Compare this number to other keywords you're targeting to get an idea of how to prioritize your SEO campaign.",
+                            "type": "integer",
+                            "format": "int32",
+                            "examples": [
+                              69
+                            ],
+                            "readOnly": true
+                          },
+                          "isNsfw": {
+                            "description": "Indicates whether the SERP is Not Safe For Work.",
+                            "type": [
+                              "boolean",
+                              "null"
+                            ],
+                            "examples": [
+                              false
+                            ],
+                            "readOnly": true
+                          }
+                        },
+                        "additionalProperties": false
+                      },
+                      "readOnly": true
+                    },
+                    "totalMatchingResults": {
+                      "type": "integer",
+                      "format": "int64",
+                      "readOnly": true
+                    }
+                  },
+                  "additionalProperties": false
                 }
               }
             }
@@ -427,7 +585,127 @@
               "null"
             ],
             "items": {
-              "$ref": "#/components/schemas/PublicApiPaidSerpKeywordOutputDto"
+              "type": "object",
+              "properties": {
+                "keyword": {
+                  "description": "When you search a term or phrase (AKA a \"keyword\"), there are usually thousands of results. If a domain appears within the top 50 results, we consider that search term to be one of its organic (SEO) keywords.",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "examples": [
+                    "slickdeals"
+                  ],
+                  "readOnly": true
+                },
+                "termId": {
+                  "description": "The Term ID for this keyword.",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "examples": [
+                    "39100280"
+                  ],
+                  "readOnly": true
+                },
+                "adPosition": {
+                  "description": "The Ad Position for this keyword for this domain.",
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "format": "int32",
+                  "examples": [
+                    1
+                  ],
+                  "readOnly": true
+                },
+                "adCount": {
+                  "description": "The total number of ads for this keyword for this domain.",
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "format": "int32",
+                  "examples": [
+                    1
+                  ],
+                  "readOnly": true
+                },
+                "dateSearched": {
+                  "description": "The date when this Keyword was added to our Database",
+                  "type": "string",
+                  "format": "date-time",
+                  "examples": [
+                    "1"
+                  ],
+                  "readOnly": true
+                },
+                "title": {
+                  "description": "The title of the SERP.",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "examples": [
+                    "Increase your website traffic."
+                  ],
+                  "readOnly": true
+                },
+                "bodyHtml": {
+                  "description": "The HTML for the body of the SERP.",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "readOnly": true
+                },
+                "domain": {
+                  "description": "The Domain for this SERP.",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "examples": [
+                    "spyfu.com"
+                  ],
+                  "readOnly": true
+                },
+                "searchVolume": {
+                  "description": "This shows the number of searches done this past month across the US on Google.com (or searches done on Google within the selected country for our other country options). We blend data from multiple sources to give a better snapshot of search activity on this keyword, so it won’t be identical to Google’s metrics for search volume.",
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "format": "int64",
+                  "examples": [
+                    700000
+                  ],
+                  "readOnly": true
+                },
+                "keywordDifficulty": {
+                  "description": "We’ve calculated how difficult it would be to rank on this keyword. The score is based on a scale of 1-100, 100 being the most difficult to rank for. Compare this number to other keywords you're targeting to get an idea of how to prioritize your SEO campaign.",
+                  "type": "integer",
+                  "format": "int32",
+                  "examples": [
+                    69
+                  ],
+                  "readOnly": true
+                },
+                "isNsfw": {
+                  "description": "Indicates whether the SERP is Not Safe For Work.",
+                  "type": [
+                    "boolean",
+                    "null"
+                  ],
+                  "examples": [
+                    false
+                  ],
+                  "readOnly": true
+                }
+              },
+              "additionalProperties": false
             },
             "readOnly": true
           },
@@ -459,16 +737,5 @@
         "in": "header"
       }
     }
-  },
-  "security": [
-    {
-      "Basic_Authentication_Token": []
-    },
-    {
-      "Query_Parameter_Token": []
-    },
-    {
-      "HMAC_Authentication_Header": []
-    }
-  ]
+  }
 }
