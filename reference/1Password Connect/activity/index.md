@@ -1,4 +1,0 @@
----
-title: Activity
-hidden: false
----

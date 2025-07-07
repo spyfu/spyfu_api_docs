@@ -1,4 +1,0 @@
----
-title: Vaults
-hidden: false
----
