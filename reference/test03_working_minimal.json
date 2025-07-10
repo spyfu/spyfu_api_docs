@@ -1,0 +1,659 @@
+﻿{
+    "paths":  {
+                  "/v2/domain/getDomainAdHistory":  {
+                                                        "get":  {
+                                                                    "operationId":  "AdHistoryApi_GetDomainAdHistory_GET",
+                                                                    "summary":  "Ad history by domain",
+                                                                    "description":  "\u003ch3\u003eAd History\u003c/h3\u003eThe SpyFu Ad History API helps you\u003cbr\u003e\u003ca href=\"https://help.spyfu.com/en/articles/\" target=\"_blank\"\u003eRead how to use this\u003c/a\u003e\u003ch4\u003eEndpoint Overview\u003c/h4\u003eAd history by domain",
+                                                                    "parameters":  [
+                                                                                       {
+                                                                                           "name":  "domain",
+                                                                                           "in":  "query",
+                                                                                           "description":  "Domain to get ad history for.",
+                                                                                           "required":  true,
+                                                                                           "schema":  {
+                                                                                                          "type":  "string",
+                                                                                                          "examples":  [
+                                                                                                                           "apple.com"
+                                                                                                                       ]
+                                                                                                      },
+                                                                                           "example":  "apple.com"
+                                                                                       },
+                                                                                       {
+                                                                                           "name":  "startingRow",
+                                                                                           "in":  "query",
+                                                                                           "description":  "Row number to start the results with.",
+                                                                                           "schema":  {
+                                                                                                          "type":  "integer",
+                                                                                                          "format":  "int32",
+                                                                                                          "examples":  [
+                                                                                                                           1
+                                                                                                                       ],
+                                                                                                          "default":  1,
+                                                                                                          "maximum":  2147483647,
+                                                                                                          "minimum":  1
+                                                                                                      },
+                                                                                           "example":  1
+                                                                                       },
+                                                                                       {
+                                                                                           "name":  "pageSize",
+                                                                                           "in":  "query",
+                                                                                           "description":  "Number of rows of data to return",
+                                                                                           "schema":  {
+                                                                                                          "type":  "integer",
+                                                                                                          "format":  "int32",
+                                                                                                          "examples":  [
+                                                                                                                           5
+                                                                                                                       ],
+                                                                                                          "default":  5,
+                                                                                                          "maximum":  10000,
+                                                                                                          "minimum":  1
+                                                                                                      },
+                                                                                           "example":  5
+                                                                                       },
+                                                                                       {
+                                                                                           "name":  "countryCode",
+                                                                                           "in":  "query",
+                                                                                           "description":  "Country to get results for.",
+                                                                                           "schema":  {
+                                                                                                          "type":  "string",
+                                                                                                          "examples":  [
+                                                                                                                           "US"
+                                                                                                                       ],
+                                                                                                          "default":  "US",
+                                                                                                          "enum":  [
+                                                                                                                       "AR",
+                                                                                                                       "AU",
+                                                                                                                       "BE",
+                                                                                                                       "BR",
+                                                                                                                       "CA",
+                                                                                                                       "CH",
+                                                                                                                       "DE",
+                                                                                                                       "DK",
+                                                                                                                       "ES",
+                                                                                                                       "FR",
+                                                                                                                       "IE",
+                                                                                                                       "IN",
+                                                                                                                       "IT",
+                                                                                                                       "JP",
+                                                                                                                       "MX",
+                                                                                                                       "NL",
+                                                                                                                       "NO",
+                                                                                                                       "NZ",
+                                                                                                                       "PT",
+                                                                                                                       "SE",
+                                                                                                                       "SG",
+                                                                                                                       "UA",
+                                                                                                                       "UK",
+                                                                                                                       "US",
+                                                                                                                       "ZA"
+                                                                                                                   ]
+                                                                                                      },
+                                                                                           "example":  "US"
+                                                                                       }
+                                                                                   ],
+                                                                    "responses":  {
+                                                                                      "200":  {
+                                                                                                  "description":  "OK",
+                                                                                                  "content":  {
+                                                                                                                  "application/json":  {
+                                                                                                                                           "schema":  {
+                                                                                                                                                          "type":  "object",
+                                                                                                                                                          "properties":  {
+                                                                                                                                                                             "resultCount":  {
+                                                                                                                                                                                                 "description":  "Number of results returned",
+                                                                                                                                                                                                 "type":  "integer",
+                                                                                                                                                                                                 "format":  "int32",
+                                                                                                                                                                                                 "examples":  [
+                                                                                                                                                                                                                  100
+                                                                                                                                                                                                              ],
+                                                                                                                                                                                                 "readOnly":  true
+                                                                                                                                                                                             },
+                                                                                                                                                                             "results":  {
+                                                                                                                                                                                             "type":  [
+                                                                                                                                                                                                          "array",
+                                                                                                                                                                                                          "null"
+                                                                                                                                                                                                      ],
+                                                                                                                                                                                             "items":  {
+                                                                                                                                                                                                           "type":  "object",
+                                                                                                                                                                                                           "properties":  {
+                                                                                                                                                                                                                              "keywords":  {
+                                                                                                                                                                                                                                               "type":  [
+                                                                                                                                                                                                                                                            "array",
+                                                                                                                                                                                                                                                            "null"
+                                                                                                                                                                                                                                                        ],
+                                                                                                                                                                                                                                               "items":  {
+                                                                                                                                                                                                                                                             "type":  "string"
+                                                                                                                                                                                                                                                         }
+                                                                                                                                                                                                                                           },
+                                                                                                                                                                                                                              "position":  {
+                                                                                                                                                                                                                                               "type":  "integer",
+                                                                                                                                                                                                                                               "format":  "int32"
+                                                                                                                                                                                                                                           },
+                                                                                                                                                                                                                              "searchDateId":  {
+                                                                                                                                                                                                                                                   "type":  "integer",
+                                                                                                                                                                                                                                                   "format":  "int32"
+                                                                                                                                                                                                                                               },
+                                                                                                                                                                                                                              "title":  {
+                                                                                                                                                                                                                                            "type":  [
+                                                                                                                                                                                                                                                         "string",
+                                                                                                                                                                                                                                                         "null"
+                                                                                                                                                                                                                                                     ]
+                                                                                                                                                                                                                                        },
+                                                                                                                                                                                                                              "body":  {
+                                                                                                                                                                                                                                           "type":  [
+                                                                                                                                                                                                                                                        "string",
+                                                                                                                                                                                                                                                        "null"
+                                                                                                                                                                                                                                                    ]
+                                                                                                                                                                                                                                       },
+                                                                                                                                                                                                                              "url":  {
+                                                                                                                                                                                                                                          "type":  [
+                                                                                                                                                                                                                                                       "string",
+                                                                                                                                                                                                                                                       "null"
+                                                                                                                                                                                                                                                   ]
+                                                                                                                                                                                                                                      },
+                                                                                                                                                                                                                              "adId":  {
+                                                                                                                                                                                                                                           "type":  "integer",
+                                                                                                                                                                                                                                           "format":  "int32"
+                                                                                                                                                                                                                                       }
+                                                                                                                                                                                                                          },
+                                                                                                                                                                                                           "additionalProperties":  false
+                                                                                                                                                                                                       },
+                                                                                                                                                                                             "readOnly":  true
+                                                                                                                                                                                         }
+                                                                                                                                                                         },
+                                                                                                                                                          "additionalProperties":  false
+                                                                                                                                                      }
+                                                                                                                                       }
+                                                                                                              }
+                                                                                              },
+                                                                                      "400":  {
+                                                                                                  "description":  "Bad Request"
+                                                                                              },
+                                                                                      "401":  {
+                                                                                                  "description":  "User failed authorization"
+                                                                                              },
+                                                                                      "500":  {
+                                                                                                  "description":  "Internal Server Error"
+                                                                                              }
+                                                                                  },
+                                                                    "tags":  [
+                                                                                 "Ad History Research API"
+                                                                             ]
+                                                                }
+                                                    },
+                  "/v2/term/getTermAdHistory":  {
+                                                    "get":  {
+                                                                "operationId":  "AdHistoryApi_GetTermAdHistory_GET",
+                                                                "summary":  "Ad history by term",
+                                                                "description":  "\u003ch3\u003eAd History\u003c/h3\u003eThe SpyFu Ad History API helps you\u003cbr\u003e\u003ca href=\"https://help.spyfu.com/en/articles/\" target=\"_blank\"\u003eRead how to use this\u003c/a\u003e\u003ch4\u003eEndpoint Overview\u003c/h4\u003eAd history by term",
+                                                                "parameters":  [
+                                                                                   {
+                                                                                       "name":  "term",
+                                                                                       "in":  "query",
+                                                                                       "description":  "Term to get ad history for.",
+                                                                                       "required":  true,
+                                                                                       "schema":  {
+                                                                                                      "type":  "string",
+                                                                                                      "examples":  [
+                                                                                                                       "running shoes"
+                                                                                                                   ]
+                                                                                                  },
+                                                                                       "example":  "running shoes"
+                                                                                   },
+                                                                                   {
+                                                                                       "name":  "startingRow",
+                                                                                       "in":  "query",
+                                                                                       "description":  "Row number to start the results with.",
+                                                                                       "schema":  {
+                                                                                                      "type":  "integer",
+                                                                                                      "format":  "int32",
+                                                                                                      "examples":  [
+                                                                                                                       1
+                                                                                                                   ],
+                                                                                                      "default":  1,
+                                                                                                      "maximum":  2147483647,
+                                                                                                      "minimum":  1
+                                                                                                  },
+                                                                                       "example":  1
+                                                                                   },
+                                                                                   {
+                                                                                       "name":  "pageSize",
+                                                                                       "in":  "query",
+                                                                                       "description":  "Number of rows of data to return",
+                                                                                       "schema":  {
+                                                                                                      "type":  "integer",
+                                                                                                      "format":  "int32",
+                                                                                                      "examples":  [
+                                                                                                                       5
+                                                                                                                   ],
+                                                                                                      "default":  5,
+                                                                                                      "maximum":  10000,
+                                                                                                      "minimum":  1
+                                                                                                  },
+                                                                                       "example":  5
+                                                                                   },
+                                                                                   {
+                                                                                       "name":  "countryCode",
+                                                                                       "in":  "query",
+                                                                                       "description":  "Country to get results for.",
+                                                                                       "schema":  {
+                                                                                                      "type":  "string",
+                                                                                                      "examples":  [
+                                                                                                                       "US"
+                                                                                                                   ],
+                                                                                                      "default":  "US",
+                                                                                                      "enum":  [
+                                                                                                                   "AR",
+                                                                                                                   "AU",
+                                                                                                                   "BE",
+                                                                                                                   "BR",
+                                                                                                                   "CA",
+                                                                                                                   "CH",
+                                                                                                                   "DE",
+                                                                                                                   "DK",
+                                                                                                                   "ES",
+                                                                                                                   "FR",
+                                                                                                                   "IE",
+                                                                                                                   "IN",
+                                                                                                                   "IT",
+                                                                                                                   "JP",
+                                                                                                                   "MX",
+                                                                                                                   "NL",
+                                                                                                                   "NO",
+                                                                                                                   "NZ",
+                                                                                                                   "PT",
+                                                                                                                   "SE",
+                                                                                                                   "SG",
+                                                                                                                   "UA",
+                                                                                                                   "UK",
+                                                                                                                   "US",
+                                                                                                                   "ZA"
+                                                                                                               ]
+                                                                                                  },
+                                                                                       "example":  "US"
+                                                                                   }
+                                                                               ],
+                                                                "responses":  {
+                                                                                  "200":  {
+                                                                                              "description":  "OK",
+                                                                                              "content":  {
+                                                                                                              "application/json":  {
+                                                                                                                                       "schema":  {
+                                                                                                                                                      "type":  "object",
+                                                                                                                                                      "properties":  {
+                                                                                                                                                                         "resultCount":  {
+                                                                                                                                                                                             "description":  "Number of results returned",
+                                                                                                                                                                                             "type":  "integer",
+                                                                                                                                                                                             "format":  "int32",
+                                                                                                                                                                                             "examples":  [
+                                                                                                                                                                                                              100
+                                                                                                                                                                                                          ],
+                                                                                                                                                                                             "readOnly":  true
+                                                                                                                                                                                         },
+                                                                                                                                                                         "results":  {
+                                                                                                                                                                                         "type":  [
+                                                                                                                                                                                                      "array",
+                                                                                                                                                                                                      "null"
+                                                                                                                                                                                                  ],
+                                                                                                                                                                                         "items":  {
+                                                                                                                                                                                                       "type":  "object",
+                                                                                                                                                                                                       "properties":  {
+                                                                                                                                                                                                                          "domainName":  {
+                                                                                                                                                                                                                                             "type":  [
+                                                                                                                                                                                                                                                          "string",
+                                                                                                                                                                                                                                                          "null"
+                                                                                                                                                                                                                                                      ]
+                                                                                                                                                                                                                                         },
+                                                                                                                                                                                                                          "urls":  {
+                                                                                                                                                                                                                                       "type":  [
+                                                                                                                                                                                                                                                    "array",
+                                                                                                                                                                                                                                                    "null"
+                                                                                                                                                                                                                                                ],
+                                                                                                                                                                                                                                       "items":  {
+                                                                                                                                                                                                                                                     "type":  "string"
+                                                                                                                                                                                                                                                 }
+                                                                                                                                                                                                                                   },
+                                                                                                                                                                                                                          "position":  {
+                                                                                                                                                                                                                                           "type":  "integer",
+                                                                                                                                                                                                                                           "format":  "int32"
+                                                                                                                                                                                                                                       },
+                                                                                                                                                                                                                          "searchDateId":  {
+                                                                                                                                                                                                                                               "type":  "integer",
+                                                                                                                                                                                                                                               "format":  "int32"
+                                                                                                                                                                                                                                           },
+                                                                                                                                                                                                                          "title":  {
+                                                                                                                                                                                                                                        "type":  [
+                                                                                                                                                                                                                                                     "string",
+                                                                                                                                                                                                                                                     "null"
+                                                                                                                                                                                                                                                 ]
+                                                                                                                                                                                                                                    },
+                                                                                                                                                                                                                          "body":  {
+                                                                                                                                                                                                                                       "type":  [
+                                                                                                                                                                                                                                                    "string",
+                                                                                                                                                                                                                                                    "null"
+                                                                                                                                                                                                                                                ]
+                                                                                                                                                                                                                                   },
+                                                                                                                                                                                                                          "adId":  {
+                                                                                                                                                                                                                                       "type":  "integer",
+                                                                                                                                                                                                                                       "format":  "int32"
+                                                                                                                                                                                                                                   }
+                                                                                                                                                                                                                      },
+                                                                                                                                                                                                       "additionalProperties":  false
+                                                                                                                                                                                                   },
+                                                                                                                                                                                         "readOnly":  true
+                                                                                                                                                                                     }
+                                                                                                                                                                     },
+                                                                                                                                                      "additionalProperties":  false
+                                                                                                                                                  }
+                                                                                                                                   }
+                                                                                                          }
+                                                                                          },
+                                                                                  "400":  {
+                                                                                              "description":  "Bad Request"
+                                                                                          },
+                                                                                  "401":  {
+                                                                                              "description":  "User failed authorization"
+                                                                                          },
+                                                                                  "500":  {
+                                                                                              "description":  "Internal Server Error"
+                                                                                          }
+                                                                              },
+                                                                "tags":  [
+                                                                             "Ad History Research API"
+                                                                         ]
+                                                            }
+                                                },
+                  "/v2/term/getTermAdHistoryWithStats":  {
+                                                             "get":  {
+                                                                         "operationId":  "AdHistoryApi_GetTermAdHistoryWithStats_GET",
+                                                                         "summary":  "Ad history by term with domain stats",
+                                                                         "description":  "\u003ch3\u003eAd History\u003c/h3\u003eThe SpyFu Ad History API helps you\u003cbr\u003e\u003ca href=\"https://help.spyfu.com/en/articles/\" target=\"_blank\"\u003eRead how to use this\u003c/a\u003e\u003ch4\u003eEndpoint Overview\u003c/h4\u003eAd history by term with domain stats",
+                                                                         "parameters":  [
+                                                                                            {
+                                                                                                "name":  "term",
+                                                                                                "in":  "query",
+                                                                                                "description":  "Term to get ad history for.",
+                                                                                                "required":  true,
+                                                                                                "schema":  {
+                                                                                                               "type":  "string",
+                                                                                                               "examples":  [
+                                                                                                                                "running shoes"
+                                                                                                                            ]
+                                                                                                           },
+                                                                                                "example":  "running shoes"
+                                                                                            },
+                                                                                            {
+                                                                                                "name":  "startingRow",
+                                                                                                "in":  "query",
+                                                                                                "description":  "Row number to start the results with.",
+                                                                                                "schema":  {
+                                                                                                               "type":  "integer",
+                                                                                                               "format":  "int32",
+                                                                                                               "examples":  [
+                                                                                                                                1
+                                                                                                                            ],
+                                                                                                               "default":  1,
+                                                                                                               "maximum":  2147483647,
+                                                                                                               "minimum":  1
+                                                                                                           },
+                                                                                                "example":  1
+                                                                                            },
+                                                                                            {
+                                                                                                "name":  "pageSize",
+                                                                                                "in":  "query",
+                                                                                                "description":  "Number of rows of data to return",
+                                                                                                "schema":  {
+                                                                                                               "type":  "integer",
+                                                                                                               "format":  "int32",
+                                                                                                               "examples":  [
+                                                                                                                                5
+                                                                                                                            ],
+                                                                                                               "default":  5,
+                                                                                                               "maximum":  10000,
+                                                                                                               "minimum":  1
+                                                                                                           },
+                                                                                                "example":  5
+                                                                                            },
+                                                                                            {
+                                                                                                "name":  "countryCode",
+                                                                                                "in":  "query",
+                                                                                                "description":  "Country to get results for.",
+                                                                                                "schema":  {
+                                                                                                               "type":  "string",
+                                                                                                               "examples":  [
+                                                                                                                                "US"
+                                                                                                                            ],
+                                                                                                               "default":  "US",
+                                                                                                               "enum":  [
+                                                                                                                            "AR",
+                                                                                                                            "AU",
+                                                                                                                            "BE",
+                                                                                                                            "BR",
+                                                                                                                            "CA",
+                                                                                                                            "CH",
+                                                                                                                            "DE",
+                                                                                                                            "DK",
+                                                                                                                            "ES",
+                                                                                                                            "FR",
+                                                                                                                            "IE",
+                                                                                                                            "IN",
+                                                                                                                            "IT",
+                                                                                                                            "JP",
+                                                                                                                            "MX",
+                                                                                                                            "NL",
+                                                                                                                            "NO",
+                                                                                                                            "NZ",
+                                                                                                                            "PT",
+                                                                                                                            "SE",
+                                                                                                                            "SG",
+                                                                                                                            "UA",
+                                                                                                                            "UK",
+                                                                                                                            "US",
+                                                                                                                            "ZA"
+                                                                                                                        ]
+                                                                                                           },
+                                                                                                "example":  "US"
+                                                                                            }
+                                                                                        ],
+                                                                         "responses":  {
+                                                                                           "200":  {
+                                                                                                       "description":  "OK",
+                                                                                                       "content":  {
+                                                                                                                       "application/json":  {
+                                                                                                                                                "schema":  {
+                                                                                                                                                               "type":  "object",
+                                                                                                                                                               "properties":  {
+                                                                                                                                                                                  "resultCount":  {
+                                                                                                                                                                                                      "description":  "Number of results returned",
+                                                                                                                                                                                                      "type":  "integer",
+                                                                                                                                                                                                      "format":  "int32",
+                                                                                                                                                                                                      "examples":  [
+                                                                                                                                                                                                                       100
+                                                                                                                                                                                                                   ],
+                                                                                                                                                                                                      "readOnly":  true
+                                                                                                                                                                                                  },
+                                                                                                                                                                                  "domains":  {
+                                                                                                                                                                                                  "type":  [
+                                                                                                                                                                                                               "array",
+                                                                                                                                                                                                               "null"
+                                                                                                                                                                                                           ],
+                                                                                                                                                                                                  "items":  {
+                                                                                                                                                                                                                "type":  "object",
+                                                                                                                                                                                                                "properties":  {
+                                                                                                                                                                                                                                   "ads":  {
+                                                                                                                                                                                                                                               "description":  "The ads this domain bought.",
+                                                                                                                                                                                                                                               "type":  [
+                                                                                                                                                                                                                                                            "array",
+                                                                                                                                                                                                                                                            "null"
+                                                                                                                                                                                                                                                        ],
+                                                                                                                                                                                                                                               "items":  {
+                                                                                                                                                                                                                                                             "type":  "object",
+                                                                                                                                                                                                                                                             "properties":  {
+                                                                                                                                                                                                                                                                                "searchDateId":  {
+                                                                                                                                                                                                                                                                                                     "type":  "integer",
+                                                                                                                                                                                                                                                                                                     "format":  "int32"
+                                                                                                                                                                                                                                                                                                 },
+                                                                                                                                                                                                                                                                                "position":  {
+                                                                                                                                                                                                                                                                                                 "type":  "integer",
+                                                                                                                                                                                                                                                                                                 "format":  "int32"
+                                                                                                                                                                                                                                                                                             },
+                                                                                                                                                                                                                                                                                "title":  {
+                                                                                                                                                                                                                                                                                              "type":  [
+                                                                                                                                                                                                                                                                                                           "string",
+                                                                                                                                                                                                                                                                                                           "null"
+                                                                                                                                                                                                                                                                                                       ]
+                                                                                                                                                                                                                                                                                          },
+                                                                                                                                                                                                                                                                                "body":  {
+                                                                                                                                                                                                                                                                                             "type":  [
+                                                                                                                                                                                                                                                                                                          "string",
+                                                                                                                                                                                                                                                                                                          "null"
+                                                                                                                                                                                                                                                                                                      ]
+                                                                                                                                                                                                                                                                                         },
+                                                                                                                                                                                                                                                                                "domainName":  {
+                                                                                                                                                                                                                                                                                                   "type":  [
+                                                                                                                                                                                                                                                                                                                "string",
+                                                                                                                                                                                                                                                                                                                "null"
+                                                                                                                                                                                                                                                                                                            ]
+                                                                                                                                                                                                                                                                                               },
+                                                                                                                                                                                                                                                                                "fullUrl":  {
+                                                                                                                                                                                                                                                                                                "type":  [
+                                                                                                                                                                                                                                                                                                             "string",
+                                                                                                                                                                                                                                                                                                             "null"
+                                                                                                                                                                                                                                                                                                         ]
+                                                                                                                                                                                                                                                                                            },
+                                                                                                                                                                                                                                                                                "term":  {
+                                                                                                                                                                                                                                                                                             "type":  [
+                                                                                                                                                                                                                                                                                                          "string",
+                                                                                                                                                                                                                                                                                                          "null"
+                                                                                                                                                                                                                                                                                                      ]
+                                                                                                                                                                                                                                                                                         },
+                                                                                                                                                                                                                                                                                "adCount":  {
+                                                                                                                                                                                                                                                                                                "type":  "integer",
+                                                                                                                                                                                                                                                                                                "format":  "int32"
+                                                                                                                                                                                                                                                                                            },
+                                                                                                                                                                                                                                                                                "isLeaderboardAd":  {
+                                                                                                                                                                                                                                                                                                        "type":  "boolean"
+                                                                                                                                                                                                                                                                                                    }
+                                                                                                                                                                                                                                                                            },
+                                                                                                                                                                                                                                                             "additionalProperties":  false
+                                                                                                                                                                                                                                                         }
+                                                                                                                                                                                                                                           },
+                                                                                                                                                                                                                                   "budget":  {
+                                                                                                                                                                                                                                                  "description":  "This domain\u0027s ad budget.",
+                                                                                                                                                                                                                                                  "type":  "number",
+                                                                                                                                                                                                                                                  "format":  "double"
+                                                                                                                                                                                                                                              },
+                                                                                                                                                                                                                                   "coverage":  {
+                                                                                                                                                                                                                                                    "description":  "Coverage",
+                                                                                                                                                                                                                                                    "type":  "number",
+                                                                                                                                                                                                                                                    "format":  "double"
+                                                                                                                                                                                                                                                },
+                                                                                                                                                                                                                                   "domainName":  {
+                                                                                                                                                                                                                                                      "description":  "The URL of this domain.",
+                                                                                                                                                                                                                                                      "type":  [
+                                                                                                                                                                                                                                                                   "string",
+                                                                                                                                                                                                                                                                   "null"
+                                                                                                                                                                                                                                                               ]
+                                                                                                                                                                                                                                                  },
+                                                                                                                                                                                                                                   "percentageLeaderboard":  {
+                                                                                                                                                                                                                                                                 "description":  "% top of page",
+                                                                                                                                                                                                                                                                 "type":  "number",
+                                                                                                                                                                                                                                                                 "format":  "double"
+                                                                                                                                                                                                                                                             },
+                                                                                                                                                                                                                                   "totalAdsPurchased":  {
+                                                                                                                                                                                                                                                             "description":  "Total ads the domain has purchased for any keyword",
+                                                                                                                                                                                                                                                             "type":  "integer",
+                                                                                                                                                                                                                                                             "format":  "int32"
+                                                                                                                                                                                                                                                         },
+                                                                                                                                                                                                                                   "adCount":  {
+                                                                                                                                                                                                                                                   "description":  "Total ads the domain has purchased for the given keyword",
+                                                                                                                                                                                                                                                   "type":  "integer",
+                                                                                                                                                                                                                                                   "format":  "int32"
+                                                                                                                                                                                                                                               }
+                                                                                                                                                                                                                               },
+                                                                                                                                                                                                                "additionalProperties":  false
+                                                                                                                                                                                                            }
+                                                                                                                                                                                              },
+                                                                                                                                                                                  "topAds":  {
+                                                                                                                                                                                                 "type":  [
+                                                                                                                                                                                                              "array",
+                                                                                                                                                                                                              "null"
+                                                                                                                                                                                                          ],
+                                                                                                                                                                                                 "items":  {
+                                                                                                                                                                                                               "type":  "object",
+                                                                                                                                                                                                               "properties":  {
+                                                                                                                                                                                                                                  "adId":  {
+                                                                                                                                                                                                                                               "type":  "integer",
+                                                                                                                                                                                                                                               "format":  "int32"
+                                                                                                                                                                                                                                           },
+                                                                                                                                                                                                                                  "averagePosition":  {
+                                                                                                                                                                                                                                                          "type":  "number",
+                                                                                                                                                                                                                                                          "format":  "double"
+                                                                                                                                                                                                                                                      },
+                                                                                                                                                                                                                                  "averageAdCount":  {
+                                                                                                                                                                                                                                                         "type":  "number",
+                                                                                                                                                                                                                                                         "format":  "double"
+                                                                                                                                                                                                                                                     },
+                                                                                                                                                                                                                                  "body":  {
+                                                                                                                                                                                                                                               "type":  [
+                                                                                                                                                                                                                                                            "string",
+                                                                                                                                                                                                                                                            "null"
+                                                                                                                                                                                                                                                        ]
+                                                                                                                                                                                                                                           },
+                                                                                                                                                                                                                                  "title":  {
+                                                                                                                                                                                                                                                "type":  [
+                                                                                                                                                                                                                                                             "string",
+                                                                                                                                                                                                                                                             "null"
+                                                                                                                                                                                                                                                         ]
+                                                                                                                                                                                                                                            },
+                                                                                                                                                                                                                                  "fullUrl":  {
+                                                                                                                                                                                                                                                  "type":  [
+                                                                                                                                                                                                                                                               "string",
+                                                                                                                                                                                                                                                               "null"
+                                                                                                                                                                                                                                                           ]
+                                                                                                                                                                                                                                              },
+                                                                                                                                                                                                                                  "leaderboardCount":  {
+                                                                                                                                                                                                                                                           "type":  "integer",
+                                                                                                                                                                                                                                                           "format":  "int32"
+                                                                                                                                                                                                                                                       },
+                                                                                                                                                                                                                                  "percentageLeaderboard":  {
+                                                                                                                                                                                                                                                                "type":  "number",
+                                                                                                                                                                                                                                                                "format":  "double"
+                                                                                                                                                                                                                                                            },
+                                                                                                                                                                                                                                  "percentageAdsServed":  {
+                                                                                                                                                                                                                                                              "type":  "number",
+                                                                                                                                                                                                                                                              "format":  "double"
+                                                                                                                                                                                                                                                          }
+                                                                                                                                                                                                                              },
+                                                                                                                                                                                                               "additionalProperties":  false
+                                                                                                                                                                                                           }
+                                                                                                                                                                                             }
+                                                                                                                                                                              },
+                                                                                                                                                               "additionalProperties":  false
+                                                                                                                                                           }
+                                                                                                                                            }
+                                                                                                                   }
+                                                                                                   },
+                                                                                           "400":  {
+                                                                                                       "description":  "Bad Request"
+                                                                                                   },
+                                                                                           "401":  {
+                                                                                                       "description":  "User failed authorization"
+                                                                                                   },
+                                                                                           "500":  {
+                                                                                                       "description":  "Internal Server Error"
+                                                                                                   }
+                                                                                       },
+                                                                         "tags":  [
+                                                                                      "Ad History Research API"
+                                                                                  ]
+                                                                     }
+                                                         }
+              },
+    "openapi":  "3.1.0",
+    "info":  {
+                 "title":  "Ad History API",
+                 "version":  "v2"
+             }
+}
