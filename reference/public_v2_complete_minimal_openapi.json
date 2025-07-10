@@ -1,0 +1,36 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Minimal Test API",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "/apis/test_api"
+    }
+  ],
+  "security": [
+    {
+      "Basic_Authentication_Token": []
+    }
+  ],
+  "paths": {
+    "/test": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "Basic_Authentication_Token": {
+        "type": "http",
+        "scheme": "basic"
+      }
+    }
+  }
+}

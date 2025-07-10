@@ -1,0 +1,799 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Competitors API",
+    "version": "v2"
+  },
+  "servers": [
+    {
+      "url": "/apis/competitors_api"
+    }
+  ],
+  "security": [
+    {
+      "Basic_Authentication_Token": []
+    },
+    {
+      "Query_Parameter_Token": []
+    },
+    {
+      "HMAC_Authentication_Header": []
+    }
+  ],
+  "paths": {
+    "/v2/ppc/getTopCompetitors": {
+      "get": {
+        "operationId": "CompetitorsApi_GetTopPpcCompetitors_GET",
+        "summary": "Top PPC Competitors",
+        "description": "<h3>Competitors</h3>The SpyFu Competitors API helps you find top competitors in your space. Many business owners recognize their direct competition upfront, but in online marketing, ANYONE can be a competitor.<br><a href=\"https://help.spyfu.com/en/articles/5225509-compare-yourself-against-top-competitors\" target=\"_blank\">Read how to use this</a><h4>Endpoint Overview</h4>Top PPC competitors for a domain that buys ads for the same keywords",
+        "parameters": [
+          {
+            "name": "domain",
+            "in": "query",
+            "description": "Domain to get competitors for",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "examples": [
+                "apple.com"
+              ]
+            },
+            "example": "apple.com"
+          },
+          {
+            "name": "startingRow",
+            "in": "query",
+            "description": "Row number to start the results with.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "examples": [
+                1
+              ],
+              "default": 1,
+              "maximum": 550,
+              "minimum": 1
+            },
+            "example": 1
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "The maximum number of rows returned.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "examples": [
+                5
+              ],
+              "default": 5,
+              "maximum": 550,
+              "minimum": 1
+            },
+            "example": 5
+          },
+          {
+            "name": "countryCode",
+            "in": "query",
+            "description": "Country to get results for",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "US"
+              ],
+              "default": "US",
+              "enum": [
+                "AR",
+                "AU",
+                "BE",
+                "BR",
+                "CA",
+                "CH",
+                "DE",
+                "DK",
+                "ES",
+                "FR",
+                "IE",
+                "IN",
+                "IT",
+                "JP",
+                "MX",
+                "NL",
+                "NO",
+                "NZ",
+                "PT",
+                "SE",
+                "SG",
+                "UA",
+                "UK",
+                "US",
+                "ZA"
+              ]
+            },
+            "example": "US"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "resultCount": {
+                      "description": "Number of results returned",
+                      "type": "integer",
+                      "format": "int32",
+                      "examples": [
+                        50
+                      ],
+                      "readOnly": true
+                    },
+                    "totalMatchingResults": {
+                      "description": "The total number of results available that matches the query including\r\nitems that might not be included in the returned results/page.",
+                      "type": "integer",
+                      "format": "int64"
+                    },
+                    "results": {
+                      "type": [
+                        "array",
+                        "null"
+                      ],
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "domain": {
+                            "description": "This is the domain of the competitor that advertises on many of the same keywords that you buy in Google Ads. The more keywords you share of each other's, the higher they will be listed here as an ad rival.",
+                            "type": [
+                              "string",
+                              "null"
+                            ],
+                            "examples": [
+                              "woot.com"
+                            ]
+                          },
+                          "commonTerms": {
+                            "description": "This is the count of unique keywords that this domain and your domain both advertise on.",
+                            "type": "integer",
+                            "format": "int32",
+                            "examples": [
+                              1432
+                            ]
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "User failed authorization"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "tags": [
+          "Competitors API"
+        ]
+      }
+    },
+    "/v2/seo/getTopCompetitors": {
+      "get": {
+        "operationId": "CompetitorsApi_GetTopSeoCompetitors_GET",
+        "summary": "Top SEO Competitors",
+        "description": "<h3>Competitors</h3>The SpyFu Competitors API helps you find top competitors in your space. Many business owners recognize their direct competition upfront, but in online marketing, ANYONE can be a competitor.<br><a href=\"https://help.spyfu.com/en/articles/5225509-compare-yourself-against-top-competitors\" target=\"_blank\">Read how to use this</a><h4>Endpoint Overview</h4>Top SEO competitors for a domain that ranks for the same keywords",
+        "parameters": [
+          {
+            "name": "domain",
+            "in": "query",
+            "description": "Domain to get competitors for",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "examples": [
+                "apple.com"
+              ]
+            },
+            "example": "apple.com"
+          },
+          {
+            "name": "startingRow",
+            "in": "query",
+            "description": "Row number to start the results with.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "examples": [
+                1
+              ],
+              "default": 1,
+              "maximum": 550,
+              "minimum": 1
+            },
+            "example": 1
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "The maximum number of rows returned.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "examples": [
+                5
+              ],
+              "default": 5,
+              "maximum": 550,
+              "minimum": 1
+            },
+            "example": 5
+          },
+          {
+            "name": "countryCode",
+            "in": "query",
+            "description": "Country to get results for",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "US"
+              ],
+              "default": "US",
+              "enum": [
+                "AR",
+                "AU",
+                "BE",
+                "BR",
+                "CA",
+                "CH",
+                "DE",
+                "DK",
+                "ES",
+                "FR",
+                "IE",
+                "IN",
+                "IT",
+                "JP",
+                "MX",
+                "NL",
+                "NO",
+                "NZ",
+                "PT",
+                "SE",
+                "SG",
+                "UA",
+                "UK",
+                "US",
+                "ZA"
+              ]
+            },
+            "example": "US"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "resultCount": {
+                      "description": "Number of results returned",
+                      "type": "integer",
+                      "format": "int32",
+                      "examples": [
+                        50
+                      ],
+                      "readOnly": true
+                    },
+                    "totalMatchingResults": {
+                      "description": "The total number of results available that matches the query including\r\nitems that might not be included in the returned results/page.",
+                      "type": "integer",
+                      "format": "int64"
+                    },
+                    "results": {
+                      "type": [
+                        "array",
+                        "null"
+                      ],
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "domain": {
+                            "description": "This is the domain of the competitor that advertises on many of the same keywords that you buy in Google Ads. The more keywords you share of each other's, the higher they will be listed here as an ad rival.",
+                            "type": [
+                              "string",
+                              "null"
+                            ],
+                            "examples": [
+                              "woot.com"
+                            ]
+                          },
+                          "commonTerms": {
+                            "description": "This is the count of unique keywords that this domain and your domain both advertise on.",
+                            "type": "integer",
+                            "format": "int32",
+                            "examples": [
+                              1432
+                            ]
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "User failed authorization"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "tags": [
+          "Competitors API"
+        ]
+      }
+    },
+    "/v2/combined/getCombinedTopCompetitors": {
+      "get": {
+        "operationId": "CompetitorsApi_GetCombinedTopCompetitors_GET",
+        "summary": "Combined Top Competitors",
+        "description": "<h3>Competitors</h3>The SpyFu Competitors API helps you find top competitors in your space. Many business owners recognize their direct competition upfront, but in online marketing, ANYONE can be a competitor.<br><a href=\"https://help.spyfu.com/en/articles/5225509-compare-yourself-against-top-competitors\" target=\"_blank\">Read how to use this</a><h4>Endpoint Overview</h4>Combined top PPC & SEO competitors for a domain",
+        "parameters": [
+          {
+            "name": "domain",
+            "in": "query",
+            "description": "Domain to get competitors for",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "examples": [
+                "apple.com"
+              ]
+            },
+            "example": "apple.com"
+          },
+          {
+            "name": "startingRow",
+            "in": "query",
+            "description": "Row number to start the results with.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "examples": [
+                1
+              ],
+              "default": 1,
+              "maximum": 550,
+              "minimum": 1
+            },
+            "example": 1
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "The maximum number of rows returned.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "examples": [
+                5
+              ],
+              "default": 5,
+              "maximum": 550,
+              "minimum": 1
+            },
+            "example": 5
+          },
+          {
+            "name": "countryCode",
+            "in": "query",
+            "description": "Country to get results for",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "US"
+              ],
+              "default": "US",
+              "enum": [
+                "AR",
+                "AU",
+                "BE",
+                "BR",
+                "CA",
+                "CH",
+                "DE",
+                "DK",
+                "ES",
+                "FR",
+                "IE",
+                "IN",
+                "IT",
+                "JP",
+                "MX",
+                "NL",
+                "NO",
+                "NZ",
+                "PT",
+                "SE",
+                "SG",
+                "UA",
+                "UK",
+                "US",
+                "ZA"
+              ]
+            },
+            "example": "US"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "resultCount": {
+                      "description": "Number of results returned",
+                      "type": "integer",
+                      "format": "int32",
+                      "examples": [
+                        50
+                      ],
+                      "readOnly": true
+                    },
+                    "totalMatchingResults": {
+                      "description": "The total number of results available that matches the query including\r\nitems that might not be included in the returned results/page.",
+                      "type": "integer",
+                      "format": "int64"
+                    },
+                    "combinedCompetitors": {
+                      "type": [
+                        "array",
+                        "null"
+                      ],
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "rank": {
+                            "type": "number",
+                            "format": "float"
+                          },
+                          "domain": {
+                            "description": "This is the domain of the competitor that advertises on many of the same keywords that you buy in Google Ads. The more keywords you share of each other's, the higher they will be listed here as an ad rival.",
+                            "type": [
+                              "string",
+                              "null"
+                            ],
+                            "examples": [
+                              "woot.com"
+                            ]
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "ppcCompetitors": {
+                      "type": [
+                        "array",
+                        "null"
+                      ],
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "domain": {
+                            "description": "This is the domain of the competitor that advertises on many of the same keywords that you buy in Google Ads. The more keywords you share of each other's, the higher they will be listed here as an ad rival.",
+                            "type": [
+                              "string",
+                              "null"
+                            ],
+                            "examples": [
+                              "woot.com"
+                            ]
+                          },
+                          "commonTerms": {
+                            "description": "This is the count of unique keywords that this domain and your domain both advertise on.",
+                            "type": "integer",
+                            "format": "int32",
+                            "examples": [
+                              1432
+                            ]
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    },
+                    "seoCompetitors": {
+                      "type": [
+                        "array",
+                        "null"
+                      ],
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "domain": {
+                            "description": "This is the domain of the competitor that advertises on many of the same keywords that you buy in Google Ads. The more keywords you share of each other's, the higher they will be listed here as an ad rival.",
+                            "type": [
+                              "string",
+                              "null"
+                            ],
+                            "examples": [
+                              "woot.com"
+                            ]
+                          },
+                          "commonTerms": {
+                            "description": "This is the count of unique keywords that this domain and your domain both advertise on.",
+                            "type": "integer",
+                            "format": "int32",
+                            "examples": [
+                              1432
+                            ]
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "User failed authorization"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "tags": [
+          "Competitors API"
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "PublicApiCombinedCompetitorsOutputDto": {
+        "type": "object",
+        "properties": {
+          "rank": {
+            "type": "number",
+            "format": "float"
+          },
+          "domain": {
+            "description": "This is the domain of the competitor that advertises on many of the same keywords that you buy in Google Ads. The more keywords you share of each other's, the higher they will be listed here as an ad rival.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "examples": [
+              "woot.com"
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "PublicApiCombinedCompetitorsWrapperOutputDto": {
+        "type": "object",
+        "properties": {
+          "resultCount": {
+            "description": "Number of results returned",
+            "type": "integer",
+            "format": "int32",
+            "examples": [
+              50
+            ],
+            "readOnly": true
+          },
+          "totalMatchingResults": {
+            "description": "The total number of results available that matches the query including\r\nitems that might not be included in the returned results/page.",
+            "type": "integer",
+            "format": "int64"
+          },
+          "combinedCompetitors": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": "object",
+              "properties": {
+                "rank": {
+                  "type": "number",
+                  "format": "float"
+                },
+                "domain": {
+                  "description": "This is the domain of the competitor that advertises on many of the same keywords that you buy in Google Ads. The more keywords you share of each other's, the higher they will be listed here as an ad rival.",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "examples": [
+                    "woot.com"
+                  ]
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "ppcCompetitors": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": "object",
+              "properties": {
+                "domain": {
+                  "description": "This is the domain of the competitor that advertises on many of the same keywords that you buy in Google Ads. The more keywords you share of each other's, the higher they will be listed here as an ad rival.",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "examples": [
+                    "woot.com"
+                  ]
+                },
+                "commonTerms": {
+                  "description": "This is the count of unique keywords that this domain and your domain both advertise on.",
+                  "type": "integer",
+                  "format": "int32",
+                  "examples": [
+                    1432
+                  ]
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "seoCompetitors": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": "object",
+              "properties": {
+                "domain": {
+                  "description": "This is the domain of the competitor that advertises on many of the same keywords that you buy in Google Ads. The more keywords you share of each other's, the higher they will be listed here as an ad rival.",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "examples": [
+                    "woot.com"
+                  ]
+                },
+                "commonTerms": {
+                  "description": "This is the count of unique keywords that this domain and your domain both advertise on.",
+                  "type": "integer",
+                  "format": "int32",
+                  "examples": [
+                    1432
+                  ]
+                }
+              },
+              "additionalProperties": false
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "PublicApiCompetitorWrapperOutputDto": {
+        "type": "object",
+        "properties": {
+          "resultCount": {
+            "description": "Number of results returned",
+            "type": "integer",
+            "format": "int32",
+            "examples": [
+              50
+            ],
+            "readOnly": true
+          },
+          "totalMatchingResults": {
+            "description": "The total number of results available that matches the query including\r\nitems that might not be included in the returned results/page.",
+            "type": "integer",
+            "format": "int64"
+          },
+          "results": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": "object",
+              "properties": {
+                "domain": {
+                  "description": "This is the domain of the competitor that advertises on many of the same keywords that you buy in Google Ads. The more keywords you share of each other's, the higher they will be listed here as an ad rival.",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "examples": [
+                    "woot.com"
+                  ]
+                },
+                "commonTerms": {
+                  "description": "This is the count of unique keywords that this domain and your domain both advertise on.",
+                  "type": "integer",
+                  "format": "int32",
+                  "examples": [
+                    1432
+                  ]
+                }
+              },
+              "additionalProperties": false
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "PublicApiCompetitorsOutputDto": {
+        "type": "object",
+        "properties": {
+          "domain": {
+            "description": "This is the domain of the competitor that advertises on many of the same keywords that you buy in Google Ads. The more keywords you share of each other's, the higher they will be listed here as an ad rival.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "examples": [
+              "woot.com"
+            ]
+          },
+          "commonTerms": {
+            "description": "This is the count of unique keywords that this domain and your domain both advertise on.",
+            "type": "integer",
+            "format": "int32",
+            "examples": [
+              1432
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "securitySchemes": {
+      "Basic_Authentication_Token": {
+        "type": "http",
+        "description": "<a href=\"https://en.wikipedia.org/wiki/Basic_access_authentication#Client_side\" target=\"_blank\">Basic Authentication</a> is a standard that involves encoding your <code>SPYFU_API_ID:SECRET_KEY</code> into a Base64 string. Your <b>SpyFu API ID</b> and <b>Secret Key</b> can both be found under the <b><a href=\"https://www.spyfu.com/account/api\" target=\"_blank\">Account Settings -> API Usage</a></b> page. Additionally, you can find the Base64 string has been pre-generated on the same page under <b>Base 64 Key</b>. Finally, this encoded string is sent in the \"Authorization\" header prefixed with the keyword \"Basic\":<br>For example, to authorize as <code>00000000-0000-0000-0000-000000000000:AB12WXYZ</code> the client would send<br><pre><code>Authorization: <span class=\"token keyword\">Basic</span> <span class=\"token constructor-invocation class-name\">MDAwMDAwMDAtMDAwMC0wMDAwLTAwMDAtMDAwMDAwMDAwMDAwOkFCMTJXWFla<span></code></pre>",
+        "scheme": "basic"
+      },
+      "Query_Parameter_Token": {
+        "type": "apiKey",
+        "description": "An API key can be added as a query parameter. Your API key is listed as \"Secret Key\" found under the <b><a href=\"https://www.spyfu.com/account/api\" target=\"_blank\">Account Settings -> API Usage</a></b> page<br>For example, to authorize with the API key <code>AB12WXY</code><br><pre><code>/apis/example_api/GetExample?domain=spyfu.com<span class=\"token keyword\">&api_key=AB12WXYZ</span></code></pre>",
+        "name": "api_key",
+        "in": "query"
+      },
+      "HMAC_Authentication_Header": {
+        "type": "apiKey",
+        "description": "For even more security, each request can be individually authenticated with a timestamped <a href=\"https://en.wikipedia.org/wiki/HMAC\" target=\"_blank\"><b>HMAC</b></a> <em>(Hash Message Authentication Code)</em> signature. Composed of your secret key, a valid timestamp, the API request path, and all request parameters. <h3>Creating the signature:</h3><br>Combine the pieces that will be converted into the signature.<br><pre><code><span class=\"token keyword\">StringToSign</span> <span class=\"token operator\">=</span><br>&#x09;HTTP-Verb <span class=\"token operator\">+</span> <span class=\"token string\">\"\\n\"</span> <span class=\"token operator\">+</span><br>&#x09;Timestamp <span class=\"token operator\">+</span> <span class=\"token string\">\"\\n\"</span> <span class=\"token operator\">+</span><br>&#x09;UrlPath <span class=\"token operator\">+</span> <span class=\"token string\">\"\\n\"</span><br>&#x09;QueryParameters<span class=\"token operator\">;</span><br></code></pre><br>Create UTF-8 encodings of the above string and of your secret key.<br><pre><code><span class=\"token keyword\">byte</span><span class=\"token operator\">[]</span> SecretKeyBytes <span class=\"token operator\">=</span> <span class=\"token function\">UTF-8-Encoding-Of</span><span class=\"token operator\">(</span> Upper-Case-Of<span class=\"token operator\">(</span> SECRET_KEY <span class=\"token operator\">)</span> <span class=\"token operator\">)</span><span class=\"token operator\">;</span><br><span class=\"token keyword\">byte</span><span class=\"token operator\">[]</span> StringToSignBytes <span class=\"token operator\">=</span> <span class=\"token function\">UTF-8-Encoding-Of</span><span class=\"token operator\">(</span> StringToSign <span class=\"token operator\">)</span><span class=\"token operator\">;</span><br></code></pre><br>Use an implementation of HMAC256 using your UTF-8 secret key to encode the combined string of your request. This should then be converted to Base64 to finish creating your signature.<br><pre><code><span class=\"token keyword\">Signature</span> <span class=\"token operator\">=</span> <span class=\"token function\">Base64</span><span class=\"token operator\">(</span> <span class=\"token function\">HMAC-SHA256</span><span class=\"token operator\">(</span> SecretKeyBytes, StringToSignBytes <span class=\"token operator\">)</span> <span class=\"token operator\">)</span><span class=\"token operator\">;</span><br></code></pre><br><h3>Using the signature:</h3><br>This signature is then sent in through an Authentication header with your username.<br><pre><code>Authentication<span class=\"token operator\">:</span> <span class=\"token keyword\">UserName</span><span class=\"token operator\">:</span><span class=\"token invocation class-name\">Signature</span></code></pre>",
+        "name": "Authentication",
+        "in": "header"
+      }
+    }
+  }
+}
