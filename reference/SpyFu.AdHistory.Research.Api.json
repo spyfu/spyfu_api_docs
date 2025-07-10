@@ -38,9 +38,17 @@
                                                                                            "required":  true,
                                                                                            "schema":  {
                                                                                                           "type":  "string",
-                                                                                                          "examples": ["apple.com"]
+                                                                                                          "examples":  {
+                                                                                                                           "example1":  {
+                                                                                                                                            "value":  "apple.com"
+                                                                                                                                        }
+                                                                                                                       }
                                                                                                       },
-                                                                                           "examples": ["apple.com"]
+                                                                                           "examples":  {
+                                                                                                            "example1":  {
+                                                                                                                             "value":  "apple.com"
+                                                                                                                         }
+                                                                                                        }
                                                                                        },
                                                                                        {
                                                                                            "name":  "startingRow",
@@ -52,9 +60,17 @@
                                                                                                           "type":  "integer",
                                                                                                           "format":  "int32",
                                                                                                           "default":  1,
-                                                                                                          "examples": [1]
+                                                                                                          "examples":  {
+                                                                                                                           "example1":  {
+                                                                                                                                            "value":  1
+                                                                                                                                        }
+                                                                                                                       }
                                                                                                       },
-                                                                                           "examples": [1]
+                                                                                           "examples":  {
+                                                                                                            "example1":  {
+                                                                                                                             "value":  1
+                                                                                                                         }
+                                                                                                        }
                                                                                        },
                                                                                        {
                                                                                            "name":  "pageSize",
@@ -66,9 +82,17 @@
                                                                                                           "type":  "integer",
                                                                                                           "format":  "int32",
                                                                                                           "default":  5,
-                                                                                                          "examples": [5]
+                                                                                                          "examples":  {
+                                                                                                                           "example1":  {
+                                                                                                                                            "value":  5
+                                                                                                                                        }
+                                                                                                                       }
                                                                                                       },
-                                                                                           "examples": [5]
+                                                                                           "examples":  {
+                                                                                                            "example1":  {
+                                                                                                                             "value":  5
+                                                                                                                         }
+                                                                                                        }
                                                                                        },
                                                                                        {
                                                                                            "name":  "countryCode",
@@ -104,9 +128,17 @@
                                                                                                                    ],
                                                                                                           "type":  "string",
                                                                                                           "default":  "US",
-                                                                                                          "examples": ["US"]
+                                                                                                          "examples":  {
+                                                                                                                           "example1":  {
+                                                                                                                                            "value":  "US"
+                                                                                                                                        }
+                                                                                                                       }
                                                                                                       },
-                                                                                           "examples": ["US"]
+                                                                                           "examples":  {
+                                                                                                            "example1":  {
+                                                                                                                             "value":  "US"
+                                                                                                                         }
+                                                                                                        }
                                                                                        }
                                                                                    ],
                                                                     "responses":  {
@@ -122,19 +154,24 @@
                                                                                                                                                                                                  "description":  "Number of results returned",
                                                                                                                                                                                                  "format":  "int32",
                                                                                                                                                                                                  "readOnly":  true,
-                                                                                                                                                                                                 "examples": [100]
+                                                                                                                                                                                                 "examples":  {
+                                                                                                                                                                                                                  "example1":  {
+                                                                                                                                                                                                                                   "value":  100
+                                                                                                                                                                                                                               }
+                                                                                                                                                                                                              }
                                                                                                                                                                                              },
                                                                                                                                                                              "results":  {
-                                                                                                                                                                                             "type":  "array",
                                                                                                                                                                                              "items":  {
                                                                                                                                                                                                            "type":  "object",
                                                                                                                                                                                                            "properties":  {
                                                                                                                                                                                                                               "keywords":  {
-                                                                                                                                                                                                                                               "type":  "array",
                                                                                                                                                                                                                                                "items":  {
                                                                                                                                                                                                                                                              "type":  "string"
                                                                                                                                                                                                                                                          },
-                                                                                                                                                                                                                                               "nullable":  true
+                                                                                                                                                                                                                                               "type":  [
+                                                                                                                                                                                                                                                            "array",
+                                                                                                                                                                                                                                                            "null"
+                                                                                                                                                                                                                                                        ]
                                                                                                                                                                                                                                            },
                                                                                                                                                                                                                               "position":  {
                                                                                                                                                                                                                                                "type":  "integer",
@@ -145,13 +182,22 @@
                                                                                                                                                                                                                                                    "format":  "int32"
                                                                                                                                                                                                                                                },
                                                                                                                                                                                                                               "title":  {
-                                                                                                                                                                                                                                            "type": ["string", "null"]
+                                                                                                                                                                                                                                            "type":  [
+                                                                                                                                                                                                                                                         "string",
+                                                                                                                                                                                                                                                         "null"
+                                                                                                                                                                                                                                                     ]
                                                                                                                                                                                                                                         },
                                                                                                                                                                                                                               "body":  {
-                                                                                                                                                                                                                                           "type": ["string", "null"]
+                                                                                                                                                                                                                                           "type":  [
+                                                                                                                                                                                                                                                        "string",
+                                                                                                                                                                                                                                                        "null"
+                                                                                                                                                                                                                                                    ]
                                                                                                                                                                                                                                        },
                                                                                                                                                                                                                               "url":  {
-                                                                                                                                                                                                                                          "type": ["string", "null"]
+                                                                                                                                                                                                                                          "type":  [
+                                                                                                                                                                                                                                                       "string",
+                                                                                                                                                                                                                                                       "null"
+                                                                                                                                                                                                                                                   ]
                                                                                                                                                                                                                                       },
                                                                                                                                                                                                                               "adId":  {
                                                                                                                                                                                                                                            "type":  "integer",
@@ -160,8 +206,11 @@
                                                                                                                                                                                                                           },
                                                                                                                                                                                                            "additionalProperties":  false
                                                                                                                                                                                                        },
-                                                                                                                                                                                             "nullable":  true,
-                                                                                                                                                                                             "readOnly":  true
+                                                                                                                                                                                             "readOnly":  true,
+                                                                                                                                                                                             "type":  [
+                                                                                                                                                                                                          "array",
+                                                                                                                                                                                                          "null"
+                                                                                                                                                                                                      ]
                                                                                                                                                                                          }
                                                                                                                                                                          },
                                                                                                                                                           "additionalProperties":  false
@@ -197,9 +246,17 @@
                                                                                        "required":  true,
                                                                                        "schema":  {
                                                                                                       "type":  "string",
-                                                                                                      "examples": ["running shoes"]
+                                                                                                      "examples":  {
+                                                                                                                       "example1":  {
+                                                                                                                                        "value":  "running shoes"
+                                                                                                                                    }
+                                                                                                                   }
                                                                                                   },
-                                                                                       "examples": ["running shoes"]
+                                                                                       "examples":  {
+                                                                                                        "example1":  {
+                                                                                                                         "value":  "running shoes"
+                                                                                                                     }
+                                                                                                    }
                                                                                    },
                                                                                    {
                                                                                        "name":  "startingRow",
@@ -211,9 +268,17 @@
                                                                                                       "type":  "integer",
                                                                                                       "format":  "int32",
                                                                                                       "default":  1,
-                                                                                                      "examples": [1]
+                                                                                                      "examples":  {
+                                                                                                                       "example1":  {
+                                                                                                                                        "value":  1
+                                                                                                                                    }
+                                                                                                                   }
                                                                                                   },
-                                                                                       "examples": [1]
+                                                                                       "examples":  {
+                                                                                                        "example1":  {
+                                                                                                                         "value":  1
+                                                                                                                     }
+                                                                                                    }
                                                                                    },
                                                                                    {
                                                                                        "name":  "pageSize",
@@ -225,9 +290,17 @@
                                                                                                       "type":  "integer",
                                                                                                       "format":  "int32",
                                                                                                       "default":  5,
-                                                                                                      "examples": [5]
+                                                                                                      "examples":  {
+                                                                                                                       "example1":  {
+                                                                                                                                        "value":  5
+                                                                                                                                    }
+                                                                                                                   }
                                                                                                   },
-                                                                                       "examples": [5]
+                                                                                       "examples":  {
+                                                                                                        "example1":  {
+                                                                                                                         "value":  5
+                                                                                                                     }
+                                                                                                    }
                                                                                    },
                                                                                    {
                                                                                        "name":  "countryCode",
@@ -263,9 +336,17 @@
                                                                                                                ],
                                                                                                       "type":  "string",
                                                                                                       "default":  "US",
-                                                                                                      "examples": ["US"]
+                                                                                                      "examples":  {
+                                                                                                                       "example1":  {
+                                                                                                                                        "value":  "US"
+                                                                                                                                    }
+                                                                                                                   }
                                                                                                   },
-                                                                                       "examples": ["US"]
+                                                                                       "examples":  {
+                                                                                                        "example1":  {
+                                                                                                                         "value":  "US"
+                                                                                                                     }
+                                                                                                    }
                                                                                    }
                                                                                ],
                                                                 "responses":  {
@@ -281,22 +362,30 @@
                                                                                                                                                                                              "description":  "Number of results returned",
                                                                                                                                                                                              "format":  "int32",
                                                                                                                                                                                              "readOnly":  true,
-                                                                                                                                                                                             "examples": [100]
+                                                                                                                                                                                             "examples":  {
+                                                                                                                                                                                                              "example1":  {
+                                                                                                                                                                                                                               "value":  100
+                                                                                                                                                                                                                           }
+                                                                                                                                                                                                          }
                                                                                                                                                                                          },
                                                                                                                                                                          "results":  {
-                                                                                                                                                                                         "type":  "array",
                                                                                                                                                                                          "items":  {
                                                                                                                                                                                                        "type":  "object",
                                                                                                                                                                                                        "properties":  {
                                                                                                                                                                                                                           "domainName":  {
-                                                                                                                                                                                                                                             "type": ["string", "null"]
+                                                                                                                                                                                                                                             "type":  [
+                                                                                                                                                                                                                                                          "string",
+                                                                                                                                                                                                                                                          "null"
+                                                                                                                                                                                                                                                      ]
                                                                                                                                                                                                                                          },
                                                                                                                                                                                                                           "urls":  {
-                                                                                                                                                                                                                                       "type":  "array",
                                                                                                                                                                                                                                        "items":  {
                                                                                                                                                                                                                                                      "type":  "string"
                                                                                                                                                                                                                                                  },
-                                                                                                                                                                                                                                       "nullable":  true
+                                                                                                                                                                                                                                       "type":  [
+                                                                                                                                                                                                                                                    "array",
+                                                                                                                                                                                                                                                    "null"
+                                                                                                                                                                                                                                                ]
                                                                                                                                                                                                                                    },
                                                                                                                                                                                                                           "position":  {
                                                                                                                                                                                                                                            "type":  "integer",
@@ -307,10 +396,16 @@
                                                                                                                                                                                                                                                "format":  "int32"
                                                                                                                                                                                                                                            },
                                                                                                                                                                                                                           "title":  {
-                                                                                                                                                                                                                                        "type": ["string", "null"]
+                                                                                                                                                                                                                                        "type":  [
+                                                                                                                                                                                                                                                     "string",
+                                                                                                                                                                                                                                                     "null"
+                                                                                                                                                                                                                                                 ]
                                                                                                                                                                                                                                     },
                                                                                                                                                                                                                           "body":  {
-                                                                                                                                                                                                                                       "type": ["string", "null"]
+                                                                                                                                                                                                                                       "type":  [
+                                                                                                                                                                                                                                                    "string",
+                                                                                                                                                                                                                                                    "null"
+                                                                                                                                                                                                                                                ]
                                                                                                                                                                                                                                    },
                                                                                                                                                                                                                           "adId":  {
                                                                                                                                                                                                                                        "type":  "integer",
@@ -319,8 +414,11 @@
                                                                                                                                                                                                                       },
                                                                                                                                                                                                        "additionalProperties":  false
                                                                                                                                                                                                    },
-                                                                                                                                                                                         "nullable":  true,
-                                                                                                                                                                                         "readOnly":  true
+                                                                                                                                                                                         "readOnly":  true,
+                                                                                                                                                                                         "type":  [
+                                                                                                                                                                                                      "array",
+                                                                                                                                                                                                      "null"
+                                                                                                                                                                                                  ]
                                                                                                                                                                                      }
                                                                                                                                                                      },
                                                                                                                                                       "additionalProperties":  false
@@ -356,9 +454,17 @@
                                                                                                 "required":  true,
                                                                                                 "schema":  {
                                                                                                                "type":  "string",
-                                                                                                               "examples": ["running shoes"]
+                                                                                                               "examples":  {
+                                                                                                                                "example1":  {
+                                                                                                                                                 "value":  "running shoes"
+                                                                                                                                             }
+                                                                                                                            }
                                                                                                            },
-                                                                                                "examples": ["running shoes"]
+                                                                                                "examples":  {
+                                                                                                                 "example1":  {
+                                                                                                                                  "value":  "running shoes"
+                                                                                                                              }
+                                                                                                             }
                                                                                             },
                                                                                             {
                                                                                                 "name":  "startingRow",
@@ -370,9 +476,17 @@
                                                                                                                "type":  "integer",
                                                                                                                "format":  "int32",
                                                                                                                "default":  1,
-                                                                                                               "examples": [1]
+                                                                                                               "examples":  {
+                                                                                                                                "example1":  {
+                                                                                                                                                 "value":  1
+                                                                                                                                             }
+                                                                                                                            }
                                                                                                            },
-                                                                                                "examples": [1]
+                                                                                                "examples":  {
+                                                                                                                 "example1":  {
+                                                                                                                                  "value":  1
+                                                                                                                              }
+                                                                                                             }
                                                                                             },
                                                                                             {
                                                                                                 "name":  "pageSize",
@@ -384,9 +498,17 @@
                                                                                                                "type":  "integer",
                                                                                                                "format":  "int32",
                                                                                                                "default":  5,
-                                                                                                               "examples": [5]
+                                                                                                               "examples":  {
+                                                                                                                                "example1":  {
+                                                                                                                                                 "value":  5
+                                                                                                                                             }
+                                                                                                                            }
                                                                                                            },
-                                                                                                "examples": [5]
+                                                                                                "examples":  {
+                                                                                                                 "example1":  {
+                                                                                                                                  "value":  5
+                                                                                                                              }
+                                                                                                             }
                                                                                             },
                                                                                             {
                                                                                                 "name":  "countryCode",
@@ -422,9 +544,17 @@
                                                                                                                         ],
                                                                                                                "type":  "string",
                                                                                                                "default":  "US",
-                                                                                                               "examples": ["US"]
+                                                                                                               "examples":  {
+                                                                                                                                "example1":  {
+                                                                                                                                                 "value":  "US"
+                                                                                                                                             }
+                                                                                                                            }
                                                                                                            },
-                                                                                                "examples": ["US"]
+                                                                                                "examples":  {
+                                                                                                                 "example1":  {
+                                                                                                                                  "value":  "US"
+                                                                                                                              }
+                                                                                                             }
                                                                                             }
                                                                                         ],
                                                                          "responses":  {
@@ -440,15 +570,17 @@
                                                                                                                                                                                                       "description":  "Number of results returned",
                                                                                                                                                                                                       "format":  "int32",
                                                                                                                                                                                                       "readOnly":  true,
-                                                                                                                                                                                                      "examples": [100]
+                                                                                                                                                                                                      "examples":  {
+                                                                                                                                                                                                                       "example1":  {
+                                                                                                                                                                                                                                        "value":  100
+                                                                                                                                                                                                                                    }
+                                                                                                                                                                                                                   }
                                                                                                                                                                                                   },
                                                                                                                                                                                   "domains":  {
-                                                                                                                                                                                                  "type":  "array",
                                                                                                                                                                                                   "items":  {
                                                                                                                                                                                                                 "type":  "object",
                                                                                                                                                                                                                 "properties":  {
                                                                                                                                                                                                                                    "ads":  {
-                                                                                                                                                                                                                                               "type":  "array",
                                                                                                                                                                                                                                                "items":  {
                                                                                                                                                                                                                                                              "type":  "object",
                                                                                                                                                                                                                                                              "properties":  {
@@ -461,19 +593,34 @@
                                                                                                                                                                                                                                                                                                  "format":  "int32"
                                                                                                                                                                                                                                                                                              },
                                                                                                                                                                                                                                                                                 "title":  {
-                                                                                                                                                                                                                                                                                              "type": ["string", "null"]
+                                                                                                                                                                                                                                                                                              "type":  [
+                                                                                                                                                                                                                                                                                                           "string",
+                                                                                                                                                                                                                                                                                                           "null"
+                                                                                                                                                                                                                                                                                                       ]
                                                                                                                                                                                                                                                                                           },
                                                                                                                                                                                                                                                                                 "body":  {
-                                                                                                                                                                                                                                                                                             "type": ["string", "null"]
+                                                                                                                                                                                                                                                                                             "type":  [
+                                                                                                                                                                                                                                                                                                          "string",
+                                                                                                                                                                                                                                                                                                          "null"
+                                                                                                                                                                                                                                                                                                      ]
                                                                                                                                                                                                                                                                                          },
                                                                                                                                                                                                                                                                                 "domainName":  {
-                                                                                                                                                                                                                                                                                                   "type": ["string", "null"]
+                                                                                                                                                                                                                                                                                                   "type":  [
+                                                                                                                                                                                                                                                                                                                "string",
+                                                                                                                                                                                                                                                                                                                "null"
+                                                                                                                                                                                                                                                                                                            ]
                                                                                                                                                                                                                                                                                                },
                                                                                                                                                                                                                                                                                 "fullUrl":  {
-                                                                                                                                                                                                                                                                                                "type": ["string", "null"]
+                                                                                                                                                                                                                                                                                                "type":  [
+                                                                                                                                                                                                                                                                                                             "string",
+                                                                                                                                                                                                                                                                                                             "null"
+                                                                                                                                                                                                                                                                                                         ]
                                                                                                                                                                                                                                                                                             },
                                                                                                                                                                                                                                                                                 "term":  {
-                                                                                                                                                                                                                                                                                             "type": ["string", "null"]
+                                                                                                                                                                                                                                                                                             "type":  [
+                                                                                                                                                                                                                                                                                                          "string",
+                                                                                                                                                                                                                                                                                                          "null"
+                                                                                                                                                                                                                                                                                                      ]
                                                                                                                                                                                                                                                                                          },
                                                                                                                                                                                                                                                                                 "adCount":  {
                                                                                                                                                                                                                                                                                                 "type":  "integer",
@@ -486,7 +633,10 @@
                                                                                                                                                                                                                                                              "additionalProperties":  false
                                                                                                                                                                                                                                                          },
                                                                                                                                                                                                                                                "description":  "The ads this domain bought.",
-                                                                                                                                                                                                                                               "nullable":  true
+                                                                                                                                                                                                                                               "type":  [
+                                                                                                                                                                                                                                                            "array",
+                                                                                                                                                                                                                                                            "null"
+                                                                                                                                                                                                                                                        ]
                                                                                                                                                                                                                                            },
                                                                                                                                                                                                                                    "budget":  {
                                                                                                                                                                                                                                                   "type":  "number",
@@ -499,9 +649,11 @@
                                                                                                                                                                                                                                                     "format":  "double"
                                                                                                                                                                                                                                                 },
                                                                                                                                                                                                                                    "domainName":  {
-                                                                                                                                                                                                                                                      "type":  "string",
                                                                                                                                                                                                                                                       "description":  "The URL of this domain.",
-                                                                                                                                                                                                                                                      "nullable":  true
+                                                                                                                                                                                                                                                      "type":  [
+                                                                                                                                                                                                                                                                   "string",
+                                                                                                                                                                                                                                                                   "null"
+                                                                                                                                                                                                                                                               ]
                                                                                                                                                                                                                                                   },
                                                                                                                                                                                                                                    "percentageLeaderboard":  {
                                                                                                                                                                                                                                                                  "type":  "number",
@@ -521,10 +673,12 @@
                                                                                                                                                                                                                                },
                                                                                                                                                                                                                 "additionalProperties":  false
                                                                                                                                                                                                             },
-                                                                                                                                                                                                  "nullable":  true
+                                                                                                                                                                                                  "type":  [
+                                                                                                                                                                                                               "array",
+                                                                                                                                                                                                               "null"
+                                                                                                                                                                                                           ]
                                                                                                                                                                                               },
                                                                                                                                                                                   "topAds":  {
-                                                                                                                                                                                                 "type":  "array",
                                                                                                                                                                                                  "items":  {
                                                                                                                                                                                                                "type":  "object",
                                                                                                                                                                                                                "properties":  {
@@ -541,13 +695,22 @@
                                                                                                                                                                                                                                                          "format":  "double"
                                                                                                                                                                                                                                                      },
                                                                                                                                                                                                                                   "body":  {
-                                                                                                                                                                                                                                               "type": ["string", "null"]
+                                                                                                                                                                                                                                               "type":  [
+                                                                                                                                                                                                                                                            "string",
+                                                                                                                                                                                                                                                            "null"
+                                                                                                                                                                                                                                                        ]
                                                                                                                                                                                                                                            },
                                                                                                                                                                                                                                   "title":  {
-                                                                                                                                                                                                                                                "type": ["string", "null"]
+                                                                                                                                                                                                                                                "type":  [
+                                                                                                                                                                                                                                                             "string",
+                                                                                                                                                                                                                                                             "null"
+                                                                                                                                                                                                                                                         ]
                                                                                                                                                                                                                                             },
                                                                                                                                                                                                                                   "fullUrl":  {
-                                                                                                                                                                                                                                                  "type": ["string", "null"]
+                                                                                                                                                                                                                                                  "type":  [
+                                                                                                                                                                                                                                                               "string",
+                                                                                                                                                                                                                                                               "null"
+                                                                                                                                                                                                                                                           ]
                                                                                                                                                                                                                                               },
                                                                                                                                                                                                                                   "leaderboardCount":  {
                                                                                                                                                                                                                                                            "type":  "integer",
@@ -564,7 +727,10 @@
                                                                                                                                                                                                                               },
                                                                                                                                                                                                                "additionalProperties":  false
                                                                                                                                                                                                            },
-                                                                                                                                                                                                 "nullable":  true
+                                                                                                                                                                                                 "type":  [
+                                                                                                                                                                                                              "array",
+                                                                                                                                                                                                              "null"
+                                                                                                                                                                                                          ]
                                                                                                                                                                                              }
                                                                                                                                                                               },
                                                                                                                                                                "additionalProperties":  false
@@ -599,19 +765,34 @@
                                                                                                         "format":  "int32"
                                                                                                     },
                                                                                        "title":  {
-                                                                                                     "type": ["string", "null"]
+                                                                                                     "type":  [
+                                                                                                                  "string",
+                                                                                                                  "null"
+                                                                                                              ]
                                                                                                  },
                                                                                        "body":  {
-                                                                                                    "type": ["string", "null"]
+                                                                                                    "type":  [
+                                                                                                                 "string",
+                                                                                                                 "null"
+                                                                                                             ]
                                                                                                 },
                                                                                        "domainName":  {
-                                                                                                          "type": ["string", "null"]
+                                                                                                          "type":  [
+                                                                                                                       "string",
+                                                                                                                       "null"
+                                                                                                                   ]
                                                                                                       },
                                                                                        "fullUrl":  {
-                                                                                                       "type": ["string", "null"]
+                                                                                                       "type":  [
+                                                                                                                    "string",
+                                                                                                                    "null"
+                                                                                                                ]
                                                                                                    },
                                                                                        "term":  {
-                                                                                                    "type": ["string", "null"]
+                                                                                                    "type":  [
+                                                                                                                 "string",
+                                                                                                                 "null"
+                                                                                                             ]
                                                                                                 },
                                                                                        "adCount":  {
                                                                                                        "type":  "integer",
@@ -627,11 +808,13 @@
                                                                                "type":  "object",
                                                                                "properties":  {
                                                                                                   "keywords":  {
-                                                                                                                   "type":  "array",
                                                                                                                    "items":  {
                                                                                                                                  "type":  "string"
                                                                                                                              },
-                                                                                                                   "nullable":  true
+                                                                                                                   "type":  [
+                                                                                                                                "array",
+                                                                                                                                "null"
+                                                                                                                            ]
                                                                                                                },
                                                                                                   "position":  {
                                                                                                                    "type":  "integer",
@@ -642,13 +825,22 @@
                                                                                                                        "format":  "int32"
                                                                                                                    },
                                                                                                   "title":  {
-                                                                                                                "type": ["string", "null"]
+                                                                                                                "type":  [
+                                                                                                                             "string",
+                                                                                                                             "null"
+                                                                                                                         ]
                                                                                                             },
                                                                                                   "body":  {
-                                                                                                               "type": ["string", "null"]
+                                                                                                               "type":  [
+                                                                                                                            "string",
+                                                                                                                            "null"
+                                                                                                                        ]
                                                                                                            },
                                                                                                   "url":  {
-                                                                                                              "type": ["string", "null"]
+                                                                                                              "type":  [
+                                                                                                                           "string",
+                                                                                                                           "null"
+                                                                                                                       ]
                                                                                                           },
                                                                                                   "adId":  {
                                                                                                                "type":  "integer",
@@ -665,19 +857,24 @@
                                                                                                                                "description":  "Number of results returned",
                                                                                                                                "format":  "int32",
                                                                                                                                "readOnly":  true,
-                                                                                                                               "examples": [100]
+                                                                                                                               "examples":  {
+                                                                                                                                                "example1":  {
+                                                                                                                                                                 "value":  100
+                                                                                                                                                             }
+                                                                                                                                            }
                                                                                                                            },
                                                                                                            "results":  {
-                                                                                                                           "type":  "array",
                                                                                                                            "items":  {
                                                                                                                                          "type":  "object",
                                                                                                                                          "properties":  {
                                                                                                                                                             "keywords":  {
-                                                                                                                                                                             "type":  "array",
                                                                                                                                                                              "items":  {
                                                                                                                                                                                            "type":  "string"
                                                                                                                                                                                        },
-                                                                                                                                                                             "nullable":  true
+                                                                                                                                                                             "type":  [
+                                                                                                                                                                                          "array",
+                                                                                                                                                                                          "null"
+                                                                                                                                                                                      ]
                                                                                                                                                                          },
                                                                                                                                                             "position":  {
                                                                                                                                                                              "type":  "integer",
@@ -688,13 +885,22 @@
                                                                                                                                                                                  "format":  "int32"
                                                                                                                                                                              },
                                                                                                                                                             "title":  {
-                                                                                                                                                                          "type": ["string", "null"]
+                                                                                                                                                                          "type":  [
+                                                                                                                                                                                       "string",
+                                                                                                                                                                                       "null"
+                                                                                                                                                                                   ]
                                                                                                                                                                       },
                                                                                                                                                             "body":  {
-                                                                                                                                                                         "type": ["string", "null"]
+                                                                                                                                                                         "type":  [
+                                                                                                                                                                                      "string",
+                                                                                                                                                                                      "null"
+                                                                                                                                                                                  ]
                                                                                                                                                                      },
                                                                                                                                                             "url":  {
-                                                                                                                                                                        "type": ["string", "null"]
+                                                                                                                                                                        "type":  [
+                                                                                                                                                                                     "string",
+                                                                                                                                                                                     "null"
+                                                                                                                                                                                 ]
                                                                                                                                                                     },
                                                                                                                                                             "adId":  {
                                                                                                                                                                          "type":  "integer",
@@ -703,8 +909,11 @@
                                                                                                                                                         },
                                                                                                                                          "additionalProperties":  false
                                                                                                                                      },
-                                                                                                                           "nullable":  true,
-                                                                                                                           "readOnly":  true
+                                                                                                                           "readOnly":  true,
+                                                                                                                           "type":  [
+                                                                                                                                        "array",
+                                                                                                                                        "null"
+                                                                                                                                    ]
                                                                                                                        }
                                                                                                        },
                                                                                         "additionalProperties":  false
@@ -713,14 +922,19 @@
                                                                                "type":  "object",
                                                                                "properties":  {
                                                                                                   "domainName":  {
-                                                                                                                     "type": ["string", "null"]
+                                                                                                                     "type":  [
+                                                                                                                                  "string",
+                                                                                                                                  "null"
+                                                                                                                              ]
                                                                                                                  },
                                                                                                   "urls":  {
-                                                                                                               "type":  "array",
                                                                                                                "items":  {
                                                                                                                              "type":  "string"
                                                                                                                          },
-                                                                                                               "nullable":  true
+                                                                                                               "type":  [
+                                                                                                                            "array",
+                                                                                                                            "null"
+                                                                                                                        ]
                                                                                                            },
                                                                                                   "position":  {
                                                                                                                    "type":  "integer",
@@ -731,10 +945,16 @@
                                                                                                                        "format":  "int32"
                                                                                                                    },
                                                                                                   "title":  {
-                                                                                                                "type": ["string", "null"]
+                                                                                                                "type":  [
+                                                                                                                             "string",
+                                                                                                                             "null"
+                                                                                                                         ]
                                                                                                             },
                                                                                                   "body":  {
-                                                                                                               "type": ["string", "null"]
+                                                                                                               "type":  [
+                                                                                                                            "string",
+                                                                                                                            "null"
+                                                                                                                        ]
                                                                                                            },
                                                                                                   "adId":  {
                                                                                                                "type":  "integer",
@@ -751,15 +971,17 @@
                                                                                                                                   "description":  "Number of results returned",
                                                                                                                                   "format":  "int32",
                                                                                                                                   "readOnly":  true,
-                                                                                                                                  "examples": [100]
+                                                                                                                                  "examples":  {
+                                                                                                                                                   "example1":  {
+                                                                                                                                                                    "value":  100
+                                                                                                                                                                }
+                                                                                                                                               }
                                                                                                                               },
                                                                                                               "domains":  {
-                                                                                                                              "type":  "array",
                                                                                                                               "items":  {
                                                                                                                                             "type":  "object",
                                                                                                                                             "properties":  {
                                                                                                                                                                "ads":  {
-                                                                                                                                                                           "type":  "array",
                                                                                                                                                                            "items":  {
                                                                                                                                                                                          "type":  "object",
                                                                                                                                                                                          "properties":  {
@@ -772,19 +994,34 @@
                                                                                                                                                                                                                              "format":  "int32"
                                                                                                                                                                                                                          },
                                                                                                                                                                                                             "title":  {
-                                                                                                                                                                                                                          "type": ["string", "null"]
+                                                                                                                                                                                                                          "type":  [
+                                                                                                                                                                                                                                       "string",
+                                                                                                                                                                                                                                       "null"
+                                                                                                                                                                                                                                   ]
                                                                                                                                                                                                                       },
                                                                                                                                                                                                             "body":  {
-                                                                                                                                                                                                                         "type": ["string", "null"]
+                                                                                                                                                                                                                         "type":  [
+                                                                                                                                                                                                                                      "string",
+                                                                                                                                                                                                                                      "null"
+                                                                                                                                                                                                                                  ]
                                                                                                                                                                                                                      },
                                                                                                                                                                                                             "domainName":  {
-                                                                                                                                                                                                                               "type": ["string", "null"]
+                                                                                                                                                                                                                               "type":  [
+                                                                                                                                                                                                                                            "string",
+                                                                                                                                                                                                                                            "null"
+                                                                                                                                                                                                                                        ]
                                                                                                                                                                                                                            },
                                                                                                                                                                                                             "fullUrl":  {
-                                                                                                                                                                                                                            "type": ["string", "null"]
+                                                                                                                                                                                                                            "type":  [
+                                                                                                                                                                                                                                         "string",
+                                                                                                                                                                                                                                         "null"
+                                                                                                                                                                                                                                     ]
                                                                                                                                                                                                                         },
                                                                                                                                                                                                             "term":  {
-                                                                                                                                                                                                                         "type": ["string", "null"]
+                                                                                                                                                                                                                         "type":  [
+                                                                                                                                                                                                                                      "string",
+                                                                                                                                                                                                                                      "null"
+                                                                                                                                                                                                                                  ]
                                                                                                                                                                                                                      },
                                                                                                                                                                                                             "adCount":  {
                                                                                                                                                                                                                             "type":  "integer",
@@ -797,7 +1034,10 @@
                                                                                                                                                                                          "additionalProperties":  false
                                                                                                                                                                                      },
                                                                                                                                                                            "description":  "The ads this domain bought.",
-                                                                                                                                                                           "nullable":  true
+                                                                                                                                                                           "type":  [
+                                                                                                                                                                                        "array",
+                                                                                                                                                                                        "null"
+                                                                                                                                                                                    ]
                                                                                                                                                                        },
                                                                                                                                                                "budget":  {
                                                                                                                                                                               "type":  "number",
@@ -810,9 +1050,11 @@
                                                                                                                                                                                 "format":  "double"
                                                                                                                                                                             },
                                                                                                                                                                "domainName":  {
-                                                                                                                                                                                  "type":  "string",
                                                                                                                                                                                   "description":  "The URL of this domain.",
-                                                                                                                                                                                  "nullable":  true
+                                                                                                                                                                                  "type":  [
+                                                                                                                                                                                               "string",
+                                                                                                                                                                                               "null"
+                                                                                                                                                                                           ]
                                                                                                                                                                               },
                                                                                                                                                                "percentageLeaderboard":  {
                                                                                                                                                                                              "type":  "number",
@@ -832,10 +1074,12 @@
                                                                                                                                                            },
                                                                                                                                             "additionalProperties":  false
                                                                                                                                         },
-                                                                                                                              "nullable":  true
+                                                                                                                              "type":  [
+                                                                                                                                           "array",
+                                                                                                                                           "null"
+                                                                                                                                       ]
                                                                                                                           },
                                                                                                               "topAds":  {
-                                                                                                                             "type":  "array",
                                                                                                                              "items":  {
                                                                                                                                            "type":  "object",
                                                                                                                                            "properties":  {
@@ -852,13 +1096,22 @@
                                                                                                                                                                                      "format":  "double"
                                                                                                                                                                                  },
                                                                                                                                                               "body":  {
-                                                                                                                                                                           "type": ["string", "null"]
+                                                                                                                                                                           "type":  [
+                                                                                                                                                                                        "string",
+                                                                                                                                                                                        "null"
+                                                                                                                                                                                    ]
                                                                                                                                                                        },
                                                                                                                                                               "title":  {
-                                                                                                                                                                            "type": ["string", "null"]
+                                                                                                                                                                            "type":  [
+                                                                                                                                                                                         "string",
+                                                                                                                                                                                         "null"
+                                                                                                                                                                                     ]
                                                                                                                                                                         },
                                                                                                                                                               "fullUrl":  {
-                                                                                                                                                                              "type": ["string", "null"]
+                                                                                                                                                                              "type":  [
+                                                                                                                                                                                           "string",
+                                                                                                                                                                                           "null"
+                                                                                                                                                                                       ]
                                                                                                                                                                           },
                                                                                                                                                               "leaderboardCount":  {
                                                                                                                                                                                        "type":  "integer",
@@ -875,7 +1128,10 @@
                                                                                                                                                           },
                                                                                                                                            "additionalProperties":  false
                                                                                                                                        },
-                                                                                                                             "nullable":  true
+                                                                                                                             "type":  [
+                                                                                                                                          "array",
+                                                                                                                                          "null"
+                                                                                                                                      ]
                                                                                                                          }
                                                                                                           },
                                                                                            "additionalProperties":  false
@@ -888,22 +1144,30 @@
                                                                                                                              "description":  "Number of results returned",
                                                                                                                              "format":  "int32",
                                                                                                                              "readOnly":  true,
-                                                                                                                             "examples": [100]
+                                                                                                                             "examples":  {
+                                                                                                                                              "example1":  {
+                                                                                                                                                               "value":  100
+                                                                                                                                                           }
+                                                                                                                                          }
                                                                                                                          },
                                                                                                          "results":  {
-                                                                                                                         "type":  "array",
                                                                                                                          "items":  {
                                                                                                                                        "type":  "object",
                                                                                                                                        "properties":  {
                                                                                                                                                           "domainName":  {
-                                                                                                                                                                             "type": ["string", "null"]
+                                                                                                                                                                             "type":  [
+                                                                                                                                                                                          "string",
+                                                                                                                                                                                          "null"
+                                                                                                                                                                                      ]
                                                                                                                                                                          },
                                                                                                                                                           "urls":  {
-                                                                                                                                                                       "type":  "array",
                                                                                                                                                                        "items":  {
                                                                                                                                                                                      "type":  "string"
                                                                                                                                                                                  },
-                                                                                                                                                                       "nullable":  true
+                                                                                                                                                                       "type":  [
+                                                                                                                                                                                    "array",
+                                                                                                                                                                                    "null"
+                                                                                                                                                                                ]
                                                                                                                                                                    },
                                                                                                                                                           "position":  {
                                                                                                                                                                            "type":  "integer",
@@ -914,10 +1178,16 @@
                                                                                                                                                                                "format":  "int32"
                                                                                                                                                                            },
                                                                                                                                                           "title":  {
-                                                                                                                                                                        "type": ["string", "null"]
+                                                                                                                                                                        "type":  [
+                                                                                                                                                                                     "string",
+                                                                                                                                                                                     "null"
+                                                                                                                                                                                 ]
                                                                                                                                                                     },
                                                                                                                                                           "body":  {
-                                                                                                                                                                       "type": ["string", "null"]
+                                                                                                                                                                       "type":  [
+                                                                                                                                                                                    "string",
+                                                                                                                                                                                    "null"
+                                                                                                                                                                                ]
                                                                                                                                                                    },
                                                                                                                                                           "adId":  {
                                                                                                                                                                        "type":  "integer",
@@ -926,8 +1196,11 @@
                                                                                                                                                       },
                                                                                                                                        "additionalProperties":  false
                                                                                                                                    },
-                                                                                                                         "nullable":  true,
-                                                                                                                         "readOnly":  true
+                                                                                                                         "readOnly":  true,
+                                                                                                                         "type":  [
+                                                                                                                                      "array",
+                                                                                                                                      "null"
+                                                                                                                                  ]
                                                                                                                      }
                                                                                                      },
                                                                                       "additionalProperties":  false
@@ -936,7 +1209,6 @@
                                                                                 "type":  "object",
                                                                                 "properties":  {
                                                                                                    "ads":  {
-                                                                                                               "type":  "array",
                                                                                                                "items":  {
                                                                                                                              "type":  "object",
                                                                                                                              "properties":  {
@@ -949,19 +1221,34 @@
                                                                                                                                                                  "format":  "int32"
                                                                                                                                                              },
                                                                                                                                                 "title":  {
-                                                                                                                                                              "type": ["string", "null"]
+                                                                                                                                                              "type":  [
+                                                                                                                                                                           "string",
+                                                                                                                                                                           "null"
+                                                                                                                                                                       ]
                                                                                                                                                           },
                                                                                                                                                 "body":  {
-                                                                                                                                                             "type": ["string", "null"]
+                                                                                                                                                             "type":  [
+                                                                                                                                                                          "string",
+                                                                                                                                                                          "null"
+                                                                                                                                                                      ]
                                                                                                                                                          },
                                                                                                                                                 "domainName":  {
-                                                                                                                                                                   "type": ["string", "null"]
+                                                                                                                                                                   "type":  [
+                                                                                                                                                                                "string",
+                                                                                                                                                                                "null"
+                                                                                                                                                                            ]
                                                                                                                                                                },
                                                                                                                                                 "fullUrl":  {
-                                                                                                                                                                "type": ["string", "null"]
+                                                                                                                                                                "type":  [
+                                                                                                                                                                             "string",
+                                                                                                                                                                             "null"
+                                                                                                                                                                         ]
                                                                                                                                                             },
                                                                                                                                                 "term":  {
-                                                                                                                                                             "type": ["string", "null"]
+                                                                                                                                                             "type":  [
+                                                                                                                                                                          "string",
+                                                                                                                                                                          "null"
+                                                                                                                                                                      ]
                                                                                                                                                          },
                                                                                                                                                 "adCount":  {
                                                                                                                                                                 "type":  "integer",
@@ -974,7 +1261,10 @@
                                                                                                                              "additionalProperties":  false
                                                                                                                          },
                                                                                                                "description":  "The ads this domain bought.",
-                                                                                                               "nullable":  true
+                                                                                                               "type":  [
+                                                                                                                            "array",
+                                                                                                                            "null"
+                                                                                                                        ]
                                                                                                            },
                                                                                                    "budget":  {
                                                                                                                   "type":  "number",
@@ -987,9 +1277,11 @@
                                                                                                                     "format":  "double"
                                                                                                                 },
                                                                                                    "domainName":  {
-                                                                                                                      "type":  "string",
                                                                                                                       "description":  "The URL of this domain.",
-                                                                                                                      "nullable":  true
+                                                                                                                      "type":  [
+                                                                                                                                   "string",
+                                                                                                                                   "null"
+                                                                                                                               ]
                                                                                                                   },
                                                                                                    "percentageLeaderboard":  {
                                                                                                                                  "type":  "number",
@@ -1025,13 +1317,22 @@
                                                                                                "format":  "double"
                                                                                            },
                                                                         "body":  {
-                                                                                     "type": ["string", "null"]
+                                                                                     "type":  [
+                                                                                                  "string",
+                                                                                                  "null"
+                                                                                              ]
                                                                                  },
                                                                         "title":  {
-                                                                                      "type": ["string", "null"]
+                                                                                      "type":  [
+                                                                                                   "string",
+                                                                                                   "null"
+                                                                                               ]
                                                                                   },
                                                                         "fullUrl":  {
-                                                                                        "type": ["string", "null"]
+                                                                                        "type":  [
+                                                                                                     "string",
+                                                                                                     "null"
+                                                                                                 ]
                                                                                     },
                                                                         "leaderboardCount":  {
                                                                                                  "type":  "integer",
