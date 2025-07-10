@@ -4,6 +4,11 @@
     "title": "SpyFu Ad History Research API - NEW TOOLS VALIDATED ✅",
     "version": "v2"
   },
+  "servers": [
+    {
+      "url": "https://api.spyfu.com/apis/cloud_ad_history_api"
+    }
+  ],
   "paths": {
     "/v2/domain/getDomainAdHistory": {
       "get": {
