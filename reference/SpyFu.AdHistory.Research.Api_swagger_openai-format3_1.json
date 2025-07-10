@@ -788,7 +788,49 @@
               "null"
             ],
             "items": {
-              "$ref": "#/components/schemas/PublicApiAdWithKeywordOutputDto"
+              "type": "object",
+              "properties": {
+                "keywords": {
+                  "type": [
+                    "array",
+                    "null"
+                  ],
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "position": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "searchDateId": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "title": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "body": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "url": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "adId": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              },
+              "additionalProperties": false
             },
             "readOnly": true
           }
@@ -858,7 +900,100 @@
               "null"
             ],
             "items": {
-              "$ref": "#/components/schemas/PublicApiTermAdvertiserOutputDto"
+              "type": "object",
+              "properties": {
+                "ads": {
+                  "description": "The ads this domain bought.",
+                  "type": [
+                    "array",
+                    "null"
+                  ],
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "searchDateId": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "position": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "title": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      "body": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      "domainName": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      "fullUrl": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      "term": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      "adCount": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "isLeaderboardAd": {
+                        "type": "boolean"
+                      }
+                    },
+                    "additionalProperties": false
+                  }
+                },
+                "budget": {
+                  "description": "This domain's ad budget.",
+                  "type": "number",
+                  "format": "double"
+                },
+                "coverage": {
+                  "description": "Coverage",
+                  "type": "number",
+                  "format": "double"
+                },
+                "domainName": {
+                  "description": "The URL of this domain.",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "percentageLeaderboard": {
+                  "description": "% top of page",
+                  "type": "number",
+                  "format": "double"
+                },
+                "totalAdsPurchased": {
+                  "description": "Total ads the domain has purchased for any keyword",
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "adCount": {
+                  "description": "Total ads the domain has purchased for the given keyword",
+                  "type": "integer",
+                  "format": "int32"
+                }
+              },
+              "additionalProperties": false
             }
           },
           "topAds": {
@@ -867,7 +1002,52 @@
               "null"
             ],
             "items": {
-              "$ref": "#/components/schemas/TopAd"
+              "type": "object",
+              "properties": {
+                "adId": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "averagePosition": {
+                  "type": "number",
+                  "format": "double"
+                },
+                "averageAdCount": {
+                  "type": "number",
+                  "format": "double"
+                },
+                "body": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "title": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "fullUrl": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "leaderboardCount": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "percentageLeaderboard": {
+                  "type": "number",
+                  "format": "double"
+                },
+                "percentageAdsServed": {
+                  "type": "number",
+                  "format": "double"
+                }
+              },
+              "additionalProperties": false
             }
           }
         },
@@ -891,7 +1071,49 @@
               "null"
             ],
             "items": {
-              "$ref": "#/components/schemas/PublicApiTermAdHistoryOutputDto"
+              "type": "object",
+              "properties": {
+                "domainName": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "urls": {
+                  "type": [
+                    "array",
+                    "null"
+                  ],
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "position": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "searchDateId": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "title": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "body": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "adId": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              },
+              "additionalProperties": false
             },
             "readOnly": true
           }
@@ -908,7 +1130,55 @@
               "null"
             ],
             "items": {
-              "$ref": "#/components/schemas/PublicApiAdOutputDto"
+              "type": "object",
+              "properties": {
+                "searchDateId": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "position": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "title": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "body": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "domainName": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "fullUrl": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "term": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "adCount": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "isLeaderboardAd": {
+                  "type": "boolean"
+                }
+              },
+              "additionalProperties": false
             }
           },
           "budget": {
