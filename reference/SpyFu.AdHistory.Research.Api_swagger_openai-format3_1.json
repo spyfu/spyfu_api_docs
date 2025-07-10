@@ -9,6 +9,17 @@
       "url": "/apis/cloud_ad_history_api"
     }
   ],
+  "security": [
+    {
+      "Basic_Authentication_Token": []
+    },
+    {
+      "Query_Parameter_Token": []
+    },
+    {
+      "HMAC_Authentication_Header": []
+    }
+  ],
   "paths": {
     "/v2/domain/getDomainAdHistory": {
       "get": {
@@ -707,16 +718,5 @@
         "in": "header"
       }
     }
-  },
-  "security": [
-    {
-      "Basic_Authentication_Token": []
-    },
-    {
-      "Query_Parameter_Token": []
-    },
-    {
-      "HMAC_Authentication_Header": []
-    }
-  ]
+  }
 }
