@@ -1,1 +1,7 @@
-[]
+- relatedkeywordsv2api_getrelatedkeywords_get
+- relatedkeywordsv2api_getquestionkeywords_get
+- relatedkeywordsv2api_getalsobuysadsforkeywords_get
+- relatedkeywordsv2api_getalsoranksforkeywords_get
+- relatedkeywordsv2api_gettransactionkeywords_get
+- relatedkeywordsv2api_getkeywordsbybulksearch_get
+- relatedkeywordsv2api_getkeywordsbybulksearchpost_post
