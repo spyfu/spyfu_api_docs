@@ -143,7 +143,7 @@
           {
             "name": "countryCode",
             "in": "query",
-            "description": "Country market to search.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).",
+            "description": "Country market to search.  Specifically, this maps to the Google version to query against (google.de for Germany, etc).  Google.com (US) is the default. [Full list of supported Countries](https://developer.spyfu.com/update/reference/country-code-enum#/)",
             "schema": {
               "type": "string",
               "examples": [
@@ -176,34 +176,7 @@
                 "UK",
                 "US",
                 "ZA"
-              ],
-              "x-enumDescriptions": {
-                "AR": "Argentina",
-                "AU": "Australia",
-                "BE": "Belgium",
-                "BR": "Brazil",
-                "CA": "Canada",
-                "CH": "Switzerland",
-                "DE": "Germany",
-                "DK": "Denmark",
-                "ES": "Spain",
-                "FR": "France",
-                "IE": "Ireland",
-                "IN": "India",
-                "IT": "Italy",
-                "JP": "Japan",
-                "MX": "Mexico",
-                "NL": "Netherlands",
-                "NO": "Norway",
-                "NZ": "New Zealand",
-                "PT": "Portugal",
-                "SE": "Sweden",
-                "SG": "Singapore",
-                "UA": "Ukraine",
-                "UK": "United Kingdom",
-                "US": "United States",
-                "ZA": "South Africa"
-              }
+              ]
             },
             "example": "US"
           },
@@ -697,7 +670,7 @@
           {
             "name": "countryCode",
             "in": "query",
-            "description": "Country market to search.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).",
+            "description": "Country market to search.  Specifically, this maps to the Google version to query against (google.de for Germany, etc).  Google.com (US) is the default. [Full list of supported Countries](https://developer.spyfu.com/update/reference/country-code-enum#/)",
             "schema": {
               "type": "string",
               "examples": [
@@ -730,34 +703,7 @@
                 "UK",
                 "US",
                 "ZA"
-              ],
-              "x-enumDescriptions": {
-                "AR": "Argentina",
-                "AU": "Australia",
-                "BE": "Belgium",
-                "BR": "Brazil",
-                "CA": "Canada",
-                "CH": "Switzerland",
-                "DE": "Germany",
-                "DK": "Denmark",
-                "ES": "Spain",
-                "FR": "France",
-                "IE": "Ireland",
-                "IN": "India",
-                "IT": "Italy",
-                "JP": "Japan",
-                "MX": "Mexico",
-                "NL": "Netherlands",
-                "NO": "Norway",
-                "NZ": "New Zealand",
-                "PT": "Portugal",
-                "SE": "Sweden",
-                "SG": "Singapore",
-                "UA": "Ukraine",
-                "UK": "United Kingdom",
-                "US": "United States",
-                "ZA": "South Africa"
-              }
+              ]
             },
             "example": "US"
           },
@@ -1251,7 +1197,7 @@
           {
             "name": "countryCode",
             "in": "query",
-            "description": "Country market to search.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).",
+            "description": "Country market to search.  Specifically, this maps to the Google version to query against (google.de for Germany, etc).  Google.com (US) is the default. [Full list of supported Countries](https://developer.spyfu.com/update/reference/country-code-enum#/)",
             "schema": {
               "type": "string",
               "examples": [
@@ -1284,34 +1230,7 @@
                 "UK",
                 "US",
                 "ZA"
-              ],
-              "x-enumDescriptions": {
-                "AR": "Argentina",
-                "AU": "Australia",
-                "BE": "Belgium",
-                "BR": "Brazil",
-                "CA": "Canada",
-                "CH": "Switzerland",
-                "DE": "Germany",
-                "DK": "Denmark",
-                "ES": "Spain",
-                "FR": "France",
-                "IE": "Ireland",
-                "IN": "India",
-                "IT": "Italy",
-                "JP": "Japan",
-                "MX": "Mexico",
-                "NL": "Netherlands",
-                "NO": "Norway",
-                "NZ": "New Zealand",
-                "PT": "Portugal",
-                "SE": "Sweden",
-                "SG": "Singapore",
-                "UA": "Ukraine",
-                "UK": "United Kingdom",
-                "US": "United States",
-                "ZA": "South Africa"
-              }
+              ]
             },
             "example": "US"
           },
@@ -1805,7 +1724,7 @@
           {
             "name": "countryCode",
             "in": "query",
-            "description": "Country market to search.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).",
+            "description": "Country market to search.  Specifically, this maps to the Google version to query against (google.de for Germany, etc).  Google.com (US) is the default. [Full list of supported Countries](https://developer.spyfu.com/update/reference/country-code-enum#/)",
             "schema": {
               "type": "string",
               "examples": [
@@ -1838,34 +1757,7 @@
                 "UK",
                 "US",
                 "ZA"
-              ],
-              "x-enumDescriptions": {
-                "AR": "Argentina",
-                "AU": "Australia",
-                "BE": "Belgium",
-                "BR": "Brazil",
-                "CA": "Canada",
-                "CH": "Switzerland",
-                "DE": "Germany",
-                "DK": "Denmark",
-                "ES": "Spain",
-                "FR": "France",
-                "IE": "Ireland",
-                "IN": "India",
-                "IT": "Italy",
-                "JP": "Japan",
-                "MX": "Mexico",
-                "NL": "Netherlands",
-                "NO": "Norway",
-                "NZ": "New Zealand",
-                "PT": "Portugal",
-                "SE": "Sweden",
-                "SG": "Singapore",
-                "UA": "Ukraine",
-                "UK": "United Kingdom",
-                "US": "United States",
-                "ZA": "South Africa"
-              }
+              ]
             },
             "example": "US"
           },
@@ -2359,7 +2251,7 @@
           {
             "name": "countryCode",
             "in": "query",
-            "description": "Country market to search.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).",
+            "description": "Country market to search.  Specifically, this maps to the Google version to query against (google.de for Germany, etc).  Google.com (US) is the default. [Full list of supported Countries](https://developer.spyfu.com/update/reference/country-code-enum#/)",
             "schema": {
               "type": "string",
               "examples": [
@@ -2392,34 +2284,7 @@
                 "UK",
                 "US",
                 "ZA"
-              ],
-              "x-enumDescriptions": {
-                "AR": "Argentina",
-                "AU": "Australia",
-                "BE": "Belgium",
-                "BR": "Brazil",
-                "CA": "Canada",
-                "CH": "Switzerland",
-                "DE": "Germany",
-                "DK": "Denmark",
-                "ES": "Spain",
-                "FR": "France",
-                "IE": "Ireland",
-                "IN": "India",
-                "IT": "Italy",
-                "JP": "Japan",
-                "MX": "Mexico",
-                "NL": "Netherlands",
-                "NO": "Norway",
-                "NZ": "New Zealand",
-                "PT": "Portugal",
-                "SE": "Sweden",
-                "SG": "Singapore",
-                "UA": "Ukraine",
-                "UK": "United Kingdom",
-                "US": "United States",
-                "ZA": "South Africa"
-              }
+              ]
             },
             "example": "US"
           },
