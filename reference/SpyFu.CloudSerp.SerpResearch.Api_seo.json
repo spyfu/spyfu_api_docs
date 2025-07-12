@@ -654,11 +654,26 @@
             "required": true,
             "schema": {
               "type": "string",
-              "examples": [
-                "example.com/blog"
-              ]
+              "format": "uri-reference"
             },
-            "example": "example.com/blog"
+            "examples": {
+              "root": {
+                "summary": "Domain root",
+                "value": "example.com"
+              },
+              "subPath": {
+                "summary": "Path on same host",
+                "value": "example.com/blog"
+              },
+              "subDomain": {
+                "summary": "Sub‑domain",
+                "value": "blog.example.com"
+              },
+              "fullExample": {
+                "summary": "Full URL with path and query",
+                "value": "www.example.com/any/path/or-part?of-a-url"
+              }
+            }
           },
           {
             "name": "sortBy",
