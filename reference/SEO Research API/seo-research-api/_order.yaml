@@ -1,1 +1,9 @@
-[]
+- organicserpapi_getmostvaluablekeywords_get
+- organicserpapi_getnewlyrankedkeywords_get
+- organicserpapi_getgainedrankskeywords_get
+- organicserpapi_getlostrankskeywords_get
+- organicserpapi_getgainedclickskeywords_get
+- organicserpapi_getlostclickskeywords_get
+- organicserpapi_getjustmadeitkeywords_get
+- organicserpapi_getjustfelloffkeywords_get
+- organicserpapi_getserpanalysiskeywords_get
