@@ -1,5 +1,5 @@
 ---
-title: CountryCode Enum
+title: Country Code Enum
 deprecated: false
 hidden: false
 metadata:
