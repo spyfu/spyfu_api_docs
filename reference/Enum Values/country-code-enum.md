@@ -2,13 +2,16 @@
 title: Country Code Enum
 excerpt: >-
   Most SpyFu APIs have a countryCode parameter that is an enumerator that takes
-  a two character country code.  Each country code represents a separate
-  "instance" of SpyFu data pulled from its corresponding "instance" of Google.  
+  a two character country code.  
 deprecated: false
 hidden: false
 metadata:
   robots: index
 ---
+Each country code represents a separate "instance" of SpyFu data pulled from its corresponding "instance" of Google.  For example the countryCode DE means that all the searches were run against Google.de and so the ads and rankings correspond to that localized version of Google.
+
+SpyFu continuously adds new country support based on demand.   Here are the country codes / google versions currently available in the APIs.
+
 | Country Code | Country        | Google Domain |
 | ------------ | -------------- | ------------- |
 | AR           | Argentina      | google.com.ar |
