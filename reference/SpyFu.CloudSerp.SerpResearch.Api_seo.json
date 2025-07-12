@@ -3,7 +3,7 @@
   "info": {
     "title": "SEO Research API",
     "version": "v2",
-    "description": "Track organic search rankings and identify SEO opportunities through comprehensive keyword analysis. Monitor ranking changes, discover content gaps, and analyze competitor SEO performance.\n\n**Core Functions:**\n• Discover most valuable organic keywords by traffic\n• Track ranking changes and newly ranked keywords\n• Identify keywords competitors gain/lose rankings for\n• Analyze complete SERP landscapes for any keyword\n• Monitor click estimates and traffic potential\n\nBuilt on 1.6 trillion search results with 2x more organic data than competitors, updated every 15 seconds."
+    "description": "Quickly see comprehensive keyword rankings for any URL or domain in every country. Instantly monitor your SEO progress, competitor shifts, and opportunities from the world's largest SERP index."
   },
   "servers": [
     {
@@ -31,8 +31,7 @@
                 "blog.example.com",
                 "www.example.com/any/path/or-part?of-a-url"
               ]
-            },
-            "example": "example.com/blog"
+            }
           },
           {
             "name": "sortBy",

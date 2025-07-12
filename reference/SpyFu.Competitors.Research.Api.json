@@ -3,7 +3,7 @@
   "info": {
     "title": "Competitors API",
     "version": "v2",
-    "description": "Identify and analyze your most significant competitors across paid and organic search channels. Discover who competes for your target keywords and uncover competitive gaps and opportunities.\n\n**Core Functions:**\n• Find top SEO competitors by keyword overlap\n• Discover PPC competitors and shared advertising keywords\n• Analyze combined competitive landscape across channels\n• Measure competitive strength and market positioning\n\nBuilt on 152 million domains with 20x more paid data and 2x more organic data than competitors."
+    "description": "Go beyond broad industry labels to find your true online competitors. Using paid and organic keyword data, this API reveals exact, micro-targeted competition, ranked precisely by keyword overlap and market strength."
   },
   "servers": [
     {
