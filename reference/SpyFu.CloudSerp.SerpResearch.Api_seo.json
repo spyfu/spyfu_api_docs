@@ -20,7 +20,7 @@
           {
             "name": "query",
             "in": "query",
-            "description": "Domain, URL, subdomain, or path to analyze. Accepts full domains (example.com), complete URLs (www.example.com/blog), subdomains (blog.example.com), specific paths (example.com/products/), or individual pages.",
+            "description": "Full domain, specific URL, subdomain, path or page to analyze.",
             "required": true,
             "schema": {
               "type": "string",
@@ -29,7 +29,7 @@
                 "example.com",
                 "example.com/blog",
                 "blog.example.com",
-                "www.example.com/any/path/or-part?of-a-url"
+                "www.example.com/any/path/or?page"
               ]
             }
           },
@@ -650,29 +650,17 @@
           {
             "name": "query",
             "in": "query",
-            "description": "Domain, URL, subdomain, or path to analyze. Accepts full domains (example.com), complete URLs (www.example.com/blog), subdomains (blog.example.com), specific paths (example.com/products/), or individual pages.",
+            "description": "Full domain, specific URL, subdomain, path or page to analyze.",
             "required": true,
             "schema": {
               "type": "string",
-              "format": "uri-reference"
-            },
-            "examples": {
-              "root": {
-                "summary": "Domain root",
-                "value": "example.com"
-              },
-              "subPath": {
-                "summary": "Path on same host",
-                "value": "example.com/blog"
-              },
-              "subDomain": {
-                "summary": "Sub‑domain",
-                "value": "blog.example.com"
-              },
-              "fullExample": {
-                "summary": "Full URL with path and query",
-                "value": "www.example.com/any/path/or-part?of-a-url"
-              }
+              "format": "uri-reference",
+              "examples": [
+                "example.com",
+                "example.com/blog",
+                "blog.example.com",
+                "www.example.com/any/path/or?page"
+              ]
             }
           },
           {
@@ -1292,15 +1280,18 @@
           {
             "name": "query",
             "in": "query",
-            "description": "Domain, URL, subdomain, or path to analyze. Accepts full domains (example.com), complete URLs (www.example.com/blog), subdomains (blog.example.com), specific paths (example.com/products/), or individual pages.",
+            "description": "Full domain, specific URL, subdomain, path or page to analyze.",
             "required": true,
             "schema": {
               "type": "string",
+              "format": "uri-reference",
               "examples": [
-                "example.com/blog"
+                "example.com",
+                "example.com/blog",
+                "blog.example.com",
+                "www.example.com/any/path/or?page"
               ]
-            },
-            "example": "example.com/blog"
+            }
           },
           {
             "name": "sortBy",
@@ -1919,15 +1910,18 @@
           {
             "name": "query",
             "in": "query",
-            "description": "Domain, URL, subdomain, or path to analyze. Accepts full domains (example.com), complete URLs (www.example.com/blog), subdomains (blog.example.com), specific paths (example.com/products/), or individual pages.",
+            "description": "Full domain, specific URL, subdomain, path or page to analyze.",
             "required": true,
             "schema": {
               "type": "string",
+              "format": "uri-reference",
               "examples": [
-                "example.com/blog"
+                "example.com",
+                "example.com/blog",
+                "blog.example.com",
+                "www.example.com/any/path/or?page"
               ]
-            },
-            "example": "example.com/blog"
+            }
           },
           {
             "name": "sortBy",
@@ -2546,15 +2540,18 @@
           {
             "name": "query",
             "in": "query",
-            "description": "Domain, URL, subdomain, or path to analyze. Accepts full domains (example.com), complete URLs (www.example.com/blog), subdomains (blog.example.com), specific paths (example.com/products/), or individual pages.",
+            "description": "Full domain, specific URL, subdomain, path or page to analyze.",
             "required": true,
             "schema": {
               "type": "string",
+              "format": "uri-reference",
               "examples": [
-                "example.com/blog"
+                "example.com",
+                "example.com/blog",
+                "blog.example.com",
+                "www.example.com/any/path/or?page"
               ]
-            },
-            "example": "example.com/blog"
+            }
           },
           {
             "name": "sortBy",
@@ -3173,15 +3170,18 @@
           {
             "name": "query",
             "in": "query",
-            "description": "Domain, URL, subdomain, or path to analyze. Accepts full domains (example.com), complete URLs (www.example.com/blog), subdomains (blog.example.com), specific paths (example.com/products/), or individual pages.",
+            "description": "Full domain, specific URL, subdomain, path or page to analyze.",
             "required": true,
             "schema": {
               "type": "string",
+              "format": "uri-reference",
               "examples": [
-                "example.com/blog"
+                "example.com",
+                "example.com/blog",
+                "blog.example.com",
+                "www.example.com/any/path/or?page"
               ]
-            },
-            "example": "example.com/blog"
+            }
           },
           {
             "name": "sortBy",
@@ -3800,15 +3800,18 @@
           {
             "name": "query",
             "in": "query",
-            "description": "Domain, URL, subdomain, or path to analyze. Accepts full domains (example.com), complete URLs (www.example.com/blog), subdomains (blog.example.com), specific paths (example.com/products/), or individual pages.",
+            "description": "Full domain, specific URL, subdomain, path or page to analyze.",
             "required": true,
             "schema": {
               "type": "string",
+              "format": "uri-reference",
               "examples": [
-                "example.com/blog"
+                "example.com",
+                "example.com/blog",
+                "blog.example.com",
+                "www.example.com/any/path/or?page"
               ]
-            },
-            "example": "example.com/blog"
+            }
           },
           {
             "name": "sortBy",
@@ -4427,15 +4430,18 @@
           {
             "name": "query",
             "in": "query",
-            "description": "Domain, URL, subdomain, or path to analyze. Accepts full domains (example.com), complete URLs (www.example.com/blog), subdomains (blog.example.com), specific paths (example.com/products/), or individual pages.",
+            "description": "Full domain, specific URL, subdomain, path or page to analyze.",
             "required": true,
             "schema": {
               "type": "string",
+              "format": "uri-reference",
               "examples": [
-                "example.com/blog"
+                "example.com",
+                "example.com/blog",
+                "blog.example.com",
+                "www.example.com/any/path/or?page"
               ]
-            },
-            "example": "example.com/blog"
+            }
           },
           {
             "name": "sortBy",
