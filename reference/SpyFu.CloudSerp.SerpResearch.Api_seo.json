@@ -3,7 +3,7 @@
   "info": {
     "title": "SEO Research API",
     "version": "v2",
-    "description": "Quickly see comprehensive keyword rankings for any URL or domain in every country. Instantly monitor your SEO progress, competitor shifts, and opportunities from the world's largest SERP index."
+    "description": "Access the world's most comprehensive organic search intelligence database to identify keyword opportunities, track ranking changes, and analyze competitor SEO strategies. Powered by SpyFu's industry-leading data collection spanning 18 years of continuous monitoring across global search markets.\n\nSpyFu's SEO Research API is built on an unprecedented foundation of **1.6 trillion search results** collected across all time periods and countries, with **8 billion keywords** featuring comprehensive search volume and performance metrics. Our database actively tracks **1.6 billion keywords** in live SERPs globally, providing **2x more organic keywords per domain** than SEMRush or Ahrefs. **Every data point updates every 15 seconds**, ensuring you have real-time competitive intelligence across all 28 supported countries.\n\nCompared to competitors who offer limited historical snapshots, SpyFu provides **18 years of complete SEO timeline data** with live updates every 15 seconds. While SEMRush and Ahrefs provide basic keyword tracking, SpyFu delivers 2x more organic keyword coverage per domain with unmatched historical depth and real-time accuracy.\n\nWith this API, you can identify high-value keyword opportunities through ranking change analysis, track competitor SEO performance across time, discover newly ranked keywords before competitors notice, analyze SERP features and click potential, monitor keyword ranking volatility and trends, and uncover content gaps where competitors are gaining or losing ground. Access historical ranking data to understand long-term SEO strategy evolution and benchmark your performance against any competitor in your market.\n\nThe SEO Research API integrates seamlessly with SpyFu's Ad History, Competitors, and Domain Stats APIs to provide complete competitive intelligence across both organic and paid search channels.\n\nGet started with comprehensive API documentation and interactive examples at [SpyFu Developer Portal](https://developer.spyfu.com)."
   },
   "servers": [
     {
@@ -15,23 +15,20 @@
       "get": {
         "operationId": "OrganicSerpApi_GetMostValuableKeywords_GET",
         "summary": "Get Most Valuable Keywords",
-        "description": "Returns keywords that generate the highest organic click volume for a domain. This doesn't just work for full domains, it also works for paths, subdomains, individual pages, or specific URLs. This endpoint identifies the most traffic-driving keywords to reveal a domain's most valuable SEO assets and content opportunities.\n\n[Visualize this API live on SpyFu](https://www.spyfu.com/seo/keywords/domain?includeAnyTerm=true&includeAnyUrl=true&searchType=mostvaluable&sidebarContext=filters&query=amazon.com)",
+        "description": "Returns keywords that generate the highest organic click volume for a domain. This endpoint identifies the most traffic-driving keywords to reveal a domain's most valuable SEO assets and content opportunities.\n\n[Visualize this API live on SpyFu](https://www.spyfu.com/seo/keywords/domain?includeAnyTerm=true&includeAnyUrl=true&searchType=mostvaluable&sidebarContext=filters&query=example.com)",
         "parameters": [
           {
             "name": "query",
             "in": "query",
-            "description": "Full domain, specific URL, subdomain, path or page to analyze.",
+            "description": "Domain, URL, subdomain, or path to analyze. Accepts full domains (example.com), complete URLs (https://example.com/blog), subdomains (blog.example.com), specific paths (example.com/products/), or individual pages.",
             "required": true,
             "schema": {
               "type": "string",
-              "format": "uri-reference",
               "examples": [
-                "example.com",
-                "example.com/blog",
-                "blog.example.com",
-                "www.example.com/any/path/or?page"
+                "example.com/blog"
               ]
-            }
+            },
+            "example": "example.com/blog"
           },
           {
             "name": "sortBy",
@@ -80,9 +77,9 @@
                 "BroadCostPerClick": "Average amount advertisers pay per click for broad match ads on this keyword",
                 "ExactCostPerClick": "Average amount advertisers pay per click for exact match ads on this keyword",
                 "PhraseCostPerClick": "Average amount advertisers pay per click for phrase match ads on this keyword",
-                "BroadMonthlyCost": "Estimated monthly ad spend for broad match bidding",
-                "ExactMonthlyCost": "Estimated monthly ad spend for exact match bidding",
-                "PhraseMonthlyCost": "Estimated monthly ad spend for phrase match bidding",
+                "BroadMonthlyCost": "Estimated monthly advertising spend for broad match bidding",
+                "ExactMonthlyCost": "Estimated monthly advertising spend for exact match bidding",
+                "PhraseMonthlyCost": "Estimated monthly advertising spend for phrase match bidding",
                 "TotalMonthlyClicks": "Total estimated clicks made on this SERP to any paid or organic results",
                 "PaidCompetitors": "Total number of advertisers seen over the last 6 months for this keyword",
                 "RankingHomepages": "Number of homepage URLs (vs deeper paths) ranking within first 100 results"
@@ -142,7 +139,7 @@
           {
             "name": "countryCode",
             "in": "query",
-            "description": "Country market to search.  Specifically, this maps to the Google version to query against (google.de for Germany, etc).  Google.com (US) is the default. [Full list of supported Countries](https://developer.spyfu.com/update/reference/country-code-enum#/)",
+            "description": "Country market to search.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).",
             "schema": {
               "type": "string",
               "examples": [
@@ -175,7 +172,34 @@
                 "UK",
                 "US",
                 "ZA"
-              ]
+              ],
+              "x-enumDescriptions": {
+                "AR": "Argentina",
+                "AU": "Australia",
+                "BE": "Belgium",
+                "BR": "Brazil",
+                "CA": "Canada",
+                "CH": "Switzerland",
+                "DE": "Germany",
+                "DK": "Denmark",
+                "ES": "Spain",
+                "FR": "France",
+                "IE": "Ireland",
+                "IN": "India",
+                "IT": "Italy",
+                "JP": "Japan",
+                "MX": "Mexico",
+                "NL": "Netherlands",
+                "NO": "Norway",
+                "NZ": "New Zealand",
+                "PT": "Portugal",
+                "SE": "Sweden",
+                "SG": "Singapore",
+                "UA": "Ukraine",
+                "UK": "United Kingdom",
+                "US": "United States",
+                "ZA": "South Africa"
+              }
             },
             "example": "US"
           },
@@ -283,7 +307,7 @@
           {
             "name": "includeAnyTerm",
             "in": "query",
-            "description": "Require ANY or ALL terms from the includeTerms parameter to be in the keyword.  ANY = TRUE, ALL = FALSE.  ALL is the default.  ",
+            "description": "Include ANY or ALL terms.",
             "schema": {
               "type": "boolean",
               "default": false
@@ -292,7 +316,7 @@
           {
             "name": "excludeTerms",
             "in": "query",
-            "description": "CSV of terms to exclude from any of the keywords.  This is always applied as an ANY.  No keywords with ANY of the terms in the CSV will be returned.  ",
+            "description": "CSV of terms that are required to not be in the results.",
             "schema": {
               "type": "string"
             }
@@ -618,23 +642,20 @@
       "get": {
         "operationId": "OrganicSerpApi_GetNewlyRankedKeywords_GET",
         "summary": "Get Newly Ranked Keywords",
-        "description": "Returns keywords where a domain recently achieved rankings in the top 100 organic search results. This doesn't just work for full domains, it also works for paths, subdomains, individual pages, or specific URLs. This endpoint identifies fresh ranking opportunities to reveal new content successes and emerging SEO momentum.\n\n[Visualize this API live on SpyFu](https://www.spyfu.com/seo/keywords/domain?includeAnyTerm=true&includeAnyUrl=true&searchType=newlyranked&sidebarContext=filters&query=amazon.com)",
+        "description": "Returns keywords where a domain recently achieved rankings in the top 100 organic search results. This endpoint identifies fresh ranking opportunities to reveal new content successes and emerging SEO momentum.\n\n[Visualize this API live on SpyFu](https://www.spyfu.com/seo/keywords/domain?includeAnyTerm=true&includeAnyUrl=true&searchType=newlyranked&sidebarContext=filters&query=example.com)",
         "parameters": [
           {
             "name": "query",
             "in": "query",
-            "description": "Full domain, specific URL, subdomain, path or page to analyze.",
+            "description": "Domain, URL, subdomain, or path to analyze. Accepts full domains (example.com), complete URLs (https://example.com/blog), subdomains (blog.example.com), specific paths (example.com/products/), or individual pages.",
             "required": true,
             "schema": {
               "type": "string",
-              "format": "uri-reference",
               "examples": [
-                "example.com",
-                "example.com/blog",
-                "blog.example.com",
-                "www.example.com/any/path/or?page"
+                "example.com/blog"
               ]
-            }
+            },
+            "example": "example.com/blog"
           },
           {
             "name": "sortBy",
@@ -683,9 +704,9 @@
                 "BroadCostPerClick": "Average amount advertisers pay per click for broad match ads on this keyword",
                 "ExactCostPerClick": "Average amount advertisers pay per click for exact match ads on this keyword",
                 "PhraseCostPerClick": "Average amount advertisers pay per click for phrase match ads on this keyword",
-                "BroadMonthlyCost": "Estimated monthly ad spend for broad match bidding",
-                "ExactMonthlyCost": "Estimated monthly ad spend for exact match bidding",
-                "PhraseMonthlyCost": "Estimated monthly ad spend for phrase match bidding",
+                "BroadMonthlyCost": "Estimated monthly advertising spend for broad match bidding",
+                "ExactMonthlyCost": "Estimated monthly advertising spend for exact match bidding",
+                "PhraseMonthlyCost": "Estimated monthly advertising spend for phrase match bidding",
                 "TotalMonthlyClicks": "Total estimated clicks made on this SERP to any paid or organic results",
                 "PaidCompetitors": "Total number of advertisers seen over the last 6 months for this keyword",
                 "RankingHomepages": "Number of homepage URLs (vs deeper paths) ranking within first 100 results"
@@ -745,7 +766,7 @@
           {
             "name": "countryCode",
             "in": "query",
-            "description": "Country market to search.  Specifically, this maps to the Google version to query against (google.de for Germany, etc).  Google.com (US) is the default. [Full list of supported Countries](https://developer.spyfu.com/update/reference/country-code-enum#/)",
+            "description": "Country market to search.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).",
             "schema": {
               "type": "string",
               "examples": [
@@ -778,7 +799,34 @@
                 "UK",
                 "US",
                 "ZA"
-              ]
+              ],
+              "x-enumDescriptions": {
+                "AR": "Argentina",
+                "AU": "Australia",
+                "BE": "Belgium",
+                "BR": "Brazil",
+                "CA": "Canada",
+                "CH": "Switzerland",
+                "DE": "Germany",
+                "DK": "Denmark",
+                "ES": "Spain",
+                "FR": "France",
+                "IE": "Ireland",
+                "IN": "India",
+                "IT": "Italy",
+                "JP": "Japan",
+                "MX": "Mexico",
+                "NL": "Netherlands",
+                "NO": "Norway",
+                "NZ": "New Zealand",
+                "PT": "Portugal",
+                "SE": "Sweden",
+                "SG": "Singapore",
+                "UA": "Ukraine",
+                "UK": "United Kingdom",
+                "US": "United States",
+                "ZA": "South Africa"
+              }
             },
             "example": "US"
           },
@@ -886,7 +934,7 @@
           {
             "name": "includeAnyTerm",
             "in": "query",
-            "description": "Require ANY or ALL terms from the includeTerms parameter to be in the keyword.  ANY = TRUE, ALL = FALSE.  ALL is the default.  ",
+            "description": "Include ANY or ALL terms.",
             "schema": {
               "type": "boolean",
               "default": false
@@ -895,7 +943,7 @@
           {
             "name": "excludeTerms",
             "in": "query",
-            "description": "CSV of terms to exclude from any of the keywords.  This is always applied as an ANY.  No keywords with ANY of the terms in the CSV will be returned.  ",
+            "description": "CSV of terms that are required to not be in the results.",
             "schema": {
               "type": "string"
             }
@@ -1221,23 +1269,20 @@
       "get": {
         "operationId": "OrganicSerpApi_GetGainedRanksKeywords_GET",
         "summary": "Get Gained Ranks Keywords",
-        "description": "Returns keywords where a domain improved its organic search ranking positions compared to the previous month. This doesn't just work for full domains, it also works for paths, subdomains, individual pages, or specific URLs. This endpoint identifies the biggest ranking gains to reveal successful SEO efforts and content optimizations.\n\n[Visualize this API live on SpyFu](https://www.spyfu.com/seo/keywords/domain?includeAnyTerm=true&includeAnyUrl=true&searchType=gainedranks&sidebarContext=filters&query=amazon.com)",
+        "description": "Returns keywords where a domain, path, subdomain, page or full URL improved its organic search ranking positions compared to the previous month. This endpoint identifies the biggest ranking gains to reveal successful SEO efforts and content optimizations.\n\n[Visualize this API live on SpyFu](https://www.spyfu.com/seo/keywords/domain?includeAnyTerm=true&includeAnyUrl=true&searchType=gainedranks&sidebarContext=filters&query=example.com)",
         "parameters": [
           {
             "name": "query",
             "in": "query",
-            "description": "Full domain, specific URL, subdomain, path or page to analyze.",
+            "description": "Domain, URL, subdomain, or path to analyze. Accepts full domains (example.com), complete URLs (https://example.com/blog), subdomains (blog.example.com), specific paths (example.com/products/), or individual pages.",
             "required": true,
             "schema": {
               "type": "string",
-              "format": "uri-reference",
               "examples": [
-                "example.com",
-                "example.com/blog",
-                "blog.example.com",
-                "www.example.com/any/path/or?page"
+                "example.com/blog"
               ]
-            }
+            },
+            "example": "example.com/blog"
           },
           {
             "name": "sortBy",
@@ -1286,9 +1331,9 @@
                 "BroadCostPerClick": "Average amount advertisers pay per click for broad match ads on this keyword",
                 "ExactCostPerClick": "Average amount advertisers pay per click for exact match ads on this keyword",
                 "PhraseCostPerClick": "Average amount advertisers pay per click for phrase match ads on this keyword",
-                "BroadMonthlyCost": "Estimated monthly ad spend for broad match bidding",
-                "ExactMonthlyCost": "Estimated monthly ad spend for exact match bidding",
-                "PhraseMonthlyCost": "Estimated monthly ad spend for phrase match bidding",
+                "BroadMonthlyCost": "Estimated monthly advertising spend for broad match bidding",
+                "ExactMonthlyCost": "Estimated monthly advertising spend for exact match bidding",
+                "PhraseMonthlyCost": "Estimated monthly advertising spend for phrase match bidding",
                 "TotalMonthlyClicks": "Total estimated clicks made on this SERP to any paid or organic results",
                 "PaidCompetitors": "Total number of advertisers seen over the last 6 months for this keyword",
                 "RankingHomepages": "Number of homepage URLs (vs deeper paths) ranking within first 100 results"
@@ -1348,7 +1393,7 @@
           {
             "name": "countryCode",
             "in": "query",
-            "description": "Country market to search.  Specifically, this maps to the Google version to query against (google.de for Germany, etc).  Google.com (US) is the default. [Full list of supported Countries](https://developer.spyfu.com/update/reference/country-code-enum#/)",
+            "description": "Country market to search.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).",
             "schema": {
               "type": "string",
               "examples": [
@@ -1381,7 +1426,34 @@
                 "UK",
                 "US",
                 "ZA"
-              ]
+              ],
+              "x-enumDescriptions": {
+                "AR": "Argentina",
+                "AU": "Australia",
+                "BE": "Belgium",
+                "BR": "Brazil",
+                "CA": "Canada",
+                "CH": "Switzerland",
+                "DE": "Germany",
+                "DK": "Denmark",
+                "ES": "Spain",
+                "FR": "France",
+                "IE": "Ireland",
+                "IN": "India",
+                "IT": "Italy",
+                "JP": "Japan",
+                "MX": "Mexico",
+                "NL": "Netherlands",
+                "NO": "Norway",
+                "NZ": "New Zealand",
+                "PT": "Portugal",
+                "SE": "Sweden",
+                "SG": "Singapore",
+                "UA": "Ukraine",
+                "UK": "United Kingdom",
+                "US": "United States",
+                "ZA": "South Africa"
+              }
             },
             "example": "US"
           },
@@ -1489,7 +1561,7 @@
           {
             "name": "includeAnyTerm",
             "in": "query",
-            "description": "Require ANY or ALL terms from the includeTerms parameter to be in the keyword.  ANY = TRUE, ALL = FALSE.  ALL is the default.  ",
+            "description": "Include ANY or ALL terms.",
             "schema": {
               "type": "boolean",
               "default": false
@@ -1498,7 +1570,7 @@
           {
             "name": "excludeTerms",
             "in": "query",
-            "description": "CSV of terms to exclude from any of the keywords.  This is always applied as an ANY.  No keywords with ANY of the terms in the CSV will be returned.  ",
+            "description": "CSV of terms that are required to not be in the results.",
             "schema": {
               "type": "string"
             }
@@ -1824,23 +1896,20 @@
       "get": {
         "operationId": "OrganicSerpApi_GetLostRanksKeywords_GET",
         "summary": "Get Lost Ranks Keywords",
-        "description": "Returns keywords where a domain's organic search ranking positions declined compared to the previous month. This doesn't just work for full domains, it also works for paths, subdomains, individual pages, or specific URLs. This endpoint identifies ranking losses that remain within the top 100 results to reveal content that needs SEO attention.\n\n[Visualize this API live on SpyFu](https://www.spyfu.com/seo/keywords/domain?includeAnyTerm=true&includeAnyUrl=true&searchType=lostranks&sidebarContext=filters&query=amazon.com)",
+        "description": "Returns keywords where a domain's organic search ranking positions declined compared to the previous month. This endpoint identifies ranking losses that remain within the top 100 results to reveal content that needs SEO attention.\n\n[Visualize this API live on SpyFu](https://www.spyfu.com/seo/keywords/domain?includeAnyTerm=true&includeAnyUrl=true&searchType=lostranks&sidebarContext=filters&query=example.com)",
         "parameters": [
           {
             "name": "query",
             "in": "query",
-            "description": "Full domain, specific URL, subdomain, path or page to analyze.",
+            "description": "Domain, URL, subdomain, or path to analyze. Accepts full domains (example.com), complete URLs (https://example.com/blog), subdomains (blog.example.com), specific paths (example.com/products/), or individual pages.",
             "required": true,
             "schema": {
               "type": "string",
-              "format": "uri-reference",
               "examples": [
-                "example.com",
-                "example.com/blog",
-                "blog.example.com",
-                "www.example.com/any/path/or?page"
+                "example.com/blog"
               ]
-            }
+            },
+            "example": "example.com/blog"
           },
           {
             "name": "sortBy",
@@ -1889,9 +1958,9 @@
                 "BroadCostPerClick": "Average amount advertisers pay per click for broad match ads on this keyword",
                 "ExactCostPerClick": "Average amount advertisers pay per click for exact match ads on this keyword",
                 "PhraseCostPerClick": "Average amount advertisers pay per click for phrase match ads on this keyword",
-                "BroadMonthlyCost": "Estimated monthly ad spend for broad match bidding",
-                "ExactMonthlyCost": "Estimated monthly ad spend for exact match bidding",
-                "PhraseMonthlyCost": "Estimated monthly ad spend for phrase match bidding",
+                "BroadMonthlyCost": "Estimated monthly advertising spend for broad match bidding",
+                "ExactMonthlyCost": "Estimated monthly advertising spend for exact match bidding",
+                "PhraseMonthlyCost": "Estimated monthly advertising spend for phrase match bidding",
                 "TotalMonthlyClicks": "Total estimated clicks made on this SERP to any paid or organic results",
                 "PaidCompetitors": "Total number of advertisers seen over the last 6 months for this keyword",
                 "RankingHomepages": "Number of homepage URLs (vs deeper paths) ranking within first 100 results"
@@ -1951,7 +2020,7 @@
           {
             "name": "countryCode",
             "in": "query",
-            "description": "Country market to search.  Specifically, this maps to the Google version to query against (google.de for Germany, etc).  Google.com (US) is the default. [Full list of supported Countries](https://developer.spyfu.com/update/reference/country-code-enum#/)",
+            "description": "Country market to search.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).",
             "schema": {
               "type": "string",
               "examples": [
@@ -1984,7 +2053,34 @@
                 "UK",
                 "US",
                 "ZA"
-              ]
+              ],
+              "x-enumDescriptions": {
+                "AR": "Argentina",
+                "AU": "Australia",
+                "BE": "Belgium",
+                "BR": "Brazil",
+                "CA": "Canada",
+                "CH": "Switzerland",
+                "DE": "Germany",
+                "DK": "Denmark",
+                "ES": "Spain",
+                "FR": "France",
+                "IE": "Ireland",
+                "IN": "India",
+                "IT": "Italy",
+                "JP": "Japan",
+                "MX": "Mexico",
+                "NL": "Netherlands",
+                "NO": "Norway",
+                "NZ": "New Zealand",
+                "PT": "Portugal",
+                "SE": "Sweden",
+                "SG": "Singapore",
+                "UA": "Ukraine",
+                "UK": "United Kingdom",
+                "US": "United States",
+                "ZA": "South Africa"
+              }
             },
             "example": "US"
           },
@@ -2092,7 +2188,7 @@
           {
             "name": "includeAnyTerm",
             "in": "query",
-            "description": "Require ANY or ALL terms from the includeTerms parameter to be in the keyword.  ANY = TRUE, ALL = FALSE.  ALL is the default.  ",
+            "description": "Include ANY or ALL terms.",
             "schema": {
               "type": "boolean",
               "default": false
@@ -2101,7 +2197,7 @@
           {
             "name": "excludeTerms",
             "in": "query",
-            "description": "CSV of terms to exclude from any of the keywords.  This is always applied as an ANY.  No keywords with ANY of the terms in the CSV will be returned.  ",
+            "description": "CSV of terms that are required to not be in the results.",
             "schema": {
               "type": "string"
             }
@@ -2427,23 +2523,20 @@
       "get": {
         "operationId": "OrganicSerpApi_GetGainedClicksKeywords_GET",
         "summary": "Get Gained Clicks Keywords",
-        "description": "Returns keywords where a domain experienced increased organic clicks compared to the previous month. This doesn't just work for full domains, it also works for paths, subdomains, individual pages, or specific URLs. This endpoint identifies the biggest click improvements to reveal rising content opportunities and successful SEO changes.\n\n[Visualize this API live on SpyFu](https://www.spyfu.com/seo/keywords/domain?includeAnyTerm=true&includeAnyUrl=true&searchType=gainedclicks&sidebarContext=filters&query=amazon.com)",
+        "description": "Returns keywords where a domain, path, subdomain, page or full URL experienced increased organic clicks compared to the previous month. This endpoint identifies the biggest click improvements to reveal rising content opportunities and successful SEO changes.\n\n[Visualize this API live on SpyFu](https://www.spyfu.com/seo/keywords/domain?includeAnyTerm=true&includeAnyUrl=true&searchType=gainedclicks&sidebarContext=filters&query=example.com)",
         "parameters": [
           {
             "name": "query",
             "in": "query",
-            "description": "Full domain, specific URL, subdomain, path or page to analyze.",
+            "description": "Domain, URL, subdomain, or path to analyze. Accepts full domains (example.com), complete URLs (https://example.com/blog), subdomains (blog.example.com), specific paths (example.com/products/), or individual pages.",
             "required": true,
             "schema": {
               "type": "string",
-              "format": "uri-reference",
               "examples": [
-                "example.com",
-                "example.com/blog",
-                "blog.example.com",
-                "www.example.com/any/path/or?page"
+                "example.com/blog"
               ]
-            }
+            },
+            "example": "example.com/blog"
           },
           {
             "name": "sortBy",
@@ -2492,9 +2585,9 @@
                 "BroadCostPerClick": "Average amount advertisers pay per click for broad match ads on this keyword",
                 "ExactCostPerClick": "Average amount advertisers pay per click for exact match ads on this keyword",
                 "PhraseCostPerClick": "Average amount advertisers pay per click for phrase match ads on this keyword",
-                "BroadMonthlyCost": "Estimated monthly ad spend for broad match bidding",
-                "ExactMonthlyCost": "Estimated monthly ad spend for exact match bidding",
-                "PhraseMonthlyCost": "Estimated monthly ad spend for phrase match bidding",
+                "BroadMonthlyCost": "Estimated monthly advertising spend for broad match bidding",
+                "ExactMonthlyCost": "Estimated monthly advertising spend for exact match bidding",
+                "PhraseMonthlyCost": "Estimated monthly advertising spend for phrase match bidding",
                 "TotalMonthlyClicks": "Total estimated clicks made on this SERP to any paid or organic results",
                 "PaidCompetitors": "Total number of advertisers seen over the last 6 months for this keyword",
                 "RankingHomepages": "Number of homepage URLs (vs deeper paths) ranking within first 100 results"
@@ -2554,7 +2647,7 @@
           {
             "name": "countryCode",
             "in": "query",
-            "description": "Country market to search.  Specifically, this maps to the Google version to query against (google.de for Germany, etc).  Google.com (US) is the default. [Full list of supported Countries](https://developer.spyfu.com/update/reference/country-code-enum#/)",
+            "description": "Country market to search.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).",
             "schema": {
               "type": "string",
               "examples": [
@@ -2587,7 +2680,34 @@
                 "UK",
                 "US",
                 "ZA"
-              ]
+              ],
+              "x-enumDescriptions": {
+                "AR": "Argentina",
+                "AU": "Australia",
+                "BE": "Belgium",
+                "BR": "Brazil",
+                "CA": "Canada",
+                "CH": "Switzerland",
+                "DE": "Germany",
+                "DK": "Denmark",
+                "ES": "Spain",
+                "FR": "France",
+                "IE": "Ireland",
+                "IN": "India",
+                "IT": "Italy",
+                "JP": "Japan",
+                "MX": "Mexico",
+                "NL": "Netherlands",
+                "NO": "Norway",
+                "NZ": "New Zealand",
+                "PT": "Portugal",
+                "SE": "Sweden",
+                "SG": "Singapore",
+                "UA": "Ukraine",
+                "UK": "United Kingdom",
+                "US": "United States",
+                "ZA": "South Africa"
+              }
             },
             "example": "US"
           },
@@ -2695,7 +2815,7 @@
           {
             "name": "includeAnyTerm",
             "in": "query",
-            "description": "Require ANY or ALL terms from the includeTerms parameter to be in the keyword.  ANY = TRUE, ALL = FALSE.  ALL is the default.  ",
+            "description": "Include ANY or ALL terms.",
             "schema": {
               "type": "boolean",
               "default": false
@@ -2704,7 +2824,7 @@
           {
             "name": "excludeTerms",
             "in": "query",
-            "description": "CSV of terms to exclude from any of the keywords.  This is always applied as an ANY.  No keywords with ANY of the terms in the CSV will be returned.  ",
+            "description": "CSV of terms that are required to not be in the results.",
             "schema": {
               "type": "string"
             }
@@ -3030,23 +3150,20 @@
       "get": {
         "operationId": "OrganicSerpApi_GetLostClicksKeywords_GET",
         "summary": "Get Lost Clicks Keywords",
-        "description": "Returns keywords where a domain experienced decreased organic clicks compared to the previous month. This doesn't just work for full domains, it also works for paths, subdomains, individual pages, or specific URLs. This endpoint identifies the biggest click losses to reveal content that needs attention or competitive pressure points.\n\n[Visualize this API live on SpyFu](https://www.spyfu.com/seo/keywords/domain?includeAnyTerm=true&includeAnyUrl=true&searchType=lostclicks&sidebarContext=filters&query=amazon.com)",
+        "description": "Returns keywords where a domain experienced decreased organic clicks compared to the previous month. This endpoint identifies the biggest click losses to reveal content that needs attention or competitive pressure points.\n\n[Visualize this API live on SpyFu](https://www.spyfu.com/seo/keywords/domain?includeAnyTerm=true&includeAnyUrl=true&searchType=lostclicks&sidebarContext=filters&query=example.com)",
         "parameters": [
           {
             "name": "query",
             "in": "query",
-            "description": "Full domain, specific URL, subdomain, path or page to analyze.",
+            "description": "Domain, URL, subdomain, or path to analyze. Accepts full domains (example.com), complete URLs (https://example.com/blog), subdomains (blog.example.com), specific paths (example.com/products/), or individual pages.",
             "required": true,
             "schema": {
               "type": "string",
-              "format": "uri-reference",
               "examples": [
-                "example.com",
-                "example.com/blog",
-                "blog.example.com",
-                "www.example.com/any/path/or?page"
+                "example.com/blog"
               ]
-            }
+            },
+            "example": "example.com/blog"
           },
           {
             "name": "sortBy",
@@ -3095,9 +3212,9 @@
                 "BroadCostPerClick": "Average amount advertisers pay per click for broad match ads on this keyword",
                 "ExactCostPerClick": "Average amount advertisers pay per click for exact match ads on this keyword",
                 "PhraseCostPerClick": "Average amount advertisers pay per click for phrase match ads on this keyword",
-                "BroadMonthlyCost": "Estimated monthly ad spend for broad match bidding",
-                "ExactMonthlyCost": "Estimated monthly ad spend for exact match bidding",
-                "PhraseMonthlyCost": "Estimated monthly ad spend for phrase match bidding",
+                "BroadMonthlyCost": "Estimated monthly advertising spend for broad match bidding",
+                "ExactMonthlyCost": "Estimated monthly advertising spend for exact match bidding",
+                "PhraseMonthlyCost": "Estimated monthly advertising spend for phrase match bidding",
                 "TotalMonthlyClicks": "Total estimated clicks made on this SERP to any paid or organic results",
                 "PaidCompetitors": "Total number of advertisers seen over the last 6 months for this keyword",
                 "RankingHomepages": "Number of homepage URLs (vs deeper paths) ranking within first 100 results"
@@ -3157,7 +3274,7 @@
           {
             "name": "countryCode",
             "in": "query",
-            "description": "Country market to search.  Specifically, this maps to the Google version to query against (google.de for Germany, etc).  Google.com (US) is the default. [Full list of supported Countries](https://developer.spyfu.com/update/reference/country-code-enum#/)",
+            "description": "Country market to search.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).",
             "schema": {
               "type": "string",
               "examples": [
@@ -3190,7 +3307,34 @@
                 "UK",
                 "US",
                 "ZA"
-              ]
+              ],
+              "x-enumDescriptions": {
+                "AR": "Argentina",
+                "AU": "Australia",
+                "BE": "Belgium",
+                "BR": "Brazil",
+                "CA": "Canada",
+                "CH": "Switzerland",
+                "DE": "Germany",
+                "DK": "Denmark",
+                "ES": "Spain",
+                "FR": "France",
+                "IE": "Ireland",
+                "IN": "India",
+                "IT": "Italy",
+                "JP": "Japan",
+                "MX": "Mexico",
+                "NL": "Netherlands",
+                "NO": "Norway",
+                "NZ": "New Zealand",
+                "PT": "Portugal",
+                "SE": "Sweden",
+                "SG": "Singapore",
+                "UA": "Ukraine",
+                "UK": "United Kingdom",
+                "US": "United States",
+                "ZA": "South Africa"
+              }
             },
             "example": "US"
           },
@@ -3298,7 +3442,7 @@
           {
             "name": "includeAnyTerm",
             "in": "query",
-            "description": "Require ANY or ALL terms from the includeTerms parameter to be in the keyword.  ANY = TRUE, ALL = FALSE.  ALL is the default.  ",
+            "description": "Include ANY or ALL terms.",
             "schema": {
               "type": "boolean",
               "default": false
@@ -3307,7 +3451,7 @@
           {
             "name": "excludeTerms",
             "in": "query",
-            "description": "CSV of terms to exclude from any of the keywords.  This is always applied as an ANY.  No keywords with ANY of the terms in the CSV will be returned.  ",
+            "description": "CSV of terms that are required to not be in the results.",
             "schema": {
               "type": "string"
             }
@@ -3633,23 +3777,20 @@
       "get": {
         "operationId": "OrganicSerpApi_GetJustMadeItKeywords_GET",
         "summary": "Get Just Made It Keywords",
-        "description": "Returns keywords where a domain achieved first page rankings (top 10 results) this month after not ranking there previously. This doesn't just work for full domains, it also works for paths, subdomains, individual pages, or specific URLs. This endpoint identifies new ranking successes to reveal effective content strategies and emerging opportunities.\n\n[Visualize this API live on SpyFu](https://www.spyfu.com/seo/keywords/domain?includeAnyTerm=true&includeAnyUrl=true&searchType=justmadeit&sidebarContext=filters&query=amazon.com)",
+        "description": "Returns keywords where a domain achieved first page rankings (top 10 results) this month after not ranking there previously. This endpoint identifies new ranking successes to reveal effective content strategies and emerging opportunities.\n\n[Visualize this API live on SpyFu](https://www.spyfu.com/seo/keywords/domain?includeAnyTerm=true&includeAnyUrl=true&searchType=justmadeit&sidebarContext=filters&query=example.com)",
         "parameters": [
           {
             "name": "query",
             "in": "query",
-            "description": "Full domain, specific URL, subdomain, path or page to analyze.",
+            "description": "Domain, URL, subdomain, or path to analyze. Accepts full domains (example.com), complete URLs (https://example.com/blog), subdomains (blog.example.com), specific paths (example.com/products/), or individual pages.",
             "required": true,
             "schema": {
               "type": "string",
-              "format": "uri-reference",
               "examples": [
-                "example.com",
-                "example.com/blog",
-                "blog.example.com",
-                "www.example.com/any/path/or?page"
+                "example.com/blog"
               ]
-            }
+            },
+            "example": "example.com/blog"
           },
           {
             "name": "sortBy",
@@ -3698,9 +3839,9 @@
                 "BroadCostPerClick": "Average amount advertisers pay per click for broad match ads on this keyword",
                 "ExactCostPerClick": "Average amount advertisers pay per click for exact match ads on this keyword",
                 "PhraseCostPerClick": "Average amount advertisers pay per click for phrase match ads on this keyword",
-                "BroadMonthlyCost": "Estimated monthly ad spend for broad match bidding",
-                "ExactMonthlyCost": "Estimated monthly ad spend for exact match bidding",
-                "PhraseMonthlyCost": "Estimated monthly ad spend for phrase match bidding",
+                "BroadMonthlyCost": "Estimated monthly advertising spend for broad match bidding",
+                "ExactMonthlyCost": "Estimated monthly advertising spend for exact match bidding",
+                "PhraseMonthlyCost": "Estimated monthly advertising spend for phrase match bidding",
                 "TotalMonthlyClicks": "Total estimated clicks made on this SERP to any paid or organic results",
                 "PaidCompetitors": "Total number of advertisers seen over the last 6 months for this keyword",
                 "RankingHomepages": "Number of homepage URLs (vs deeper paths) ranking within first 100 results"
@@ -3760,7 +3901,7 @@
           {
             "name": "countryCode",
             "in": "query",
-            "description": "Country market to search.  Specifically, this maps to the Google version to query against (google.de for Germany, etc).  Google.com (US) is the default. [Full list of supported Countries](https://developer.spyfu.com/update/reference/country-code-enum#/)",
+            "description": "Country market to search.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).",
             "schema": {
               "type": "string",
               "examples": [
@@ -3793,7 +3934,34 @@
                 "UK",
                 "US",
                 "ZA"
-              ]
+              ],
+              "x-enumDescriptions": {
+                "AR": "Argentina",
+                "AU": "Australia",
+                "BE": "Belgium",
+                "BR": "Brazil",
+                "CA": "Canada",
+                "CH": "Switzerland",
+                "DE": "Germany",
+                "DK": "Denmark",
+                "ES": "Spain",
+                "FR": "France",
+                "IE": "Ireland",
+                "IN": "India",
+                "IT": "Italy",
+                "JP": "Japan",
+                "MX": "Mexico",
+                "NL": "Netherlands",
+                "NO": "Norway",
+                "NZ": "New Zealand",
+                "PT": "Portugal",
+                "SE": "Sweden",
+                "SG": "Singapore",
+                "UA": "Ukraine",
+                "UK": "United Kingdom",
+                "US": "United States",
+                "ZA": "South Africa"
+              }
             },
             "example": "US"
           },
@@ -3901,7 +4069,7 @@
           {
             "name": "includeAnyTerm",
             "in": "query",
-            "description": "Require ANY or ALL terms from the includeTerms parameter to be in the keyword.  ANY = TRUE, ALL = FALSE.  ALL is the default.  ",
+            "description": "Include ANY or ALL terms.",
             "schema": {
               "type": "boolean",
               "default": false
@@ -3910,7 +4078,7 @@
           {
             "name": "excludeTerms",
             "in": "query",
-            "description": "CSV of terms to exclude from any of the keywords.  This is always applied as an ANY.  No keywords with ANY of the terms in the CSV will be returned.  ",
+            "description": "CSV of terms that are required to not be in the results.",
             "schema": {
               "type": "string"
             }
@@ -4236,23 +4404,20 @@
       "get": {
         "operationId": "OrganicSerpApi_GetJustFellOffKeywords_GET",
         "summary": "Get Just Fell Off Keywords",
-        "description": "Returns keywords where a domain dropped from the first page (top 10 results) compared to the previous month. This doesn't just work for full domains, it also works for paths, subdomains, individual pages, or specific URLs. This endpoint identifies recent ranking losses to reveal content that needs attention or competitive threats.\n\n[Visualize this API live on SpyFu](https://www.spyfu.com/seo/keywords/domain?includeAnyTerm=true&includeAnyUrl=true&searchType=justfelloff&sidebarContext=filters&query=amazon.com)",
+        "description": "Returns keywords where a domain dropped from the first page (top 10 results) compared to the previous month. This endpoint identifies recent ranking losses to reveal content that needs attention or competitive threats.\n\n[Visualize this API live on SpyFu](https://www.spyfu.com/seo/keywords/domain?includeAnyTerm=true&includeAnyUrl=true&searchType=justfelloff&sidebarContext=filters&query=example.com)",
         "parameters": [
           {
             "name": "query",
             "in": "query",
-            "description": "Full domain, specific URL, subdomain, path or page to analyze.",
+            "description": "Domain, URL, subdomain, or path to analyze. Accepts full domains (example.com), complete URLs (https://example.com/blog), subdomains (blog.example.com), specific paths (example.com/products/), or individual pages.",
             "required": true,
             "schema": {
               "type": "string",
-              "format": "uri-reference",
               "examples": [
-                "example.com",
-                "example.com/blog",
-                "blog.example.com",
-                "www.example.com/any/path/or?page"
+                "example.com/blog"
               ]
-            }
+            },
+            "example": "example.com/blog"
           },
           {
             "name": "sortBy",
@@ -4301,9 +4466,9 @@
                 "BroadCostPerClick": "Average amount advertisers pay per click for broad match ads on this keyword",
                 "ExactCostPerClick": "Average amount advertisers pay per click for exact match ads on this keyword",
                 "PhraseCostPerClick": "Average amount advertisers pay per click for phrase match ads on this keyword",
-                "BroadMonthlyCost": "Estimated monthly ad spend for broad match bidding",
-                "ExactMonthlyCost": "Estimated monthly ad spend for exact match bidding",
-                "PhraseMonthlyCost": "Estimated monthly ad spend for phrase match bidding",
+                "BroadMonthlyCost": "Estimated monthly advertising spend for broad match bidding",
+                "ExactMonthlyCost": "Estimated monthly advertising spend for exact match bidding",
+                "PhraseMonthlyCost": "Estimated monthly advertising spend for phrase match bidding",
                 "TotalMonthlyClicks": "Total estimated clicks made on this SERP to any paid or organic results",
                 "PaidCompetitors": "Total number of advertisers seen over the last 6 months for this keyword",
                 "RankingHomepages": "Number of homepage URLs (vs deeper paths) ranking within first 100 results"
@@ -4363,7 +4528,7 @@
           {
             "name": "countryCode",
             "in": "query",
-            "description": "Country market to search.  Specifically, this maps to the Google version to query against (google.de for Germany, etc).  Google.com (US) is the default. [Full list of supported Countries](https://developer.spyfu.com/update/reference/country-code-enum#/)",
+            "description": "Country market to search.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).",
             "schema": {
               "type": "string",
               "examples": [
@@ -4396,7 +4561,34 @@
                 "UK",
                 "US",
                 "ZA"
-              ]
+              ],
+              "x-enumDescriptions": {
+                "AR": "Argentina",
+                "AU": "Australia",
+                "BE": "Belgium",
+                "BR": "Brazil",
+                "CA": "Canada",
+                "CH": "Switzerland",
+                "DE": "Germany",
+                "DK": "Denmark",
+                "ES": "Spain",
+                "FR": "France",
+                "IE": "Ireland",
+                "IN": "India",
+                "IT": "Italy",
+                "JP": "Japan",
+                "MX": "Mexico",
+                "NL": "Netherlands",
+                "NO": "Norway",
+                "NZ": "New Zealand",
+                "PT": "Portugal",
+                "SE": "Sweden",
+                "SG": "Singapore",
+                "UA": "Ukraine",
+                "UK": "United Kingdom",
+                "US": "United States",
+                "ZA": "South Africa"
+              }
             },
             "example": "US"
           },
@@ -4504,7 +4696,7 @@
           {
             "name": "includeAnyTerm",
             "in": "query",
-            "description": "Require ANY or ALL terms from the includeTerms parameter to be in the keyword.  ANY = TRUE, ALL = FALSE.  ALL is the default.  ",
+            "description": "Include ANY or ALL terms.",
             "schema": {
               "type": "boolean",
               "default": false
@@ -4513,7 +4705,7 @@
           {
             "name": "excludeTerms",
             "in": "query",
-            "description": "CSV of terms to exclude from any of the keywords.  This is always applied as an ANY.  No keywords with ANY of the terms in the CSV will be returned.  ",
+            "description": "CSV of terms that are required to not be in the results.",
             "schema": {
               "type": "string"
             }
@@ -4869,7 +5061,7 @@
           {
             "name": "countryCode",
             "in": "query",
-            "description": "Country market to search.  Specifically, this maps to the Google version to query against (google.de for Germany, etc).  Google.com (US) is the default. [Full list of supported Countries](https://developer.spyfu.com/update/reference/country-code-enum#/)",
+            "description": "Country market to analyze SERP data for.",
             "schema": {
               "type": "string",
               "examples": [
@@ -4902,7 +5094,34 @@
                 "UK",
                 "US",
                 "ZA"
-              ]
+              ],
+              "x-enumDescriptions": {
+                "AR": "Argentina",
+                "AU": "Australia",
+                "BE": "Belgium",
+                "BR": "Brazil",
+                "CA": "Canada",
+                "CH": "Switzerland",
+                "DE": "Germany",
+                "DK": "Denmark",
+                "ES": "Spain",
+                "FR": "France",
+                "IE": "Ireland",
+                "IN": "India",
+                "IT": "Italy",
+                "JP": "Japan",
+                "MX": "Mexico",
+                "NL": "Netherlands",
+                "NO": "Norway",
+                "NZ": "New Zealand",
+                "PT": "Portugal",
+                "SE": "Sweden",
+                "SG": "Singapore",
+                "UA": "Ukraine",
+                "UK": "United Kingdom",
+                "US": "United States",
+                "ZA": "South Africa"
+              }
             },
             "example": "US"
           }
@@ -4961,7 +5180,7 @@
                               "null"
                             ],
                             "examples": [
-                              "https://example.com/blogs"
+                              "https://example.com/blog"
                             ]
                           },
                           "title": {
@@ -4983,7 +5202,7 @@
                             ]
                           },
                           "rankChange": {
-                            "description": "Change in ranking position since the previous measurement period (negative values indicate ranking improvement).",
+                            "description": "Change in ranking position since the previous measurement period (positive values indicate ranking improvement; negative values indicate moving further down the SERP).",
                             "type": [
                               "integer",
                               "null"
@@ -5654,7 +5873,7 @@
               "null"
             ],
             "examples": [
-              "https://example.com/blogs"
+              "https://example.com/blog"
             ]
           },
           "title": {
@@ -5676,7 +5895,7 @@
             ]
           },
           "rankChange": {
-            "description": "Change in ranking position since the previous measurement period (negative values indicate ranking improvement).",
+            "description": "Change in ranking position since the previous measurement period (positive values indicate ranking improvement; negative values indicate moving further down the SERP).",
             "type": [
               "integer",
               "null"
@@ -5776,7 +5995,7 @@
                     "null"
                   ],
                   "examples": [
-                    "https://example.com/blogs"
+                    "https://example.com/blog"
                   ]
                 },
                 "title": {
@@ -5798,7 +6017,7 @@
                   ]
                 },
                 "rankChange": {
-                  "description": "Change in ranking position since the previous measurement period (negative values indicate ranking improvement).",
+                  "description": "Change in ranking position since the previous measurement period (positive values indicate ranking improvement; negative values indicate moving further down the SERP).",
                   "type": [
                     "integer",
                     "null"

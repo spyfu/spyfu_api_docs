@@ -3,7 +3,7 @@
   "info": {
     "title": "PPC Research API",
     "version": "v2",
-    "description": "Discover precisely which keywords any competitor targets in paid search. Clearly understand their real business focus and profit model, regardless of website messaging."
+    "description": "Discover high-performing paid keywords and identify emerging advertising opportunities to optimize your PPC campaigns and maximize ROI. Powered by SpyFu's unmatched paid search intelligence spanning 18 years of advertising data collection across global markets.\n\nSpyFu's PPC Keyword Research API analyzes **8 billion keywords** with comprehensive advertising metrics, delivering **20x more paid keywords per domain** than SEMRush or Ahrefs. Built on a foundation of **1.6 trillion search results** and **18 years of advertising intelligence**, our database tracks keyword performance patterns to identify the most successful advertising strategies. **Every keyword metric updates every 15 seconds**, ensuring you have real-time competitive intelligence across all 28 supported countries.\n\nWhile competitors provide basic paid keyword lists, SpyFu delivers comprehensive keyword performance analysis with 18 years of historical data and live updates every 15 seconds. Our advanced algorithms identify the most successful paid keywords and emerging opportunities based on real advertising performance data.\n\nWith this API, you can discover the most successful paid keywords in any market niche, identify emerging keyword opportunities before competitors, analyze keyword performance trends over time, uncover high-converting keywords competitors are targeting, track new keyword adoption patterns across industries, and access comprehensive paid search intelligence to optimize campaign performance. Find the keywords that drive results and build winning advertising campaigns based on proven performance data.\n\nThe PPC Keyword Research API integrates seamlessly with SpyFu's Ad History, SERP Research, and Competitors APIs to provide complete paid search intelligence, enabling you to combine keyword discovery with competitor analysis and historical advertising insights.\n\nGet started with comprehensive API documentation and interactive examples at [SpyFu Developer Portal](https://developer.spyfu.com)."
   },
   "servers": [
     {
@@ -15,7 +15,7 @@
       "get": {
         "operationId": "PaidSerpApi_GetMostSuccessful_GET",
         "summary": "Get Most Successful PPC Keywords",
-        "description": "Returns the most successful paid search keywords for a domain based on search volume and competitive strength. This endpoint provides the highest-performing PPC keywords from the past year to identify proven ad opportunities and optimize keyword strategy.\n\n[Visualize this API live on SpyFu](https://www.spyfu.com/ppc/keywords?query=amazon.com)",
+        "description": "Returns the most successful paid search keywords for a domain based on search volume and competitive strength. This endpoint provides the highest-performing PPC keywords from the past year to identify proven advertising opportunities and optimize keyword strategy.\n\n[Visualize this API live on SpyFu](https://www.spyfu.com/ppc/keywords?query=example.com)",
         "parameters": [
           {
             "name": "query",
@@ -37,10 +37,10 @@
             "schema": {
               "type": "string",
               "examples": [
-                "example.org"
+                "your-domain.com"
               ]
             },
-            "example": "example.org"
+            "example": "your-domain"
           },
           {
             "name": "includeTerms",
@@ -201,7 +201,7 @@
           {
             "name": "countryCode",
             "in": "query",
-            "description": "Country market to search.  Specifically, this maps to the Google version to query against (google.de for Germany, etc).  Google.com (US) is the default. [Full list of supported Countries](https://developer.spyfu.com/update/reference/country-code-enum#/)",
+            "description": "Country market to search.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).",
             "schema": {
               "type": "string",
               "examples": [
@@ -234,7 +234,34 @@
                 "UK",
                 "US",
                 "ZA"
-              ]
+              ],
+              "x-enumDescriptions": {
+                "AR": "Argentina",
+                "AU": "Australia",
+                "BE": "Belgium",
+                "BR": "Brazil",
+                "CA": "Canada",
+                "CH": "Switzerland",
+                "DE": "Germany",
+                "DK": "Denmark",
+                "ES": "Spain",
+                "FR": "France",
+                "IE": "Ireland",
+                "IN": "India",
+                "IT": "Italy",
+                "JP": "Japan",
+                "MX": "Mexico",
+                "NL": "Netherlands",
+                "NO": "Norway",
+                "NZ": "New Zealand",
+                "PT": "Portugal",
+                "SE": "Sweden",
+                "SG": "Singapore",
+                "UA": "Ukraine",
+                "UK": "United Kingdom",
+                "US": "United States",
+                "ZA": "South Africa"
+              }
             },
             "example": "US"
           },
@@ -289,7 +316,7 @@
                         "type": "object",
                         "properties": {
                           "keyword": {
-                            "description": "The keyword that shows high performance or profitability for successful competitors in paid search ad.",
+                            "description": "The keyword that shows high performance or profitability for successful competitors in paid search advertising.",
                             "type": [
                               "string",
                               "null"
@@ -464,7 +491,7 @@
                             ]
                           },
                           "broadMonthlyCost": {
-                            "description": "Estimated monthly ad spend for broad match targeting of this keyword.",
+                            "description": "Estimated monthly advertising spend for broad match targeting of this keyword.",
                             "type": [
                               "number",
                               "null"
@@ -475,7 +502,7 @@
                             ]
                           },
                           "phraseMonthlyCost": {
-                            "description": "Estimated monthly ad spend for phrase match targeting of this keyword.",
+                            "description": "Estimated monthly advertising spend for phrase match targeting of this keyword.",
                             "type": [
                               "number",
                               "null"
@@ -486,7 +513,7 @@
                             ]
                           },
                           "exactMonthlyCost": {
-                            "description": "Estimated monthly ad spend for exact match targeting of this keyword.",
+                            "description": "Estimated monthly advertising spend for exact match targeting of this keyword.",
                             "type": [
                               "number",
                               "null"
@@ -600,7 +627,7 @@
       "get": {
         "operationId": "PaidSerpApi_GetNewKeywords_GET",
         "summary": "Get New PPC Keywords",
-        "description": "Returns newly acquired paid search keywords that a domain has started advertising on for the first time. This endpoint identifies recent keyword expansions and emerging advertising strategies to reveal new market opportunities and competitive moves.\n\n[Visualize this API live on SpyFu](https://www.spyfu.com/ppc/keywords?query=amazon.com)",
+        "description": "Returns newly acquired paid search keywords that a domain has started advertising on for the first time. This endpoint identifies recent keyword expansions and emerging advertising strategies to reveal new market opportunities and competitive moves.\n\n[Visualize this API live on SpyFu](https://www.spyfu.com/ppc/keywords?query=example.com)",
         "parameters": [
           {
             "name": "query",
@@ -622,10 +649,10 @@
             "schema": {
               "type": "string",
               "examples": [
-                "example.org"
+                "your-domain.com"
               ]
             },
-            "example": "example.org"
+            "example": "your-domain.com"
           },
           {
             "name": "includeTerms",
@@ -786,7 +813,7 @@
           {
             "name": "countryCode",
             "in": "query",
-            "description": "Country market to search.  Specifically, this maps to the Google version to query against (google.de for Germany, etc).  Google.com (US) is the default. [Full list of supported Countries](https://developer.spyfu.com/update/reference/country-code-enum#/)",
+            "description": "Country market to search.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).",
             "schema": {
               "type": "string",
               "examples": [
@@ -819,7 +846,34 @@
                 "UK",
                 "US",
                 "ZA"
-              ]
+              ],
+              "x-enumDescriptions": {
+                "AR": "Argentina",
+                "AU": "Australia",
+                "BE": "Belgium",
+                "BR": "Brazil",
+                "CA": "Canada",
+                "CH": "Switzerland",
+                "DE": "Germany",
+                "DK": "Denmark",
+                "ES": "Spain",
+                "FR": "France",
+                "IE": "Ireland",
+                "IN": "India",
+                "IT": "Italy",
+                "JP": "Japan",
+                "MX": "Mexico",
+                "NL": "Netherlands",
+                "NO": "Norway",
+                "NZ": "New Zealand",
+                "PT": "Portugal",
+                "SE": "Sweden",
+                "SG": "Singapore",
+                "UA": "Ukraine",
+                "UK": "United Kingdom",
+                "US": "United States",
+                "ZA": "South Africa"
+              }
             },
             "example": "US"
           },
@@ -874,7 +928,7 @@
                         "type": "object",
                         "properties": {
                           "keyword": {
-                            "description": "The keyword that shows high performance or profitability for successful competitors in paid search ad.",
+                            "description": "The keyword that shows high performance or profitability for successful competitors in paid search advertising.",
                             "type": [
                               "string",
                               "null"
@@ -1049,7 +1103,7 @@
                             ]
                           },
                           "broadMonthlyCost": {
-                            "description": "Estimated monthly ad spend for broad match targeting of this keyword.",
+                            "description": "Estimated monthly advertising spend for broad match targeting of this keyword.",
                             "type": [
                               "number",
                               "null"
@@ -1060,7 +1114,7 @@
                             ]
                           },
                           "phraseMonthlyCost": {
-                            "description": "Estimated monthly ad spend for phrase match targeting of this keyword.",
+                            "description": "Estimated monthly advertising spend for phrase match targeting of this keyword.",
                             "type": [
                               "number",
                               "null"
@@ -1071,7 +1125,7 @@
                             ]
                           },
                           "exactMonthlyCost": {
-                            "description": "Estimated monthly ad spend for exact match targeting of this keyword.",
+                            "description": "Estimated monthly advertising spend for exact match targeting of this keyword.",
                             "type": [
                               "number",
                               "null"
@@ -1216,7 +1270,7 @@
               "type": "object",
               "properties": {
                 "keyword": {
-                  "description": "The keyword that shows high performance or profitability for successful competitors in paid search ad.",
+                  "description": "The keyword that shows high performance or profitability for successful competitors in paid search advertising.",
                   "type": [
                     "string",
                     "null"
@@ -1391,7 +1445,7 @@
                   ]
                 },
                 "broadMonthlyCost": {
-                  "description": "Estimated monthly ad spend for broad match targeting of this keyword.",
+                  "description": "Estimated monthly advertising spend for broad match targeting of this keyword.",
                   "type": [
                     "number",
                     "null"
@@ -1402,7 +1456,7 @@
                   ]
                 },
                 "phraseMonthlyCost": {
-                  "description": "Estimated monthly ad spend for phrase match targeting of this keyword.",
+                  "description": "Estimated monthly advertising spend for phrase match targeting of this keyword.",
                   "type": [
                     "number",
                     "null"
@@ -1413,7 +1467,7 @@
                   ]
                 },
                 "exactMonthlyCost": {
-                  "description": "Estimated monthly ad spend for exact match targeting of this keyword.",
+                  "description": "Estimated monthly advertising spend for exact match targeting of this keyword.",
                   "type": [
                     "number",
                     "null"
@@ -1510,7 +1564,7 @@
         "type": "object",
         "properties": {
           "keyword": {
-            "description": "The keyword that shows high performance or profitability for successful competitors in paid search ad.",
+            "description": "The keyword that shows high performance or profitability for successful competitors in paid search advertising.",
             "type": [
               "string",
               "null"
@@ -1685,7 +1739,7 @@
             ]
           },
           "broadMonthlyCost": {
-            "description": "Estimated monthly ad spend for broad match targeting of this keyword.",
+            "description": "Estimated monthly advertising spend for broad match targeting of this keyword.",
             "type": [
               "number",
               "null"
@@ -1696,7 +1750,7 @@
             ]
           },
           "phraseMonthlyCost": {
-            "description": "Estimated monthly ad spend for phrase match targeting of this keyword.",
+            "description": "Estimated monthly advertising spend for phrase match targeting of this keyword.",
             "type": [
               "number",
               "null"
@@ -1707,7 +1761,7 @@
             ]
           },
           "exactMonthlyCost": {
-            "description": "Estimated monthly ad spend for exact match targeting of this keyword.",
+            "description": "Estimated monthly advertising spend for exact match targeting of this keyword.",
             "type": [
               "number",
               "null"

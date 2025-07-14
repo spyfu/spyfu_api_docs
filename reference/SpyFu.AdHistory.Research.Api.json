@@ -3,7 +3,7 @@
   "info": {
     "title": "Ad History API",
     "version": "v2",
-    "description": "Access 18 years of historical ad data to analyze competitor advertising strategies and campaign evolution. Track ad copy changes, A/B test variations, and creative optimizations across millions of advertisers.\n\n**Core Functions:**\n• Retrieve historical ads by domain or keyword\n• Analyze ad copy evolution and testing patterns\n• Compare advertiser strategies over time\n• Identify successful ad creative approaches\n\nBuilt on SpyFu's database of tens of billions of ads with 20x more data than competitors."
+    "description": "Access the world's most comprehensive advertising intelligence database with 18 years of historical ad data spanning tens of billions of ads across millions of advertisers. SpyFu's Ad History API provides complete campaign timelines from 2007 to present, covering 99.93% of advertisers who have ever run Google Ads campaigns.\n\nUnlike competitors who offer limited historical snapshots, SpyFu captures every ad variation, A/B test, and optimization iteration. See how competitors evolved their ad copy over time to maximize conversions, learn from early mistakes they made and later removed, and gain unmatched competitive intelligence that goes back nearly two decades.\n\nWith data updated every 15 seconds across 28 countries and processing 40,000 search results per second, SpyFu maintains 20x more paid keyword data than SEMRush or Ahrefs. The closest competitor offers only 5 years of history with 1/20th the data volume.\n\nThis API complements SpyFu's other research APIs by focusing specifically on ad creative and copy history, while the Competitors API handles ranking relationships and the Keyword Research API covers search volume and competition data.\n\nFor complete documentation and interactive examples, visit the [SpyFu Developer Portal](https://www.spyfu.com/apis)."
   },
   "servers": [
     {
@@ -15,12 +15,12 @@
       "get": {
         "operationId": "AdHistoryApi_GetDomainAdHistory_GET",
         "summary": "Get Domain Ad History",
-        "description": "Returns historical ad variations and copy for a specific domain. This endpoint focuses on ads from a particular advertiser across all their keywords and campaigns, unlike term-based endpoints that focus on specific keywords.\n\n[Visualize this API live on SpyFu](https://www.spyfu.com/ppc/ad-history/domain?query=amazon.com)",
+        "description": "Returns historical ad variations and copy for a specific domain. This endpoint focuses on ads from a particular advertiser across all their keywords and campaigns, unlike term-based endpoints that focus on specific keywords.\n\n[Visualize this API live on SpyFu](https://www.spyfu.com/ppc/ad-history/domain?query=example.com)",
         "parameters": [
           {
             "name": "domain",
             "in": "query",
-            "description": "Domain to retrieve ad history for.",
+            "description": "Domain to retrieve advertising history for.",
             "required": true,
             "schema": {
               "type": "string",
@@ -65,7 +65,7 @@
           {
             "name": "countryCode",
             "in": "query",
-            "description": "Country to filter results by geographic market.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).",
+            "description": "Country code to filter results by geographic market.",
             "schema": {
               "type": "string",
               "examples": [
@@ -258,7 +258,7 @@
     "/v2/term/getTermAdHistory": {
       "get": {
         "operationId": "AdHistoryApi_GetTermAdHistory_GET",
-        "summary": "Get Term Ad History",
+        "summary": "Get Keyword Ad History",
         "description": "Returns historical advertisers and ad variations for a specific keyword. This endpoint focuses on ads that have appeared for a particular keyword, unlike domain-based endpoints that focus on ads from specific advertisers.\n\n[Visualize this API live on SpyFu](https://www.spyfu.com/keyword/ad-history?query=example%20keyword)",
         "parameters": [
           {
@@ -309,7 +309,7 @@
           {
             "name": "countryCode",
             "in": "query",
-            "description": "Country to filter results by geographic market.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).",
+            "description": "Country code to filter results by geographic market.",
             "schema": {
               "type": "string",
               "examples": [
@@ -501,7 +501,7 @@
     "/v2/term/getTermAdHistoryWithStats": {
       "get": {
         "operationId": "AdHistoryApi_GetTermAdHistoryWithStats_GET",
-        "summary": "Get Term Ad History With Stats",
+        "summary": "Get Keyword Ad History With Stats",
         "description": "Returns historical ad variations and advertiser performance statistics for a specific keyword. This endpoint includes domain-level metrics alongside ad copy data, unlike the basic ad history endpoint that focuses purely on ad variations.\n\n[Visualize this API live on SpyFu](https://www.spyfu.com/keyword/ad-history?query=example%20keyword)",
         "parameters": [
           {
@@ -552,7 +552,7 @@
           {
             "name": "countryCode",
             "in": "query",
-            "description": "Country to filter results by geographic market.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).",
+            "description": "Country code to filter results by geographic market.",
             "schema": {
               "type": "string",
               "examples": [

@@ -3,7 +3,7 @@
   "info": {
     "title": "Domain Stats API",
     "version": "v2",
-    "description": "Quickly gauge any domain's SEO traffic, advertising budget, and growth trajectory. Accurate insights powered by 18 years of data updated every 15 seconds. [SpyFu Developer Portal](https://developer.spyfu.com)."
+    "description": "Access comprehensive domain performance metrics and historical analytics to track search visibility trends, competitive positioning, and market share evolution over time. Powered by SpyFu's unmatched historical data collection spanning 18 years of continuous monitoring across both organic and paid search channels.\n\nSpyFu's Domain Stats API provides **18 years of complete historical data** for every tracked domain, built on a foundation of **1.6 trillion search results** and **152 million domains** analyzed for comprehensive performance metrics. Our database delivers **20x more paid keywords per domain** and **2x more organic keywords per domain** than SEMRush or Ahrefs. **Every domain metric updates every 15 seconds**, ensuring you have real-time performance intelligence across all 28 supported countries.\n\nWhile competitors provide basic domain snapshots with limited history, SpyFu offers complete domain timeline analysis with 18 years of historical data and live updates every 15 seconds. Our comprehensive tracking covers both organic and paid search performance since 2007, providing unmatched insight into long-term domain evolution.\n\nWith this API, you can track domain performance trends across SEO and PPC channels over time, analyze seasonal patterns and growth trajectories, benchmark domain performance against historical baselines, identify performance inflection points and strategy changes, monitor competitive domain performance evolution, and access complete domain visibility metrics spanning nearly two decades. Understand how domains have grown their search presence and learn from successful optimization strategies implemented over years.\n\nThe Domain Stats API integrates seamlessly with SpyFu's SEO Research, Ad History, and Competitors APIs to provide complete domain intelligence, enabling you to correlate performance metrics with specific keyword strategies and competitive activities.\n\nGet started with comprehensive API documentation and interactive examples at [SpyFu Developer Portal](https://developer.spyfu.com)."
   },
   "servers": [
     {
@@ -15,7 +15,7 @@
       "get": {
         "operationId": "DomainStatsApi_GetAllDomainStats_GET",
         "summary": "Get All Domain Stats",
-        "description": "Returns comprehensive domain statistics for all available historical periods. This endpoint provides time-series data showing SEO and PPC performance trends to analyze domain growth, competitive positioning, and marketing effectiveness over time.\n\n[Visualize this API live on SpyFu](https://www.spyfu.com/overview/domain?query=amazon.com)",
+        "description": "Returns comprehensive domain statistics for all available historical periods. This endpoint provides time-series data showing SEO and PPC performance trends to analyze domain growth, competitive positioning, and marketing effectiveness over time.\n\n[Visualize this API live on SpyFu](https://www.spyfu.com/domain-overview?query=example.com)",
         "parameters": [
           {
             "name": "domain",
@@ -33,7 +33,7 @@
           {
             "name": "countryCode",
             "in": "query",
-            "description": "Country market to search.  Specifically, this maps to the Google version to query against (google.de for Germany, etc).  Google.com (US) is the default. [Full list of supported Countries](https://developer.spyfu.com/update/reference/country-code-enum#/)",
+            "description": "Country market to analyze domain statistics for.",
             "schema": {
               "type": "string",
               "examples": [
@@ -66,7 +66,34 @@
                 "UK",
                 "US",
                 "ZA"
-              ]
+              ],
+              "x-enumDescriptions": {
+                "AR": "Argentina",
+                "AU": "Australia",
+                "BE": "Belgium",
+                "BR": "Brazil",
+                "CA": "Canada",
+                "CH": "Switzerland",
+                "DE": "Germany",
+                "DK": "Denmark",
+                "ES": "Spain",
+                "FR": "France",
+                "IE": "Ireland",
+                "IN": "India",
+                "IT": "Italy",
+                "JP": "Japan",
+                "MX": "Mexico",
+                "NL": "Netherlands",
+                "NO": "Norway",
+                "NZ": "New Zealand",
+                "PT": "Portugal",
+                "SE": "Sweden",
+                "SG": "Singapore",
+                "UA": "Ukraine",
+                "UK": "United Kingdom",
+                "US": "United States",
+                "ZA": "South Africa"
+              }
             },
             "example": "US"
           }
@@ -197,7 +224,7 @@
                             ]
                           },
                           "totalInverseRank": {
-                            "description": "Cumulative ranking score where higher organic positions receive higher point values (position 1 = 50 points, position 2 = 49 points, etc.), summed across all ranking keywords.",
+                            "description": "Cumulative ranking score where higher organic positions receive higher point values (position 1 = 100 points, position 2 = 99 points, etc.), summed across all ranking keywords.",
                             "type": "integer",
                             "format": "int64",
                             "examples": [
@@ -242,7 +269,7 @@
       "get": {
         "operationId": "DomainStatsApi_GetLatestDomainStats_GET",
         "summary": "Get Latest Domain Stats",
-        "description": "Returns the most recent domain statistics available in SpyFu's database. This endpoint provides current SEO and PPC performance metrics to analyze the domain's latest competitive position and marketing activity.\n\n[Visualize this API live on SpyFu](https://www.spyfu.com/overview/domain?query=amazon.com)",
+        "description": "Returns the most recent domain statistics available in SpyFu's database. This endpoint provides current SEO and PPC performance metrics to analyze the domain's latest competitive position and marketing activity.\n\n[Visualize this API live on SpyFu](https://www.spyfu.com/domain-overview?query=example.com)",
         "parameters": [
           {
             "name": "domain",
@@ -260,7 +287,7 @@
           {
             "name": "countryCode",
             "in": "query",
-            "description": "Country market to search.  Specifically, this maps to the Google version to query against (google.de for Germany, etc).  Google.com (US) is the default. [Full list of supported Countries](https://developer.spyfu.com/update/reference/country-code-enum#/)",
+            "description": "Country market to analyze domain statistics for.",
             "schema": {
               "type": "string",
               "examples": [
@@ -293,7 +320,34 @@
                 "UK",
                 "US",
                 "ZA"
-              ]
+              ],
+              "x-enumDescriptions": {
+                "AR": "Argentina",
+                "AU": "Australia",
+                "BE": "Belgium",
+                "BR": "Brazil",
+                "CA": "Canada",
+                "CH": "Switzerland",
+                "DE": "Germany",
+                "DK": "Denmark",
+                "ES": "Spain",
+                "FR": "France",
+                "IE": "Ireland",
+                "IN": "India",
+                "IT": "Italy",
+                "JP": "Japan",
+                "MX": "Mexico",
+                "NL": "Netherlands",
+                "NO": "Norway",
+                "NZ": "New Zealand",
+                "PT": "Portugal",
+                "SE": "Sweden",
+                "SG": "Singapore",
+                "UA": "Ukraine",
+                "UK": "United Kingdom",
+                "US": "United States",
+                "ZA": "South Africa"
+              }
             },
             "example": "US"
           }
@@ -424,7 +478,7 @@
                             ]
                           },
                           "totalInverseRank": {
-                            "description": "Cumulative ranking score where higher organic positions receive higher point values (position 1 = 50 points, position 2 = 49 points, etc.), summed across all ranking keywords.",
+                            "description": "Cumulative ranking score where higher organic positions receive higher point values (position 1 = 100 points, position 2 = 99 points, etc.), summed across all ranking keywords.",
                             "type": "integer",
                             "format": "int64",
                             "examples": [
@@ -469,7 +523,7 @@
       "get": {
         "operationId": "DomainStatsApi_GetDomainStatsForExactDate_GET",
         "summary": "Get Domain Stats For Exact Date",
-        "description": "Returns domain statistics for a specific month and year. This endpoint provides point-in-time snapshots of SEO and PPC performance metrics to analyze historical domain activity and compare performance across different time periods.\n\n[Visualize this API live on SpyFu](https://www.spyfu.com/overview/domain?query=amazon.com)",
+        "description": "Returns domain statistics for a specific month and year. This endpoint provides point-in-time snapshots of SEO and PPC performance metrics to analyze historical domain activity and compare performance across different time periods.\n\n[Visualize this API live on SpyFu](https://www.spyfu.com/domain-overview?query=example.com)",
         "parameters": [
           {
             "name": "month",
@@ -519,7 +573,7 @@
           {
             "name": "countryCode",
             "in": "query",
-            "description": "Country market to search.  Specifically, this maps to the Google version to query against (google.de for Germany, etc).  Google.com (US) is the default. [Full list of supported Countries](https://developer.spyfu.com/update/reference/country-code-enum#/)",
+            "description": "Country market to analyze domain statistics for.",
             "schema": {
               "type": "string",
               "examples": [
@@ -552,7 +606,34 @@
                 "UK",
                 "US",
                 "ZA"
-              ]
+              ],
+              "x-enumDescriptions": {
+                "AR": "Argentina",
+                "AU": "Australia",
+                "BE": "Belgium",
+                "BR": "Brazil",
+                "CA": "Canada",
+                "CH": "Switzerland",
+                "DE": "Germany",
+                "DK": "Denmark",
+                "ES": "Spain",
+                "FR": "France",
+                "IE": "Ireland",
+                "IN": "India",
+                "IT": "Italy",
+                "JP": "Japan",
+                "MX": "Mexico",
+                "NL": "Netherlands",
+                "NO": "Norway",
+                "NZ": "New Zealand",
+                "PT": "Portugal",
+                "SE": "Sweden",
+                "SG": "Singapore",
+                "UA": "Ukraine",
+                "UK": "United Kingdom",
+                "US": "United States",
+                "ZA": "South Africa"
+              }
             },
             "example": "US"
           }
@@ -683,7 +764,7 @@
                             ]
                           },
                           "totalInverseRank": {
-                            "description": "Cumulative ranking score where higher organic positions receive higher point values (position 1 = 50 points, position 2 = 49 points, etc.), summed across all ranking keywords.",
+                            "description": "Cumulative ranking score where higher organic positions receive higher point values (position 1 = 100 points, position 2 = 99 points, etc.), summed across all ranking keywords.",
                             "type": "integer",
                             "format": "int64",
                             "examples": [
@@ -728,7 +809,7 @@
       "get": {
         "operationId": "DomainStatsApi_GetActiveDatesForDomain_GET",
         "summary": "Get Active Dates For Domain",
-        "description": "Returns a chronological list of dates for which SpyFu has collected domain statistics data. This endpoint helps identify data coverage periods and historical tracking availability for domain analysis and competitive research.\n\n[Visualize this API live on SpyFu](https://www.spyfu.com/overview/domain?query=amazon.com)",
+        "description": "Returns a chronological list of dates for which SpyFu has collected domain statistics data. This endpoint helps identify data coverage periods and historical tracking availability for domain analysis and competitive research.\n\n[Visualize this API live on SpyFu](https://www.spyfu.com/domain-overview?query=example.com)",
         "parameters": [
           {
             "name": "domain",
@@ -746,7 +827,7 @@
           {
             "name": "countryCode",
             "in": "query",
-            "description": "Country market to search.  Specifically, this maps to the Google version to query against (google.de for Germany, etc).  Google.com (US) is the default. [Full list of supported Countries](https://developer.spyfu.com/update/reference/country-code-enum#/)",
+            "description": "Country market to check data availability for.",
             "schema": {
               "type": "string",
               "examples": [
@@ -779,7 +860,34 @@
                 "UK",
                 "US",
                 "ZA"
-              ]
+              ],
+              "x-enumDescriptions": {
+                "AR": "Argentina",
+                "AU": "Australia",
+                "BE": "Belgium",
+                "BR": "Brazil",
+                "CA": "Canada",
+                "CH": "Switzerland",
+                "DE": "Germany",
+                "DK": "Denmark",
+                "ES": "Spain",
+                "FR": "France",
+                "IE": "Ireland",
+                "IN": "India",
+                "IT": "Italy",
+                "JP": "Japan",
+                "MX": "Mexico",
+                "NL": "Netherlands",
+                "NO": "Norway",
+                "NZ": "New Zealand",
+                "PT": "Portugal",
+                "SE": "Sweden",
+                "SG": "Singapore",
+                "UA": "Ukraine",
+                "UK": "United Kingdom",
+                "US": "United States",
+                "ZA": "South Africa"
+              }
             },
             "example": "US"
           }
@@ -962,7 +1070,7 @@
             ]
           },
           "totalInverseRank": {
-            "description": "Cumulative ranking score where higher organic positions receive higher point values (position 1 = 50 points, position 2 = 49 points, etc.), summed across all ranking keywords.",
+            "description": "Cumulative ranking score where higher organic positions receive higher point values (position 1 = 100 points, position 2 = 99 points, etc.), summed across all ranking keywords.",
             "type": "integer",
             "format": "int64",
             "examples": [
@@ -1100,7 +1208,7 @@
                   ]
                 },
                 "totalInverseRank": {
-                  "description": "Cumulative ranking score where higher organic positions receive higher point values (position 1 = 50 points, position 2 = 49 points, etc.), summed across all ranking keywords.",
+                  "description": "Cumulative ranking score where higher organic positions receive higher point values (position 1 = 100 points, position 2 = 99 points, etc.), summed across all ranking keywords.",
                   "type": "integer",
                   "format": "int64",
                   "examples": [

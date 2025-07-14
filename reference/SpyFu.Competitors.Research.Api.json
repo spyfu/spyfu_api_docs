@@ -3,7 +3,7 @@
   "info": {
     "title": "Competitors API",
     "version": "v2",
-    "description": "Go beyond broad industry labels to find your true online competitors. Using paid and organic keyword data, this API reveals exact, micro-targeted competition, ranked precisely by keyword overlap and market strength."
+    "description": "Discover and analyze your most significant competitors across both paid and organic search channels to uncover market opportunities and strategic insights. Powered by SpyFu's comprehensive competitive intelligence database spanning 18 years of cross-channel data collection across global markets.\n\nSpyFu's Competitors API analyzes **152 million domains** for competitive landscape mapping, built on a foundation of **1.6 trillion search results** and **8 billion keywords** with comprehensive competitive metrics. Our database provides **20x more paid keywords per domain** and **2x more organic keywords per domain** than SEMRush or Ahrefs. **Every competitive relationship updates every 15 seconds**, ensuring you have real-time competitive intelligence across all 28 supported countries.\n\nWhile competitors provide basic competitor lists, SpyFu delivers complete competitive timeline analysis with 18 years of historical data and live updates every 15 seconds. Our unique cross-channel approach identifies competitors who may challenge you in organic search, paid search, or both channels simultaneously.\n\nWith this API, you can identify your top SEO and PPC competitors with overlap analysis, discover emerging competitors before they become threats, analyze competitive strength across multiple search channels, uncover market opportunities through competitor gap analysis, track competitive landscape changes over time, and benchmark your market position against key competitors. Access comprehensive competitor intelligence to understand who competes for your target keywords and how their strategies have evolved over nearly two decades.\n\nThe Competitors API integrates seamlessly with SpyFu's Ad History, SEO Research, and Domain Stats APIs to provide complete competitive intelligence, enabling you to analyze competitor strategies across both advertising campaigns and organic search performance.\n\nGet started with comprehensive API documentation and interactive examples at [SpyFu Developer Portal](https://developer.spyfu.com)."
   },
   "servers": [
     {
@@ -15,12 +15,12 @@
       "get": {
         "operationId": "CompetitorsApi_GetTopPpcCompetitors_GET",
         "summary": "Get Top PPC Competitors",
-        "description": "Returns the top paid search (PPC) competitors for a domain based on shared keyword advertising overlap. This endpoint identifies domains that compete for the same paid keywords to reveal direct advertising competition and bidding opportunities.\n\n[Visualize this API live on SpyFu](https://www.spyfu.com/ppc/competitors?query=amazon.com)",
+        "description": "Returns the top paid search (PPC) competitors for a domain based on shared keyword advertising overlap. This endpoint identifies domains that compete for the same paid keywords to reveal direct advertising competition and bidding opportunities.\n\n[Visualize this API live on SpyFu](https://www.spyfu.com/ppc/competitors?query=example.com)",
         "parameters": [
           {
             "name": "domain",
             "in": "query",
-            "description": "Domain to get Paid Search competitors for.",
+            "description": "Domain to analyze for paid search competitors.",
             "required": true,
             "schema": {
               "type": "string",
@@ -65,7 +65,7 @@
           {
             "name": "countryCode",
             "in": "query",
-            "description": "Country market to search.  Specifically, this maps to the Google version to query against (google.de for Germany, etc).  Google.com (US) is the default. [Full list of supported Countries](https://developer.spyfu.com/update/reference/country-code-enum#/)",
+            "description": "Country market to analyze PPC competitor data for.",
             "schema": {
               "type": "string",
               "examples": [
@@ -98,7 +98,34 @@
                 "UK",
                 "US",
                 "ZA"
-              ]
+              ],
+              "x-enumDescriptions": {
+                "AR": "Argentina",
+                "AU": "Australia",
+                "BE": "Belgium",
+                "BR": "Brazil",
+                "CA": "Canada",
+                "CH": "Switzerland",
+                "DE": "Germany",
+                "DK": "Denmark",
+                "ES": "Spain",
+                "FR": "France",
+                "IE": "Ireland",
+                "IN": "India",
+                "IT": "Italy",
+                "JP": "Japan",
+                "MX": "Mexico",
+                "NL": "Netherlands",
+                "NO": "Norway",
+                "NZ": "New Zealand",
+                "PT": "Portugal",
+                "SE": "Sweden",
+                "SG": "Singapore",
+                "UA": "Ukraine",
+                "UK": "United Kingdom",
+                "US": "United States",
+                "ZA": "South Africa"
+              }
             },
             "example": "US"
           }
@@ -188,12 +215,12 @@
       "get": {
         "operationId": "CompetitorsApi_GetTopSeoCompetitors_GET",
         "summary": "Get Top SEO Competitors",
-        "description": "Returns the top organic search (SEO) competitors for a domain based on shared keyword ranking overlap. This endpoint identifies domains that compete for the same organic keywords to reveal direct SEO competition and content opportunities.\n\n[Visualize this API live on SpyFu](https://www.spyfu.com/seo/competitors?query=amazon.com)",
+        "description": "Returns the top organic search (SEO) competitors for a domain based on shared keyword ranking overlap. This endpoint identifies domains that compete for the same organic keywords to reveal direct SEO competition and content opportunities.\n\n[Visualize this API live on SpyFu](https://www.spyfu.com/seo/competitors?query=example.com)",
         "parameters": [
           {
             "name": "domain",
             "in": "query",
-            "description": "Domain to get for SEO competitors for.",
+            "description": "Domain to analyze for organic search competitors.",
             "required": true,
             "schema": {
               "type": "string",
@@ -238,7 +265,7 @@
           {
             "name": "countryCode",
             "in": "query",
-            "description": "Country market to search.  Specifically, this maps to the Google version to query against (google.de for Germany, etc).  Google.com (US) is the default. [Full list of supported Countries](https://developer.spyfu.com/update/reference/country-code-enum#/)",
+            "description": "Country market to analyze SEO competitor data for.",
             "schema": {
               "type": "string",
               "examples": [
@@ -271,7 +298,34 @@
                 "UK",
                 "US",
                 "ZA"
-              ]
+              ],
+              "x-enumDescriptions": {
+                "AR": "Argentina",
+                "AU": "Australia",
+                "BE": "Belgium",
+                "BR": "Brazil",
+                "CA": "Canada",
+                "CH": "Switzerland",
+                "DE": "Germany",
+                "DK": "Denmark",
+                "ES": "Spain",
+                "FR": "France",
+                "IE": "Ireland",
+                "IN": "India",
+                "IT": "Italy",
+                "JP": "Japan",
+                "MX": "Mexico",
+                "NL": "Netherlands",
+                "NO": "Norway",
+                "NZ": "New Zealand",
+                "PT": "Portugal",
+                "SE": "Sweden",
+                "SG": "Singapore",
+                "UA": "Ukraine",
+                "UK": "United Kingdom",
+                "US": "United States",
+                "ZA": "South Africa"
+              }
             },
             "example": "US"
           }
@@ -361,12 +415,12 @@
       "get": {
         "operationId": "CompetitorsApi_GetCombinedTopCompetitors_GET",
         "summary": "Get Combined Top Competitors",
-        "description": "Returns the top competitors for a domain combining both paid search (PPC) and organic search (SEO) data. This endpoint identifies domains that compete across both advertising and organic rankings to reveal comprehensive competitive landscape insights.\n\n[Visualize this API live on SpyFu (SEO Only)](https://www.spyfu.com/seo/competitors/domain?query=amazon.com)",
+        "description": "Returns the top competitors for a domain combining both paid search (PPC) and organic search (SEO) data. This endpoint identifies domains that compete across both advertising and organic rankings to reveal comprehensive competitive landscape insights.\n\n[Visualize this API live on SpyFu](https://www.spyfu.com/competitors?query=example.com)",
         "parameters": [
           {
             "name": "domain",
             "in": "query",
-            "description": "Domain to get SEO and PPC competitors for.",
+            "description": "Domain to analyze for competitive landscape data.",
             "required": true,
             "schema": {
               "type": "string",
@@ -411,7 +465,7 @@
           {
             "name": "countryCode",
             "in": "query",
-            "description": "Country market to search.  Specifically, this maps to the Google version to query against (google.de for Germany, etc).  Google.com (US) is the default. [Full list of supported Countries](https://developer.spyfu.com/update/reference/country-code-enum#/)",
+            "description": "Country market to analyze competitor data for.",
             "schema": {
               "type": "string",
               "examples": [
@@ -444,7 +498,34 @@
                 "UK",
                 "US",
                 "ZA"
-              ]
+              ],
+              "x-enumDescriptions": {
+                "AR": "Argentina",
+                "AU": "Australia",
+                "BE": "Belgium",
+                "BR": "Brazil",
+                "CA": "Canada",
+                "CH": "Switzerland",
+                "DE": "Germany",
+                "DK": "Denmark",
+                "ES": "Spain",
+                "FR": "France",
+                "IE": "Ireland",
+                "IN": "India",
+                "IT": "Italy",
+                "JP": "Japan",
+                "MX": "Mexico",
+                "NL": "Netherlands",
+                "NO": "Norway",
+                "NZ": "New Zealand",
+                "PT": "Portugal",
+                "SE": "Sweden",
+                "SG": "Singapore",
+                "UA": "Ukraine",
+                "UK": "United Kingdom",
+                "US": "United States",
+                "ZA": "South Africa"
+              }
             },
             "example": "US"
           }

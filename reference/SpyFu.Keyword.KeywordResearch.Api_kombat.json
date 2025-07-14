@@ -1,9 +1,9 @@
 {
   "openapi": "3.1.0",
   "info": {
-    "title": "Kombat (Domain vs Domain) API",
+    "title": "Kombat API",
     "version": "v2",
-    "description": "Instantly uncover keywords your competitors target, but you don't—across organic and paid search. Clearly identify competitive gaps and pinpoint core keywords shared across your niche. [SpyFu Developer Portal](https://developer.spyfu.com)."
+    "description": "Conduct head-to-head keyword competition analysis between domains to uncover competitive advantages, shared opportunities, and strategic gaps across both organic and paid search channels. Powered by SpyFu's comprehensive keyword intelligence spanning 18 years of competitive data collection.\n\nSpyFu's Kombat API analyzes competitive keyword overlap using **8 billion keywords** with comprehensive performance metrics, built on a foundation of **1.6 trillion search results** and **152 million domains** tracked for competitive intelligence. Our database provides **20x more paid keywords per domain** and **2x more organic keywords per domain** than SEMRush or Ahrefs. **Every keyword relationship updates every 15 seconds**, ensuring you have real-time competitive intelligence across all 28 supported countries.\n\nWhile competitors provide basic keyword overlap reports, SpyFu delivers complete head-to-head competitive analysis with 18 years of historical data and live updates every 15 seconds. Our unique cross-channel approach analyzes both organic and paid keyword competition to reveal comprehensive competitive landscapes.\n\nWith this API, you can identify shared keywords between competing domains with performance metrics, discover keyword gaps where competitors rank but you don't, analyze competitive strength for overlapping keyword portfolios, uncover high-value keywords your competitors target, benchmark keyword performance against specific competitors, and access detailed competitive keyword analysis across both SEO and PPC channels. Understand exactly where you compete head-to-head and where opportunities exist to gain competitive advantage.\n\nThe Kombat API integrates seamlessly with SpyFu's SEO Research, Ad History, and Competitors APIs to provide complete competitive keyword intelligence, enabling you to develop targeted strategies based on direct competitive analysis.\n\nGet started with comprehensive API documentation and interactive examples at [SpyFu Developer Portal](https://developer.spyfu.com)."
   },
   "servers": [
     {
@@ -15,12 +15,12 @@
       "get": {
         "operationId": "KombatApi_GetCompetingPpcKeywords_GET",
         "summary": "Get Competing PPC Keywords",
-        "description": "Returns paid search keywords shared across multiple competitor domains. The process selects keywords from the includedDomains, then removes any keywords that belong to domains in the excludedDomains list.\n\n[Visualize this API live on SpyFu](https://www.spyfu.com/ppc/kombat?query=amazon.com)",
+        "description": "Returns paid search keywords shared across multiple competitor domains. The process selects keywords from the includedDomains, then removes any keywords that belong to domains in the excludedDomains list.\n\n[Visualize this API live on SpyFu](https://www.spyfu.com/kombat?query=example.com,example.org)",
         "parameters": [
           {
             "name": "includeDomainsCsv",
             "in": "query",
-            "description": "Comma-separated list of domains to include in keyword analysis (up to 20)",
+            "description": "Comma-separated list of domains to include in keyword analysis.",
             "required": true,
             "schema": {
               "type": "string",
@@ -168,7 +168,7 @@
           {
             "name": "countryCode",
             "in": "query",
-            "description": "Country market to search.  Specifically, this maps to the Google version to query against (google.de for Germany, etc).  Google.com (US) is the default. [Full list of supported Countries](https://developer.spyfu.com/update/reference/country-code-enum#/)",
+            "description": "Country market to search.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).",
             "schema": {
               "type": "string",
               "examples": [
@@ -201,7 +201,34 @@
                 "UK",
                 "US",
                 "ZA"
-              ]
+              ],
+              "x-enumDescriptions": {
+                "AR": "Argentina",
+                "AU": "Australia",
+                "BE": "Belgium",
+                "BR": "Brazil",
+                "CA": "Canada",
+                "CH": "Switzerland",
+                "DE": "Germany",
+                "DK": "Denmark",
+                "ES": "Spain",
+                "FR": "France",
+                "IE": "Ireland",
+                "IN": "India",
+                "IT": "Italy",
+                "JP": "Japan",
+                "MX": "Mexico",
+                "NL": "Netherlands",
+                "NO": "Norway",
+                "NZ": "New Zealand",
+                "PT": "Portugal",
+                "SE": "Sweden",
+                "SG": "Singapore",
+                "UA": "Ukraine",
+                "UK": "United Kingdom",
+                "US": "United States",
+                "ZA": "South Africa"
+              }
             },
             "example": "US"
           },
@@ -567,7 +594,7 @@
       "get": {
         "operationId": "KombatApi_GetCompetingSeoKeywords_GET",
         "summary": "Get Competing SEO Keywords",
-        "description": "Returns organic search keywords shared across multiple competitor domains. The process selects keywords from the includedDomains, then removes any keywords that belong to domains in the excludedDomains list.\n\n[Visualize this API live on SpyFu](https://www.spyfu.com/seo/kombat?query=amazon.com)",
+        "description": "Returns organic search keywords shared across multiple competitor domains. The process selects keywords from the includedDomains, then removes any keywords that belong to domains in the excludedDomains list.\n\n[Visualize this API live on SpyFu](https://www.spyfu.com/kombat?query=example.com,example.org)",
         "parameters": [
           {
             "name": "includeDomainsCsv",
@@ -720,7 +747,7 @@
           {
             "name": "countryCode",
             "in": "query",
-            "description": "Country market to search.  Specifically, this maps to the Google version to query against (google.de for Germany, etc).  Google.com (US) is the default. [Full list of supported Countries](https://developer.spyfu.com/update/reference/country-code-enum#/)",
+            "description": "Country market to search.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).",
             "schema": {
               "type": "string",
               "examples": [
@@ -753,7 +780,34 @@
                 "UK",
                 "US",
                 "ZA"
-              ]
+              ],
+              "x-enumDescriptions": {
+                "AR": "Argentina",
+                "AU": "Australia",
+                "BE": "Belgium",
+                "BR": "Brazil",
+                "CA": "Canada",
+                "CH": "Switzerland",
+                "DE": "Germany",
+                "DK": "Denmark",
+                "ES": "Spain",
+                "FR": "France",
+                "IE": "Ireland",
+                "IN": "India",
+                "IT": "Italy",
+                "JP": "Japan",
+                "MX": "Mexico",
+                "NL": "Netherlands",
+                "NO": "Norway",
+                "NZ": "New Zealand",
+                "PT": "Portugal",
+                "SE": "Sweden",
+                "SG": "Singapore",
+                "UA": "Ukraine",
+                "UK": "United Kingdom",
+                "US": "United States",
+                "ZA": "South Africa"
+              }
             },
             "example": "US"
           },

@@ -3,7 +3,7 @@
   "info": {
     "title": "PPC Research API",
     "version": "v2",
-    "description": "Analyze live paid search results and competitor ad positioning to uncover high-value advertising opportunities. Track real-time SERP changes and identify emerging PPC trends.\n\n**Core Functions:**\n• Retrieve paid keywords where domains advertise\n• Analyze ad positioning and competition levels\n• Monitor SERP features and paid result layouts\n• Track competitor advertising presence\n\nBuilt on 8 billion keywords with 20x more paid data than competitors, updated every 15 seconds."
+    "description": "Access real-time paid search intelligence and SERP analysis to uncover competitor advertising strategies and identify high-value keyword opportunities. Powered by SpyFu's unmatched paid search data collection spanning 18 years of continuous advertising intelligence across global markets.\n\nSpyFu's PPC Research API delivers **20x more paid keywords per domain** than SEMRush or Ahrefs, built on a foundation of **8 billion keywords** with comprehensive advertising metrics and **18 years of historical advertising data**. Our live SERP tracking captures every paid search result with **updates every 15 seconds**, ensuring you have real-time competitive advertising intelligence across all 28 supported countries.\n\nWhile competitors provide basic paid keyword snapshots, SpyFu offers complete advertising timeline data with live updates every 15 seconds. Our database contains 18 years of paid search history compared to competitors' limited 5-year snapshots with 1/20th the data volume per domain.\n\nWith this API, you can analyze live paid search results and competitor ad positioning, identify high-converting keywords through SERP analysis, track competitor advertising spend and strategy changes, discover new paid search opportunities before competitors, monitor ad copy variations and testing patterns, and analyze SERP features impact on paid search performance. Access real-time bidding intelligence to understand market competition dynamics and optimize your advertising campaigns based on competitor insights.\n\nThe PPC Research API integrates seamlessly with SpyFu's Ad History API for complete advertising intelligence, combining live SERP data with historical ad copy analysis and campaign evolution tracking.\n\nGet started with comprehensive API documentation and interactive examples at [SpyFu Developer Portal](https://developer.spyfu.com)."
   },
   "servers": [
     {
@@ -15,7 +15,7 @@
       "get": {
         "operationId": "PaidSerpApi_GetPaidSerps_GET",
         "summary": "Get Paid SERPs",
-        "description": "Returns paid search results (ads) that a domain appears in across Google search. This endpoint reveals the competitive paid landscape to identify advertising opportunities and understand competitor PPC strategies.\n\n[Visualize this API live on SpyFu](https://www.spyfu.com/ppc/keywords/domain?query=amazon.com)",
+        "description": "Returns paid search results (ads) that a domain appears in across Google search. This endpoint reveals the competitive paid landscape to identify advertising opportunities and understand competitor PPC strategies.\n\n[Visualize this API live on SpyFu](https://www.spyfu.com/ppc/keywords/domain?query=example.com)",
         "parameters": [
           {
             "name": "query",
@@ -109,7 +109,7 @@
           {
             "name": "countryCode",
             "in": "query",
-            "description": "Country market to search.  Specifically, this maps to the Google version to query against (google.de for Germany, etc).  Google.com (US) is the default. [Full list of supported Countries](https://developer.spyfu.com/update/reference/country-code-enum#/)",
+            "description": "Country market to analyze paid search data for.",
             "schema": {
               "type": "string",
               "examples": [
@@ -142,7 +142,34 @@
                 "UK",
                 "US",
                 "ZA"
-              ]
+              ],
+              "x-enumDescriptions": {
+                "AR": "Argentina",
+                "AU": "Australia",
+                "BE": "Belgium",
+                "BR": "Brazil",
+                "CA": "Canada",
+                "CH": "Switzerland",
+                "DE": "Germany",
+                "DK": "Denmark",
+                "ES": "Spain",
+                "FR": "France",
+                "IE": "Ireland",
+                "IN": "India",
+                "IT": "Italy",
+                "JP": "Japan",
+                "MX": "Mexico",
+                "NL": "Netherlands",
+                "NO": "Norway",
+                "NZ": "New Zealand",
+                "PT": "Portugal",
+                "SE": "Sweden",
+                "SG": "Singapore",
+                "UA": "Ukraine",
+                "UK": "United Kingdom",
+                "US": "United States",
+                "ZA": "South Africa"
+              }
             },
             "example": "US"
           },
@@ -250,7 +277,7 @@
           {
             "name": "includeAnyTerm",
             "in": "query",
-            "description": "Require ANY or ALL terms from the includeTerms parameter to be in the keyword.  ANY = TRUE, ALL = FALSE.  ALL is the default.  ",
+            "description": "Include ANY or ALL terms.",
             "schema": {
               "type": "boolean",
               "default": false
@@ -259,7 +286,7 @@
           {
             "name": "excludeTerms",
             "in": "query",
-            "description": "CSV of terms to exclude from any of the keywords.  This is always applied as an ANY.  No keywords with ANY of the terms in the CSV will be returned.  ",
+            "description": "CSV of terms that are required to not be in the results.",
             "schema": {
               "type": "string"
             }

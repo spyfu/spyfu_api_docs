@@ -3,7 +3,7 @@
   "info": {
     "title": "Keyword API",
     "version": "v2",
-    "description": "Instantly access comprehensive keyword insights—including live and historical search volume, CPC, keyword difficulty, and mobile vs. desktop usage -- for 30+ countries. Clearly spot hidden keyword opportunities by market.  [SpyFu Developer Portal](https://developer.spyfu.com)."
+    "description": "Expand your keyword portfolio through semantic keyword discovery, related term analysis, and comprehensive keyword intelligence to uncover hidden opportunities and optimize content strategy. Powered by SpyFu's extensive keyword database spanning 18 years of search intelligence across global markets.\n\nSpyFu's Related Keywords API analyzes **8 billion keywords** with comprehensive semantic relationships and performance metrics, built on a foundation of **1.6 trillion search results** and **1.6 billion keywords** tracked live in SERPs globally. Our database provides **20x more paid keywords per domain** and **2x more organic keywords per domain** than SEMRush or Ahrefs. **Every keyword relationship updates every 15 seconds**, ensuring you have real-time semantic intelligence across all 28 supported countries.\n\nWhile competitors provide basic related keyword suggestions, SpyFu delivers comprehensive semantic keyword analysis with 18 years of historical data and live updates every 15 seconds. Our advanced algorithms identify question keywords, transactional intent terms, and competitive keyword relationships to reveal complete keyword ecosystems.\n\nWith this API, you can discover semantically related keywords with performance insights, identify question-based keywords for content optimization, uncover transactional intent keywords for conversion optimization, find keywords that competitors rank for and advertise on, access comprehensive keyword information including search volume and competition metrics, and expand keyword portfolios through intelligent semantic analysis. Build comprehensive keyword strategies based on real search behavior and competitive intelligence.\n\nThe Related Keywords API integrates seamlessly with SpyFu's SEO Research, Ad History, and Competitors APIs to provide complete keyword intelligence, enabling you to combine semantic discovery with competitive analysis and performance tracking.\n\nGet started with comprehensive API documentation and interactive examples at [SpyFu Developer Portal](https://developer.spyfu.com)."
   },
   "servers": [
     {
@@ -15,7 +15,7 @@
       "get": {
         "operationId": "RelatedKeywordsV2Api_GetRelatedKeywords_GET",
         "summary": "Get Related Keywords",
-        "description": "Returns thematically related keywords that share similar categories and themes with your seed keyword. This endpoint helps expand your keyword reach with relevant, competitive terms to broaden your content strategy and advertising opportunities.\n\n[Visualize this API live on SpyFu](https://www.spyfu.com/keyword/related-keywords?query=running+shoes)",
+        "description": "Returns thematically related keywords that share similar categories and themes with your seed keyword. This endpoint helps expand your keyword reach with relevant, competitive terms to broaden your content strategy and advertising opportunities.\n\n[Visualize this API live on SpyFu](https://www.spyfu.com/keyword/related?query=running+shoes)",
         "parameters": [
           {
             "name": "query",
@@ -143,7 +143,7 @@
           {
             "name": "countryCode",
             "in": "query",
-            "description": "Country market to search.  Specifically, this maps to the Google version to query against (google.de for Germany, etc).  Google.com (US) is the default. [Full list of supported Countries](https://developer.spyfu.com/update/reference/country-code-enum#/)",
+            "description": "Country market to search.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).",
             "schema": {
               "type": "string",
               "examples": [
@@ -176,7 +176,34 @@
                 "UK",
                 "US",
                 "ZA"
-              ]
+              ],
+              "x-enumDescriptions": {
+                "AR": "Argentina",
+                "AU": "Australia",
+                "BE": "Belgium",
+                "BR": "Brazil",
+                "CA": "Canada",
+                "CH": "Switzerland",
+                "DE": "Germany",
+                "DK": "Denmark",
+                "ES": "Spain",
+                "FR": "France",
+                "IE": "Ireland",
+                "IN": "India",
+                "IT": "Italy",
+                "JP": "Japan",
+                "MX": "Mexico",
+                "NL": "Netherlands",
+                "NO": "Norway",
+                "NZ": "New Zealand",
+                "PT": "Portugal",
+                "SE": "Sweden",
+                "SG": "Singapore",
+                "UA": "Ukraine",
+                "UK": "United Kingdom",
+                "US": "United States",
+                "ZA": "South Africa"
+              }
             },
             "example": "US"
           },
@@ -542,7 +569,7 @@
       "get": {
         "operationId": "RelatedKeywordsV2Api_GetQuestionKeywords_GET",
         "summary": "Get Question Keywords",
-        "description": "Returns question-based keywords related to your seed topic to inspire content creation and FAQ development. This endpoint identifies what people are asking about your subject matter, revealing content opportunities that answer common user questions and drive organic traffic.\n\n[Visualize this API live on SpyFu](https://www.spyfu.com/keyword/related-keywords?query=running+shoes)",
+        "description": "Returns question-based keywords related to your seed topic to inspire content creation and FAQ development. This endpoint identifies what people are asking about your subject matter, revealing content opportunities that answer common user questions and drive organic traffic.\n\n[Visualize this API live on SpyFu](https://www.spyfu.com/keyword/related?query=running+shoes)",
         "parameters": [
           {
             "name": "query",
@@ -670,7 +697,7 @@
           {
             "name": "countryCode",
             "in": "query",
-            "description": "Country market to search.  Specifically, this maps to the Google version to query against (google.de for Germany, etc).  Google.com (US) is the default. [Full list of supported Countries](https://developer.spyfu.com/update/reference/country-code-enum#/)",
+            "description": "Country market to search.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).",
             "schema": {
               "type": "string",
               "examples": [
@@ -703,7 +730,34 @@
                 "UK",
                 "US",
                 "ZA"
-              ]
+              ],
+              "x-enumDescriptions": {
+                "AR": "Argentina",
+                "AU": "Australia",
+                "BE": "Belgium",
+                "BR": "Brazil",
+                "CA": "Canada",
+                "CH": "Switzerland",
+                "DE": "Germany",
+                "DK": "Denmark",
+                "ES": "Spain",
+                "FR": "France",
+                "IE": "Ireland",
+                "IN": "India",
+                "IT": "Italy",
+                "JP": "Japan",
+                "MX": "Mexico",
+                "NL": "Netherlands",
+                "NO": "Norway",
+                "NZ": "New Zealand",
+                "PT": "Portugal",
+                "SE": "Sweden",
+                "SG": "Singapore",
+                "UA": "Ukraine",
+                "UK": "United Kingdom",
+                "US": "United States",
+                "ZA": "South Africa"
+              }
             },
             "example": "US"
           },
@@ -1069,7 +1123,7 @@
       "get": {
         "operationId": "RelatedKeywordsV2Api_GetAlsoBuysAdsForKeywords_GET",
         "summary": "Get Also Buys Ads For Keywords",
-        "description": "Returns related keywords that top advertisers also buy when targeting your seed keyword. This endpoint reveals cross-advertising patterns and keyword expansion opportunities by analyzing what other successful campaigns target alongside your keyword.\n\n[Visualize this API live on SpyFu](https://www.spyfu.com/keyword/related-keywords?query=running+shoes)",
+        "description": "Returns related keywords that top advertisers also buy when targeting your seed keyword. This endpoint reveals cross-advertising patterns and keyword expansion opportunities by analyzing what other successful campaigns target alongside your keyword.\n\n[Visualize this API live on SpyFu](https://www.spyfu.com/keyword/related?query=running+shoes)",
         "parameters": [
           {
             "name": "query",
@@ -1197,7 +1251,7 @@
           {
             "name": "countryCode",
             "in": "query",
-            "description": "Country market to search.  Specifically, this maps to the Google version to query against (google.de for Germany, etc).  Google.com (US) is the default. [Full list of supported Countries](https://developer.spyfu.com/update/reference/country-code-enum#/)",
+            "description": "Country market to search.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).",
             "schema": {
               "type": "string",
               "examples": [
@@ -1230,7 +1284,34 @@
                 "UK",
                 "US",
                 "ZA"
-              ]
+              ],
+              "x-enumDescriptions": {
+                "AR": "Argentina",
+                "AU": "Australia",
+                "BE": "Belgium",
+                "BR": "Brazil",
+                "CA": "Canada",
+                "CH": "Switzerland",
+                "DE": "Germany",
+                "DK": "Denmark",
+                "ES": "Spain",
+                "FR": "France",
+                "IE": "Ireland",
+                "IN": "India",
+                "IT": "Italy",
+                "JP": "Japan",
+                "MX": "Mexico",
+                "NL": "Netherlands",
+                "NO": "Norway",
+                "NZ": "New Zealand",
+                "PT": "Portugal",
+                "SE": "Sweden",
+                "SG": "Singapore",
+                "UA": "Ukraine",
+                "UK": "United Kingdom",
+                "US": "United States",
+                "ZA": "South Africa"
+              }
             },
             "example": "US"
           },
@@ -1596,7 +1677,7 @@
       "get": {
         "operationId": "RelatedKeywordsV2Api_GetAlsoRanksForKeywords_GET",
         "summary": "Get Also Ranks For Keywords",
-        "description": "Returns related keywords that top-ranking domains for your seed keyword also rank for organically. This endpoint reveals SEO content opportunities and keyword expansion ideas by analyzing what successful sites target alongside your keyword.\n\n[Visualize this API live on SpyFu](https://www.spyfu.com/keyword/related-keywords?query=running+shoes)",
+        "description": "Returns related keywords that top-ranking domains for your seed keyword also rank for organically. This endpoint reveals SEO content opportunities and keyword expansion ideas by analyzing what successful sites target alongside your keyword.\n\n[Visualize this API live on SpyFu](https://www.spyfu.com/keyword/related?query=running+shoes)",
         "parameters": [
           {
             "name": "query",
@@ -1724,7 +1805,7 @@
           {
             "name": "countryCode",
             "in": "query",
-            "description": "Country market to search.  Specifically, this maps to the Google version to query against (google.de for Germany, etc).  Google.com (US) is the default. [Full list of supported Countries](https://developer.spyfu.com/update/reference/country-code-enum#/)",
+            "description": "Country market to search.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).",
             "schema": {
               "type": "string",
               "examples": [
@@ -1757,7 +1838,34 @@
                 "UK",
                 "US",
                 "ZA"
-              ]
+              ],
+              "x-enumDescriptions": {
+                "AR": "Argentina",
+                "AU": "Australia",
+                "BE": "Belgium",
+                "BR": "Brazil",
+                "CA": "Canada",
+                "CH": "Switzerland",
+                "DE": "Germany",
+                "DK": "Denmark",
+                "ES": "Spain",
+                "FR": "France",
+                "IE": "Ireland",
+                "IN": "India",
+                "IT": "Italy",
+                "JP": "Japan",
+                "MX": "Mexico",
+                "NL": "Netherlands",
+                "NO": "Norway",
+                "NZ": "New Zealand",
+                "PT": "Portugal",
+                "SE": "Sweden",
+                "SG": "Singapore",
+                "UA": "Ukraine",
+                "UK": "United Kingdom",
+                "US": "United States",
+                "ZA": "South Africa"
+              }
             },
             "example": "US"
           },
@@ -2123,7 +2231,7 @@
       "get": {
         "operationId": "RelatedKeywordsV2Api_GetTransactionKeywords_GET",
         "summary": "Get Transactional Keywords",
-        "description": "Returns high-intent keywords with strong buying signals related to your seed topic. This endpoint identifies commercial keywords that indicate users are ready to purchase, perfect for targeting conversion-focused campaigns and capturing bottom-funnel traffic.\n\n[Visualize this API live on SpyFu](https://www.spyfu.com/keyword/related-keywords?query=running+shoes)",
+        "description": "Returns high-intent keywords with strong buying signals related to your seed topic. This endpoint identifies commercial keywords that indicate users are ready to purchase, perfect for targeting conversion-focused campaigns and capturing bottom-funnel traffic.\n\n[Visualize this API live on SpyFu](https://www.spyfu.com/keyword/related?query=running+shoes)",
         "parameters": [
           {
             "name": "query",
@@ -2251,7 +2359,7 @@
           {
             "name": "countryCode",
             "in": "query",
-            "description": "Country market to search.  Specifically, this maps to the Google version to query against (google.de for Germany, etc).  Google.com (US) is the default. [Full list of supported Countries](https://developer.spyfu.com/update/reference/country-code-enum#/)",
+            "description": "Country market to search.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).",
             "schema": {
               "type": "string",
               "examples": [
@@ -2284,7 +2392,34 @@
                 "UK",
                 "US",
                 "ZA"
-              ]
+              ],
+              "x-enumDescriptions": {
+                "AR": "Argentina",
+                "AU": "Australia",
+                "BE": "Belgium",
+                "BR": "Brazil",
+                "CA": "Canada",
+                "CH": "Switzerland",
+                "DE": "Germany",
+                "DK": "Denmark",
+                "ES": "Spain",
+                "FR": "France",
+                "IE": "Ireland",
+                "IN": "India",
+                "IT": "Italy",
+                "JP": "Japan",
+                "MX": "Mexico",
+                "NL": "Netherlands",
+                "NO": "Norway",
+                "NZ": "New Zealand",
+                "PT": "Portugal",
+                "SE": "Sweden",
+                "SG": "Singapore",
+                "UA": "Ukraine",
+                "UK": "United Kingdom",
+                "US": "United States",
+                "ZA": "South Africa"
+              }
             },
             "example": "US"
           },
@@ -3090,7 +3225,7 @@
                 "type": "object",
                 "properties": {
                   "keywords": {
-                    "description": "Comma-separated list of keywords to analyze, with each keyword representing a search term for which related keyword data will be retrieved.",
+                    "description": "Comma-separated list of keywords for which related keyword data will be retrieved.",
                     "type": "string",
                     "examples": [
                       "running shoes,basketball shoes,tennis shoes"
@@ -3098,7 +3233,7 @@
                     "minLength": 1
                   },
                   "countryCode": {
-                    "description": "Country market to search.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).",
+                    "description": "ISO 3166-1 alpha-2 country code specifying the geographic market for keyword analysis and search volume data.",
                     "type": "string",
                     "examples": [
                       "US"
@@ -3171,7 +3306,7 @@
                 "type": "object",
                 "properties": {
                   "keywords": {
-                    "description": "Comma-separated list of keywords to analyze, with each keyword representing a search term for which related keyword data will be retrieved.",
+                    "description": "Comma-separated list of keywords for which related keyword data will be retrieved.",
                     "type": "string",
                     "examples": [
                       "running shoes,basketball shoes,tennis shoes"
@@ -3179,7 +3314,7 @@
                     "minLength": 1
                   },
                   "countryCode": {
-                    "description": "Country market to search.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).",
+                    "description": "ISO 3166-1 alpha-2 country code specifying the geographic market for keyword analysis and search volume data.",
                     "type": "string",
                     "examples": [
                       "US"
@@ -3252,7 +3387,7 @@
                 "type": "object",
                 "properties": {
                   "keywords": {
-                    "description": "Comma-separated list of keywords to analyze, with each keyword representing a search term for which related keyword data will be retrieved.",
+                    "description": "Comma-separated list of keywords for which related keyword data will be retrieved.",
                     "type": "string",
                     "examples": [
                       "running shoes,basketball shoes,tennis shoes"
@@ -3260,7 +3395,7 @@
                     "minLength": 1
                   },
                   "countryCode": {
-                    "description": "Country market to search.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).",
+                    "description": "ISO 3166-1 alpha-2 country code specifying the geographic market for keyword analysis and search volume data.",
                     "type": "string",
                     "examples": [
                       "US"
@@ -3681,7 +3816,7 @@
         "type": "object",
         "properties": {
           "keywords": {
-            "description": "Comma-separated list of keywords to analyze, with each keyword representing a search term for which related keyword data will be retrieved.",
+            "description": "Comma-separated list of keywords for which related keyword data will be retrieved.",
             "type": "string",
             "examples": [
               "running shoes,basketball shoes,tennis shoes"
@@ -3689,7 +3824,7 @@
             "minLength": 1
           },
           "countryCode": {
-            "description": "Country market to search.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).",
+            "description": "ISO 3166-1 alpha-2 country code specifying the geographic market for keyword analysis and search volume data.",
             "type": "string",
             "examples": [
               "US"
