@@ -98,34 +98,7 @@
                 "UK",
                 "US",
                 "ZA"
-              ],
-              "x-enumDescriptions": {
-                "AR": "Argentina",
-                "AU": "Australia",
-                "BE": "Belgium",
-                "BR": "Brazil",
-                "CA": "Canada",
-                "CH": "Switzerland",
-                "DE": "Germany",
-                "DK": "Denmark",
-                "ES": "Spain",
-                "FR": "France",
-                "IE": "Ireland",
-                "IN": "India",
-                "IT": "Italy",
-                "JP": "Japan",
-                "MX": "Mexico",
-                "NL": "Netherlands",
-                "NO": "Norway",
-                "NZ": "New Zealand",
-                "PT": "Portugal",
-                "SE": "Sweden",
-                "SG": "Singapore",
-                "UA": "Ukraine",
-                "UK": "United Kingdom",
-                "US": "United States",
-                "ZA": "South Africa"
-              }
+              ]
             },
             "example": "US"
           }
@@ -342,34 +315,7 @@
                 "UK",
                 "US",
                 "ZA"
-              ],
-              "x-enumDescriptions": {
-                "AR": "Argentina",
-                "AU": "Australia",
-                "BE": "Belgium",
-                "BR": "Brazil",
-                "CA": "Canada",
-                "CH": "Switzerland",
-                "DE": "Germany",
-                "DK": "Denmark",
-                "ES": "Spain",
-                "FR": "France",
-                "IE": "Ireland",
-                "IN": "India",
-                "IT": "Italy",
-                "JP": "Japan",
-                "MX": "Mexico",
-                "NL": "Netherlands",
-                "NO": "Norway",
-                "NZ": "New Zealand",
-                "PT": "Portugal",
-                "SE": "Sweden",
-                "SG": "Singapore",
-                "UA": "Ukraine",
-                "UK": "United Kingdom",
-                "US": "United States",
-                "ZA": "South Africa"
-              }
+              ]
             },
             "example": "US"
           }
@@ -585,34 +531,7 @@
                 "UK",
                 "US",
                 "ZA"
-              ],
-              "x-enumDescriptions": {
-                "AR": "Argentina",
-                "AU": "Australia",
-                "BE": "Belgium",
-                "BR": "Brazil",
-                "CA": "Canada",
-                "CH": "Switzerland",
-                "DE": "Germany",
-                "DK": "Denmark",
-                "ES": "Spain",
-                "FR": "France",
-                "IE": "Ireland",
-                "IN": "India",
-                "IT": "Italy",
-                "JP": "Japan",
-                "MX": "Mexico",
-                "NL": "Netherlands",
-                "NO": "Norway",
-                "NZ": "New Zealand",
-                "PT": "Portugal",
-                "SE": "Sweden",
-                "SG": "Singapore",
-                "UA": "Ukraine",
-                "UK": "United Kingdom",
-                "US": "United States",
-                "ZA": "South Africa"
-              }
+              ]
             },
             "example": "US"
           }
