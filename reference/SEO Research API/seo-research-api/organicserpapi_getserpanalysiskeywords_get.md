@@ -13,4 +13,6 @@ api:
   file: SpyFu.CloudSerp.SerpResearch.Api_seo.json
   operationId: OrganicSerpApi_GetSerpAnalysisKeywords_GET
 hidden: false
+metadata:
+  robots: index
 ---
