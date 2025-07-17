@@ -13,4 +13,6 @@ api:
   file: SpyFu.Keyword.KeywordResearch.Api_related.json
   operationId: RelatedKeywordsV2Api_GetKeywordsByBulkSearchPost_POST
 hidden: false
+metadata:
+  robots: index
 ---
