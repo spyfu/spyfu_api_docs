@@ -12,4 +12,6 @@ api:
   file: SpyFu.CloudSerp.SerpResearch.Api_ppc.json
   operationId: PaidSerpApi_GetPaidSerps_GET
 hidden: false
+metadata:
+  robots: index
 ---
