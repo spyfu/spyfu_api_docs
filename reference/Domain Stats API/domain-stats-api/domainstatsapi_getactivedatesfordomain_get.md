@@ -12,4 +12,6 @@ api:
   file: SpyFu.DomainStats.Research.Api.json
   operationId: DomainStatsApi_GetActiveDatesForDomain_GET
 hidden: false
+metadata:
+  robots: index
 ---
