@@ -13,4 +13,6 @@ api:
   file: SpyFu.Competitors.Research.Api.json
   operationId: CompetitorsApi_GetTopPpcCompetitors_GET
 hidden: false
+metadata:
+  robots: index
 ---
