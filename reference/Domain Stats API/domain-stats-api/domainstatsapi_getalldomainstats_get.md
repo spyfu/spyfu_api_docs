@@ -13,4 +13,6 @@ api:
   file: SpyFu.DomainStats.Research.Api.json
   operationId: DomainStatsApi_GetAllDomainStats_GET
 hidden: false
+metadata:
+  robots: index
 ---
