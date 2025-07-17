@@ -12,4 +12,6 @@ api:
   file: SpyFu.AdHistory.Research.Api.json
   operationId: AdHistoryApi_GetTermAdHistory_GET
 hidden: false
+metadata:
+  robots: index
 ---
