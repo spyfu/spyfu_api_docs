@@ -12,4 +12,6 @@ api:
   file: SpyFu.Keyword.KeywordResearch.Api_kombat.json
   operationId: KombatApi_GetCompetingPpcKeywords_GET
 hidden: false
+metadata:
+  robots: index
 ---
