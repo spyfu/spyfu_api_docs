@@ -13,4 +13,6 @@ api:
   file: SpyFu.Keyword.KeywordResearch.Api_ppc.json
   operationId: PaidSerpApi_GetMostSuccessful_GET
 hidden: false
+metadata:
+  robots: index
 ---
