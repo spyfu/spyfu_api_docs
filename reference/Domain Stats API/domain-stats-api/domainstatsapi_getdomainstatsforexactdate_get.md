@@ -14,5 +14,9 @@ api:
   operationId: DomainStatsApi_GetDomainStatsForExactDate_GET
 hidden: false
 metadata:
+  title: Domain Stats For Exact Date | SpyFu API
+  description: >-
+    Get SEO & PPC stats for any domain, set by month and year. Analyze and
+    compare historical performance snapshots.
   robots: index
 ---
