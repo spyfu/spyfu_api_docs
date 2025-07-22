@@ -13,5 +13,9 @@ api:
   operationId: DomainStatsApi_GetActiveDatesForDomain_GET
 hidden: false
 metadata:
+  title: Active Dates For Domain | SpyFu API
+  description: >-
+    Look up historical tracking coverage for any domain. The SpyFu API offers a
+    timeline of availability for domain analysis and research.
   robots: index
 ---
