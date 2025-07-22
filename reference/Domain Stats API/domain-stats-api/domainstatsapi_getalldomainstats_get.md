@@ -14,5 +14,9 @@ api:
   operationId: DomainStatsApi_GetAllDomainStats_GET
 hidden: false
 metadata:
+  title: All Domain Stats | SpyFu API
+  description: >-
+    Access all SEO & PPC stats for any domain over time. Analyze trends, growth,
+    and competitive moves.
   robots: index
 ---
