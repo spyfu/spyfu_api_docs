@@ -13,5 +13,9 @@ api:
   operationId: DomainStatsApi_GetLatestDomainStats_GET
 hidden: false
 metadata:
+  title: Latest Domain Stats | SpyFu API
+  description: >-
+    See the latest SEO & PPC stats for any domain. Track performance, rankings,
+    and opportunities.
   robots: index
 ---
