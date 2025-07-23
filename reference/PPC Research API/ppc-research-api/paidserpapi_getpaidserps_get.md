@@ -13,5 +13,9 @@ api:
   operationId: PaidSerpApi_GetPaidSerps_GET
 hidden: false
 metadata:
+  title: Paid SERPs | SpyFu API
+  description: >-
+    Starting with a domain, see the paid search results where its ad ran.
+    Analyze the competitive paid ad field with SpyFu's API.
   robots: index
 ---
