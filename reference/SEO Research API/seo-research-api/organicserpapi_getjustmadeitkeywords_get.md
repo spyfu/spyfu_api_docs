@@ -15,5 +15,9 @@ api:
   operationId: OrganicSerpApi_GetJustMadeItKeywords_GET
 hidden: false
 metadata:
+  title: Keywords that Just Hit the First Page | SpyFu API
+  description: >-
+    Find keywords where a site just reached the first page of the SERP. Capture
+    new SEO wins and rising content fast.
   robots: index
 ---
