@@ -14,5 +14,9 @@ api:
   operationId: CompetitorsApi_GetTopSeoCompetitors_GET
 hidden: false
 metadata:
+  title: Top SEO Competitors | SpyFu API
+  description: >-
+    Identify SEO competitors and the keywords they rank for. Blend the data into
+    any custom reporting you can imagine via SpyFu's API.
   robots: index
 ---
