@@ -14,5 +14,9 @@ api:
   operationId: RelatedKeywordsV2Api_GetAlsoBuysAdsForKeywords_GET
 hidden: false
 metadata:
+  title: Also Buys Ads For Keywords | SpyFu API
+  description: >-
+    Starting with one keyword, find keywords that top advertisers also buy.
+    Reveal cross-advertising patterns for smarter campaigns.
   robots: index
 ---
