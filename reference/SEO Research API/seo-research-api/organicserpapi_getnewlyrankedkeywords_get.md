@@ -15,5 +15,9 @@ api:
   operationId: OrganicSerpApi_GetNewlyRankedKeywords_GET
 hidden: false
 metadata:
+  title: Newly Ranked Keywords | SpyFu API
+  description: >-
+    Find newly ranking keywords. Track fresh SEO wins and discover new content
+    opportunities.
   robots: index
 ---
