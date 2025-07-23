@@ -9,6 +9,7 @@ metadata:
   description: >-
     Access actionable SEO & PPC data. Power your reporting, integration, and
     competitive insights with SpyFu's API.
+  robots: index
 ---
 Welcome to ReadMe! :owlbert:
 
