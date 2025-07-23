@@ -14,5 +14,9 @@ api:
   operationId: PaidSerpApi_GetMostSuccessful_GET
 hidden: false
 metadata:
+  title: Most Successful PPC Keywords | SpyFu API
+  description: >-
+    Uncover the best PPC keywords for any site. Optimize your campaigns with
+    proven paid search winners.
   robots: index
 ---
