@@ -14,5 +14,7 @@ api:
   operationId: PaidSerpApi_GetNewKeywords_GET
 hidden: false
 metadata:
+  title: New PPC Keywords | SpyFu API
+  description: Find new keywords in PPC campaigns. Expand your ad reach and strategy fast.
   robots: index
 ---
