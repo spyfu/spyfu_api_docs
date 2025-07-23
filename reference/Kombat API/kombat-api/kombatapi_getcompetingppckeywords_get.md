@@ -13,5 +13,9 @@ api:
   operationId: KombatApi_GetCompetingPpcKeywords_GET
 hidden: false
 metadata:
+  title: Competing PPC Keywords | SpyFu API
+  description: >-
+    Compare PPC keywords across multiple sites. Build competitive insights into
+    your tools to build smarter ad buying insights with SpyFu's API.
   robots: index
 ---
