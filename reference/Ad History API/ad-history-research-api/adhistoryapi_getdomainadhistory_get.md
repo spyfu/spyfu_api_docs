@@ -13,5 +13,9 @@ api:
   operationId: AdHistoryApi_GetDomainAdHistory_GET
 hidden: false
 metadata:
+  title: Domain Ad History | SpyFu API
+  description: >-
+    Access full Google Ads history for any website. Track ad spend, strategies,
+    and creative performance. Power your reporting with API data.
   robots: index
 ---
