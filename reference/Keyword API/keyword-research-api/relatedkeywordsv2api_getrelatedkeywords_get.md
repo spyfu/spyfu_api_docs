@@ -14,5 +14,9 @@ api:
   operationId: RelatedKeywordsV2Api_GetRelatedKeywords_GET
 hidden: false
 metadata:
+  title: Related Keywords | SpyFu API
+  description: >-
+    Get related, high-value keywords. Expand your content reach and discover new
+    SEO ideas.
   robots: index
 ---
