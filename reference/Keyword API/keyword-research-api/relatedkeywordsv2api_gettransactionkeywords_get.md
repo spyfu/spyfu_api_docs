@@ -14,5 +14,9 @@ api:
   operationId: RelatedKeywordsV2Api_GetTransactionKeywords_GET
 hidden: false
 metadata:
+  title: Transactional Keywords | SpyFu API
+  description: >-
+    Find commercial-intent keywords. Target buyers and increase conversions with
+    ready-to-purchase terms.
   robots: index
 ---
