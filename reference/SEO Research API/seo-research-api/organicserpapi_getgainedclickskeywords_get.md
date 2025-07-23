@@ -15,5 +15,9 @@ api:
   operationId: OrganicSerpApi_GetGainedClicksKeywords_GET
 hidden: false
 metadata:
+  title: Keywords that Gained Clicks | SpyFu API
+  description: >-
+    Identify keywords that helped a website gain clicks. Discover winning
+    content and rising opportunities.
   robots: index
 ---
