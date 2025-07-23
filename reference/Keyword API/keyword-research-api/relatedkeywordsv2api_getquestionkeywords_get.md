@@ -14,5 +14,9 @@ api:
   operationId: RelatedKeywordsV2Api_GetQuestionKeywords_GET
 hidden: false
 metadata:
+  title: Question-Based Keywords | SpyFu API
+  description: >-
+    Find question keywords for your topic. Inspire FAQ content and answer real
+    user searches.
   robots: index
 ---
