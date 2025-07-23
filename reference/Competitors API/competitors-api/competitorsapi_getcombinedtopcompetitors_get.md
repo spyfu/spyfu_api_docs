@@ -13,4 +13,9 @@ api:
   file: SpyFu.Competitors.Research.Api.json
   operationId: CompetitorsApi_GetCombinedTopCompetitors_GET
 hidden: false
+metadata:
+  title: Top SEO + PPC Competitors | SpyFu API
+  description: >-
+    Include SEO and PPC competitor data into any custom reporting you can
+    imagine. Get powerful competitive insights with SpyFu's  API.
 ---
