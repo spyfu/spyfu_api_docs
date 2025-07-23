@@ -3,6 +3,10 @@ title: My SpyFu - Project Management API
 deprecated: false
 hidden: false
 metadata:
+  title: Project Management and Keyword Tracking | SpyFu API
+  description: >-
+    Manage your links and contacts for a domain, and organize your custom
+    keyword groups.
   robots: index
 next:
   pages:
