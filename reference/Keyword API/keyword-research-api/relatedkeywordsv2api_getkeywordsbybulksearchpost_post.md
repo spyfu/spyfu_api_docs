@@ -14,5 +14,9 @@ api:
   operationId: RelatedKeywordsV2Api_GetKeywordsByBulkSearchPost_POST
 hidden: false
 metadata:
+  title: Keyword Information Bulk (POST) | SpyFu API
+  description: >-
+    Bulk analyze keyword data. Get metrics, volume, and cost insights for many
+    keywords at once via POST request.
   robots: index
 ---
