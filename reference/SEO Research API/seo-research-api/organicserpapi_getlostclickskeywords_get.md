@@ -15,5 +15,9 @@ api:
   operationId: OrganicSerpApi_GetLostClicksKeywords_GET
 hidden: false
 metadata:
+  title: Keywords that Lost Clicks | SpyFu API
+  description: >-
+    Track keywords where the site lost organic clicks. Prioritize pages that
+    need attention.
   robots: index
 ---
