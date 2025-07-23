@@ -14,5 +14,9 @@ api:
   operationId: AdHistoryApi_GetTermAdHistoryWithStats_GET
 hidden: false
 metadata:
+  title: Keyword Ad History With Stats | SpyFu API
+  description: >-
+    Get keyword ad copy over time with stats and performance data. Analyze
+    historic PPC ads and metrics for any term.
   robots: index
 ---
