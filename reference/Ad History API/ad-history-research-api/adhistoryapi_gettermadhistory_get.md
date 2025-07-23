@@ -13,5 +13,9 @@ api:
   operationId: AdHistoryApi_GetTermAdHistory_GET
 hidden: false
 metadata:
+  title: Keyword Ad History | SpyFu API
+  description: >-
+    Find every ad and advertiser for any keyword. Work with past copy across
+    multiple domains. Integrate with your own workflow.
   robots: index
 ---
