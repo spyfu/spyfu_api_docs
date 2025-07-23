@@ -15,5 +15,9 @@ api:
   operationId: OrganicSerpApi_GetLostRanksKeywords_GET
 hidden: false
 metadata:
+  title: Keywords that Lost Ranks | SpyFu API
+  description: >-
+    Find keywords for a site that dropped ranks. Respond quickly to recover lost
+    SEO positions.
   robots: index
 ---
