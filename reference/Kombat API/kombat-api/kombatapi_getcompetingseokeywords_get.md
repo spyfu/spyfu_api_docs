@@ -13,5 +13,9 @@ api:
   operationId: KombatApi_GetCompetingSeoKeywords_GET
 hidden: false
 metadata:
+  title: Competing SEO Keywords | SpyFu API
+  description: >-
+    Get SEO keyword comparisons between websites. Build that data into your
+    systems, or power ongoing AI searches.
   robots: index
 ---
