@@ -14,5 +14,9 @@ api:
   operationId: CompetitorsApi_GetTopPpcCompetitors_GET
 hidden: false
 metadata:
+  title: Top PPC Competitors | SpyFu API
+  description: >-
+    Identify PPC competitors and the keywords they buy. Blend the data into any
+    custom reporting you can imagine via SpyFu's API.
   robots: index
 ---
