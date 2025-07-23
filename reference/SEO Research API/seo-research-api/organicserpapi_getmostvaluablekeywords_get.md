@@ -15,5 +15,9 @@ api:
   operationId: OrganicSerpApi_GetMostValuableKeywords_GET
 hidden: false
 metadata:
+  title: Most Valuable Keywords | SpyFu API
+  description: >-
+    Uncover your site's top organic keywords. Drive more traffic with high-value
+    SEO opportunities.
   robots: index
 ---
