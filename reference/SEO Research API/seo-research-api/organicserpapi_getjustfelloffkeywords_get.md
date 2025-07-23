@@ -15,5 +15,9 @@ api:
   operationId: OrganicSerpApi_GetJustFellOffKeywords_GET
 hidden: false
 metadata:
+  title: Keywords that Just Fell Off the First Page | SpyFu API
+  description: >-
+    Find the specific keywords where a site dropped off the first page of the
+    SERP. Identify content at risk and act fast with SpyFu's API.
   robots: index
 ---
