@@ -14,5 +14,9 @@ api:
   operationId: OrganicSerpApi_GetSerpAnalysisKeywords_GET
 hidden: false
 metadata:
+  title: Keyword SERP Analysis Details | SpyFu API
+  description: >-
+    Get full SERP data for any keyword. Analyze every ranking domain and track
+    your SEO landscape.
   robots: index
 ---
