@@ -15,5 +15,9 @@ api:
   operationId: OrganicSerpApi_GetGainedRanksKeywords_GET
 hidden: false
 metadata:
+  title: Keywords that Gained Ranks | SpyFu API
+  description: >-
+    Identify keywords where a website gained ranks. Spot successful SEO gains
+    and winning strategies.
   robots: index
 ---
