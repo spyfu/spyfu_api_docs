@@ -8,7 +8,7 @@ excerpt: >-
 
 
   [Visualize this API live on
-  SpyFu](https://www.spyfu.com/overview/domain?query=amazon.com)
+  SpyFu](https://www.spyfu.com/domain-overview?query=example.com)
 api:
   file: SpyFu.DomainStats.Research.Api.json
   operationId: DomainStatsApi_GetAllDomainStats_GET
