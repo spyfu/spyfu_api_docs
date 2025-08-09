@@ -1,5 +1,5 @@
 ---
-title: Get Paid SERPs
+title: Get Ads for Domain
 excerpt: >-
   Returns paid search results (ads) that a domain appears in across Google
   search. This endpoint reveals the competitive paid landscape to identify
