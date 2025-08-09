@@ -8,7 +8,7 @@ excerpt: >-
 
 
   [Visualize this API live on
-  SpyFu](https://www.spyfu.com/ppc/keywords?query=amazon.com)
+  SpyFu](https://www.spyfu.com/ppc/keywords?query=example.com)
 api:
   file: SpyFu.Keyword.KeywordResearch.Api_ppc.json
   operationId: PaidSerpApi_GetNewKeywords_GET
