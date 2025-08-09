@@ -67,7 +67,7 @@
           {
             "name": "searchVolume.min",
             "in": "query",
-            "description": "Filter by the number of searches done this past month on Google.com.",
+            "description": "Filter by the number of searches done this past month on Google.",
             "schema": {
               "type": "number",
               "format": "float"
@@ -76,7 +76,7 @@
           {
             "name": "searchVolume.max",
             "in": "query",
-            "description": "Filter by the number of searches done this past month on Google.com.",
+            "description": "Filter by the number of searches done this past month on Google.",
             "schema": {
               "type": "number",
               "format": "float"
@@ -85,7 +85,7 @@
           {
             "name": "liveSearchVolume.min",
             "in": "query",
-            "description": "Filter by the number of searches done this past month on Google.com. This value is refreshed each month.",
+            "description": "Filter by the number of searches done this past month on Google. This value is refreshed each month.",
             "schema": {
               "type": "number",
               "format": "float"
@@ -94,7 +94,7 @@
           {
             "name": "liveSearchVolume.max",
             "in": "query",
-            "description": "Filter by the number of searches done this past month on Google.com. This value is refreshed each month.",
+            "description": "Filter by the number of searches done this past month on Google. This value is refreshed each month.",
             "schema": {
               "type": "number",
               "format": "float"
@@ -406,7 +406,7 @@
           {
             "name": "countryCode",
             "in": "query",
-            "description": "Country market to search.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).",
+            "description": "Country market to search.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).  <a href='https://developer.spyfu.com/reference/adhistoryapi_getdomainadhistory_get#/'>All Countries</a>",
             "schema": {
               "type": "string",
               "examples": [
@@ -948,7 +948,7 @@
           {
             "name": "searchVolume.min",
             "in": "query",
-            "description": "Filter by the number of searches done this past month on Google.com.",
+            "description": "Filter by the number of searches done this past month on Google.",
             "schema": {
               "type": "number",
               "format": "float"
@@ -957,7 +957,7 @@
           {
             "name": "searchVolume.max",
             "in": "query",
-            "description": "Filter by the number of searches done this past month on Google.com.",
+            "description": "Filter by the number of searches done this past month on Google.",
             "schema": {
               "type": "number",
               "format": "float"
@@ -966,7 +966,7 @@
           {
             "name": "liveSearchVolume.min",
             "in": "query",
-            "description": "Filter by the number of searches done this past month on Google.com. This value is refreshed each month.",
+            "description": "Filter by the number of searches done this past month on Google. This value is refreshed each month.",
             "schema": {
               "type": "number",
               "format": "float"
@@ -975,7 +975,7 @@
           {
             "name": "liveSearchVolume.max",
             "in": "query",
-            "description": "Filter by the number of searches done this past month on Google.com. This value is refreshed each month.",
+            "description": "Filter by the number of searches done this past month on Google. This value is refreshed each month.",
             "schema": {
               "type": "number",
               "format": "float"
@@ -1287,7 +1287,7 @@
           {
             "name": "countryCode",
             "in": "query",
-            "description": "Country market to search.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).",
+            "description": "Country market to search.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).  <a href='https://developer.spyfu.com/reference/adhistoryapi_getdomainadhistory_get#/'>All Countries</a>",
             "schema": {
               "type": "string",
               "examples": [
@@ -1829,7 +1829,7 @@
           {
             "name": "searchVolume.min",
             "in": "query",
-            "description": "Filter by the number of searches done this past month on Google.com.",
+            "description": "Filter by the number of searches done this past month on Google.",
             "schema": {
               "type": "number",
               "format": "float"
@@ -1838,7 +1838,7 @@
           {
             "name": "searchVolume.max",
             "in": "query",
-            "description": "Filter by the number of searches done this past month on Google.com.",
+            "description": "Filter by the number of searches done this past month on Google.",
             "schema": {
               "type": "number",
               "format": "float"
@@ -1847,7 +1847,7 @@
           {
             "name": "liveSearchVolume.min",
             "in": "query",
-            "description": "Filter by the number of searches done this past month on Google.com. This value is refreshed each month.",
+            "description": "Filter by the number of searches done this past month on Google. This value is refreshed each month.",
             "schema": {
               "type": "number",
               "format": "float"
@@ -1856,7 +1856,7 @@
           {
             "name": "liveSearchVolume.max",
             "in": "query",
-            "description": "Filter by the number of searches done this past month on Google.com. This value is refreshed each month.",
+            "description": "Filter by the number of searches done this past month on Google. This value is refreshed each month.",
             "schema": {
               "type": "number",
               "format": "float"
@@ -2168,7 +2168,7 @@
           {
             "name": "countryCode",
             "in": "query",
-            "description": "Country market to search.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).",
+            "description": "Country market to search.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).  <a href='https://developer.spyfu.com/reference/adhistoryapi_getdomainadhistory_get#/'>All Countries</a>",
             "schema": {
               "type": "string",
               "examples": [
@@ -2710,7 +2710,7 @@
           {
             "name": "searchVolume.min",
             "in": "query",
-            "description": "Filter by the number of searches done this past month on Google.com.",
+            "description": "Filter by the number of searches done this past month on Google.",
             "schema": {
               "type": "number",
               "format": "float"
@@ -2719,7 +2719,7 @@
           {
             "name": "searchVolume.max",
             "in": "query",
-            "description": "Filter by the number of searches done this past month on Google.com.",
+            "description": "Filter by the number of searches done this past month on Google.",
             "schema": {
               "type": "number",
               "format": "float"
@@ -2728,7 +2728,7 @@
           {
             "name": "liveSearchVolume.min",
             "in": "query",
-            "description": "Filter by the number of searches done this past month on Google.com. This value is refreshed each month.",
+            "description": "Filter by the number of searches done this past month on Google. This value is refreshed each month.",
             "schema": {
               "type": "number",
               "format": "float"
@@ -2737,7 +2737,7 @@
           {
             "name": "liveSearchVolume.max",
             "in": "query",
-            "description": "Filter by the number of searches done this past month on Google.com. This value is refreshed each month.",
+            "description": "Filter by the number of searches done this past month on Google. This value is refreshed each month.",
             "schema": {
               "type": "number",
               "format": "float"
@@ -3049,7 +3049,7 @@
           {
             "name": "countryCode",
             "in": "query",
-            "description": "Country market to search.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).",
+            "description": "Country market to search.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).  <a href='https://developer.spyfu.com/reference/adhistoryapi_getdomainadhistory_get#/'>All Countries</a>",
             "schema": {
               "type": "string",
               "examples": [
@@ -3591,7 +3591,7 @@
           {
             "name": "searchVolume.min",
             "in": "query",
-            "description": "Filter by the number of searches done this past month on Google.com.",
+            "description": "Filter by the number of searches done this past month on Google.",
             "schema": {
               "type": "number",
               "format": "float"
@@ -3600,7 +3600,7 @@
           {
             "name": "searchVolume.max",
             "in": "query",
-            "description": "Filter by the number of searches done this past month on Google.com.",
+            "description": "Filter by the number of searches done this past month on Google.",
             "schema": {
               "type": "number",
               "format": "float"
@@ -3609,7 +3609,7 @@
           {
             "name": "liveSearchVolume.min",
             "in": "query",
-            "description": "Filter by the number of searches done this past month on Google.com. This value is refreshed each month.",
+            "description": "Filter by the number of searches done this past month on Google. This value is refreshed each month.",
             "schema": {
               "type": "number",
               "format": "float"
@@ -3618,7 +3618,7 @@
           {
             "name": "liveSearchVolume.max",
             "in": "query",
-            "description": "Filter by the number of searches done this past month on Google.com. This value is refreshed each month.",
+            "description": "Filter by the number of searches done this past month on Google. This value is refreshed each month.",
             "schema": {
               "type": "number",
               "format": "float"
@@ -4438,7 +4438,7 @@
           {
             "name": "searchVolume.min",
             "in": "query",
-            "description": "Filter by the number of searches done this past month on Google.com.",
+            "description": "Filter by the number of searches done this past month on Google.",
             "schema": {
               "type": "number",
               "format": "float"
@@ -4447,7 +4447,7 @@
           {
             "name": "searchVolume.max",
             "in": "query",
-            "description": "Filter by the number of searches done this past month on Google.com.",
+            "description": "Filter by the number of searches done this past month on Google.",
             "schema": {
               "type": "number",
               "format": "float"
@@ -4456,7 +4456,7 @@
           {
             "name": "liveSearchVolume.min",
             "in": "query",
-            "description": "Filter by the number of searches done this past month on Google.com. This value is refreshed each month.",
+            "description": "Filter by the number of searches done this past month on Google. This value is refreshed each month.",
             "schema": {
               "type": "number",
               "format": "float"
@@ -4465,7 +4465,7 @@
           {
             "name": "liveSearchVolume.max",
             "in": "query",
-            "description": "Filter by the number of searches done this past month on Google.com. This value is refreshed each month.",
+            "description": "Filter by the number of searches done this past month on Google. This value is refreshed each month.",
             "schema": {
               "type": "number",
               "format": "float"
@@ -4750,7 +4750,7 @@
           {
             "name": "countryCode",
             "in": "query",
-            "description": "Country market to search.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).",
+            "description": "Country market to search.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).  <a href='https://developer.spyfu.com/reference/adhistoryapi_getdomainadhistory_get#/'>All Countries</a>",
             "schema": {
               "type": "string",
               "examples": [

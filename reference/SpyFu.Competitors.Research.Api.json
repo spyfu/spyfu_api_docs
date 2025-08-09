@@ -33,7 +33,7 @@
           {
             "name": "countryCode",
             "in": "query",
-            "description": "Country market to search.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).",
+            "description": "Country market to search.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).  <a href='https://developer.spyfu.com/reference/adhistoryapi_getdomainadhistory_get#/'>All Countries</a>",
             "schema": {
               "type": "string",
               "examples": [
@@ -247,7 +247,7 @@
           {
             "name": "countryCode",
             "in": "query",
-            "description": "Country market to search.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).",
+            "description": "Country market to search.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).  <a href='https://developer.spyfu.com/reference/adhistoryapi_getdomainadhistory_get#/'>All Countries</a>",
             "schema": {
               "type": "string",
               "examples": [
@@ -461,7 +461,7 @@
           {
             "name": "countryCode",
             "in": "query",
-            "description": "Country market to search.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).",
+            "description": "Country market to search.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).  <a href='https://developer.spyfu.com/reference/adhistoryapi_getdomainadhistory_get#/'>All Countries</a>",
             "schema": {
               "type": "string",
               "examples": [

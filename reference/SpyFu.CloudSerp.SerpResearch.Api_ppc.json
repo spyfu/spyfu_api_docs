@@ -14,7 +14,7 @@
     "/v2/ppc/getPaidSerps": {
       "get": {
         "operationId": "PaidSerpApi_GetPaidSerps_GET",
-        "summary": "Get Paid SERPs",
+        "summary": "Get Ads for Domain",
         "description": "Returns paid search results (ads) that a domain appears in across Google search. This endpoint reveals the competitive paid landscape to identify advertising opportunities and understand competitor PPC strategies.\n\n[Visualize this API live on SpyFu](https://www.spyfu.com/ppc/keywords/domain?query=example.com)",
         "parameters": [
           {
@@ -174,7 +174,7 @@
           {
             "name": "countryCode",
             "in": "query",
-            "description": "Country market to search.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).",
+            "description": "Country market to search.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).  <a href='https://developer.spyfu.com/reference/adhistoryapi_getdomainadhistory_get#/'>All Countries</a>",
             "schema": {
               "type": "string",
               "examples": [
@@ -230,7 +230,7 @@
                 "DateSearched"
               ],
               "x-enumDescriptions": {
-                "SearchVolume": "Number of searches done this past month on Google.com (or within selected country). Blended from multiple sources for better snapshot of search activity",
+                "SearchVolume": "Number of searches done this past month on Google (or within selected country). Blended from multiple sources for better snapshot of search activity",
                 "KeywordDifficulty": "PPC ranking difficulty score (0-100 scale, higher = more difficult to rank). Based on advertiser competition, cost-per-click, and bid density for paid search results",
                 "AdPosition": "Average position where the domain's ads appear in paid search results (1 = top ad position)",
                 "AdCount": "Total number of advertisers seen over the last 6 months for this keyword",

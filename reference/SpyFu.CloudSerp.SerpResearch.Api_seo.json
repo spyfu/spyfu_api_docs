@@ -594,7 +594,7 @@
           {
             "name": "countryCode",
             "in": "query",
-            "description": "Country market to search.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).",
+            "description": "Country market to search.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).  <a href='https://developer.spyfu.com/reference/adhistoryapi_getdomainadhistory_get#/'>All Countries</a>",
             "schema": {
               "type": "string",
               "examples": [
@@ -665,7 +665,7 @@
                 "RankingHomepages"
               ],
               "x-enumDescriptions": {
-                "SearchVolume": "Number of searches done this past month on Google.com (or within selected country). Blended from multiple sources for better snapshot of search activity",
+                "SearchVolume": "Number of searches done this past month on Google (or within selected country). Blended from multiple sources for better snapshot of search activity",
                 "KeywordDifficulty": "SEO ranking difficulty score (0-100 scale, higher = more difficult to rank). Based on domain strength, on-page signals like 'keyword in title,' and number of .gov/.edu domains",
                 "Rank": "Organic search result position (1 = top organic result)",
                 "RankChange": "Change in organic position from previous data update (positive values indicate ranking improvement; negative values indicate moving further down the SERP).",
@@ -1681,7 +1681,7 @@
           {
             "name": "countryCode",
             "in": "query",
-            "description": "Country market to search.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).",
+            "description": "Country market to search.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).  <a href='https://developer.spyfu.com/reference/adhistoryapi_getdomainadhistory_get#/'>All Countries</a>",
             "schema": {
               "type": "string",
               "examples": [
@@ -1752,7 +1752,7 @@
                 "RankingHomepages"
               ],
               "x-enumDescriptions": {
-                "SearchVolume": "Number of searches done this past month on Google.com (or within selected country). Blended from multiple sources for better snapshot of search activity",
+                "SearchVolume": "Number of searches done this past month on Google (or within selected country). Blended from multiple sources for better snapshot of search activity",
                 "KeywordDifficulty": "SEO ranking difficulty score (0-100 scale, higher = more difficult to rank). Based on domain strength, on-page signals like 'keyword in title,' and number of .gov/.edu domains",
                 "Rank": "Organic search result position (1 = top organic result)",
                 "RankChange": "Change in organic position from previous data update (positive values indicate ranking improvement; negative values indicate moving further down the SERP).",
@@ -2768,7 +2768,7 @@
           {
             "name": "countryCode",
             "in": "query",
-            "description": "Country market to search.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).",
+            "description": "Country market to search.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).  <a href='https://developer.spyfu.com/reference/adhistoryapi_getdomainadhistory_get#/'>All Countries</a>",
             "schema": {
               "type": "string",
               "examples": [
@@ -2839,7 +2839,7 @@
                 "RankingHomepages"
               ],
               "x-enumDescriptions": {
-                "SearchVolume": "Number of searches done this past month on Google.com (or within selected country). Blended from multiple sources for better snapshot of search activity",
+                "SearchVolume": "Number of searches done this past month on Google (or within selected country). Blended from multiple sources for better snapshot of search activity",
                 "KeywordDifficulty": "SEO ranking difficulty score (0-100 scale, higher = more difficult to rank). Based on domain strength, on-page signals like 'keyword in title,' and number of .gov/.edu domains",
                 "Rank": "Organic search result position (1 = top organic result)",
                 "RankChange": "Change in organic position from previous data update(positive values indicate ranking improvement; negative values indicate moving further down the SERP).",
@@ -3855,7 +3855,7 @@
           {
             "name": "countryCode",
             "in": "query",
-            "description": "Country market to search.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).",
+            "description": "Country market to search.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).  <a href='https://developer.spyfu.com/reference/adhistoryapi_getdomainadhistory_get#/'>All Countries</a>",
             "schema": {
               "type": "string",
               "examples": [
@@ -3953,7 +3953,7 @@
                 "RankingHomepages"
               ],
               "x-enumDescriptions": {
-                "SearchVolume": "Number of searches done this past month on Google.com (or within selected country). Blended from multiple sources for better snapshot of search activity",
+                "SearchVolume": "Number of searches done this past month on Google (or within selected country). Blended from multiple sources for better snapshot of search activity",
                 "KeywordDifficulty": "SEO ranking difficulty score (0-100 scale, higher = more difficult to rank). Based on domain strength, on-page signals like 'keyword in title,' and number of .gov/.edu domains",
                 "Rank": "Organic search result position (1 = top organic result)",
                 "RankChange": "Change in organic position from previous data update (positive values indicate ranking improvement; negative values indicate moving further down the SERP).",
@@ -4969,7 +4969,7 @@
           {
             "name": "countryCode",
             "in": "query",
-            "description": "Country market to search.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).",
+            "description": "Country market to search.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).  <a href='https://developer.spyfu.com/reference/adhistoryapi_getdomainadhistory_get#/'>All Countries</a>",
             "schema": {
               "type": "string",
               "examples": [
@@ -5040,7 +5040,7 @@
                 "RankingHomepages"
               ],
               "x-enumDescriptions": {
-                "SearchVolume": "Number of searches done this past month on Google.com (or within selected country). Blended from multiple sources for better snapshot of search activity",
+                "SearchVolume": "Number of searches done this past month on Google (or within selected country). Blended from multiple sources for better snapshot of search activity",
                 "KeywordDifficulty": "SEO ranking difficulty score (0-100 scale, higher = more difficult to rank). Based on domain strength, on-page signals like 'keyword in title,' and number of .gov/.edu domains",
                 "Rank": "Organic search result position (1 = top organic result)",
                 "RankChange": "Change in organic position from previous data update (positive values indicate ranking improvement; negative values indicate moving further down the SERP).",
@@ -6056,7 +6056,7 @@
           {
             "name": "countryCode",
             "in": "query",
-            "description": "Country market to search.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).",
+            "description": "Country market to search.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).  <a href='https://developer.spyfu.com/reference/adhistoryapi_getdomainadhistory_get#/'>All Countries</a>",
             "schema": {
               "type": "string",
               "examples": [
@@ -6154,7 +6154,7 @@
                 "RankingHomepages"
               ],
               "x-enumDescriptions": {
-                "SearchVolume": "Number of searches done this past month on Google.com (or within selected country). Blended from multiple sources for better snapshot of search activity",
+                "SearchVolume": "Number of searches done this past month on Google (or within selected country). Blended from multiple sources for better snapshot of search activity",
                 "KeywordDifficulty": "SEO ranking difficulty score (0-100 scale, higher = more difficult to rank). Based on domain strength, on-page signals like 'keyword in title,' and number of .gov/.edu domains",
                 "Rank": "Organic search result position (1 = top organic result)",
                 "RankChange": "Change in organic position from previous data update (positive values indicate ranking improvement; negative values indicate moving further down the SERP).",
@@ -7170,7 +7170,7 @@
           {
             "name": "countryCode",
             "in": "query",
-            "description": "Country market to search.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).",
+            "description": "Country market to search.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).  <a href='https://developer.spyfu.com/reference/adhistoryapi_getdomainadhistory_get#/'>All Countries</a>",
             "schema": {
               "type": "string",
               "examples": [
@@ -7268,7 +7268,7 @@
                 "RankingHomepages"
               ],
               "x-enumDescriptions": {
-                "SearchVolume": "Number of searches done this past month on Google.com (or within selected country). Blended from multiple sources for better snapshot of search activity",
+                "SearchVolume": "Number of searches done this past month on Google (or within selected country). Blended from multiple sources for better snapshot of search activity",
                 "KeywordDifficulty": "SEO ranking difficulty score (0-100 scale, higher = more difficult to rank). Based on domain strength, on-page signals like 'keyword in title,' and number of .gov/.edu domains",
                 "Rank": "Organic search result position (1 = top organic result)",
                 "RankChange": "Change in organic position from previous data update (positive values indicate ranking improvement; negative values indicate moving further down the SERP).",
@@ -8284,7 +8284,7 @@
           {
             "name": "countryCode",
             "in": "query",
-            "description": "Country market to search.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).",
+            "description": "Country market to search.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).  <a href='https://developer.spyfu.com/reference/adhistoryapi_getdomainadhistory_get#/'>All Countries</a>",
             "schema": {
               "type": "string",
               "examples": [
@@ -8382,7 +8382,7 @@
                 "RankingHomepages"
               ],
               "x-enumDescriptions": {
-                "SearchVolume": "Number of searches done this past month on Google.com (or within selected country). Blended from multiple sources for better snapshot of search activity",
+                "SearchVolume": "Number of searches done this past month on Google (or within selected country). Blended from multiple sources for better snapshot of search activity",
                 "KeywordDifficulty": "SEO ranking difficulty score (0-100 scale, higher = more difficult to rank). Based on domain strength, on-page signals like 'keyword in title,' and number of .gov/.edu domains",
                 "Rank": "Organic search result position (1 = top organic result)",
                 "RankChange": "Change in organic position from previous data update (positive values indicate ranking improvement; negative values indicate moving further down the SERP).",
@@ -9432,7 +9432,7 @@
           {
             "name": "countryCode",
             "in": "query",
-            "description": "Country market to search. Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).",
+            "description": "Country market to search. Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).  <a href='https://developer.spyfu.com/reference/adhistoryapi_getdomainadhistory_get#/'>All Countries</a>",
             "schema": {
               "type": "string",
               "examples": [
@@ -9503,7 +9503,7 @@
                 "RankingHomepages"
               ],
               "x-enumDescriptions": {
-                "SearchVolume": "Number of searches done this past month on Google.com (or within selected country). Blended from multiple sources for better snapshot of search activity",
+                "SearchVolume": "Number of searches done this past month on Google (or within selected country). Blended from multiple sources for better snapshot of search activity",
                 "KeywordDifficulty": "SEO ranking difficulty score (0-100 scale, higher = more difficult to rank). Based on domain strength, on-page signals like 'keyword in title,' and number of .gov/.edu domains",
                 "Rank": "Organic search result position (1 = top organic result)",
                 "RankChange": "Change in organic position from previous data update (positive values indicate ranking improvement; negative values indicate moving further down the SERP).",
@@ -9939,7 +9939,7 @@
     "/v2/seo/getWhereTheyOutRankYou": {
       "get": {
         "operationId": "OrganicSerpApi_GetKeywordsWhereTheyOutRankYou_GET",
-        "summary": "Get Keywords Where They Outrank You",
+        "summary": "Get Where They Outrank You Keywords",
         "description": "Returns keywords where the query domain currently outranks the comparison domain in organic search results. This endpoint identifies competitive gaps where one domain holds a better position than another, providing insights into competitor strengths and opportunities for improvement.\n\nThe response includes both domains' ranking data, with the comparison domain's metrics appearing in the 'your' fields (yourRank, yourRankChange, yourUrl). Use this to analyze competitive positioning, identify content gaps, and discover opportunities where competitors are winning.\n\n**Common Usage Patterns:**\n- Put competitor in `query` and your domain in `compareDomain` to see where they outrank you\n- Put your domain in `query` and competitor in `compareDomain` to see where you outrank them\n\n[Visualize this API live on SpyFu](https://www.spyfu.com/seo/keywords/domain?query=example.com) _(TODO - verify)_",
         "parameters": [
           {
@@ -10520,7 +10520,7 @@
           {
             "name": "countryCode",
             "in": "query",
-            "description": "Country market to search. Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).",
+            "description": "Country market to search. Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).  <a href='https://developer.spyfu.com/reference/adhistoryapi_getdomainadhistory_get#/'>All Countries</a>",
             "schema": {
               "type": "string",
               "examples": [
@@ -10591,7 +10591,7 @@
                 "RankingHomepages"
               ],
               "x-enumDescriptions": {
-                "SearchVolume": "Number of searches done this past month on Google.com (or within selected country). Blended from multiple sources for better snapshot of search activity",
+                "SearchVolume": "Number of searches done this past month on Google (or within selected country). Blended from multiple sources for better snapshot of search activity",
                 "KeywordDifficulty": "SEO ranking difficulty score (0-100 scale, higher = more difficult to rank). Based on domain strength, on-page signals like 'keyword in title,' and number of .gov/.edu domains",
                 "Rank": "Organic search result position for the query domain (1 = top organic result)",
                 "RankChange": "Change in organic position for the query domain from previous data update (positive values indicate ranking improvement; negative values indicate moving further down the SERP).",
@@ -11027,7 +11027,7 @@
     "/v2/seo/getWhereTheyJustSurpassedYou": {
       "get": {
         "operationId": "OrganicSerpApi_GetKeywordsWhereTheyJustSurpassedYou_GET",
-        "summary": "Get Keywords Where They Just Surpassed You",
+        "summary": "Get Where They Just Surpassed You Keywords",
         "description": "Returns keywords where the query domain recently surpassed the comparison domain in organic search rankings. This endpoint identifies competitive shifts where one domain has overtaken another, either through ranking improvements, competitor declines, or both.\n\nThe response includes both domains' ranking data, with the comparison domain's metrics appearing in the 'your' fields (yourRank, yourRankChange, yourUrl). Use this to monitor competitive threats or analyze successful competitor strategies.\n\n**Common Usage Patterns:**\n- Put competitor in `query` and your domain in `compareDomain` to see where they're overtaking you\n- Put your domain in `query` and competitor in `compareDomain` to see where you're gaining ground\n\n[Visualize this API live on SpyFu](https://www.spyfu.com/seo/keywords/domain?query=example.com)",
         "parameters": [
           {
@@ -11608,7 +11608,7 @@
           {
             "name": "countryCode",
             "in": "query",
-            "description": "Country market to search. Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).",
+            "description": "Country market to search. Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).  <a href='https://developer.spyfu.com/reference/adhistoryapi_getdomainadhistory_get#/'>All Countries</a>",
             "schema": {
               "type": "string",
               "examples": [
@@ -11679,7 +11679,7 @@
                 "RankingHomepages"
               ],
               "x-enumDescriptions": {
-                "SearchVolume": "Number of searches done this past month on Google.com (or within selected country). Blended from multiple sources for better snapshot of search activity",
+                "SearchVolume": "Number of searches done this past month on Google (or within selected country). Blended from multiple sources for better snapshot of search activity",
                 "KeywordDifficulty": "SEO ranking difficulty score (0-100 scale, higher = more difficult to rank). Based on domain strength, on-page signals like 'keyword in title,' and number of .gov/.edu domains",
                 "Rank": "Organic search result position for the query domain (1 = top organic result)",
                 "RankChange": "Change in organic position for the query domain from previous data update (positive values indicate ranking improvement; negative values indicate moving further down the SERP).",
@@ -12146,7 +12146,7 @@
           {
             "name": "countryCode",
             "in": "query",
-            "description": "Country market to search.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).",
+            "description": "Country market to search.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).  <a href='https://developer.spyfu.com/reference/adhistoryapi_getdomainadhistory_get#/'>All Countries</a>",
             "schema": {
               "type": "string",
               "examples": [
@@ -12577,7 +12577,7 @@
           {
             "name": "countryCode",
             "in": "query",
-            "description": "Country market to search. Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).",
+            "description": "Country market to search. Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).  <a href='https://developer.spyfu.com/reference/adhistoryapi_getdomainadhistory_get#/'>All Countries</a>",
             "schema": {
               "type": "string",
               "examples": [
@@ -12869,7 +12869,7 @@
           {
             "name": "countryCode",
             "in": "query",
-            "description": "Country market to search. Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).",
+            "description": "Country market to search. Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).  <a href='https://developer.spyfu.com/reference/adhistoryapi_getdomainadhistory_get#/'>All Countries</a>",
             "schema": {
               "type": "string",
               "examples": [
