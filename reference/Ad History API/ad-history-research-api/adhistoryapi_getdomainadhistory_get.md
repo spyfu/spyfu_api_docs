@@ -7,7 +7,7 @@ excerpt: >-
 
 
   [Visualize this API live on
-  SpyFu](https://www.spyfu.com/ppc/ad-history/domain?query=amazon.com)
+  SpyFu](https://www.spyfu.com/ppc/ad-history/domain?query=example.com)
 api:
   file: SpyFu.AdHistory.Research.Api.json
   operationId: AdHistoryApi_GetDomainAdHistory_GET

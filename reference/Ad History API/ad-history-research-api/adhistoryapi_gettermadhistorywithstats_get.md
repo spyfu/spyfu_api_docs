@@ -1,5 +1,5 @@
 ---
-title: Get Term Ad History With Stats
+title: Get Keyword Ad History With Stats
 excerpt: >-
   Returns historical ad variations and advertiser performance statistics for a
   specific keyword. This endpoint includes domain-level metrics alongside ad

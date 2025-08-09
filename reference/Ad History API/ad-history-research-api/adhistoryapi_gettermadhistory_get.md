@@ -1,5 +1,5 @@
 ---
-title: Get Term Ad History
+title: Get Keyword Ad History
 excerpt: >-
   Returns historical advertisers and ad variations for a specific keyword. This
   endpoint focuses on ads that have appeared for a particular keyword, unlike
