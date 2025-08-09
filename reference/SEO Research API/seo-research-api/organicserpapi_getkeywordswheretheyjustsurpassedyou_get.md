@@ -1,5 +1,5 @@
 ---
-title: Get Keywords Where They Just Surpassed You
+title: Get Where They Just Surpassed You Keywords
 excerpt: >-
   Returns keywords where the query domain recently surpassed the comparison
   domain in organic search rankings. This endpoint identifies competitive shifts

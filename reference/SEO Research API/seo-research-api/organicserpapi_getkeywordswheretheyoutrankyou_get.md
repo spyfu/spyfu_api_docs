@@ -1,5 +1,5 @@
 ---
-title: Get Keywords Where They Outrank You
+title: Get Where They Outrank You Keywords
 excerpt: >-
   Returns keywords where the query domain currently outranks the comparison
   domain in organic search results. This endpoint identifies competitive gaps
