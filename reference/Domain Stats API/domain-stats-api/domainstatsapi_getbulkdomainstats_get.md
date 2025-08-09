@@ -1,5 +1,5 @@
 ---
-title: 'Get Bulk Domain Intelligence: SEO, PPC, Traffic & Spend'
+title: Get Bulk Domain Stats
 excerpt: >-
   Enrich any domain list with machine-joinable web presence metrics at scale.
   This bulk endpoint returns per-domain intelligence across SEO and PPC for many
