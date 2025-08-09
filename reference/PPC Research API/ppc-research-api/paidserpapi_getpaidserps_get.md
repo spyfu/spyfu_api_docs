@@ -7,7 +7,7 @@ excerpt: >-
 
 
   [Visualize this API live on
-  SpyFu](https://www.spyfu.com/ppc/keywords/domain?query=amazon.com)
+  SpyFu](https://www.spyfu.com/ppc/keywords/domain?query=example.com)
 api:
   file: SpyFu.CloudSerp.SerpResearch.Api_ppc.json
   operationId: PaidSerpApi_GetPaidSerps_GET
