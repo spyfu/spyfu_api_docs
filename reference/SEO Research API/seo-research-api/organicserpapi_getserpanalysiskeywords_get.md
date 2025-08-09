@@ -1,5 +1,5 @@
 ---
-title: Get SERP Analysis Keywords
+title: 'Get SERP Analysis for Keyword '
 excerpt: >-
   Returns detailed search engine results page (SERP) analysis for a specific
   keyword, showing all domains ranking in positions 1-100. This endpoint

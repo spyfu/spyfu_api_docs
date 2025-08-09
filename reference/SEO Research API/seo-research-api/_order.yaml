@@ -7,3 +7,9 @@
 - organicserpapi_getjustmadeitkeywords_get
 - organicserpapi_getjustfelloffkeywords_get
 - organicserpapi_getserpanalysiskeywords_get
+- organicserpapi_getseokeywords_get
+- organicserpapi_getkeywordswheretheyoutrankyou_get
+- organicserpapi_getkeywordswheretheyjustsurpassedyou_get
+- organicserpapi_getliveseostats_get
+- toppagesapi_getmosttraffictoppages_get
+- toppagesapi_getnewtoppages_get
