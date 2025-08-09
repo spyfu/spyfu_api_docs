@@ -8,7 +8,7 @@ excerpt: >-
 
 
   [Visualize this API live on
-  SpyFu](https://www.spyfu.com/seo/competitors?query=amazon.com)
+  SpyFu](https://www.spyfu.com/seo/competitors?query=example.com)
 api:
   file: SpyFu.Competitors.Research.Api.json
   operationId: CompetitorsApi_GetTopSeoCompetitors_GET
