@@ -7,7 +7,7 @@ excerpt: >-
 
 
   [Visualize this API live on
-  SpyFu](https://www.spyfu.com/seo/kombat?query=amazon.com)
+  SpyFu](https://www.spyfu.com/kombat?query=example.com,example.org)
 api:
   file: SpyFu.Keyword.KeywordResearch.Api_kombat.json
   operationId: KombatApi_GetCompetingSeoKeywords_GET
