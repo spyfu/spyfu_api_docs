@@ -7,7 +7,7 @@
   },
   "servers": [
     {
-      "url": "https://api.spyfu.com/apis/keyword_api"
+      "url": "https://api.spyfu.com/apis/serp_api"
     }
   ],
   "paths": {
