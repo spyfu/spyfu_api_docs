@@ -25,42 +25,428 @@
             "schema": {
               "type": "string",
               "examples": [
-                "xbox.com,playstation.com"
+                "domain.com,anotherdomain.com"
               ]
             },
-            "example": "xbox.com,playstation.com"
+            "example": "domain.com,anotherdomain.com"
           },
           {
             "name": "excludeDomainsCsv",
             "in": "query",
-            "description": "Comma-separated list of domains to exclude from keyword results.",
+            "description": "CSV list of domains to exclude in results",
             "schema": {
               "type": "string",
               "examples": [
-                "nintendo.com"
+                "excludedomain.com"
               ]
             },
-            "example": "nintendo.com"
+            "example": "excludedomain.com"
           },
           {
             "name": "isIntersection",
             "in": "query",
-            "description": "Set operation mode: true for keywords found in ALL domains (intersection), false for keywords found in ANY domain (union).",
+            "description": "Keywords (True:ALL/False:ANY) the domains contain.",
             "required": true,
             "schema": {
               "type": "boolean",
               "examples": [
                 true
-              ]
+              ],
+              "default": true
             },
             "example": true
           },
           {
-            "name": "sortBy",
+            "name": "searchVolume.min",
             "in": "query",
-            "description": "Metric to sort results by.",
+            "description": "Filter by the number of searches done this past month on Google.com.",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "searchVolume.max",
+            "in": "query",
+            "description": "Filter by the number of searches done this past month on Google.com.",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "liveSearchVolume.min",
+            "in": "query",
+            "description": "Filter by the number of searches done this past month on Google.com. This value is refreshed each month.",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "liveSearchVolume.max",
+            "in": "query",
+            "description": "Filter by the number of searches done this past month on Google.com. This value is refreshed each month.",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "keywordDifficulty.min",
+            "in": "query",
+            "description": "Filter by how difficult it is to rank on this keyword.  This can also be called Ranking Difficulty.",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "keywordDifficulty.max",
+            "in": "query",
+            "description": "Filter by how difficult it is to rank on this keyword.  This can also be called Ranking Difficulty.",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "clicks.min",
+            "in": "query",
+            "description": "Filter by the number of total monthly clicks on the SERP for this keyword--organic and paid.",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "clicks.max",
+            "in": "query",
+            "description": "Filter by the number of total monthly clicks on the SERP for this keyword--organic and paid.",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "costPerClickOption",
+            "in": "query",
+            "description": "Cost per click keyword matching option to filter results by.",
             "schema": {
               "type": "string",
+              "examples": [
+                "Broad"
+              ],
+              "enum": [
+                "Broad",
+                "Exact",
+                "Phrase"
+              ]
+            },
+            "example": "Broad"
+          },
+          {
+            "name": "costPerClick.min",
+            "in": "query",
+            "description": "Filter by the average cost per click.  This will use the keyword matching option selected in `costPerClickOption`",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "costPerClick.max",
+            "in": "query",
+            "description": "Filter by the average cost per click.  This will use the keyword matching option selected in `costPerClickOption`",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "isQuestion",
+            "in": "query",
+            "description": "Filter on if the keyword is a question.",
+            "schema": {
+              "type": "boolean",
+              "examples": [
+                false
+              ],
+              "default": false
+            },
+            "example": false
+          },
+          {
+            "name": "isTransactionalIntent",
+            "in": "query",
+            "description": "Filter on if the keyword has transactional intent.",
+            "schema": {
+              "type": "boolean",
+              "examples": [
+                false
+              ],
+              "default": false
+            },
+            "example": false
+          },
+          {
+            "name": "mobileSearchesPercentage.min",
+            "in": "query",
+            "description": "Filter by the percentage of searches that are done on mobile devices.",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "mobileSearchesPercentage.max",
+            "in": "query",
+            "description": "Filter by the percentage of searches that are done on mobile devices.",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "desktopSearchesPercentage.min",
+            "in": "query",
+            "description": "Filter by the percentage of searches that are done on desktop devices.",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "desktopSearchesPercentage.max",
+            "in": "query",
+            "description": "Filter by the percentage of searches that are done on desktop devices.",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "notClickedSearchesPercentage.min",
+            "in": "query",
+            "description": "Filter by the percentage of searches that are not clicked.\nSome keyword searches supply clear information in a featured snippet or similar displays. They don't require a click to get the information. Those will have higher percentages in this metric.",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "notClickedSearchesPercentage.max",
+            "in": "query",
+            "description": "Filter by the percentage of searches that are not clicked.\nSome keyword searches supply clear information in a featured snippet or similar displays. They don't require a click to get the information. Those will have higher percentages in this metric.",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "paidClickSearchPercentage.min",
+            "in": "query",
+            "description": "Filter by the percentage of clicks that go to ads.",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "paidClickSearchPercentage.max",
+            "in": "query",
+            "description": "Filter by the percentage of clicks that go to ads.",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "organicClicksSearchPercentage.min",
+            "in": "query",
+            "description": "Filter by the percentage of clicks that go to organic results, not ads.",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "organicClicksSearchPercentage.max",
+            "in": "query",
+            "description": "Filter by the percentage of clicks that go to organic results, not ads.",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "monthlyCost.min",
+            "in": "query",
+            "description": "Filter by the monthly cost of the keyword.  This will use the keyword matching option selected in `monthlyCostOption`",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "monthlyCost.max",
+            "in": "query",
+            "description": "Filter by the monthly cost of the keyword.  This will use the keyword matching option selected in `monthlyCostOption`",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "monthlyCostOption",
+            "in": "query",
+            "description": "Monthly Cost keyword matching option to filter results by.",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "Broad"
+              ],
+              "enum": [
+                "Broad",
+                "Exact",
+                "Phrase"
+              ]
+            },
+            "example": "Broad"
+          },
+          {
+            "name": "rankingHomepages.min",
+            "in": "query",
+            "description": "Homepages on the SERP range to filter results by.",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "rankingHomepages.max",
+            "in": "query",
+            "description": "Homepages on the SERP range to filter results by.",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "adCount.min",
+            "in": "query",
+            "description": "Filter by the number of total advertisers",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "adCount.max",
+            "in": "query",
+            "description": "Filter by the number of total advertisers",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "wordCount.min",
+            "in": "query",
+            "description": "Filter by the number of words in the keyword.",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "wordCount.max",
+            "in": "query",
+            "description": "Filter by the number of words in the keyword.",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "onlyAdultKeywords",
+            "in": "query",
+            "description": "Only include adult keywords considered unsafe for work.",
+            "schema": {
+              "type": "boolean",
+              "examples": [
+                false
+              ],
+              "default": false
+            },
+            "example": false
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "The maximum number of rows returned.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "examples": [
+                5
+              ],
+              "default": 5,
+              "maximum": 10000,
+              "minimum": 1
+            },
+            "example": 5
+          },
+          {
+            "name": "countryCode",
+            "in": "query",
+            "description": "Country market to search.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "US"
+              ],
+              "default": "US",
+              "enum": [
+                "AR",
+                "AT",
+                "AU",
+                "BE",
+                "BR",
+                "CA",
+                "CH",
+                "DE",
+                "DK",
+                "ES",
+                "FR",
+                "IE",
+                "IN",
+                "IT",
+                "JP",
+                "MX",
+                "NL",
+                "NO",
+                "NZ",
+                "PT",
+                "SE",
+                "SG",
+                "UA",
+                "UK",
+                "US",
+                "ZA"
+              ]
+            },
+            "example": "US"
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "description": "Column to sort by.",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "SearchVolume"
+              ],
               "default": "SearchVolume",
               "enum": [
                 "SearchVolume",
@@ -83,9 +469,6 @@
                 "ExactMonthlyCost",
                 "PaidCompetitors",
                 "RankingHomepages"
-              ],
-              "examples": [
-                "SearchVolume"
               ],
               "x-enumDescriptions": {
                 "SearchVolume": "Monthly search volume",
@@ -115,21 +498,17 @@
           {
             "name": "sortOrder",
             "in": "query",
-            "description": "Sort direction for results.",
+            "description": "Order to sort the results.",
             "schema": {
               "type": "string",
+              "examples": [
+                "Descending"
+              ],
               "default": "Descending",
               "enum": [
                 "Ascending",
                 "Descending"
-              ],
-              "examples": [
-                "Descending"
-              ],
-              "x-enumDescriptions": {
-                "Ascending": "Sort from lowest to highest values",
-                "Descending": "Sort from highest to lowest values"
-              }
+              ]
             },
             "example": "Descending"
           },
@@ -140,81 +519,25 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "default": 1,
               "examples": [
                 1
               ],
-              "maximum": 2147483647,
+              "default": 1,
+              "maximum": 10000,
               "minimum": 1
             },
             "example": 1
           },
           {
-            "name": "pageSize",
-            "in": "query",
-            "description": "Number of rows of data to return.",
-            "schema": {
-              "type": "integer",
-              "format": "int32",
-              "default": 5,
-              "examples": [
-                5
-              ],
-              "maximum": 10000,
-              "minimum": 1
-            },
-            "example": 5
-          },
-          {
-            "name": "countryCode",
-            "in": "query",
-            "description": "Country market to search.  Specifically, this maps to the Google version to query against (google.de for Germany, etc).  Google.com (US) is the default.      [See full list of supported Countries](https://developer.spyfu.com/update/reference/country-code-enum#/)",
-            "schema": {
-              "type": "string",
-              "default": "US",
-              "enum": [
-                "AR",
-                "AU",
-                "BE",
-                "BR",
-                "CA",
-                "CH",
-                "DE",
-                "DK",
-                "ES",
-                "FR",
-                "IE",
-                "IN",
-                "IT",
-                "JP",
-                "MX",
-                "NL",
-                "NO",
-                "NZ",
-                "PT",
-                "SE",
-                "SG",
-                "UA",
-                "UK",
-                "US",
-                "ZA"
-              ],
-              "examples": [
-                "US"
-              ]
-            },
-            "example": "US"
-          },
-          {
             "name": "adultFilter",
             "in": "query",
-            "description": "Filter out adult keywords considered unsafe for work.",
+            "description": "Exclude adult keywords considered unsafe for work.",
             "schema": {
               "type": "boolean",
-              "default": true,
               "examples": [
                 true
-              ]
+              ],
+              "default": true
             },
             "example": true
           }
@@ -572,47 +895,433 @@
           {
             "name": "includeDomainsCsv",
             "in": "query",
-            "description": "Comma-separated list of domains to include in keyword analysis.",
+            "description": "CSV list of domains to include in results",
             "required": true,
             "schema": {
               "type": "string",
               "examples": [
-                "xbox.com,playstation.com"
+                "domain.com,anotherdomain.com"
               ]
             },
-            "example": "xbox.com,playstation.com"
+            "example": "domain.com,anotherdomain.com"
           },
           {
             "name": "excludeDomainsCsv",
             "in": "query",
-            "description": "Comma-separated list of domains to exclude from keyword results.",
+            "description": "CSV list of domains to exclude in results",
             "schema": {
               "type": "string",
               "examples": [
-                "nintendo.com"
+                "excludedomain.com"
               ]
             },
-            "example": "nintendo.com"
+            "example": "excludedomain.com"
           },
           {
             "name": "isIntersection",
             "in": "query",
-            "description": "Set operation mode: true for keywords found in ALL domains (intersection), false for keywords found in ANY domain (union).",
+            "description": "Keywords (True:ALL/False:ANY) the domains contain.",
             "required": true,
             "schema": {
               "type": "boolean",
               "examples": [
                 true
-              ]
+              ],
+              "default": true
             },
             "example": true
           },
           {
-            "name": "sortBy",
+            "name": "searchVolume.min",
             "in": "query",
-            "description": "Metric to sort results by.",
+            "description": "Filter by the number of searches done this past month on Google.com.",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "searchVolume.max",
+            "in": "query",
+            "description": "Filter by the number of searches done this past month on Google.com.",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "liveSearchVolume.min",
+            "in": "query",
+            "description": "Filter by the number of searches done this past month on Google.com. This value is refreshed each month.",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "liveSearchVolume.max",
+            "in": "query",
+            "description": "Filter by the number of searches done this past month on Google.com. This value is refreshed each month.",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "keywordDifficulty.min",
+            "in": "query",
+            "description": "Filter by how difficult it is to rank on this keyword.  This can also be called Ranking Difficulty.",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "keywordDifficulty.max",
+            "in": "query",
+            "description": "Filter by how difficult it is to rank on this keyword.  This can also be called Ranking Difficulty.",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "clicks.min",
+            "in": "query",
+            "description": "Filter by the number of total monthly clicks on the SERP for this keyword--organic and paid.",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "clicks.max",
+            "in": "query",
+            "description": "Filter by the number of total monthly clicks on the SERP for this keyword--organic and paid.",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "costPerClickOption",
+            "in": "query",
+            "description": "Cost per click keyword matching option to filter results by.",
             "schema": {
               "type": "string",
+              "examples": [
+                "Broad"
+              ],
+              "enum": [
+                "Broad",
+                "Exact",
+                "Phrase"
+              ]
+            },
+            "example": "Broad"
+          },
+          {
+            "name": "costPerClick.min",
+            "in": "query",
+            "description": "Filter by the average cost per click.  This will use the keyword matching option selected in `costPerClickOption`",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "costPerClick.max",
+            "in": "query",
+            "description": "Filter by the average cost per click.  This will use the keyword matching option selected in `costPerClickOption`",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "isQuestion",
+            "in": "query",
+            "description": "Filter on if the keyword is a question.",
+            "schema": {
+              "type": "boolean",
+              "examples": [
+                false
+              ],
+              "default": false
+            },
+            "example": false
+          },
+          {
+            "name": "isTransactionalIntent",
+            "in": "query",
+            "description": "Filter on if the keyword has transactional intent.",
+            "schema": {
+              "type": "boolean",
+              "examples": [
+                false
+              ],
+              "default": false
+            },
+            "example": false
+          },
+          {
+            "name": "mobileSearchesPercentage.min",
+            "in": "query",
+            "description": "Filter by the percentage of searches that are done on mobile devices.",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "mobileSearchesPercentage.max",
+            "in": "query",
+            "description": "Filter by the percentage of searches that are done on mobile devices.",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "desktopSearchesPercentage.min",
+            "in": "query",
+            "description": "Filter by the percentage of searches that are done on desktop devices.",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "desktopSearchesPercentage.max",
+            "in": "query",
+            "description": "Filter by the percentage of searches that are done on desktop devices.",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "notClickedSearchesPercentage.min",
+            "in": "query",
+            "description": "Filter by the percentage of searches that are not clicked.\nSome keyword searches supply clear information in a featured snippet or similar displays. They don't require a click to get the information. Those will have higher percentages in this metric.",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "notClickedSearchesPercentage.max",
+            "in": "query",
+            "description": "Filter by the percentage of searches that are not clicked.\nSome keyword searches supply clear information in a featured snippet or similar displays. They don't require a click to get the information. Those will have higher percentages in this metric.",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "paidClickSearchPercentage.min",
+            "in": "query",
+            "description": "Filter by the percentage of clicks that go to ads.",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "paidClickSearchPercentage.max",
+            "in": "query",
+            "description": "Filter by the percentage of clicks that go to ads.",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "organicClicksSearchPercentage.min",
+            "in": "query",
+            "description": "Filter by the percentage of clicks that go to organic results, not ads.",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "organicClicksSearchPercentage.max",
+            "in": "query",
+            "description": "Filter by the percentage of clicks that go to organic results, not ads.",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "monthlyCost.min",
+            "in": "query",
+            "description": "Filter by the monthly cost of the keyword.  This will use the keyword matching option selected in `monthlyCostOption`",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "monthlyCost.max",
+            "in": "query",
+            "description": "Filter by the monthly cost of the keyword.  This will use the keyword matching option selected in `monthlyCostOption`",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "monthlyCostOption",
+            "in": "query",
+            "description": "Monthly Cost keyword matching option to filter results by.",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "Broad"
+              ],
+              "enum": [
+                "Broad",
+                "Exact",
+                "Phrase"
+              ]
+            },
+            "example": "Broad"
+          },
+          {
+            "name": "rankingHomepages.min",
+            "in": "query",
+            "description": "Homepages on the SERP range to filter results by.",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "rankingHomepages.max",
+            "in": "query",
+            "description": "Homepages on the SERP range to filter results by.",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "adCount.min",
+            "in": "query",
+            "description": "Filter by the number of total advertisers",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "adCount.max",
+            "in": "query",
+            "description": "Filter by the number of total advertisers",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "wordCount.min",
+            "in": "query",
+            "description": "Filter by the number of words in the keyword.",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "wordCount.max",
+            "in": "query",
+            "description": "Filter by the number of words in the keyword.",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "onlyAdultKeywords",
+            "in": "query",
+            "description": "Only include adult keywords considered unsafe for work.",
+            "schema": {
+              "type": "boolean",
+              "examples": [
+                false
+              ],
+              "default": false
+            },
+            "example": false
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Number of rows of data to return.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "examples": [
+                5
+              ],
+              "default": 5,
+              "maximum": 10000,
+              "minimum": 1
+            },
+            "example": 5
+          },
+          {
+            "name": "countryCode",
+            "in": "query",
+            "description": "Country market to search.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "US"
+              ],
+              "default": "US",
+              "enum": [
+                "AR",
+                "AT",
+                "AU",
+                "BE",
+                "BR",
+                "CA",
+                "CH",
+                "DE",
+                "DK",
+                "ES",
+                "FR",
+                "IE",
+                "IN",
+                "IT",
+                "JP",
+                "MX",
+                "NL",
+                "NO",
+                "NZ",
+                "PT",
+                "SE",
+                "SG",
+                "UA",
+                "UK",
+                "US",
+                "ZA"
+              ]
+            },
+            "example": "US"
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "description": "Column to sort by.",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "SearchVolume"
+              ],
               "default": "SearchVolume",
               "enum": [
                 "SearchVolume",
@@ -635,9 +1344,6 @@
                 "ExactMonthlyCost",
                 "PaidCompetitors",
                 "RankingHomepages"
-              ],
-              "examples": [
-                "SearchVolume"
               ],
               "x-enumDescriptions": {
                 "SearchVolume": "Monthly search volume",
@@ -667,21 +1373,17 @@
           {
             "name": "sortOrder",
             "in": "query",
-            "description": "Sort direction for results.",
+            "description": "Order to sort the results.",
             "schema": {
               "type": "string",
+              "examples": [
+                "Descending"
+              ],
               "default": "Descending",
               "enum": [
                 "Ascending",
                 "Descending"
-              ],
-              "examples": [
-                "Descending"
-              ],
-              "x-enumDescriptions": {
-                "Ascending": "Sort from lowest to highest values",
-                "Descending": "Sort from highest to lowest values"
-              }
+              ]
             },
             "example": "Descending"
           },
@@ -692,81 +1394,25 @@
             "schema": {
               "type": "integer",
               "format": "int32",
-              "default": 1,
               "examples": [
                 1
               ],
-              "maximum": 2147483647,
+              "default": 1,
+              "maximum": 10000,
               "minimum": 1
             },
             "example": 1
           },
           {
-            "name": "pageSize",
-            "in": "query",
-            "description": "Number of rows of data to return.",
-            "schema": {
-              "type": "integer",
-              "format": "int32",
-              "default": 5,
-              "examples": [
-                5
-              ],
-              "maximum": 10000,
-              "minimum": 1
-            },
-            "example": 5
-          },
-          {
-            "name": "countryCode",
-            "in": "query",
-            "description": "Country market to search.  Specifically, this maps to the Google version to query against (google.de for Germany, etc).  Google.com (US) is the default.      [See full list of supported Countries](https://developer.spyfu.com/update/reference/country-code-enum#/)",
-            "schema": {
-              "type": "string",
-              "default": "US",
-              "enum": [
-                "AR",
-                "AU",
-                "BE",
-                "BR",
-                "CA",
-                "CH",
-                "DE",
-                "DK",
-                "ES",
-                "FR",
-                "IE",
-                "IN",
-                "IT",
-                "JP",
-                "MX",
-                "NL",
-                "NO",
-                "NZ",
-                "PT",
-                "SE",
-                "SG",
-                "UA",
-                "UK",
-                "US",
-                "ZA"
-              ],
-              "examples": [
-                "US"
-              ]
-            },
-            "example": "US"
-          },
-          {
             "name": "adultFilter",
             "in": "query",
-            "description": "Filter out adult keywords considered unsafe for work.",
+            "description": "Exclude adult keywords considered unsafe for work.",
             "schema": {
               "type": "boolean",
-              "default": true,
               "examples": [
                 true
-              ]
+              ],
+              "default": true
             },
             "example": true
           }
@@ -1747,16 +2393,5 @@
         "in": "header"
       }
     }
-  },
-  "security": [
-    {
-      "Basic_Authentication_Token": []
-    },
-    {
-      "Query_Parameter_Token": []
-    },
-    {
-      "HMAC_Authentication_Header": []
-    }
-  ]
+  }
 }
