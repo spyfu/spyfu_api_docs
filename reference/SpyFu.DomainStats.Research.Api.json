@@ -33,7 +33,7 @@
           {
             "name": "countryCode",
             "in": "query",
-            "description": "Country market to search.  Specifically, this maps to the Google version to query against (google.de for Germany, etc).  Google.com (US) is the default.      [See full list of supported Countries](https://developer.spyfu.com/update/reference/country-code-enum#/)",
+            "description": "Country market to search.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).",
             "schema": {
               "type": "string",
               "examples": [
@@ -42,6 +42,7 @@
               "default": "US",
               "enum": [
                 "AR",
+                "AT",
                 "AU",
                 "BE",
                 "BR",
@@ -80,15 +81,6 @@
                   "description": "Response wrapper containing comprehensive domain performance statistics across multiple time periods with detailed SEO and PPC metrics.",
                   "type": "object",
                   "properties": {
-                    "resultCount": {
-                      "description": "Number of results returned",
-                      "type": "integer",
-                      "format": "int32",
-                      "examples": [
-                        1
-                      ],
-                      "readOnly": true
-                    },
                     "domain": {
                       "description": "Domain name for which the statistics were collected and analyzed.",
                       "type": [
@@ -214,7 +206,15 @@
                         },
                         "additionalProperties": false,
                         "description": "Represents comprehensive domain performance statistics for a specific month, including SEO and PPC metrics, traffic estimates, and competitive strength indicators."
-                      },
+                      }
+                    },
+                    "resultCount": {
+                      "description": "Number of results returned",
+                      "type": "integer",
+                      "format": "int32",
+                      "examples": [
+                        1
+                      ],
                       "readOnly": true
                     }
                   },
@@ -269,6 +269,7 @@
               "default": "US",
               "enum": [
                 "AR",
+                "AT",
                 "AU",
                 "BE",
                 "BR",
@@ -307,15 +308,6 @@
                   "description": "Response wrapper containing comprehensive domain performance statistics across multiple time periods with detailed SEO and PPC metrics.",
                   "type": "object",
                   "properties": {
-                    "resultCount": {
-                      "description": "Number of results returned",
-                      "type": "integer",
-                      "format": "int32",
-                      "examples": [
-                        1
-                      ],
-                      "readOnly": true
-                    },
                     "domain": {
                       "description": "Domain name for which the statistics were collected and analyzed.",
                       "type": [
@@ -441,7 +433,15 @@
                         },
                         "additionalProperties": false,
                         "description": "Represents comprehensive domain performance statistics for a specific month, including SEO and PPC metrics, traffic estimates, and competitive strength indicators."
-                      },
+                      }
+                    },
+                    "resultCount": {
+                      "description": "Number of results returned",
+                      "type": "integer",
+                      "format": "int32",
+                      "examples": [
+                        1
+                      ],
                       "readOnly": true
                     }
                   },
@@ -472,38 +472,6 @@
         "description": "Returns domain statistics for a specific month and year. This endpoint provides point-in-time snapshots of SEO and PPC performance metrics to analyze historical domain activity and compare performance across different time periods.\n\n[Visualize this API live on SpyFu](https://www.spyfu.com/domain-overview?query=example.com)",
         "parameters": [
           {
-            "name": "month",
-            "in": "query",
-            "description": "Month to retrieve statistics for (1-12).",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32",
-              "examples": [
-                6
-              ],
-              "maximum": 12,
-              "minimum": 1
-            },
-            "example": 6
-          },
-          {
-            "name": "year",
-            "in": "query",
-            "description": "Year to retrieve statistics for.",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32",
-              "examples": [
-                2020
-              ],
-              "maximum": 2025,
-              "minimum": 2006
-            },
-            "example": 2020
-          },
-          {
             "name": "domain",
             "in": "query",
             "description": "Domain to retrieve statistics for.",
@@ -528,6 +496,7 @@
               "default": "US",
               "enum": [
                 "AR",
+                "AT",
                 "AU",
                 "BE",
                 "BR",
@@ -555,6 +524,38 @@
               ]
             },
             "example": "US"
+          },
+          {
+            "name": "year",
+            "in": "query",
+            "description": "Year to retrieve statistics for.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "examples": [
+                2020
+              ],
+              "maximum": 2025,
+              "minimum": 2006
+            },
+            "example": 2020
+          },
+          {
+            "name": "month",
+            "in": "query",
+            "description": "Month to retrieve statistics for (1-12).",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "examples": [
+                6
+              ],
+              "maximum": 12,
+              "minimum": 1
+            },
+            "example": 6
           }
         ],
         "responses": {
@@ -566,15 +567,6 @@
                   "description": "Response wrapper containing comprehensive domain performance statistics across multiple time periods with detailed SEO and PPC metrics.",
                   "type": "object",
                   "properties": {
-                    "resultCount": {
-                      "description": "Number of results returned",
-                      "type": "integer",
-                      "format": "int32",
-                      "examples": [
-                        1
-                      ],
-                      "readOnly": true
-                    },
                     "domain": {
                       "description": "Domain name for which the statistics were collected and analyzed.",
                       "type": [
@@ -700,7 +692,15 @@
                         },
                         "additionalProperties": false,
                         "description": "Represents comprehensive domain performance statistics for a specific month, including SEO and PPC metrics, traffic estimates, and competitive strength indicators."
-                      },
+                      }
+                    },
+                    "resultCount": {
+                      "description": "Number of results returned",
+                      "type": "integer",
+                      "format": "int32",
+                      "examples": [
+                        1
+                      ],
                       "readOnly": true
                     }
                   },
@@ -755,6 +755,7 @@
               "default": "US",
               "enum": [
                 "AR",
+                "AT",
                 "AU",
                 "BE",
                 "BR",
@@ -812,36 +813,23 @@
                         "type": "object",
                         "properties": {
                           "dateString": {
-                            "description": "Human-readable date string representation of when the domain statistics were collected.",
                             "type": [
                               "string",
                               "null"
-                            ],
-                            "examples": [
-                              "May 2021"
                             ]
                           },
                           "month": {
-                            "description": "Month component of the search date (1-12).",
                             "type": "integer",
                             "format": "int32",
-                            "examples": [
-                              5
-                            ],
                             "readOnly": true
                           },
                           "year": {
-                            "description": "Year component of the search date.",
                             "type": "integer",
                             "format": "int32",
-                            "examples": [
-                              2021
-                            ],
                             "readOnly": true
                           }
                         },
-                        "additionalProperties": false,
-                        "description": "Represents a specific date when domain statistics data was collected, providing both formatted date string and individual date components for flexible querying."
+                        "additionalProperties": false
                       },
                       "readOnly": true
                     }
@@ -865,10 +853,414 @@
           "Domain Stats API"
         ]
       }
+    },
+    "/v2/GetBulkDomainStats": {
+      "get": {
+        "operationId": "DomainStatsApi_GetBulkDomainStats_GET",
+        "summary": "Get Bulk Domain Intelligence: SEO, PPC, Traffic & Spend",
+        "description": "Enrich any domain list with machine-joinable web presence metrics at scale. This bulk endpoint returns per-domain intelligence across SEO and PPC for many domains in a single call -- either as a current snapshot or full historical time series. Use it to score accounts, benchmark competitors, monitor portfolios, and build market or alpha signals.\n\nWhat it returns (typical fields): counts of organic and paid keywords, estimated monthly organic clicks and value, paid ad spend, and competitive positioning metrics -- normalized by market via `countryCode`.\n\nHow to use it:\n- Sales/RevOps: lead scoring and routing, account qualification, territory planning.\n- Marketing/CI: category benchmarking, share-of-voice proxies, competitive tracking.\n- Finance/Alt-data: due diligence, portfolio/sector monitoring, growth and spend trend signals.\n- Partnerships/Product Ops: vendor screening, ecosystem mapping, partner monitoring\n\n[Visualize this API live on SpyFu](https://www.spyfu.com/overview/domain?query=example.com) ",
+        "parameters": [
+          {
+            "name": "domains",
+            "in": "query",
+            "description": "Comma-separated list of domains to analyze. Each domain should be provided as a root domain (example.com) without protocol or paths. Maximum of 1000 domains per request.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "examples": [
+                "example.com,competitor.com,industry-leader.com"
+              ]
+            },
+            "example": "example.com,competitor.com,industry-leader.com"
+          },
+          {
+            "name": "countryCode",
+            "in": "query",
+            "description": "Country market to analyze. Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.). Different markets may show varying competitive landscapes and search behaviors.",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "US"
+              ],
+              "default": "US",
+              "enum": [
+                "AR",
+                "AT",
+                "AU",
+                "BE",
+                "BR",
+                "CA",
+                "CH",
+                "DE",
+                "DK",
+                "ES",
+                "FR",
+                "IE",
+                "IN",
+                "IT",
+                "JP",
+                "MX",
+                "NL",
+                "NO",
+                "NZ",
+                "PT",
+                "SE",
+                "SG",
+                "UA",
+                "UK",
+                "US",
+                "ZA"
+              ]
+            },
+            "example": "US"
+          },
+          {
+            "name": "showOnlyLatest",
+            "in": "query",
+            "description": "Controls data scope returned. If true, returns only the most recent statistics for each domain (current snapshot). If false, returns complete historical data showing trends over time for comprehensive analysis.",
+            "required": true,
+            "schema": {
+              "type": "boolean",
+              "examples": [
+                true
+              ],
+              "default": true
+            },
+            "example": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "resultCount": {
+                      "description": "Number of results returned",
+                      "type": "integer",
+                      "format": "int32",
+                      "examples": [
+                        1
+                      ],
+                      "readOnly": true
+                    },
+                    "results": {
+                      "type": [
+                        "array",
+                        "null"
+                      ],
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "domain": {
+                            "description": "Searched domain",
+                            "type": [
+                              "string",
+                              "null"
+                            ],
+                            "examples": [
+                              "domain.com"
+                            ]
+                          },
+                          "results": {
+                            "type": [
+                              "array",
+                              "null"
+                            ],
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "searchMonth": {
+                                  "description": "Month when these domain statistics were collected (1-12).",
+                                  "type": "integer",
+                                  "format": "int32",
+                                  "examples": [
+                                    5
+                                  ]
+                                },
+                                "searchYear": {
+                                  "description": "Year when these domain statistics were collected.",
+                                  "type": "integer",
+                                  "format": "int32",
+                                  "examples": [
+                                    2021
+                                  ]
+                                },
+                                "averageOrganicRank": {
+                                  "description": "Average organic search ranking position across all keywords for this domain during the specified month.",
+                                  "type": "number",
+                                  "format": "double",
+                                  "examples": [
+                                    41.08
+                                  ]
+                                },
+                                "monthlyPaidClicks": {
+                                  "description": "Estimated monthly clicks received from paid search advertising across all keywords, calculated based on average ad positions and click-through rates.",
+                                  "type": "number",
+                                  "format": "double",
+                                  "examples": [
+                                    61181.88
+                                  ]
+                                },
+                                "averageAdRank": {
+                                  "description": "Average paid search ad position across all advertised keywords during the specified month.",
+                                  "type": "number",
+                                  "format": "double",
+                                  "examples": [
+                                    1.03
+                                  ]
+                                },
+                                "totalOrganicResults": {
+                                  "description": "Total number of unique organic keywords where this domain appears in the top 100 search results during the specified month.",
+                                  "type": "integer",
+                                  "format": "int32",
+                                  "examples": [
+                                    302731
+                                  ]
+                                },
+                                "monthlyBudget": {
+                                  "description": "Estimated monthly Google Ads spending based on keyword positions, click-through rates, and cost-per-click data across all paid campaigns.",
+                                  "type": "number",
+                                  "format": "double",
+                                  "examples": [
+                                    6721.39
+                                  ]
+                                },
+                                "monthlyOrganicValue": {
+                                  "description": "Estimated value of organic search traffic based on keyword rankings and equivalent cost-per-click values, representing the advertising spend equivalent of organic visibility.",
+                                  "type": "number",
+                                  "format": "double",
+                                  "examples": [
+                                    384233.16
+                                  ]
+                                },
+                                "totalAdsPurchased": {
+                                  "description": "Total number of unique paid keywords where this domain's ads appeared on the first page of search results, measured over the last 14 data collection periods.",
+                                  "type": "integer",
+                                  "format": "int32",
+                                  "examples": [
+                                    599
+                                  ]
+                                },
+                                "monthlyOrganicClicks": {
+                                  "description": "Estimated monthly organic search traffic clicks received from all ranking keywords during the specified month.",
+                                  "type": "number",
+                                  "format": "double",
+                                  "examples": [
+                                    290145
+                                  ]
+                                },
+                                "strength": {
+                                  "description": "Domain authority score (0-100) indicating competitive strength and ranking consistency across high-value keywords, with higher scores representing stronger market position.",
+                                  "type": "integer",
+                                  "format": "int32",
+                                  "examples": [
+                                    75
+                                  ]
+                                },
+                                "totalInverseRank": {
+                                  "description": "Cumulative ranking score where higher organic positions receive higher point values (position 1 = 100 points, position 2 = 99 points, etc.), summed across all ranking keywords.",
+                                  "type": "integer",
+                                  "format": "int64",
+                                  "examples": [
+                                    4971564
+                                  ]
+                                },
+                                "areStatsNormalized": {
+                                  "description": "Indicates whether the statistics have been normalized for consistent comparison across different time periods and data collection methods.",
+                                  "type": "boolean",
+                                  "examples": [
+                                    true
+                                  ]
+                                }
+                              },
+                              "additionalProperties": false,
+                              "description": "Represents comprehensive domain performance statistics for a specific month, including SEO and PPC metrics, traffic estimates, and competitive strength indicators."
+                            }
+                          }
+                        },
+                        "additionalProperties": false
+                      }
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "User failed authorization"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "tags": [
+          "Domain Stats API"
+        ]
+      }
     }
   },
   "components": {
     "schemas": {
+      "PublicApiBulkDomainStatsWrapperOutputDto": {
+        "type": "object",
+        "properties": {
+          "resultCount": {
+            "description": "Number of results returned",
+            "type": "integer",
+            "format": "int32",
+            "examples": [
+              1
+            ],
+            "readOnly": true
+          },
+          "results": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": "object",
+              "properties": {
+                "domain": {
+                  "description": "Searched domain",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "examples": [
+                    "domain.com"
+                  ]
+                },
+                "results": {
+                  "type": [
+                    "array",
+                    "null"
+                  ],
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "searchMonth": {
+                        "description": "Month when these domain statistics were collected (1-12).",
+                        "type": "integer",
+                        "format": "int32",
+                        "examples": [
+                          5
+                        ]
+                      },
+                      "searchYear": {
+                        "description": "Year when these domain statistics were collected.",
+                        "type": "integer",
+                        "format": "int32",
+                        "examples": [
+                          2021
+                        ]
+                      },
+                      "averageOrganicRank": {
+                        "description": "Average organic search ranking position across all keywords for this domain during the specified month.",
+                        "type": "number",
+                        "format": "double",
+                        "examples": [
+                          41.08
+                        ]
+                      },
+                      "monthlyPaidClicks": {
+                        "description": "Estimated monthly clicks received from paid search advertising across all keywords, calculated based on average ad positions and click-through rates.",
+                        "type": "number",
+                        "format": "double",
+                        "examples": [
+                          61181.88
+                        ]
+                      },
+                      "averageAdRank": {
+                        "description": "Average paid search ad position across all advertised keywords during the specified month.",
+                        "type": "number",
+                        "format": "double",
+                        "examples": [
+                          1.03
+                        ]
+                      },
+                      "totalOrganicResults": {
+                        "description": "Total number of unique organic keywords where this domain appears in the top 100 search results during the specified month.",
+                        "type": "integer",
+                        "format": "int32",
+                        "examples": [
+                          302731
+                        ]
+                      },
+                      "monthlyBudget": {
+                        "description": "Estimated monthly Google Ads spending based on keyword positions, click-through rates, and cost-per-click data across all paid campaigns.",
+                        "type": "number",
+                        "format": "double",
+                        "examples": [
+                          6721.39
+                        ]
+                      },
+                      "monthlyOrganicValue": {
+                        "description": "Estimated value of organic search traffic based on keyword rankings and equivalent cost-per-click values, representing the advertising spend equivalent of organic visibility.",
+                        "type": "number",
+                        "format": "double",
+                        "examples": [
+                          384233.16
+                        ]
+                      },
+                      "totalAdsPurchased": {
+                        "description": "Total number of unique paid keywords where this domain's ads appeared on the first page of search results, measured over the last 14 data collection periods.",
+                        "type": "integer",
+                        "format": "int32",
+                        "examples": [
+                          599
+                        ]
+                      },
+                      "monthlyOrganicClicks": {
+                        "description": "Estimated monthly organic search traffic clicks received from all ranking keywords during the specified month.",
+                        "type": "number",
+                        "format": "double",
+                        "examples": [
+                          290145
+                        ]
+                      },
+                      "strength": {
+                        "description": "Domain authority score (0-100) indicating competitive strength and ranking consistency across high-value keywords, with higher scores representing stronger market position.",
+                        "type": "integer",
+                        "format": "int32",
+                        "examples": [
+                          75
+                        ]
+                      },
+                      "totalInverseRank": {
+                        "description": "Cumulative ranking score where higher organic positions receive higher point values (position 1 = 100 points, position 2 = 99 points, etc.), summed across all ranking keywords.",
+                        "type": "integer",
+                        "format": "int64",
+                        "examples": [
+                          4971564
+                        ]
+                      },
+                      "areStatsNormalized": {
+                        "description": "Indicates whether the statistics have been normalized for consistent comparison across different time periods and data collection methods.",
+                        "type": "boolean",
+                        "examples": [
+                          true
+                        ]
+                      }
+                    },
+                    "additionalProperties": false,
+                    "description": "Represents comprehensive domain performance statistics for a specific month, including SEO and PPC metrics, traffic estimates, and competitive strength indicators."
+                  }
+                }
+              },
+              "additionalProperties": false
+            }
+          }
+        },
+        "additionalProperties": false
+      },
       "PublicApiDomainStatsOutputItemDto": {
         "description": "Represents comprehensive domain performance statistics for a specific month, including SEO and PPC metrics, traffic estimates, and competitive strength indicators.",
         "type": "object",
@@ -979,19 +1371,142 @@
         },
         "additionalProperties": false
       },
+      "PublicApiDomainStatsWrapper": {
+        "type": "object",
+        "properties": {
+          "domain": {
+            "description": "Searched domain",
+            "type": [
+              "string",
+              "null"
+            ],
+            "examples": [
+              "domain.com"
+            ]
+          },
+          "results": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": "object",
+              "properties": {
+                "searchMonth": {
+                  "description": "Month when these domain statistics were collected (1-12).",
+                  "type": "integer",
+                  "format": "int32",
+                  "examples": [
+                    5
+                  ]
+                },
+                "searchYear": {
+                  "description": "Year when these domain statistics were collected.",
+                  "type": "integer",
+                  "format": "int32",
+                  "examples": [
+                    2021
+                  ]
+                },
+                "averageOrganicRank": {
+                  "description": "Average organic search ranking position across all keywords for this domain during the specified month.",
+                  "type": "number",
+                  "format": "double",
+                  "examples": [
+                    41.08
+                  ]
+                },
+                "monthlyPaidClicks": {
+                  "description": "Estimated monthly clicks received from paid search advertising across all keywords, calculated based on average ad positions and click-through rates.",
+                  "type": "number",
+                  "format": "double",
+                  "examples": [
+                    61181.88
+                  ]
+                },
+                "averageAdRank": {
+                  "description": "Average paid search ad position across all advertised keywords during the specified month.",
+                  "type": "number",
+                  "format": "double",
+                  "examples": [
+                    1.03
+                  ]
+                },
+                "totalOrganicResults": {
+                  "description": "Total number of unique organic keywords where this domain appears in the top 100 search results during the specified month.",
+                  "type": "integer",
+                  "format": "int32",
+                  "examples": [
+                    302731
+                  ]
+                },
+                "monthlyBudget": {
+                  "description": "Estimated monthly Google Ads spending based on keyword positions, click-through rates, and cost-per-click data across all paid campaigns.",
+                  "type": "number",
+                  "format": "double",
+                  "examples": [
+                    6721.39
+                  ]
+                },
+                "monthlyOrganicValue": {
+                  "description": "Estimated value of organic search traffic based on keyword rankings and equivalent cost-per-click values, representing the advertising spend equivalent of organic visibility.",
+                  "type": "number",
+                  "format": "double",
+                  "examples": [
+                    384233.16
+                  ]
+                },
+                "totalAdsPurchased": {
+                  "description": "Total number of unique paid keywords where this domain's ads appeared on the first page of search results, measured over the last 14 data collection periods.",
+                  "type": "integer",
+                  "format": "int32",
+                  "examples": [
+                    599
+                  ]
+                },
+                "monthlyOrganicClicks": {
+                  "description": "Estimated monthly organic search traffic clicks received from all ranking keywords during the specified month.",
+                  "type": "number",
+                  "format": "double",
+                  "examples": [
+                    290145
+                  ]
+                },
+                "strength": {
+                  "description": "Domain authority score (0-100) indicating competitive strength and ranking consistency across high-value keywords, with higher scores representing stronger market position.",
+                  "type": "integer",
+                  "format": "int32",
+                  "examples": [
+                    75
+                  ]
+                },
+                "totalInverseRank": {
+                  "description": "Cumulative ranking score where higher organic positions receive higher point values (position 1 = 100 points, position 2 = 99 points, etc.), summed across all ranking keywords.",
+                  "type": "integer",
+                  "format": "int64",
+                  "examples": [
+                    4971564
+                  ]
+                },
+                "areStatsNormalized": {
+                  "description": "Indicates whether the statistics have been normalized for consistent comparison across different time periods and data collection methods.",
+                  "type": "boolean",
+                  "examples": [
+                    true
+                  ]
+                }
+              },
+              "additionalProperties": false,
+              "description": "Represents comprehensive domain performance statistics for a specific month, including SEO and PPC metrics, traffic estimates, and competitive strength indicators."
+            }
+          }
+        },
+        "additionalProperties": false
+      },
       "PublicApiDomainStatsWrapperOutputDto": {
         "description": "Response wrapper containing comprehensive domain performance statistics across multiple time periods with detailed SEO and PPC metrics.",
         "type": "object",
         "properties": {
-          "resultCount": {
-            "description": "Number of results returned",
-            "type": "integer",
-            "format": "int32",
-            "examples": [
-              1
-            ],
-            "readOnly": true
-          },
           "domain": {
             "description": "Domain name for which the statistics were collected and analyzed.",
             "type": [
@@ -1117,7 +1632,15 @@
               },
               "additionalProperties": false,
               "description": "Represents comprehensive domain performance statistics for a specific month, including SEO and PPC metrics, traffic estimates, and competitive strength indicators."
-            },
+            }
+          },
+          "resultCount": {
+            "description": "Number of results returned",
+            "type": "integer",
+            "format": "int32",
+            "examples": [
+              1
+            ],
             "readOnly": true
           }
         },
@@ -1146,36 +1669,23 @@
               "type": "object",
               "properties": {
                 "dateString": {
-                  "description": "Human-readable date string representation of when the domain statistics were collected.",
                   "type": [
                     "string",
                     "null"
-                  ],
-                  "examples": [
-                    "May 2021"
                   ]
                 },
                 "month": {
-                  "description": "Month component of the search date (1-12).",
                   "type": "integer",
                   "format": "int32",
-                  "examples": [
-                    5
-                  ],
                   "readOnly": true
                 },
                 "year": {
-                  "description": "Year component of the search date.",
                   "type": "integer",
                   "format": "int32",
-                  "examples": [
-                    2021
-                  ],
                   "readOnly": true
                 }
               },
-              "additionalProperties": false,
-              "description": "Represents a specific date when domain statistics data was collected, providing both formatted date string and individual date components for flexible querying."
+              "additionalProperties": false
             },
             "readOnly": true
           }
@@ -1183,35 +1693,22 @@
         "additionalProperties": false
       },
       "SearchDate": {
-        "description": "Represents a specific date when domain statistics data was collected, providing both formatted date string and individual date components for flexible querying.",
         "type": "object",
         "properties": {
           "dateString": {
-            "description": "Human-readable date string representation of when the domain statistics were collected.",
             "type": [
               "string",
               "null"
-            ],
-            "examples": [
-              "May 2021"
             ]
           },
           "month": {
-            "description": "Month component of the search date (1-12).",
             "type": "integer",
             "format": "int32",
-            "examples": [
-              5
-            ],
             "readOnly": true
           },
           "year": {
-            "description": "Year component of the search date.",
             "type": "integer",
             "format": "int32",
-            "examples": [
-              2021
-            ],
             "readOnly": true
           }
         },

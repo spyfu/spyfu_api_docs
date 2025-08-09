@@ -31,6 +31,188 @@
             "example": "example.com"
           },
           {
+            "name": "includeTerms",
+            "in": "query",
+            "description": "Comma-separated list of terms that must be present in the keyword.",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "hosting,domain,website"
+              ]
+            }
+          },
+          {
+            "name": "includeAnyTerm",
+            "in": "query",
+            "description": "Used with includeTerms. If true: match any term (OR). If false: require all terms (AND).",
+            "schema": {
+              "type": "boolean",
+              "examples": [
+                false
+              ],
+              "default": false
+            }
+          },
+          {
+            "name": "excludeTerms",
+            "in": "query",
+            "description": "Comma-separated list of terms to exclude from results (e.g., branded or irrelevant terms).",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "free,cheap,discount"
+              ]
+            }
+          },
+          {
+            "name": "searchVolume.min",
+            "in": "query",
+            "description": "Filter to keywords where monthly search volume (Google) is ≥ this value.",
+            "schema": {
+              "type": "number",
+              "format": "float",
+              "examples": [
+                1000
+              ]
+            },
+            "example": 1000
+          },
+          {
+            "name": "searchVolume.max",
+            "in": "query",
+            "description": "Filter to keywords where monthly search volume (Google) is ≤ this value.",
+            "schema": {
+              "type": "number",
+              "format": "float",
+              "examples": [
+                50000
+              ]
+            },
+            "example": 50000
+          },
+          {
+            "name": "adCount.min",
+            "in": "query",
+            "description": "Filter to keywords where the number of distinct advertisers observed over the last 14 months is ≥ this value.",
+            "schema": {
+              "type": "number",
+              "format": "float",
+              "examples": [
+                3
+              ]
+            },
+            "example": 3
+          },
+          {
+            "name": "adCount.max",
+            "in": "query",
+            "description": "Filter to keywords where the number of distinct advertisers observed over the last 14 months is ≤ this value.",
+            "schema": {
+              "type": "number",
+              "format": "float",
+              "examples": [
+                25
+              ]
+            },
+            "example": 25
+          },
+          {
+            "name": "keywordDifficulty.min",
+            "in": "query",
+            "description": "Filter to keywords where the keyword difficulty score is ≥ this value (0-100; higher = harder to rank).",
+            "schema": {
+              "type": "number",
+              "format": "float",
+              "examples": [
+                30
+              ]
+            },
+            "example": 30
+          },
+          {
+            "name": "keywordDifficulty.max",
+            "in": "query",
+            "description": "Filter to keywords where the keyword difficulty score is ≤ this value (0-100; higher = harder to rank).",
+            "schema": {
+              "type": "number",
+              "format": "float",
+              "examples": [
+                70
+              ]
+            },
+            "example": 70
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "The maximum number of rows returned.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "examples": [
+                5
+              ],
+              "default": 5,
+              "maximum": 10000,
+              "minimum": 1
+            },
+            "example": 5
+          },
+          {
+            "name": "excludeHomepageKeywords",
+            "in": "query",
+            "description": "If true, exclude keywords where the domain/URL's homepage (root domain, e.g., example.com) ranks; if false, include all.",
+            "schema": {
+              "type": "boolean",
+              "examples": [
+                false
+              ],
+              "default": false
+            },
+            "example": false
+          },
+          {
+            "name": "countryCode",
+            "in": "query",
+            "description": "Country market to search.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "US"
+              ],
+              "default": "US",
+              "enum": [
+                "AR",
+                "AT",
+                "AU",
+                "BE",
+                "BR",
+                "CA",
+                "CH",
+                "DE",
+                "DK",
+                "ES",
+                "FR",
+                "IE",
+                "IN",
+                "IT",
+                "JP",
+                "MX",
+                "NL",
+                "NO",
+                "NZ",
+                "PT",
+                "SE",
+                "SG",
+                "UA",
+                "UK",
+                "US",
+                "ZA"
+              ]
+            },
+            "example": "US"
+          },
+          {
             "name": "sortBy",
             "in": "query",
             "description": "Column to sort results by.",
@@ -85,66 +267,10 @@
                 1
               ],
               "default": 1,
-              "maximum": 2147483647,
-              "minimum": 1
-            },
-            "example": 1
-          },
-          {
-            "name": "pageSize",
-            "in": "query",
-            "description": "The maximum number of rows returned.",
-            "schema": {
-              "type": "integer",
-              "format": "int32",
-              "examples": [
-                5
-              ],
-              "default": 5,
               "maximum": 10000,
               "minimum": 1
             },
-            "example": 5
-          },
-          {
-            "name": "countryCode",
-            "in": "query",
-            "description": "Country market to search.  Specifically, this maps to the Google version to query against (google.de for Germany, etc).  Google.com (US) is the default.      [See full list of supported Countries](https://developer.spyfu.com/update/reference/country-code-enum#/)",
-            "schema": {
-              "type": "string",
-              "examples": [
-                "US"
-              ],
-              "default": "US",
-              "enum": [
-                "AR",
-                "AU",
-                "BE",
-                "BR",
-                "CA",
-                "CH",
-                "DE",
-                "DK",
-                "ES",
-                "FR",
-                "IE",
-                "IN",
-                "IT",
-                "JP",
-                "MX",
-                "NL",
-                "NO",
-                "NZ",
-                "PT",
-                "SE",
-                "SG",
-                "UA",
-                "UK",
-                "US",
-                "ZA"
-              ]
-            },
-            "example": "US"
+            "example": 1
           },
           {
             "name": "adultFilter",
@@ -171,98 +297,6 @@
               "default": false
             },
             "example": false
-          },
-          {
-            "name": "excludeHomepageKeywords",
-            "in": "query",
-            "description": "Exclude keywords that rank on the homepage of the searched domain.",
-            "schema": {
-              "type": "boolean",
-              "examples": [
-                false
-              ],
-              "default": false
-            },
-            "example": false
-          },
-          {
-            "name": "keywordDifficulty.min",
-            "in": "query",
-            "description": "Filter by Keyword Difficulty",
-            "schema": {
-              "type": "number",
-              "format": "float"
-            }
-          },
-          {
-            "name": "keywordDifficulty.max",
-            "in": "query",
-            "description": "Filter by Keyword Difficulty",
-            "schema": {
-              "type": "number",
-              "format": "float"
-            }
-          },
-          {
-            "name": "adCount.min",
-            "in": "query",
-            "description": "Filter by the number of total advertisers.",
-            "schema": {
-              "type": "number",
-              "format": "float"
-            }
-          },
-          {
-            "name": "adCount.max",
-            "in": "query",
-            "description": "Filter by the number of total advertisers.",
-            "schema": {
-              "type": "number",
-              "format": "float"
-            }
-          },
-          {
-            "name": "searchVolume.min",
-            "in": "query",
-            "description": "Filter by the number of searches done this past month on Google.com",
-            "schema": {
-              "type": "number",
-              "format": "float"
-            }
-          },
-          {
-            "name": "searchVolume.max",
-            "in": "query",
-            "description": "Filter by the number of searches done this past month on Google.com",
-            "schema": {
-              "type": "number",
-              "format": "float"
-            }
-          },
-          {
-            "name": "includeTerms",
-            "in": "query",
-            "description": "CSV of terms that are required to be in the results.",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "includeAnyTerm",
-            "in": "query",
-            "description": "Include ANY or ALL terms.",
-            "schema": {
-              "type": "boolean",
-              "default": false
-            }
-          },
-          {
-            "name": "excludeTerms",
-            "in": "query",
-            "description": "CSV of terms that are required to not be in the results.",
-            "schema": {
-              "type": "string"
-            }
           }
         ],
         "responses": {

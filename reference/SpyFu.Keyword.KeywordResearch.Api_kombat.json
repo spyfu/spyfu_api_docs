@@ -61,9 +61,6 @@
             "description": "Metric to sort results by.",
             "schema": {
               "type": "string",
-              "examples": [
-                "SearchVolume"
-              ],
               "default": "SearchVolume",
               "enum": [
                 "SearchVolume",
@@ -86,6 +83,9 @@
                 "ExactMonthlyCost",
                 "PaidCompetitors",
                 "RankingHomepages"
+              ],
+              "examples": [
+                "SearchVolume"
               ],
               "x-enumDescriptions": {
                 "SearchVolume": "Monthly search volume",
@@ -118,12 +118,12 @@
             "description": "Sort direction for results.",
             "schema": {
               "type": "string",
-              "examples": [
-                "Descending"
-              ],
               "default": "Descending",
               "enum": [
                 "Ascending",
+                "Descending"
+              ],
+              "examples": [
                 "Descending"
               ],
               "x-enumDescriptions": {
@@ -140,10 +140,10 @@
             "schema": {
               "type": "integer",
               "format": "int32",
+              "default": 1,
               "examples": [
                 1
               ],
-              "default": 1,
               "maximum": 2147483647,
               "minimum": 1
             },
@@ -156,10 +156,10 @@
             "schema": {
               "type": "integer",
               "format": "int32",
+              "default": 5,
               "examples": [
                 5
               ],
-              "default": 5,
               "maximum": 10000,
               "minimum": 1
             },
@@ -171,9 +171,6 @@
             "description": "Country market to search.  Specifically, this maps to the Google version to query against (google.de for Germany, etc).  Google.com (US) is the default.      [See full list of supported Countries](https://developer.spyfu.com/update/reference/country-code-enum#/)",
             "schema": {
               "type": "string",
-              "examples": [
-                "US"
-              ],
               "default": "US",
               "enum": [
                 "AR",
@@ -201,6 +198,9 @@
                 "UK",
                 "US",
                 "ZA"
+              ],
+              "examples": [
+                "US"
               ]
             },
             "example": "US"
@@ -211,10 +211,10 @@
             "description": "Filter out adult keywords considered unsafe for work.",
             "schema": {
               "type": "boolean",
+              "default": true,
               "examples": [
                 true
-              ],
-              "default": true
+              ]
             },
             "example": true
           }
@@ -613,9 +613,6 @@
             "description": "Metric to sort results by.",
             "schema": {
               "type": "string",
-              "examples": [
-                "SearchVolume"
-              ],
               "default": "SearchVolume",
               "enum": [
                 "SearchVolume",
@@ -638,6 +635,9 @@
                 "ExactMonthlyCost",
                 "PaidCompetitors",
                 "RankingHomepages"
+              ],
+              "examples": [
+                "SearchVolume"
               ],
               "x-enumDescriptions": {
                 "SearchVolume": "Monthly search volume",
@@ -670,12 +670,12 @@
             "description": "Sort direction for results.",
             "schema": {
               "type": "string",
-              "examples": [
-                "Descending"
-              ],
               "default": "Descending",
               "enum": [
                 "Ascending",
+                "Descending"
+              ],
+              "examples": [
                 "Descending"
               ],
               "x-enumDescriptions": {
@@ -692,10 +692,10 @@
             "schema": {
               "type": "integer",
               "format": "int32",
+              "default": 1,
               "examples": [
                 1
               ],
-              "default": 1,
               "maximum": 2147483647,
               "minimum": 1
             },
@@ -708,10 +708,10 @@
             "schema": {
               "type": "integer",
               "format": "int32",
+              "default": 5,
               "examples": [
                 5
               ],
-              "default": 5,
               "maximum": 10000,
               "minimum": 1
             },
@@ -723,9 +723,6 @@
             "description": "Country market to search.  Specifically, this maps to the Google version to query against (google.de for Germany, etc).  Google.com (US) is the default.      [See full list of supported Countries](https://developer.spyfu.com/update/reference/country-code-enum#/)",
             "schema": {
               "type": "string",
-              "examples": [
-                "US"
-              ],
               "default": "US",
               "enum": [
                 "AR",
@@ -753,6 +750,9 @@
                 "UK",
                 "US",
                 "ZA"
+              ],
+              "examples": [
+                "US"
               ]
             },
             "example": "US"
@@ -763,10 +763,10 @@
             "description": "Filter out adult keywords considered unsafe for work.",
             "schema": {
               "type": "boolean",
+              "default": true,
               "examples": [
                 true
-              ],
-              "default": true
+              ]
             },
             "example": true
           }

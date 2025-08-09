@@ -5,11 +5,6 @@
     "version": "v2",
     "description": "Access the world's most comprehensive advertising intelligence database with 18 years of historical ad data spanning tens of billions of ads across millions of advertisers. SpyFu's Ad History API provides complete campaign timelines from 2007 to present, covering 99.93% of advertisers who have ever run Google Ads campaigns.\n\nUnlike competitors who offer limited historical snapshots, SpyFu captures every ad variation, A/B test, and optimization iteration. See how competitors evolved their ad copy over time to maximize conversions, learn from early mistakes they made and later removed, and gain unmatched competitive intelligence that goes back nearly two decades.\n\nWith data updated every 15 seconds across 28 countries and processing 40,000 search results per second, SpyFu maintains 20x more paid keyword data than SEMRush or Ahrefs. The closest competitor offers only 5 years of history with 1/20th the data volume.\n\nThis API complements SpyFu's other research APIs by focusing specifically on ad creative and copy history, while the Competitors API handles ranking relationships and the Keyword Research API covers search volume and competition data.\n\nFor complete documentation and interactive examples, visit the [SpyFu Developer Portal](https://www.spyfu.com/apis)."
   },
-  "servers": [
-    {
-      "url": "https://api.spyfu.com/apis/cloud_ad_history_api"
-    }
-  ],
   "paths": {
     "/v2/domain/getDomainAdHistory": {
       "get": {
@@ -20,7 +15,7 @@
           {
             "name": "domain",
             "in": "query",
-            "description": "Domain to retrieve advertising history for.",
+            "description": "Advertiser'¢s root domain",
             "required": true,
             "schema": {
               "type": "string",
@@ -31,41 +26,17 @@
             "example": "example.com"
           },
           {
-            "name": "startingRow",
+            "name": "keywordFilter",
             "in": "query",
-            "description": "Starting row number for pagination.",
+            "description": "Filter down to keywords containing this value",
             "schema": {
-              "type": "integer",
-              "format": "int32",
-              "examples": [
-                1
-              ],
-              "default": 1,
-              "maximum": 2147483647,
-              "minimum": 1
-            },
-            "example": 1
-          },
-          {
-            "name": "pageSize",
-            "in": "query",
-            "description": "Number of ad history records to return per page.",
-            "schema": {
-              "type": "integer",
-              "format": "int32",
-              "examples": [
-                5
-              ],
-              "default": 5,
-              "maximum": 10000,
-              "minimum": 1
-            },
-            "example": 5
+              "type": "string"
+            }
           },
           {
             "name": "countryCode",
             "in": "query",
-            "description": "Country code to filter results by geographic market.",
+            "description": "Country market to search.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).",
             "schema": {
               "type": "string",
               "examples": [
@@ -74,6 +45,7 @@
               "default": "US",
               "enum": [
                 "AR",
+                "AT",
                 "AU",
                 "BE",
                 "BR",
@@ -101,6 +73,62 @@
               ]
             },
             "example": "US"
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "description": "Sort order for ad history results.",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "Best"
+              ],
+              "enum": [
+                "Best",
+                "Worst",
+                "KeywordAsc",
+                "KeywordDesc"
+              ],
+              "x-enumDescriptions": {
+                "Best": "Best performing keywords based on longevity, CPC, and testing frequency",
+                "Worst": "Worst performing keywords that were tested and likely dropped",
+                "KeywordAsc": "Keywords A-Z",
+                "KeywordDesc": "Keywords Z-A"
+              }
+            },
+            "example": "Best"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Number of ad history records to return per page.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "examples": [
+                5
+              ],
+              "default": 5,
+              "maximum": 10000,
+              "minimum": 1
+            },
+            "example": 5
+          },
+          {
+            "name": "startingRow",
+            "in": "query",
+            "description": "Starting row number for pagination.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "examples": [
+                1
+              ],
+              "default": 1,
+              "maximum": 2147483647,
+              "minimum": 1
+            },
+            "example": 1
           }
         ],
         "responses": {
@@ -248,41 +276,9 @@
             "example": "running shoes"
           },
           {
-            "name": "startingRow",
-            "in": "query",
-            "description": "Starting row number for pagination.",
-            "schema": {
-              "type": "integer",
-              "format": "int32",
-              "examples": [
-                1
-              ],
-              "default": 1,
-              "maximum": 2147483647,
-              "minimum": 1
-            },
-            "example": 1
-          },
-          {
-            "name": "pageSize",
-            "in": "query",
-            "description": "Number of ad history records to return per page.",
-            "schema": {
-              "type": "integer",
-              "format": "int32",
-              "examples": [
-                5
-              ],
-              "default": 5,
-              "maximum": 10000,
-              "minimum": 1
-            },
-            "example": 5
-          },
-          {
             "name": "countryCode",
             "in": "query",
-            "description": "Country code to filter results by geographic market.",
+            "description": "Country market to search.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).",
             "schema": {
               "type": "string",
               "examples": [
@@ -291,6 +287,7 @@
               "default": "US",
               "enum": [
                 "AR",
+                "AT",
                 "AU",
                 "BE",
                 "BR",
@@ -318,6 +315,38 @@
               ]
             },
             "example": "US"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Number of ad history records to return per page.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "examples": [
+                5
+              ],
+              "default": 5,
+              "maximum": 10000,
+              "minimum": 1
+            },
+            "example": 5
+          },
+          {
+            "name": "startingRow",
+            "in": "query",
+            "description": "Starting row number for pagination.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "examples": [
+                1
+              ],
+              "default": 1,
+              "maximum": 2147483647,
+              "minimum": 1
+            },
+            "example": 1
           }
         ],
         "responses": {
@@ -464,38 +493,6 @@
             "example": "running shoes"
           },
           {
-            "name": "startingRow",
-            "in": "query",
-            "description": "Starting row number for pagination.",
-            "schema": {
-              "type": "integer",
-              "format": "int32",
-              "examples": [
-                1
-              ],
-              "default": 1,
-              "maximum": 2147483647,
-              "minimum": 1
-            },
-            "example": 1
-          },
-          {
-            "name": "pageSize",
-            "in": "query",
-            "description": "Number of ad history records to return per page.",
-            "schema": {
-              "type": "integer",
-              "format": "int32",
-              "examples": [
-                5
-              ],
-              "default": 5,
-              "maximum": 10000,
-              "minimum": 1
-            },
-            "example": 5
-          },
-          {
             "name": "countryCode",
             "in": "query",
             "description": "Country code to filter results by geographic market.",
@@ -507,6 +504,7 @@
               "default": "US",
               "enum": [
                 "AR",
+                "AT",
                 "AU",
                 "BE",
                 "BR",
@@ -534,6 +532,38 @@
               ]
             },
             "example": "US"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Number of ad history records to return per page.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "examples": [
+                5
+              ],
+              "default": 5,
+              "maximum": 10000,
+              "minimum": 1
+            },
+            "example": 5
+          },
+          {
+            "name": "startingRow",
+            "in": "query",
+            "description": "Starting row number for pagination.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "examples": [
+                1
+              ],
+              "default": 1,
+              "maximum": 2147483647,
+              "minimum": 1
+            },
+            "example": 1
           }
         ],
         "responses": {
