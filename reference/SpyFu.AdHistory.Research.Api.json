@@ -15,7 +15,7 @@
           {
             "name": "domain",
             "in": "query",
-            "description": "Advertiser'¢s root domain",
+            "description": "Advertiser's root domain",
             "required": true,
             "schema": {
               "type": "string",
