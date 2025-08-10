@@ -7,9 +7,15 @@ excerpt: >-
 
 
   [Visualize this API live on
-  SpyFu](https://www.spyfu.com/overview/domain?query=amazon.com)
+  SpyFu](https://www.spyfu.com/domain-overview?query=example.com)
 api:
   file: SpyFu.DomainStats.Research.Api.json
   operationId: DomainStatsApi_GetActiveDatesForDomain_GET
 hidden: false
+metadata:
+  title: Active Dates For Domain | SpyFu API
+  description: >-
+    Look up historical tracking coverage for any domain. The SpyFu API offers a
+    timeline of availability for domain analysis and research.
+  robots: index
 ---

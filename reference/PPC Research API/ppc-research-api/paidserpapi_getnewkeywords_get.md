@@ -8,9 +8,13 @@ excerpt: >-
 
 
   [Visualize this API live on
-  SpyFu](https://www.spyfu.com/ppc/keywords?query=amazon.com)
+  SpyFu](https://www.spyfu.com/ppc/keywords?query=example.com)
 api:
   file: SpyFu.Keyword.KeywordResearch.Api_ppc.json
   operationId: PaidSerpApi_GetNewKeywords_GET
 hidden: false
+metadata:
+  title: New PPC Keywords | SpyFu API
+  description: Find new keywords in PPC campaigns. Expand your ad reach and strategy fast.
+  robots: index
 ---

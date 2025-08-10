@@ -6,6 +6,10 @@ excerpt: >-
 deprecated: false
 hidden: false
 metadata:
+  title: Country Code Enum | SpyFu API
+  description: >-
+    See supported country codes for SpyFu APIs. Use two-letter codes to set your
+    region in each API call.
   robots: index
 ---
 Each country code represents a separate "instance" of SpyFu data pulled from its corresponding "instance" of Google.  For example the countryCode DE means that all the searches were run against Google.de and so the ads, SEO rankings and Search Volume, KD, metrics correspond to that localized version of Google.

@@ -1,5 +1,5 @@
 ---
-title: Get Term Ad History With Stats
+title: Get Keyword Ad History With Stats
 excerpt: >-
   Returns historical ad variations and advertiser performance statistics for a
   specific keyword. This endpoint includes domain-level metrics alongside ad
@@ -13,4 +13,10 @@ api:
   file: SpyFu.AdHistory.Research.Api.json
   operationId: AdHistoryApi_GetTermAdHistoryWithStats_GET
 hidden: false
+metadata:
+  title: Keyword Ad History With Stats | SpyFu API
+  description: >-
+    Get keyword ad copy over time with stats and performance data. Analyze
+    historic PPC ads and metrics for any term.
+  robots: index
 ---

@@ -8,9 +8,15 @@ excerpt: >-
 
 
   [Visualize this API live on
-  SpyFu](https://www.spyfu.com/overview/domain?query=amazon.com)
+  SpyFu](https://www.spyfu.com/domain-overview?query=example.com)
 api:
   file: SpyFu.DomainStats.Research.Api.json
   operationId: DomainStatsApi_GetDomainStatsForExactDate_GET
 hidden: false
+metadata:
+  title: Domain Stats For Exact Date | SpyFu API
+  description: >-
+    Get SEO & PPC stats for any domain, set by month and year. Analyze and
+    compare historical performance snapshots.
+  robots: index
 ---

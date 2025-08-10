@@ -4,6 +4,12 @@ excerpt: >-
   This page will help you get started with SpyFu. You'll be up and running in a
   jiffy!
 hidden: false
+metadata:
+  title: SpyFu Developer Documentation | SpyFu API
+  description: >-
+    Access actionable SEO & PPC data. Power your reporting, integration, and
+    competitive insights with SpyFu's API.
+  robots: index
 ---
 Welcome to ReadMe! :owlbert:
 

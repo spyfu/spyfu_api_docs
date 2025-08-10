@@ -31,41 +31,9 @@
             "example": "example.com"
           },
           {
-            "name": "startingRow",
-            "in": "query",
-            "description": "Row number to start the results with.",
-            "schema": {
-              "type": "integer",
-              "format": "int32",
-              "examples": [
-                1
-              ],
-              "default": 1,
-              "maximum": 550,
-              "minimum": 1
-            },
-            "example": 1
-          },
-          {
-            "name": "pageSize",
-            "in": "query",
-            "description": "The maximum number of rows returned.",
-            "schema": {
-              "type": "integer",
-              "format": "int32",
-              "examples": [
-                5
-              ],
-              "default": 5,
-              "maximum": 550,
-              "minimum": 1
-            },
-            "example": 5
-          },
-          {
             "name": "countryCode",
             "in": "query",
-            "description": "Country market to search.  Specifically, this maps to the Google version to query against (google.de for Germany, etc).  Google.com (US) is the default.      [See full list of supported Countries](https://developer.spyfu.com/update/reference/country-code-enum#/)",
+            "description": "Country market to search.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).  <a href='https://developer.spyfu.com/reference/adhistoryapi_getdomainadhistory_get#/'>All Countries</a>",
             "schema": {
               "type": "string",
               "examples": [
@@ -74,6 +42,7 @@
               "default": "US",
               "enum": [
                 "AR",
+                "AT",
                 "AU",
                 "BE",
                 "BR",
@@ -101,6 +70,73 @@
               ]
             },
             "example": "US"
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "description": "Column to sort by.",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "Rank"
+              ],
+              "default": "Rank",
+              "enum": [
+                "Domain",
+                "CommonTerms",
+                "Rank"
+              ]
+            },
+            "example": "Rank"
+          },
+          {
+            "name": "sortOrder",
+            "in": "query",
+            "description": "Order to sort results.",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "Descending"
+              ],
+              "default": "Descending",
+              "enum": [
+                "Ascending",
+                "Descending"
+              ]
+            },
+            "example": "Descending"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "The maximum number of rows returned.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "examples": [
+                5
+              ],
+              "default": 5,
+              "maximum": 550,
+              "minimum": 1
+            },
+            "example": 5
+          },
+          {
+            "name": "startingRow",
+            "in": "query",
+            "description": "Row number to start the results with.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "examples": [
+                1
+              ],
+              "default": 1,
+              "maximum": 550,
+              "minimum": 1
+            },
+            "example": 1
           }
         ],
         "responses": {
@@ -156,6 +192,11 @@
                             "examples": [
                               1432
                             ]
+                          },
+                          "rank": {
+                            "description": "The rank is a metric for how much overlap there is between your domain and the competitor",
+                            "type": "number",
+                            "format": "float"
                           }
                         },
                         "additionalProperties": false,
@@ -204,41 +245,9 @@
             "example": "example.com"
           },
           {
-            "name": "startingRow",
-            "in": "query",
-            "description": "Row number to start the results with.",
-            "schema": {
-              "type": "integer",
-              "format": "int32",
-              "examples": [
-                1
-              ],
-              "default": 1,
-              "maximum": 550,
-              "minimum": 1
-            },
-            "example": 1
-          },
-          {
-            "name": "pageSize",
-            "in": "query",
-            "description": "The maximum number of rows returned.",
-            "schema": {
-              "type": "integer",
-              "format": "int32",
-              "examples": [
-                5
-              ],
-              "default": 5,
-              "maximum": 550,
-              "minimum": 1
-            },
-            "example": 5
-          },
-          {
             "name": "countryCode",
             "in": "query",
-            "description": "Country market to search.  Specifically, this maps to the Google version to query against (google.de for Germany, etc).  Google.com (US) is the default.      [See full list of supported Countries](https://developer.spyfu.com/update/reference/country-code-enum#/)",
+            "description": "Country market to search.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).  <a href='https://developer.spyfu.com/reference/adhistoryapi_getdomainadhistory_get#/'>All Countries</a>",
             "schema": {
               "type": "string",
               "examples": [
@@ -247,6 +256,7 @@
               "default": "US",
               "enum": [
                 "AR",
+                "AT",
                 "AU",
                 "BE",
                 "BR",
@@ -274,6 +284,73 @@
               ]
             },
             "example": "US"
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "description": "Column to sort by.",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "Rank"
+              ],
+              "default": "Rank",
+              "enum": [
+                "Domain",
+                "CommonTerms",
+                "Rank"
+              ]
+            },
+            "example": "Rank"
+          },
+          {
+            "name": "sortOrder",
+            "in": "query",
+            "description": "Order to sort results.",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "Descending"
+              ],
+              "default": "Descending",
+              "enum": [
+                "Ascending",
+                "Descending"
+              ]
+            },
+            "example": "Descending"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "The maximum number of rows returned.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "examples": [
+                5
+              ],
+              "default": 5,
+              "maximum": 550,
+              "minimum": 1
+            },
+            "example": 5
+          },
+          {
+            "name": "startingRow",
+            "in": "query",
+            "description": "Row number to start the results with.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "examples": [
+                1
+              ],
+              "default": 1,
+              "maximum": 550,
+              "minimum": 1
+            },
+            "example": 1
           }
         ],
         "responses": {
@@ -329,6 +406,11 @@
                             "examples": [
                               1432
                             ]
+                          },
+                          "rank": {
+                            "description": "The rank is a metric for how much overlap there is between your domain and the competitor",
+                            "type": "number",
+                            "format": "float"
                           }
                         },
                         "additionalProperties": false,
@@ -366,7 +448,7 @@
           {
             "name": "domain",
             "in": "query",
-            "description": "Domain to analyze for competitive landscape data.",
+            "description": "Domain to get competitors for",
             "required": true,
             "schema": {
               "type": "string",
@@ -377,41 +459,9 @@
             "example": "example.com"
           },
           {
-            "name": "startingRow",
-            "in": "query",
-            "description": "Row number to start the results with.",
-            "schema": {
-              "type": "integer",
-              "format": "int32",
-              "examples": [
-                1
-              ],
-              "default": 1,
-              "maximum": 550,
-              "minimum": 1
-            },
-            "example": 1
-          },
-          {
-            "name": "pageSize",
-            "in": "query",
-            "description": "The maximum number of rows returned.",
-            "schema": {
-              "type": "integer",
-              "format": "int32",
-              "examples": [
-                5
-              ],
-              "default": 5,
-              "maximum": 550,
-              "minimum": 1
-            },
-            "example": 5
-          },
-          {
             "name": "countryCode",
             "in": "query",
-            "description": "Country market to search.  Specifically, this maps to the Google version to query against (google.de for Germany, etc).  Google.com (US) is the default.      [See full list of supported Countries](https://developer.spyfu.com/update/reference/country-code-enum#/)",
+            "description": "Country market to search.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).  <a href='https://developer.spyfu.com/reference/adhistoryapi_getdomainadhistory_get#/'>All Countries</a>",
             "schema": {
               "type": "string",
               "examples": [
@@ -420,6 +470,7 @@
               "default": "US",
               "enum": [
                 "AR",
+                "AT",
                 "AU",
                 "BE",
                 "BR",
@@ -447,6 +498,73 @@
               ]
             },
             "example": "US"
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "description": "Column to sort by.",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "Rank"
+              ],
+              "default": "Rank",
+              "enum": [
+                "Domain",
+                "CommonTerms",
+                "Rank"
+              ]
+            },
+            "example": "Rank"
+          },
+          {
+            "name": "sortOrder",
+            "in": "query",
+            "description": "Order to sort results.",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "Descending"
+              ],
+              "default": "Descending",
+              "enum": [
+                "Ascending",
+                "Descending"
+              ]
+            },
+            "example": "Descending"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "The maximum number of rows returned.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "examples": [
+                5
+              ],
+              "default": 5,
+              "maximum": 550,
+              "minimum": 1
+            },
+            "example": 5
+          },
+          {
+            "name": "startingRow",
+            "in": "query",
+            "description": "Row number to start the results with.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "examples": [
+                1
+              ],
+              "default": 1,
+              "maximum": 550,
+              "minimum": 1
+            },
+            "example": 1
           }
         ],
         "responses": {
@@ -535,6 +653,11 @@
                             "examples": [
                               1432
                             ]
+                          },
+                          "rank": {
+                            "description": "The rank is a metric for how much overlap there is between your domain and the competitor",
+                            "type": "number",
+                            "format": "float"
                           }
                         },
                         "additionalProperties": false,
@@ -568,6 +691,11 @@
                             "examples": [
                               1432
                             ]
+                          },
+                          "rank": {
+                            "description": "The rank is a metric for how much overlap there is between your domain and the competitor",
+                            "type": "number",
+                            "format": "float"
                           }
                         },
                         "additionalProperties": false,
@@ -705,6 +833,11 @@
                   "examples": [
                     1432
                   ]
+                },
+                "rank": {
+                  "description": "The rank is a metric for how much overlap there is between your domain and the competitor",
+                  "type": "number",
+                  "format": "float"
                 }
               },
               "additionalProperties": false,
@@ -738,6 +871,11 @@
                   "examples": [
                     1432
                   ]
+                },
+                "rank": {
+                  "description": "The rank is a metric for how much overlap there is between your domain and the competitor",
+                  "type": "number",
+                  "format": "float"
                 }
               },
               "additionalProperties": false,
@@ -796,6 +934,11 @@
                   "examples": [
                     1432
                   ]
+                },
+                "rank": {
+                  "description": "The rank is a metric for how much overlap there is between your domain and the competitor",
+                  "type": "number",
+                  "format": "float"
                 }
               },
               "additionalProperties": false,
@@ -827,6 +970,11 @@
             "examples": [
               1432
             ]
+          },
+          "rank": {
+            "description": "The rank is a metric for how much overlap there is between your domain and the competitor",
+            "type": "number",
+            "format": "float"
           }
         },
         "additionalProperties": false

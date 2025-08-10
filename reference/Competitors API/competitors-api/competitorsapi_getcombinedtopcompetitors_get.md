@@ -7,10 +7,15 @@ excerpt: >-
   competitive landscape insights.
 
 
-  [Visualize this API live on SpyFu (SEO
-  Only)](https://www.spyfu.com/seo/competitors/domain?query=amazon.com)
+  [Visualize this API live on
+  SpyFu](https://www.spyfu.com/competitors?query=example.com)
 api:
   file: SpyFu.Competitors.Research.Api.json
   operationId: CompetitorsApi_GetCombinedTopCompetitors_GET
 hidden: false
+metadata:
+  title: Top SEO + PPC Competitors | SpyFu API
+  description: >-
+    Include SEO and PPC competitor data into any custom reporting you can
+    imagine. Get powerful competitive insights with SpyFu's  API.
 ---

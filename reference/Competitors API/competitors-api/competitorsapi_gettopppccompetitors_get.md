@@ -8,9 +8,15 @@ excerpt: >-
 
 
   [Visualize this API live on
-  SpyFu](https://www.spyfu.com/ppc/competitors?query=amazon.com)
+  SpyFu](https://www.spyfu.com/ppc/competitors?query=example.com)
 api:
   file: SpyFu.Competitors.Research.Api.json
   operationId: CompetitorsApi_GetTopPpcCompetitors_GET
 hidden: false
+metadata:
+  title: Top PPC Competitors | SpyFu API
+  description: >-
+    Identify PPC competitors and the keywords they buy. Blend the data into any
+    custom reporting you can imagine via SpyFu's API.
+  robots: index
 ---

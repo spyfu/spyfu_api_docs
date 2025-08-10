@@ -7,9 +7,15 @@ excerpt: >-
 
 
   [Visualize this API live on
-  SpyFu](https://www.spyfu.com/ppc/kombat?query=amazon.com)
+  SpyFu](https://www.spyfu.com/kombat?query=example.com,example.org)
 api:
   file: SpyFu.Keyword.KeywordResearch.Api_kombat.json
   operationId: KombatApi_GetCompetingPpcKeywords_GET
 hidden: false
+metadata:
+  title: Competing PPC Keywords | SpyFu API
+  description: >-
+    Compare PPC keywords across multiple sites. Build competitive insights into
+    your tools to build smarter ad buying insights with SpyFu's API.
+  robots: index
 ---

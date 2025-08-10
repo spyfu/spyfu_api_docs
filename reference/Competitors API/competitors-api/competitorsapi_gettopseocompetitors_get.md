@@ -8,9 +8,15 @@ excerpt: >-
 
 
   [Visualize this API live on
-  SpyFu](https://www.spyfu.com/seo/competitors?query=amazon.com)
+  SpyFu](https://www.spyfu.com/seo/competitors?query=example.com)
 api:
   file: SpyFu.Competitors.Research.Api.json
   operationId: CompetitorsApi_GetTopSeoCompetitors_GET
 hidden: false
+metadata:
+  title: Top SEO Competitors | SpyFu API
+  description: >-
+    Identify SEO competitors and the keywords they rank for. Blend the data into
+    any custom reporting you can imagine via SpyFu's API.
+  robots: index
 ---

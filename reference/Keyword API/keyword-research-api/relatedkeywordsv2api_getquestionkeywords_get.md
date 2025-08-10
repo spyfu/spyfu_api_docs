@@ -8,9 +8,15 @@ excerpt: >-
 
 
   [Visualize this API live on
-  SpyFu](https://www.spyfu.com/keyword/related-keywords?query=running+shoes)
+  SpyFu](https://www.spyfu.com/keyword/related?query=running+shoes)
 api:
   file: SpyFu.Keyword.KeywordResearch.Api_related.json
   operationId: RelatedKeywordsV2Api_GetQuestionKeywords_GET
 hidden: false
+metadata:
+  title: Question-Based Keywords | SpyFu API
+  description: >-
+    Find question keywords for your topic. Inspire FAQ content and answer real
+    user searches.
+  robots: index
 ---

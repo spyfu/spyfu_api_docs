@@ -13,4 +13,10 @@ api:
   file: SpyFu.Keyword.KeywordResearch.Api_related.json
   operationId: RelatedKeywordsV2Api_GetKeywordsByBulkSearch_GET
 hidden: false
+metadata:
+  title: Keyword Information Bulk | SpyFu API
+  description: >-
+    Bulk analyze keyword data. Get metrics, volume, and cost insights for many
+    keywords at once.
+  robots: index
 ---

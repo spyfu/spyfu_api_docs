@@ -1,5 +1,5 @@
 ---
-title: Get Paid SERPs
+title: Get Ads for Domain
 excerpt: >-
   Returns paid search results (ads) that a domain appears in across Google
   search. This endpoint reveals the competitive paid landscape to identify
@@ -7,9 +7,15 @@ excerpt: >-
 
 
   [Visualize this API live on
-  SpyFu](https://www.spyfu.com/ppc/keywords/domain?query=amazon.com)
+  SpyFu](https://www.spyfu.com/ppc/keywords/domain?query=example.com)
 api:
   file: SpyFu.CloudSerp.SerpResearch.Api_ppc.json
   operationId: PaidSerpApi_GetPaidSerps_GET
 hidden: false
+metadata:
+  title: Paid SERPs | SpyFu API
+  description: >-
+    Starting with a domain, see the paid search results where its ad ran.
+    Analyze the competitive paid ad field with SpyFu's API.
+  robots: index
 ---

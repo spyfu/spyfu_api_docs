@@ -8,9 +8,15 @@ excerpt: >-
 
 
   [Visualize this API live on
-  SpyFu](https://www.spyfu.com/keyword/related-keywords?query=running+shoes)
+  SpyFu](https://www.spyfu.com/keyword/related?query=running+shoes)
 api:
   file: SpyFu.Keyword.KeywordResearch.Api_related.json
   operationId: RelatedKeywordsV2Api_GetRelatedKeywords_GET
 hidden: false
+metadata:
+  title: Related Keywords | SpyFu API
+  description: >-
+    Get related, high-value keywords. Expand your content reach and discover new
+    SEO ideas.
+  robots: index
 ---
