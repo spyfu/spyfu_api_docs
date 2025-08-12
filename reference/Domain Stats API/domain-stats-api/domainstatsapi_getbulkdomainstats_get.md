@@ -1,35 +1,12 @@
 ---
-title: Get Bulk Domain Stats
+title: Bulk Domain Stats for Latest or All Time
 excerpt: >-
-  Enrich any domain list with machine-joinable web presence metrics at scale.
-  This bulk endpoint returns per-domain intelligence across SEO and PPC for many
-  domains in a single call -- either as a current snapshot or full historical
-  time series. Use it to score accounts, benchmark competitors, monitor
-  portfolios, and build market or alpha signals.
-
-
-  What it returns (typical fields): counts of organic and paid keywords,
-  estimated monthly organic clicks and value, paid ad spend, and competitive
-  positioning metrics -- normalized by market via `countryCode`.
-
-
-  How to use it:
-
-  - Sales/RevOps: lead scoring and routing, account qualification, territory
-  planning.
-
-  - Marketing/CI: category benchmarking, share-of-voice proxies, competitive
-  tracking.
-
-  - Finance/Alt-data: due diligence, portfolio/sector monitoring, growth and
-  spend trend signals.
-
-  - Partnerships/Product Ops: vendor screening, ecosystem mapping, partner
-  monitoring
-
-
-  [Visualize this API live on
-  SpyFu](https://www.spyfu.com/overview/domain?query=example.com) 
+  <h3>Domain Stats</h3>Want to know what your top competitors are up to? Learn
+  about a company’s domain history, and their current progress. Learn from their
+  mistakes and successes.<br><a
+  href="https://help.spyfu.com/en/articles/2968673-understanding-the-domain-overview-page"
+  target="_blank">Read how to use this</a><h4>Endpoint Overview</h4>Returns a
+  list of dates that we have data for the Domain.
 api:
   file: SpyFu.DomainStats.Research.Api.json
   operationId: DomainStatsApi_GetBulkDomainStats_GET
