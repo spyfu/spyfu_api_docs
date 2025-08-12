@@ -869,26 +869,26 @@
     "/v2/getBulkDomainStats": {
       "get": {
         "operationId": "DomainStatsApi_GetBulkDomainStats_GET",
-        "summary": "Bulk Domain Stats for Latest or All Time",
-        "description": "<h3>Domain Stats</h3>Want to know what your top competitors are up to? Learn about a company’s domain history, and their current progress. Learn from their mistakes and successes.<br><a href=\"https://help.spyfu.com/en/articles/2968673-understanding-the-domain-overview-page\" target=\"_blank\">Read how to use this</a><h4>Endpoint Overview</h4>Returns a list of dates that we have data for the Domain.",
+        "summary": "Bulk Domain Statistics (Snapshot or History)",
+        "description": "Returns SEO and PPC metrics for multiple domains in one request. Suitable for batch enrichment, benchmarking, and portfolio monitoring.",
         "parameters": [
           {
             "name": "domains",
             "in": "query",
-            "description": "Domains to search",
+            "description": "Comma-separated list of domains to analyze. Each domain should be provided as a root domain (example.com) without protocol or paths. Maximum of 1000 domains per request.",
             "required": true,
             "schema": {
               "type": "string",
               "examples": [
-                "domain.com,anotherdomain.com"
+                "example.com,competitor.com,industry-leader.com"
               ]
             },
-            "example": "domain.com,anotherdomain.com"
+            "example": "example.com,competitor.com,industry-leader.com"
           },
           {
             "name": "countryCode",
             "in": "query",
-            "description": "Country to get results for.",
+            "description": "Country market to analyze. Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).",
             "schema": {
               "type": "string",
               "examples": [
@@ -929,7 +929,7 @@
           {
             "name": "showOnlyLatest",
             "in": "query",
-            "description": "Toggle between only latest or all domain stats",
+            "description": "Controls data scope returned. If true, returns only the most recent statistics for each domain (current snapshot). If false, returns complete historical data showing trends over time for comprehensive analysis.",
             "required": true,
             "schema": {
               "type": "boolean",
