@@ -16,7 +16,7 @@
     }
   ],
   "paths": {
-    "/cloud_ad_history_api/v2/term/getTermAdHistoryWithStats": {
+    "/cloud_ad_history_api/v2/domain/getDomainAdHistory": {
       "get": {
         "tags": [
           "Ad History Research API"
@@ -28,7 +28,7 @@
           {
             "name": "domain",
             "in": "query",
-            "description": "Advertiser'¢s root domain",
+            "description": "Advertiser's root domain",
             "required": true,
             "schema": {
               "type": "string",
@@ -47,7 +47,7 @@
           {
             "name": "countryCode",
             "in": "query",
-            "description": "Country market to search.  Specifically, this maps to the Google version to query against (google.de for Germany, etc).  Google.com (US) is the default.",
+            "description": "Country code for Google market (e.g., DE → google.de).",
             "schema": {
               "enum": [
                 "AR",
@@ -114,10 +114,10 @@
               "minimum": 1,
               "type": "integer",
               "format": "int32",
-              "default": 5,
-              "example": 5
+              "default": 100,
+              "example": 100
             },
-            "example": 5
+            "example": 100
           },
           {
             "name": "startingRow",
@@ -136,7 +136,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Successfully retrieved ad history data for the specified domain. Returns a paginated list of historical ad variations with copy, keywords, and campaign information.",
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
@@ -146,13 +146,13 @@
             }
           },
           "400": {
-            "description": "Bad Request - Invalid parameters provided (e.g., invalid domain format, pageSize exceeds maximum, or invalid country code)"
+            "description": "Bad Request"
           },
           "401": {
-            "description": "Unauthorized - Invalid API credentials or insufficient permissions to access ad history data"
+            "description": "Unauthorized"
           },
           "500": {
-            "description": "Internal Server Error - A server-side error occurred while processing the request"
+            "description": "Internal Server Error"
           }
         }
       }
@@ -180,7 +180,7 @@
           {
             "name": "countryCode",
             "in": "query",
-            "description": "Country market to search.  Specifically, this maps to the Google version to query against (google.de for Germany, etc).  Google.com (US) is the default.",
+            "description": "Country code for Google market (e.g., DE → google.de).",
             "schema": {
               "enum": [
                 "AR",
@@ -225,10 +225,10 @@
               "minimum": 1,
               "type": "integer",
               "format": "int32",
-              "default": 5,
-              "example": 5
+              "default": 100,
+              "example": 100
             },
-            "example": 5
+            "example": 100
           },
           {
             "name": "startingRow",
@@ -247,7 +247,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Successfully retrieved ad history data for the specified keyword. Returns a paginated list of ads that have appeared for this keyword across different advertisers.",
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
@@ -257,18 +257,18 @@
             }
           },
           "400": {
-            "description": "Bad Request - Invalid parameters provided (e.g., empty term, pageSize exceeds maximum, or invalid country code)"
+            "description": "Bad Request"
           },
           "401": {
-            "description": "Unauthorized - Invalid API credentials or insufficient permissions to access ad history data"
+            "description": "Unauthorized"
           },
           "500": {
-            "description": "Internal Server Error - A server-side error occurred while processing the request"
+            "description": "Internal Server Error"
           }
         }
       }
     },
-    "/cloud_ad_history_api/v2/domain/getDomainAdHistory": {
+    "/cloud_ad_history_api/v2/term/getTermAdHistoryWithStats": {
       "get": {
         "tags": [
           "Ad History Research API"
@@ -291,7 +291,7 @@
           {
             "name": "countryCode",
             "in": "query",
-            "description": "Country market to search.  Specifically, this maps to the Google version to query against (google.de for Germany, etc).  Google.com (US) is the default.",
+            "description": "Country code for Google market (e.g., DE → google.de).",
             "schema": {
               "enum": [
                 "AR",
@@ -336,10 +336,10 @@
               "minimum": 1,
               "type": "integer",
               "format": "int32",
-              "default": 5,
-              "example": 5
+              "default": 100,
+              "example": 100
             },
-            "example": 5
+            "example": 100
           },
           {
             "name": "startingRow",
@@ -358,7 +358,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Successfully retrieved ad history data with advertiser statistics for the specified keyword. Returns a paginated list of ads with performance metrics and domain-level data.",
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
@@ -368,18 +368,18 @@
             }
           },
           "400": {
-            "description": "Bad Request - Invalid parameters provided (e.g., empty term, pageSize exceeds maximum, or invalid country code)"
+            "description": "Bad Request"
           },
           "401": {
-            "description": "Unauthorized - Invalid API credentials or insufficient permissions to access ad history data"
+            "description": "Unauthorized"
           },
           "500": {
-            "description": "Internal Server Error - A server-side error occurred while processing the request"
+            "description": "Internal Server Error"
           }
         }
       }
     },
-    "/keyword_api/v2/ppc/getPaidSerps": {
+    "/serp_api/v2/ppc/getPaidSerps": {
       "get": {
         "tags": [
           "PPC Research API"
@@ -502,10 +502,10 @@
               "minimum": 1,
               "type": "integer",
               "format": "int32",
-              "default": 5,
-              "example": 5
+              "default": 100,
+              "example": 100
             },
-            "example": 5
+            "example": 100
           },
           {
             "name": "excludeHomepageKeywords",
@@ -521,7 +521,7 @@
           {
             "name": "countryCode",
             "in": "query",
-            "description": "Country market to search.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).",
+            "description": "Country code for Google market (e.g., DE → google.de).",
             "schema": {
               "enum": [
                 "AR",
@@ -571,14 +571,7 @@
               ],
               "type": "string",
               "default": "SearchVolume",
-              "example": "SearchVolume",
-              "x-enumDescriptions": {
-                "SearchVolume": "Number of searches done this past month on Google (or within selected country). Blended from multiple sources for better snapshot of search activity",
-                "KeywordDifficulty": "PPC ranking difficulty score (0-100 scale, higher = more difficult to rank). Based on advertiser competition, cost-per-click, and bid density for paid search results",
-                "AdPosition": "Average position where the domain's ads appear in paid search results (1 = top ad position)",
-                "AdCount": "Total number of advertisers seen over the last 6 months for this keyword",
-                "DateSearched": "Most recent date this keyword data was updated in SpyFu's database"
-              }
+              "example": "SearchVolume"
             },
             "example": "SearchVolume"
           },
@@ -614,7 +607,7 @@
           {
             "name": "adultFilter",
             "in": "query",
-            "description": "Exclude adult keywords considered unsafe for work.",
+            "description": "Exclude NSFW keywords.",
             "schema": {
               "type": "boolean",
               "default": true,
@@ -625,7 +618,7 @@
           {
             "name": "onlyAdultKeywords",
             "in": "query",
-            "description": "Only include adult keywords considered unsafe for work.",
+            "description": "Include only NSFW keywords.",
             "schema": {
               "type": "boolean",
               "default": false,
@@ -636,7 +629,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Successfully retrieved paid search results for the domain. Returns a paginated list of keywords where the domain appears in paid ads with position and competition data.",
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
@@ -646,13 +639,13 @@
             }
           },
           "400": {
-            "description": "Bad Request - Invalid parameters provided (e.g., invalid domain format, pageSize exceeds maximum, or invalid country code)"
+            "description": "Bad Request"
           },
           "401": {
-            "description": "Unauthorized - Invalid API credentials or insufficient permissions to access PPC keyword data"
+            "description": "Unauthorized"
           },
           "500": {
-            "description": "Internal Server Error - A server-side error occurred while processing the request"
+            "description": "Internal Server Error"
           }
         }
       }
@@ -660,12 +653,106 @@
     "/serp_api/v2/seo/getSerpAnalysisKeywords": {
       "get": {
         "tags": [
-          "SEO Research API",
           "SEO Research API"
         ],
         "summary": "Get SERP Analysis for Keyword ",
         "description": "Returns detailed search engine results page (SERP) analysis for a specific keyword, showing all domains ranking in positions 1-100. This endpoint provides comprehensive ranking data updated monthly to reveal the competitive landscape for any keyword.",
         "operationId": "OrganicSerpApi_GetSerpAnalysisKeywords_GET",
+        "parameters": [
+          {
+            "name": "keyword",
+            "in": "query",
+            "description": "Keyword to analyze for SERP ranking data.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "electric car"
+            },
+            "example": "electric car"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Number of ranking results to return (maximum 105 for top 100+ positions).",
+            "schema": {
+              "maximum": 105,
+              "minimum": 1,
+              "type": "integer",
+              "format": "int32",
+              "default": 105
+            }
+          },
+          {
+            "name": "countryCode",
+            "in": "query",
+            "description": "Country code for Google market (e.g., DE → google.de).",
+            "schema": {
+              "enum": [
+                "AR",
+                "AT",
+                "AU",
+                "BE",
+                "BR",
+                "CA",
+                "CH",
+                "DE",
+                "DK",
+                "ES",
+                "FR",
+                "IE",
+                "IN",
+                "IT",
+                "JP",
+                "MX",
+                "NL",
+                "NO",
+                "NZ",
+                "PT",
+                "SE",
+                "SG",
+                "UA",
+                "UK",
+                "US",
+                "ZA"
+              ],
+              "type": "string",
+              "default": "US",
+              "example": "US"
+            },
+            "example": "US"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicSerpAnalysisKeywordWrapperOutputDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/serp_api/v2/seo/getLiveSeoStats": {
+      "get": {
+        "tags": [
+          "SEO Research API"
+        ],
+        "summary": "Get Live SEO Stats",
+        "description": "Returns live, aggregated SEO metrics for a given domain, subdomain, path, or URL. Results summarize current organic visibility and traffic estimates derived from up-to-date SERP data. Updated continuously (~every 15 seconds), 24/7/365.",
+        "operationId": "OrganicSerpApi_GetLiveSeoStats_GET",
         "parameters": [
           {
             "name": "query",
@@ -674,491 +761,143 @@
             "required": true,
             "schema": {
               "type": "string",
-              "example": "example.com/blog"
+              "example": "domain.com/blog"
             },
-            "example": "example.com/blog"
+            "example": "domain.com"
           },
           {
-            "name": "includeTerms",
+            "name": "countryCode",
             "in": "query",
-            "description": "Comma-separated list of terms that must be present in the keyword.",
-            "schema": {
-              "type": "string",
-              "example": "hosting,domain,website"
-            }
-          },
-          {
-            "name": "includeAnyTerm",
-            "in": "query",
-            "description": "Used with includeTerms. If true: match any term (OR). If false: require all terms (AND).",
-            "schema": {
-              "type": "boolean",
-              "default": false,
-              "example": false
-            }
-          },
-          {
-            "name": "excludeTerms",
-            "in": "query",
-            "description": "Comma-separated list of terms to exclude from results (e.g., branded or irrelevant terms).",
-            "schema": {
-              "type": "string",
-              "example": "free,cheap,discount"
-            }
-          },
-          {
-            "name": "compareDomain",
-            "in": "query",
-            "description": "Domain to compare against when evaluating where it outranks you and where you outrank it.",
-            "schema": {
-              "type": "string",
-              "example": "competitor.com"
-            },
-            "example": "competitor.com"
-          },
-          {
-            "name": "excludeHomepageKeywords",
-            "in": "query",
-            "description": "If true, exclude keywords where the domain/URL's homepage (root domain, e.g., example.com) ranks; if false, include all.",
-            "schema": {
-              "type": "boolean",
-              "default": false,
-              "example": false
-            },
-            "example": false
-          },
-          {
-            "name": "searchVolume.min",
-            "in": "query",
-            "description": "Filter to keywords where monthly search volume (Google) is ≥ this value.",
-            "schema": {
-              "type": "number",
-              "format": "float",
-              "example": 1000
-            },
-            "example": 1000
-          },
-          {
-            "name": "searchVolume.max",
-            "in": "query",
-            "description": "Filter to keywords where monthly search volume (Google) is ≤ this value.",
-            "schema": {
-              "type": "number",
-              "format": "float",
-              "example": 50000
-            },
-            "example": 50000
-          },
-          {
-            "name": "keywordDifficulty.min",
-            "in": "query",
-            "description": "Filter to keywords where the keyword difficulty score is ≥ this value (0-100; higher = harder to rank).",
-            "schema": {
-              "type": "number",
-              "format": "float",
-              "example": 30
-            },
-            "example": 30
-          },
-          {
-            "name": "keywordDifficulty.max",
-            "in": "query",
-            "description": "Filter to keywords where the keyword difficulty score is ≤ this value (0-100; higher = harder to rank).",
-            "schema": {
-              "type": "number",
-              "format": "float",
-              "example": 70
-            },
-            "example": 70
-          },
-          {
-            "name": "rank.min",
-            "in": "query",
-            "description": "Filter to keywords where the domain/URL rank position is ≥ this value (1 = best/top organic result).",
-            "schema": {
-              "type": "number",
-              "format": "float",
-              "example": 1
-            },
-            "example": 1
-          },
-          {
-            "name": "rank.max",
-            "in": "query",
-            "description": "Filter to keywords where the domain/URL rank position is ≤ this value (1 = best/top organic result).",
-            "schema": {
-              "type": "number",
-              "format": "float",
-              "example": 10
-            },
-            "example": 10
-          },
-          {
-            "name": "rankChange.min",
-            "in": "query",
-            "description": "Filter to keywords where the domain/URL improved by at least this many positions vs. the previous month (rank_change ≥ value). Positive values mean moved up; negative values mean moved down.",
-            "schema": {
-              "type": "number",
-              "format": "float",
-              "example": 5
-            },
-            "example": 5
-          },
-          {
-            "name": "rankChange.max",
-            "in": "query",
-            "description": "Filter to keywords where the month-over-month rank change is at most this many positions (rank_change ≤ value). Positive values mean moved up; negative values mean moved down.",
-            "schema": {
-              "type": "number",
-              "format": "float",
-              "example": 20
-            },
-            "example": 20
-          },
-          {
-            "name": "costPerClick.min",
-            "in": "query",
-            "description": "Filter to keywords where the average cost per click (CPC) is ≥ this value.",
-            "schema": {
-              "type": "number",
-              "format": "float",
-              "example": 1
-            },
-            "example": 1
-          },
-          {
-            "name": "costPerClick.max",
-            "in": "query",
-            "description": "Filter to keywords where the average cost per click (CPC) is ≤ this value.",
-            "schema": {
-              "type": "number",
-              "format": "float",
-              "example": 10
-            },
-            "example": 10
-          },
-          {
-            "name": "costPerClickOption",
-            "in": "query",
-            "description": "Match type for CPC filtering. Broad = includes variations/related terms; Exact = exact keyword only; Phrase = contains the keyword phrase in order (with additional words allowed).",
+            "description": "Country to get results for.",
             "schema": {
               "enum": [
-                "Broad",
-                "Exact",
-                "Phrase"
+                "AR",
+                "AT",
+                "AU",
+                "BE",
+                "BR",
+                "CA",
+                "CH",
+                "DE",
+                "DK",
+                "ES",
+                "FR",
+                "IE",
+                "IN",
+                "IT",
+                "JP",
+                "MX",
+                "NL",
+                "NO",
+                "NZ",
+                "PT",
+                "SE",
+                "SG",
+                "UA",
+                "UK",
+                "US",
+                "ZA"
               ],
               "type": "string",
-              "example": "Broad",
-              "x-enumDescriptions": {
-                "Broad": "Includes keyword variations and related terms",
-                "Exact": "Requires precise keyword match only",
-                "Phrase": "Includes the keyword phrase in order with additional words"
-              }
+              "default": "US",
+              "example": "US"
             },
-            "example": "Broad"
+            "example": "US"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicApiLiveSeoStatsWrapperOutputDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/serp_api/v2/seo/getMostTrafficTopPages": {
+      "get": {
+        "tags": [
+          "SEO Research API"
+        ],
+        "summary": "Get Highest Traffic Top Pages",
+        "description": "Returns the pages that generate the most organic traffic for a domain. This endpoint identifies the highest-performing content by estimated monthly organic clicks, revealing which pages drive the most SEO value and traffic to the site.",
+        "operationId": "TopPagesApi_GetMostTrafficTopPages_GET",
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "description": "Domain or URL to analyze. Accepts full domains (example.com), complete URLs (https://example.com/blog), subdomains (blog.example.com), or specific paths (example.com/products/).",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "example.com"
+            },
+            "example": "example.com"
+          },
+          {
+            "name": "keywordFilter",
+            "in": "query",
+            "description": "Filter to pages that rank for keywords containing this term. Helps narrow results to specific topics or content themes.",
+            "schema": {
+              "type": "string",
+              "example": "hosting"
+            },
+            "example": "hosting"
           },
           {
             "name": "seoClicks.min",
             "in": "query",
-            "description": "Filter to keywords where estimated monthly organic clicks (SEO clicks) to the domain/url are ≥ this value.",
             "schema": {
               "type": "number",
               "format": "float",
-              "example": 100
+              "example": "100"
             },
-            "example": 100
+            "description": "Filter to pages where estimated monthly organic clicks are ≥ this value.",
+            "example": "100"
           },
           {
             "name": "seoClicks.max",
             "in": "query",
-            "description": "Filter to keywords where estimated monthly organic clicks (SEO clicks) to the domain/url are ≤ this value.",
-            "schema": {
-              "type": "number",
-              "format": "float",
-              "example": 1000
-            },
-            "example": 1000
-          },
-          {
-            "name": "seoClicksChange.min",
-            "in": "query",
-            "description": "Filter to keywords where the month-over-month change in estimated organic clicks is ≥ this value. Positive values indicate click gains; negative values indicate click losses.",
-            "schema": {
-              "type": "number",
-              "format": "float",
-              "example": 10
-            },
-            "example": 10
-          },
-          {
-            "name": "seoClicksChange.max",
-            "in": "query",
-            "description": "Filter to keywords where the month-over-month change in estimated organic clicks is ≤ this value. Positive values indicate click gains; negative values indicate click losses.",
-            "schema": {
-              "type": "number",
-              "format": "float",
-              "example": 500
-            },
-            "example": 500
-          },
-          {
-            "name": "percentMobileSearches.min",
-            "in": "query",
-            "description": "Filter to keywords where the mobile search share (%) is ≥ this value (range 0-100).",
-            "schema": {
-              "type": "number",
-              "format": "float",
-              "example": 50
-            },
-            "example": 50
-          },
-          {
-            "name": "percentMobileSearches.max",
-            "in": "query",
-            "description": "Filter to keywords where the mobile search share (%) is ≤ this value (range 0-100).",
-            "schema": {
-              "type": "number",
-              "format": "float",
-              "example": 80
-            },
-            "example": 80
-          },
-          {
-            "name": "percentDesktopSearches.min",
-            "in": "query",
-            "description": "Filter to keywords where the desktop search share (%) is ≥ this value (range 0-100).",
-            "schema": {
-              "type": "number",
-              "format": "float",
-              "example": 20
-            },
-            "example": 20
-          },
-          {
-            "name": "percentDesktopSearches.max",
-            "in": "query",
-            "description": "Filter to keywords where the desktop search share (%) is ≤ this value (range 0-100).",
-            "schema": {
-              "type": "number",
-              "format": "float",
-              "example": 50
-            },
-            "example": 50
-          },
-          {
-            "name": "percentNotClicked.min",
-            "in": "query",
-            "description": "Filter to keywords where the percentage of searches with no click is ≥ this value (range 0-100).",
-            "schema": {
-              "type": "number",
-              "format": "float",
-              "example": 10
-            },
-            "example": 10
-          },
-          {
-            "name": "percentNotClicked.max",
-            "in": "query",
-            "description": "Filter to keywords where the percentage of searches with no click is ≤ this value (range 0-100).",
-            "schema": {
-              "type": "number",
-              "format": "float",
-              "example": 30
-            },
-            "example": 30
-          },
-          {
-            "name": "percentPaidClicks.min",
-            "in": "query",
-            "description": "Filter to keywords where the share of SERP clicks going to paid ads (%) is ≥ this value (range 0-100).",
-            "schema": {
-              "type": "number",
-              "format": "float",
-              "example": 20
-            },
-            "example": 20
-          },
-          {
-            "name": "percentPaidClicks.max",
-            "in": "query",
-            "description": "Filter to keywords where the share of SERP clicks going to paid ads (%) is ≤ this value (range 0-100).",
-            "schema": {
-              "type": "number",
-              "format": "float",
-              "example": 60
-            },
-            "example": 60
-          },
-          {
-            "name": "percentOrganicClicks.min",
-            "in": "query",
-            "description": "Filter to keywords where the share of SERP clicks going to organic results (%) is ≥ this value (range 0-100).",
-            "schema": {
-              "type": "number",
-              "format": "float",
-              "example": 40
-            },
-            "example": 40
-          },
-          {
-            "name": "percentOrganicClicks.max",
-            "in": "query",
-            "description": "Filter to keywords where the share of SERP clicks going to organic results (%) is ≤ this value (range 0-100).",
-            "schema": {
-              "type": "number",
-              "format": "float",
-              "example": 80
-            },
-            "example": 80
-          },
-          {
-            "name": "monthlyCost.min",
-            "in": "query",
-            "description": "Filter to keywords where the estimated monthly advertising cost is ≥ this value.",
-            "schema": {
-              "type": "number",
-              "format": "float",
-              "example": 100
-            },
-            "example": 100
-          },
-          {
-            "name": "monthlyCost.max",
-            "in": "query",
-            "description": "Filter to keywords where the estimated monthly advertising cost is ≤ this value.",
-            "schema": {
-              "type": "number",
-              "format": "float",
-              "example": 5000
-            },
-            "example": 5000
-          },
-          {
-            "name": "monthlyCostOption",
-            "in": "query",
-            "description": "Match type for monthly cost filtering. Broad = includes variations/related terms; Exact = exact keyword only; Phrase = contains the keyword phrase in order (with additional words allowed).",
-            "schema": {
-              "enum": [
-                "Broad",
-                "Exact",
-                "Phrase"
-              ],
-              "type": "string",
-              "example": "Broad",
-              "x-enumDescriptions": {
-                "Broad": "Includes keyword variations and related terms",
-                "Exact": "Requires precise keyword match only",
-                "Phrase": "Includes the keyword phrase in order with additional words"
-              }
-            },
-            "example": "Broad"
-          },
-          {
-            "name": "paidCompetitors.min",
-            "in": "query",
-            "description": "Filter to keywords where the number of distinct advertisers observed over the last 14 months is ≥ this value.",
-            "schema": {
-              "type": "number",
-              "format": "float",
-              "example": 5
-            },
-            "example": 5
-          },
-          {
-            "name": "paidCompetitors.max",
-            "in": "query",
-            "description": "Filter to keywords where the number of distinct advertisers observed over the last 14 months is ≤ this value.",
-            "schema": {
-              "type": "number",
-              "format": "float",
-              "example": 50
-            },
-            "example": 50
-          },
-          {
-            "name": "rankingHomepages.min",
-            "in": "query",
-            "description": "Filter to keywords where the number of homepage/root-domain URLs in the top 100 results is ≥ this value.",
-            "schema": {
-              "type": "number",
-              "format": "float",
-              "example": 2
-            },
-            "example": 2
-          },
-          {
-            "name": "rankingHomepages.max",
-            "in": "query",
-            "description": "Filter to keywords where the number of homepage/root-domain URLs in the top 100 results is ≤ this value.",
-            "schema": {
-              "type": "number",
-              "format": "float",
-              "example": 10
-            },
-            "example": 10
-          },
-          {
-            "name": "totalMonthlyClicks.min",
-            "in": "query",
-            "description": "Filter to keywords where total monthly SERP clicks (all domains) are ≥ this value. Independent of rank; includes both organic and paid clicks.",
-            "schema": {
-              "type": "number",
-              "format": "float",
-              "example": 1000
-            },
-            "example": 1000
-          },
-          {
-            "name": "totalMonthlyClicks.max",
-            "in": "query",
-            "description": "Filter to keywords where total monthly SERP clicks (all domains) are ≤ this value. Includes both organic and paid clicks.",
             "schema": {
               "type": "number",
               "format": "float",
               "example": 10000
             },
+            "description": "Filter to pages where estimated monthly organic clicks are ≤ this value.",
             "example": 10000
-          },
-          {
-            "name": "adCount.min",
-            "in": "query",
-            "description": "Filter to keywords where the number of distinct advertisers observed over the last 14 months is ≥ this value.",
-            "schema": {
-              "type": "number",
-              "format": "float",
-              "example": 3
-            },
-            "example": 3
-          },
-          {
-            "name": "adCount.max",
-            "in": "query",
-            "description": "Filter to keywords where the number of distinct advertisers observed over the last 14 months is ≤ this value.",
-            "schema": {
-              "type": "number",
-              "format": "float",
-              "example": 25
-            },
-            "example": 25
           },
           {
             "name": "pageSize",
             "in": "query",
             "description": "The maximum number of rows returned.",
             "schema": {
-              "maximum": 10000,
+              "maximum": 1000,
               "minimum": 1,
               "type": "integer",
               "format": "int32",
-              "default": 5,
-              "example": 5
+              "default": 100,
+              "example": 100
             },
-            "example": 5
+            "example": 100
           },
           {
             "name": "countryCode",
             "in": "query",
-            "description": "Country market to search.  Specifically, this maps to the Google version to query against (google.de for Germany, etc).  Google.com (US) is the default.",
+            "description": "Country code for Google market (e.g., DE → google.de).",
             "schema": {
               "enum": [
                 "AR",
@@ -1197,57 +936,16 @@
           {
             "name": "sortBy",
             "in": "query",
-            "description": "Column to sort results by.",
+            "description": "Column to sort by.",
             "schema": {
               "enum": [
-                "SearchVolume",
-                "KeywordDifficulty",
-                "Rank",
-                "RankChange",
-                "SeoClicks",
-                "SeoClicksChange",
-                "PercentMobileSearches",
-                "PercentDesktopSearches",
-                "PercentNotClicked",
-                "PercentPaidClicks",
-                "PercentOrganicClicks",
-                "BroadCostPerClick",
-                "ExactCostPerClick",
-                "PhraseCostPerClick",
-                "BroadMonthlyCost",
-                "ExactMonthlyCost",
-                "PhraseMonthlyCost",
-                "TotalMonthlyClicks",
-                "PaidCompetitors",
-                "RankingHomepages"
+                "SeoClicks"
               ],
               "type": "string",
-              "default": "SearchVolume",
-              "example": "SearchVolume",
-              "x-enumDescriptions": {
-                "SearchVolume": "Number of searches done this past month on Google (or within selected country). Blended from multiple sources for better snapshot of search activity",
-                "KeywordDifficulty": "SEO ranking difficulty score (0-100 scale, higher = more difficult to rank). Based on domain strength, on-page signals like 'keyword in title,' and number of .gov/.edu domains",
-                "Rank": "Organic search result position (1 = top organic result)",
-                "RankChange": "Change in organic position from previous data update (positive values indicate ranking improvement; negative values indicate moving further down the SERP).",
-                "SeoClicks": "Estimated number of organic clicks the domain gets from ranking on this keyword",
-                "SeoClicksChange": "Change in estimated organic clicks from previous data update",
-                "PercentMobileSearches": "Percentage breakdown of searches from mobile vs desktop devices",
-                "PercentDesktopSearches": "Percentage breakdown of searches from desktop vs mobile devices",
-                "PercentNotClicked": "Rate that searchers leave the SERP without clicking any result",
-                "PercentPaidClicks": "Percentage of SERP clicks that went to paid ads",
-                "PercentOrganicClicks": "Percentage of SERP clicks that went to organic results",
-                "BroadCostPerClick": "Average amount advertisers pay per click for broad match ads on this keyword",
-                "ExactCostPerClick": "Average amount advertisers pay per click for exact match ads on this keyword",
-                "PhraseCostPerClick": "Average amount advertisers pay per click for phrase match ads on this keyword",
-                "BroadMonthlyCost": "Estimated monthly advertising spend for broad match bidding",
-                "ExactMonthlyCost": "Estimated monthly advertising spend for exact match bidding",
-                "PhraseMonthlyCost": "Estimated monthly advertising spend for phrase match bidding",
-                "TotalMonthlyClicks": "Total estimated clicks made on this SERP to any paid or organic results",
-                "PaidCompetitors": "Total number of advertisers seen over the last 6 months for this keyword",
-                "RankingHomepages": "Number of homepage URLs (vs deeper paths) ranking within first 100 results"
-              }
+              "default": "SeoClicks",
+              "example": "SeoClicks"
             },
-            "example": "SearchVolume"
+            "example": "SeoClicks"
           },
           {
             "name": "sortOrder",
@@ -1277,111 +975,27 @@
               "example": 1
             },
             "example": 1
-          },
-          {
-            "name": "adultFilter",
-            "in": "query",
-            "description": "Exclude adult keywords considered unsafe for work.",
-            "schema": {
-              "type": "boolean",
-              "default": true,
-              "example": true
-            },
-            "example": true
-          },
-          {
-            "name": "onlyAdultKeywords",
-            "in": "query",
-            "description": "Only include adult keywords considered unsafe for work.",
-            "schema": {
-              "type": "boolean",
-              "default": false,
-              "example": false
-            },
-            "example": false
-          },
-          {
-            "name": "keyword",
-            "in": "query",
-            "description": "Keyword to analyze for SERP ranking data.",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "example": "electric car"
-            },
-            "example": "electric car"
-          },
-          {
-            "name": "pageSize",
-            "in": "query",
-            "description": "Number of ranking results to return (maximum 105 for top 100+ positions).",
-            "schema": {
-              "maximum": 105,
-              "minimum": 1,
-              "type": "integer",
-              "format": "int32",
-              "default": 105
-            }
-          },
-          {
-            "name": "countryCode",
-            "in": "query",
-            "description": "Country market to search.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).",
-            "schema": {
-              "enum": [
-                "AR",
-                "AT",
-                "AU",
-                "BE",
-                "BR",
-                "CA",
-                "CH",
-                "DE",
-                "DK",
-                "ES",
-                "FR",
-                "IE",
-                "IN",
-                "IT",
-                "JP",
-                "MX",
-                "NL",
-                "NO",
-                "NZ",
-                "PT",
-                "SE",
-                "SG",
-                "UA",
-                "UK",
-                "US",
-                "ZA"
-              ],
-              "type": "string",
-              "default": "US",
-              "example": "US"
-            },
-            "example": "US"
           }
         ],
         "responses": {
           "200": {
-            "description": "Successfully retrieved SERP analysis data for the keyword. Returns ranking positions 1-100+ with domain URLs, titles, and competitive metrics.",
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PublicSerpAnalysisKeywordWrapperOutputDto"
+                  "$ref": "#/components/schemas/PublicApiTopPagesWrapperOutputDto"
                 }
               }
             }
           },
           "400": {
-            "description": "Bad Request - Invalid parameters provided (e.g., missing keyword, invalid pageSize, or invalid country code)"
+            "description": "Bad Request"
           },
           "401": {
-            "description": "Unauthorized - Invalid API credentials or insufficient permissions to access SERP analysis data"
+            "description": "Unauthorized"
           },
           "500": {
-            "description": "Internal Server Error - A server-side error occurred while processing the request"
+            "description": "Internal Server Error"
           }
         }
       }
@@ -1392,7 +1006,7 @@
           "SEO Research API"
         ],
         "summary": "Get SEO Keywords",
-        "description": "Unified endpoint for SEO keyword analyses. Select an analysis via `searchType` to return gains/losses in clicks, rank movers, page-one entries/exits, newly ranked terms, or top-value keywords -- without switching endpoints.",
+        "description": "Unified endpoint for SEO keyword analyses. Select a report type via `searchType` to return gains/losses in clicks, rank movers, page-one entries/exits, newly ranked terms, or top-value keywords -- without switching endpoints.",
         "operationId": "OrganicSerpApi_GetSeoKeywords_GET",
         "parameters": [
           {
@@ -1409,7 +1023,7 @@
           {
             "name": "searchType",
             "in": "query",
-            "description": "Type of SEO keyword analysis to perform. Each type provides different insights into keyword performance and ranking changes.",
+            "description": "IMPORTANT: Chooses the type of report to run - and the sort it returns. Each type provides different insights into keyword performance and ranking changes.",
             "required": true,
             "schema": {
               "enum": [
@@ -1428,8 +1042,8 @@
               "x-enumDescriptions": {
                 "GainedClicks": "MoM increase in estimated organic clicks.",
                 "GainedRanks": "Largest positive MoM rank change (moved up).",
-                "JustFellOff": "Now \u003c10; was 1-10 last month (fell off page one).",
-                "JustMadeIt": "Now 1-10; was \u003c10 last month (made page one).",
+                "JustFellOff": "Now <10; was 1-10 last month (fell off page one).",
+                "JustMadeIt": "Now 1-10; was <10 last month (made page one).",
                 "LostClicks": "MoM decrease in estimated organic clicks.",
                 "LostRanks": "Largest negative MoM rank change (moved down).",
                 "MostValuable": "Highest current estimated organic clicks for the domain/URL.",
@@ -1608,12 +1222,7 @@
                 "Phrase"
               ],
               "type": "string",
-              "example": "Broad",
-              "x-enumDescriptions": {
-                "Broad": "Includes keyword variations and related terms",
-                "Exact": "Requires precise keyword match only",
-                "Phrase": "Includes the keyword phrase in order with additional words"
-              }
+              "example": "Broad"
             },
             "example": "Broad"
           },
@@ -1804,12 +1413,7 @@
                 "Phrase"
               ],
               "type": "string",
-              "example": "Broad",
-              "x-enumDescriptions": {
-                "Broad": "Includes keyword variations and related terms",
-                "Exact": "Requires precise keyword match only",
-                "Phrase": "Includes the keyword phrase in order with additional words"
-              }
+              "example": "Broad"
             },
             "example": "Broad"
           },
@@ -1910,15 +1514,15 @@
               "minimum": 1,
               "type": "integer",
               "format": "int32",
-              "default": 5,
-              "example": 5
+              "default": 100,
+              "example": 100
             },
-            "example": 5
+            "example": 100
           },
           {
             "name": "countryCode",
             "in": "query",
-            "description": "Country market to search. Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).",
+            "description": "Country code for Google market (e.g., DE → google.de).",
             "schema": {
               "enum": [
                 "AR",
@@ -1957,7 +1561,7 @@
           {
             "name": "sortBy",
             "in": "query",
-            "description": "Column to sort by.",
+            "description": "The default is set by the searchType parameter, and usually shouldn't be changed.  The value here should usually be empty.",
             "schema": {
               "enum": [
                 "SearchVolume",
@@ -1982,47 +1586,25 @@
                 "RankingHomepages"
               ],
               "type": "string",
-              "default": "SearchVolume",
-              "example": "SearchVolume",
-              "x-enumDescriptions": {
-                "SearchVolume": "Number of searches done this past month on Google (or within selected country). Blended from multiple sources for better snapshot of search activity",
-                "KeywordDifficulty": "SEO ranking difficulty score (0-100 scale, higher = more difficult to rank). Based on domain strength, on-page signals like 'keyword in title,' and number of .gov/.edu domains",
-                "Rank": "Organic search result position (1 = top organic result)",
-                "RankChange": "Change in organic position from previous data update (positive values indicate ranking improvement; negative values indicate moving further down the SERP).",
-                "SeoClicks": "Estimated number of organic clicks the domain gets from ranking on this keyword",
-                "SeoClicksChange": "Change in estimated organic clicks from previous data update",
-                "PercentMobileSearches": "Percentage breakdown of searches from mobile vs desktop devices",
-                "PercentDesktopSearches": "Percentage breakdown of searches from desktop vs mobile devices",
-                "PercentNotClicked": "Rate that searchers leave the SERP without clicking any result",
-                "PercentPaidClicks": "Percentage of SERP clicks that went to paid ads",
-                "PercentOrganicClicks": "Percentage of SERP clicks that went to organic results",
-                "BroadCostPerClick": "Average amount advertisers pay per click for broad match ads on this keyword",
-                "ExactCostPerClick": "Average amount advertisers pay per click for exact match ads on this keyword",
-                "PhraseCostPerClick": "Average amount advertisers pay per click for phrase match ads on this keyword",
-                "BroadMonthlyCost": "Estimated monthly advertising spend for broad match bidding",
-                "ExactMonthlyCost": "Estimated monthly advertising spend for exact match bidding",
-                "PhraseMonthlyCost": "Estimated monthly advertising spend for phrase match bidding",
-                "TotalMonthlyClicks": "Total estimated clicks made on this SERP to any paid or organic results",
-                "PaidCompetitors": "Total number of advertisers seen over the last 6 months for this keyword",
-                "RankingHomepages": "Number of homepage URLs (vs deeper paths) ranking within first 100 results"
-              }
+              "default": "",
+              "example": ""
             },
-            "example": "SearchVolume"
+            "example": ""
           },
           {
             "name": "sortOrder",
             "in": "query",
-            "description": "Order to sort the results.",
+            "description": "The default is set by the searchType parameter, and usually shouldn't be changed. The value here should usually be empty.",
             "schema": {
               "enum": [
                 "Ascending",
                 "Descending"
               ],
               "type": "string",
-              "default": "Descending",
-              "example": "Descending"
+              "default": "",
+              "example": ""
             },
-            "example": "Descending"
+            "example": ""
           },
           {
             "name": "startingRow",
@@ -2041,7 +1623,7 @@
           {
             "name": "adultFilter",
             "in": "query",
-            "description": "Exclude adult keywords considered unsafe for work.",
+            "description": "Exclude NSFW keywords.",
             "schema": {
               "type": "boolean",
               "default": true,
@@ -2052,7 +1634,7 @@
           {
             "name": "onlyAdultKeywords",
             "in": "query",
-            "description": "Only include adult keywords considered unsafe for work.",
+            "description": "Include only NSFW keywords.",
             "schema": {
               "type": "boolean",
               "default": false,
@@ -2076,7 +1658,7 @@
             "description": "Bad Request"
           },
           "401": {
-            "description": "User failed authorization"
+            "description": "Unauthorized"
           },
           "500": {
             "description": "Internal Server Error"
@@ -2275,12 +1857,7 @@
                 "Phrase"
               ],
               "type": "string",
-              "example": "Broad",
-              "x-enumDescriptions": {
-                "Broad": "Includes keyword variations and related terms",
-                "Exact": "Requires precise keyword match only",
-                "Phrase": "Includes the keyword phrase in order with additional words"
-              }
+              "example": "Broad"
             },
             "example": "Broad"
           },
@@ -2471,12 +2048,7 @@
                 "Phrase"
               ],
               "type": "string",
-              "example": "Broad",
-              "x-enumDescriptions": {
-                "Broad": "Includes keyword variations and related terms",
-                "Exact": "Requires precise keyword match only",
-                "Phrase": "Includes the keyword phrase in order with additional words"
-              }
+              "example": "Broad"
             },
             "example": "Broad"
           },
@@ -2577,15 +2149,15 @@
               "minimum": 1,
               "type": "integer",
               "format": "int32",
-              "default": 5,
-              "example": 5
+              "default": 100,
+              "example": 100
             },
-            "example": 5
+            "example": 100
           },
           {
             "name": "countryCode",
             "in": "query",
-            "description": "Country market to search. Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).",
+            "description": "Country code for Google market (e.g., DE → google.de).",
             "schema": {
               "enum": [
                 "AR",
@@ -2650,29 +2222,7 @@
               ],
               "type": "string",
               "default": "SearchVolume",
-              "example": "SearchVolume",
-              "x-enumDescriptions": {
-                "SearchVolume": "Number of searches done this past month on Google (or within selected country). Blended from multiple sources for better snapshot of search activity",
-                "KeywordDifficulty": "SEO ranking difficulty score (0-100 scale, higher = more difficult to rank). Based on domain strength, on-page signals like 'keyword in title,' and number of .gov/.edu domains",
-                "Rank": "Organic search result position for the query domain (1 = top organic result)",
-                "RankChange": "Change in organic position for the query domain from previous data update (positive values indicate ranking improvement; negative values indicate moving further down the SERP).",
-                "SeoClicks": "Estimated number of organic clicks the query domain gets from ranking on this keyword",
-                "SeoClicksChange": "Change in estimated organic clicks for the query domain from previous data update",
-                "PercentMobileSearches": "Percentage breakdown of searches from mobile vs desktop devices",
-                "PercentDesktopSearches": "Percentage breakdown of searches from desktop vs mobile devices",
-                "PercentNotClicked": "Rate that searchers leave the SERP without clicking any result",
-                "PercentPaidClicks": "Percentage of SERP clicks that went to paid ads",
-                "PercentOrganicClicks": "Percentage of SERP clicks that went to organic results",
-                "BroadCostPerClick": "Average amount advertisers pay per click for broad match ads on this keyword",
-                "ExactCostPerClick": "Average amount advertisers pay per click for exact match ads on this keyword",
-                "PhraseCostPerClick": "Average amount advertisers pay per click for phrase match ads on this keyword",
-                "BroadMonthlyCost": "Estimated monthly advertising spend for broad match bidding",
-                "ExactMonthlyCost": "Estimated monthly advertising spend for exact match bidding",
-                "PhraseMonthlyCost": "Estimated monthly advertising spend for phrase match bidding",
-                "TotalMonthlyClicks": "Total estimated clicks made on this SERP to any paid or organic results",
-                "PaidCompetitors": "Total number of advertisers seen over the last 6 months for this keyword",
-                "RankingHomepages": "Number of homepage URLs (vs deeper paths) ranking within first 100 results"
-              }
+              "example": "SearchVolume"
             },
             "example": "SearchVolume"
           },
@@ -2708,7 +2258,7 @@
           {
             "name": "adultFilter",
             "in": "query",
-            "description": "Exclude adult keywords considered unsafe for work.",
+            "description": "Exclude NSFW keywords.",
             "schema": {
               "type": "boolean",
               "default": true,
@@ -2719,7 +2269,7 @@
           {
             "name": "onlyAdultKeywords",
             "in": "query",
-            "description": "Only include adult keywords considered unsafe for work.",
+            "description": "Include only NSFW keywords.",
             "schema": {
               "type": "boolean",
               "default": false,
@@ -2743,7 +2293,7 @@
             "description": "Bad Request"
           },
           "401": {
-            "description": "User failed authorization"
+            "description": "Unauthorized"
           },
           "500": {
             "description": "Internal Server Error"
@@ -2942,12 +2492,7 @@
                 "Phrase"
               ],
               "type": "string",
-              "example": "Broad",
-              "x-enumDescriptions": {
-                "Broad": "Includes keyword variations and related terms",
-                "Exact": "Requires precise keyword match only",
-                "Phrase": "Includes the keyword phrase in order with additional words"
-              }
+              "example": "Broad"
             },
             "example": "Broad"
           },
@@ -3138,12 +2683,7 @@
                 "Phrase"
               ],
               "type": "string",
-              "example": "Broad",
-              "x-enumDescriptions": {
-                "Broad": "Includes keyword variations and related terms",
-                "Exact": "Requires precise keyword match only",
-                "Phrase": "Includes the keyword phrase in order with additional words"
-              }
+              "example": "Broad"
             },
             "example": "Broad"
           },
@@ -3244,15 +2784,15 @@
               "minimum": 1,
               "type": "integer",
               "format": "int32",
-              "default": 5,
-              "example": 5
+              "default": 100,
+              "example": 100
             },
-            "example": 5
+            "example": 100
           },
           {
             "name": "countryCode",
             "in": "query",
-            "description": "Country market to search. Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).",
+            "description": "Country code for Google market (e.g., DE → google.de).",
             "schema": {
               "enum": [
                 "AR",
@@ -3317,29 +2857,7 @@
               ],
               "type": "string",
               "default": "SearchVolume",
-              "example": "SearchVolume",
-              "x-enumDescriptions": {
-                "SearchVolume": "Number of searches done this past month on Google (or within selected country). Blended from multiple sources for better snapshot of search activity",
-                "KeywordDifficulty": "SEO ranking difficulty score (0-100 scale, higher = more difficult to rank). Based on domain strength, on-page signals like 'keyword in title,' and number of .gov/.edu domains",
-                "Rank": "Organic search result position for the query domain (1 = top organic result)",
-                "RankChange": "Change in organic position for the query domain from previous data update (positive values indicate ranking improvement; negative values indicate moving further down the SERP).",
-                "SeoClicks": "Estimated number of organic clicks the query domain gets from ranking on this keyword",
-                "SeoClicksChange": "Change in estimated organic clicks for the query domain from previous data update",
-                "PercentMobileSearches": "Percentage breakdown of searches from mobile vs desktop devices",
-                "PercentDesktopSearches": "Percentage breakdown of searches from desktop vs mobile devices",
-                "PercentNotClicked": "Rate that searchers leave the SERP without clicking any result",
-                "PercentPaidClicks": "Percentage of SERP clicks that went to paid ads",
-                "PercentOrganicClicks": "Percentage of SERP clicks that went to organic results",
-                "BroadCostPerClick": "Average amount advertisers pay per click for broad match ads on this keyword",
-                "ExactCostPerClick": "Average amount advertisers pay per click for exact match ads on this keyword",
-                "PhraseCostPerClick": "Average amount advertisers pay per click for phrase match ads on this keyword",
-                "BroadMonthlyCost": "Estimated monthly advertising spend for broad match bidding",
-                "ExactMonthlyCost": "Estimated monthly advertising spend for exact match bidding",
-                "PhraseMonthlyCost": "Estimated monthly advertising spend for phrase match bidding",
-                "TotalMonthlyClicks": "Total estimated clicks made on this SERP to any paid or organic results",
-                "PaidCompetitors": "Total number of advertisers seen over the last 6 months for this keyword",
-                "RankingHomepages": "Number of homepage URLs (vs deeper paths) ranking within first 100 results"
-              }
+              "example": "SearchVolume"
             },
             "example": "SearchVolume"
           },
@@ -3375,7 +2893,7 @@
           {
             "name": "adultFilter",
             "in": "query",
-            "description": "Exclude adult keywords considered unsafe for work.",
+            "description": "Exclude NSFW keywords.",
             "schema": {
               "type": "boolean",
               "default": true,
@@ -3386,7 +2904,7 @@
           {
             "name": "onlyAdultKeywords",
             "in": "query",
-            "description": "Only include adult keywords considered unsafe for work.",
+            "description": "Include only NSFW keywords.",
             "schema": {
               "type": "boolean",
               "default": false,
@@ -3397,7 +2915,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Successfully retrieved keywords that dropped from the first page. Returns a paginated list of keywords showing ranking declines and search data.",
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
@@ -3407,268 +2925,10 @@
             }
           },
           "400": {
-            "description": "Bad Request - Invalid parameters provided (e.g., invalid domain format, pageSize exceeds maximum, or invalid country code)"
-          },
-          "401": {
-            "description": "Unauthorized - Invalid API credentials or insufficient permissions to access SEO keyword data"
-          },
-          "500": {
-            "description": "Internal Server Error - A server-side error occurred while processing the request"
-          }
-        }
-      }
-    },
-    "/serp_api/v2/seo/getLiveSeoStats": {
-      "get": {
-        "tags": [
-          "SEO Research API"
-        ],
-        "summary": "Get Live SEO Stats",
-        "description": "Returns live, aggregated SEO metrics for a given domain, subdomain, path, or URL. Results summarize current organic visibility and traffic estimates derived from up-to-date SERP data. Updated continuously (~every 15 seconds), 24/7/365.",
-        "operationId": "OrganicSerpApi_GetLiveSeoStats_GET",
-        "parameters": [
-          {
-            "name": "query",
-            "in": "query",
-            "description": "Domain, URL, subdomain, or path to analyze. Accepts full domains (example.com), complete URLs (https://example.com/blog), subdomains (blog.example.com), specific paths (example.com/products/), or individual pages.",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "example": "domain.com/blog"
-            },
-            "example": "domain.com"
-          },
-          {
-            "name": "countryCode",
-            "in": "query",
-            "description": "Country to get results for.",
-            "schema": {
-              "enum": [
-                "AR",
-                "AT",
-                "AU",
-                "BE",
-                "BR",
-                "CA",
-                "CH",
-                "DE",
-                "DK",
-                "ES",
-                "FR",
-                "IE",
-                "IN",
-                "IT",
-                "JP",
-                "MX",
-                "NL",
-                "NO",
-                "NZ",
-                "PT",
-                "SE",
-                "SG",
-                "UA",
-                "UK",
-                "US",
-                "ZA"
-              ],
-              "type": "string",
-              "default": "US",
-              "example": "US"
-            },
-            "example": "US"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PublicApiLiveSeoStatsWrapperOutputDto"
-                }
-              }
-            }
-          },
-          "400": {
             "description": "Bad Request"
           },
           "401": {
-            "description": "User failed authorization"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      }
-    },
-    "/serp_api/v2/seo/getMostTrafficTopPages": {
-      "get": {
-        "tags": [
-          "SEO Research API"
-        ],
-        "summary": "Get Highest Traffic Top Pages",
-        "description": "Returns the pages that generate the most organic traffic for a domain. This endpoint identifies the highest-performing content by estimated monthly organic clicks, revealing which pages drive the most SEO value and traffic to the site.\n\n",
-        "operationId": "TopPagesApi_GetMostTrafficTopPages_GET",
-        "parameters": [
-          {
-            "name": "query",
-            "in": "query",
-            "description": "Domain or URL to analyze. Accepts full domains (example.com), complete URLs (https://example.com/blog), subdomains (blog.example.com), or specific paths (example.com/products/).",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "example": "example.com"
-            },
-            "example": "example.com"
-          },
-          {
-            "name": "keywordFilter",
-            "in": "query",
-            "description": "Filter to pages that rank for keywords containing this term. Helps narrow results to specific topics or content themes.",
-            "schema": {
-              "type": "string",
-              "example": "hosting"
-            },
-            "example": "hosting"
-          },
-          {
-            "name": "seoClicks.min",
-            "in": "query",
-            "schema": {
-              "type": "number",
-              "format": "float",
-              "example": "100"
-            },
-            "description": "Filter to pages where estimated monthly organic clicks are ≥ this value.",
-            "example": "100"
-          },
-          {
-            "name": "seoClicks.max",
-            "in": "query",
-            "schema": {
-              "type": "number",
-              "format": "float",
-              "example": 10000
-            },
-            "description": "Filter to pages where estimated monthly organic clicks are ≤ this value.",
-            "example": 10000
-          },
-          {
-            "name": "pageSize",
-            "in": "query",
-            "description": "The maximum number of rows returned.",
-            "schema": {
-              "maximum": 1000,
-              "minimum": 1,
-              "type": "integer",
-              "format": "int32",
-              "default": 5,
-              "example": 5
-            },
-            "example": 5
-          },
-          {
-            "name": "countryCode",
-            "in": "query",
-            "description": "Country market to search. Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).",
-            "schema": {
-              "enum": [
-                "AR",
-                "AT",
-                "AU",
-                "BE",
-                "BR",
-                "CA",
-                "CH",
-                "DE",
-                "DK",
-                "ES",
-                "FR",
-                "IE",
-                "IN",
-                "IT",
-                "JP",
-                "MX",
-                "NL",
-                "NO",
-                "NZ",
-                "PT",
-                "SE",
-                "SG",
-                "UA",
-                "UK",
-                "US",
-                "ZA"
-              ],
-              "type": "string",
-              "default": "US",
-              "example": "US"
-            },
-            "example": "US"
-          },
-          {
-            "name": "sortBy",
-            "in": "query",
-            "description": "Column to sort by.",
-            "schema": {
-              "enum": [
-                "SeoClicks"
-              ],
-              "type": "string",
-              "default": "SeoClicks",
-              "example": "SeoClicks",
-              "x-enumDescriptions": {
-                "SeoClicks": "Estimated monthly organic clicks that each page receives from all of its keyword rankings"
-              }
-            },
-            "example": "SeoClicks"
-          },
-          {
-            "name": "sortOrder",
-            "in": "query",
-            "description": "Order to sort the results.",
-            "schema": {
-              "enum": [
-                "Ascending",
-                "Descending"
-              ],
-              "type": "string",
-              "default": "Descending",
-              "example": "Descending"
-            },
-            "example": "Descending"
-          },
-          {
-            "name": "startingRow",
-            "in": "query",
-            "description": "Row number to start the results with.",
-            "schema": {
-              "maximum": 10000,
-              "minimum": 1,
-              "type": "integer",
-              "format": "int32",
-              "default": 1,
-              "example": 1
-            },
-            "example": 1
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PublicApiTopPagesWrapperOutputDto"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "401": {
-            "description": "User failed authorization"
+            "description": "Unauthorized"
           },
           "500": {
             "description": "Internal Server Error"
@@ -3737,15 +2997,15 @@
               "minimum": 1,
               "type": "integer",
               "format": "int32",
-              "default": 5,
-              "example": 5
+              "default": 100,
+              "example": 100
             },
-            "example": 5
+            "example": 100
           },
           {
             "name": "countryCode",
             "in": "query",
-            "description": "Country market to search. Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).",
+            "description": "Country code for Google market (e.g., DE → google.de).",
             "schema": {
               "enum": [
                 "AR",
@@ -3843,7 +3103,7 @@
             "description": "Bad Request"
           },
           "401": {
-            "description": "User failed authorization"
+            "description": "Unauthorized"
           },
           "500": {
             "description": "Internal Server Error"
@@ -3874,7 +3134,7 @@
           {
             "name": "countryCode",
             "in": "query",
-            "description": "Country market to search.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).",
+            "description": "Country code for Google market (e.g., DE → google.de).",
             "schema": {
               "enum": [
                 "AR",
@@ -3911,37 +3171,6 @@
             "example": "US"
           },
           {
-            "name": "sortBy",
-            "in": "query",
-            "description": "Column to sort by.",
-            "schema": {
-              "enum": [
-                "Domain",
-                "CommonTerms",
-                "Rank"
-              ],
-              "type": "string",
-              "default": "Rank",
-              "example": "Rank"
-            },
-            "example": "Rank"
-          },
-          {
-            "name": "sortOrder",
-            "in": "query",
-            "description": "Order to sort results.",
-            "schema": {
-              "enum": [
-                "Ascending",
-                "Descending"
-              ],
-              "type": "string",
-              "default": "Descending",
-              "example": "Descending"
-            },
-            "example": "Descending"
-          },
-          {
             "name": "pageSize",
             "in": "query",
             "description": "The maximum number of rows returned.",
@@ -3950,10 +3179,10 @@
               "minimum": 1,
               "type": "integer",
               "format": "int32",
-              "default": 5,
-              "example": 5
+              "default": 100,
+              "example": 100
             },
-            "example": 5
+            "example": 100
           },
           {
             "name": "startingRow",
@@ -3972,7 +3201,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Successfully retrieved PPC competitor data. Returns a paginated list of domains competing for shared paid keywords with overlap metrics and advertising strength indicators.",
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
@@ -3982,13 +3211,13 @@
             }
           },
           "400": {
-            "description": "Bad Request - Invalid parameters provided (e.g., invalid domain format, pageSize exceeds maximum, or invalid country code)"
+            "description": "Bad Request"
           },
           "401": {
-            "description": "Unauthorized - Invalid API credentials or insufficient permissions to access PPC competitor data"
+            "description": "Unauthorized"
           },
           "500": {
-            "description": "Internal Server Error - A server-side error occurred while processing the request"
+            "description": "Internal Server Error"
           }
         }
       }
@@ -4016,7 +3245,118 @@
           {
             "name": "countryCode",
             "in": "query",
-            "description": "Country market to search.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).",
+            "description": "Country code for Google market (e.g., DE → google.de).",
+            "schema": {
+              "enum": [
+                "AR",
+                "AT",
+                "AU",
+                "BE",
+                "BR",
+                "CA",
+                "CH",
+                "DE",
+                "DK",
+                "ES",
+                "FR",
+                "IE",
+                "IN",
+                "IT",
+                "JP",
+                "MX",
+                "NL",
+                "NO",
+                "NZ",
+                "PT",
+                "SE",
+                "SG",
+                "UA",
+                "UK",
+                "US",
+                "ZA"
+              ],
+              "type": "string",
+              "default": "US",
+              "example": "US"
+            },
+            "example": "US"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "The maximum number of rows returned.",
+            "schema": {
+              "maximum": 550,
+              "minimum": 1,
+              "type": "integer",
+              "format": "int32",
+              "default": 100,
+              "example": 100
+            },
+            "example": 100
+          },
+          {
+            "name": "startingRow",
+            "in": "query",
+            "description": "Row number to start the results with.",
+            "schema": {
+              "maximum": 550,
+              "minimum": 1,
+              "type": "integer",
+              "format": "int32",
+              "default": 1,
+              "example": 1
+            },
+            "example": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicApiCompetitorWrapperOutputDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/domain_stats_api/v2/getMatchingDomains": {
+      "get": {
+        "tags": [
+          "Domain Stats API"
+        ],
+        "summary": "Find Domains by Pattern and Metrics",
+        "description": "Discovers domains matching wildcard patterns and performance criteria for lead generation and competitive prospecting. Use wildcards like `*car*` to find automotive domains or filter by traffic, budget, and ranking metrics to identify high-value prospects.",
+        "operationId": "DomainStatsApi_GetMatchingDomains_GET",
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "description": "A wildcard(*) used to find any domain that matches the pattern. `*blog*` will find any domain with the word blog appearing anywhere within it.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "*blog*"
+            },
+            "example": "*blog*"
+          },
+          {
+            "name": "countryCode",
+            "in": "query",
+            "description": "Country to get results for.",
             "schema": {
               "enum": [
                 "AR",
@@ -4058,20 +3398,25 @@
             "description": "Column to sort by.",
             "schema": {
               "enum": [
-                "Domain",
-                "CommonTerms",
-                "Rank"
+                "AverageAdRank",
+                "AverageOrganicRank",
+                "MonthlyBudget",
+                "MonthlyOrganicClicks",
+                "MonthlyOrganicValue",
+                "MonthlyPaidClicks",
+                "Strength",
+                "TotalOrganicResults"
               ],
               "type": "string",
-              "default": "Rank",
-              "example": "Rank"
+              "default": "MonthlyOrganicClicks",
+              "example": "MonthlyOrganicClicks"
             },
-            "example": "Rank"
+            "example": "MonthlyOrganicClicks"
           },
           {
             "name": "sortOrder",
             "in": "query",
-            "description": "Order to sort results.",
+            "description": "Order to sort the results.",
             "schema": {
               "enum": [
                 "Ascending",
@@ -4084,25 +3429,201 @@
             "example": "Descending"
           },
           {
+            "name": "monthlyBudget.min",
+            "in": "query",
+            "schema": {
+              "type": "number",
+              "format": "float",
+              "example": 1000
+            },
+            "description": "Minimum monthly ad budget filter.",
+            "example": 1000
+          },
+          {
+            "name": "monthlyBudget.max",
+            "in": "query",
+            "schema": {
+              "type": "number",
+              "format": "float",
+              "example": 50000
+            },
+            "description": "Maximum monthly ad budget filter.",
+            "example": 50000
+          },
+          {
+            "name": "monthlyOrganicClicks.min",
+            "in": "query",
+            "schema": {
+              "type": "number",
+              "format": "float",
+              "example": 10000
+            },
+            "description": "Minimum monthly organic traffic filter.",
+            "example": 10000
+          },
+          {
+            "name": "monthlyOrganicClicks.max",
+            "in": "query",
+            "schema": {
+              "type": "number",
+              "format": "float",
+              "example": 500000
+            },
+            "description": "Maximum monthly organic traffic filter.",
+            "example": 500000
+          },
+          {
+            "name": "totalOrganicResults.min",
+            "in": "query",
+            "schema": {
+              "type": "number",
+              "format": "float",
+              "example": 100
+            },
+            "description": "Minimum organic keyword count filter.",
+            "example": 100
+          },
+          {
+            "name": "totalOrganicResults.max",
+            "in": "query",
+            "schema": {
+              "type": "number",
+              "format": "float",
+              "example": 10000
+            },
+            "description": "Maximum organic keyword count filter.",
+            "example": 10000
+          },
+          {
+            "name": "monthlyOrganicValue.min",
+            "in": "query",
+            "schema": {
+              "type": "number",
+              "format": "float",
+              "example": 5000
+            },
+            "description": "Minimum organic traffic value filter.",
+            "example": 5000
+          },
+          {
+            "name": "monthlyOrganicValue.max",
+            "in": "query",
+            "schema": {
+              "type": "number",
+              "format": "float",
+              "example": 100000
+            },
+            "description": "Maximum organic traffic value filter.",
+            "example": 100000
+          },
+          {
+            "name": "strength.min",
+            "in": "query",
+            "schema": {
+              "type": "number",
+              "format": "float",
+              "example": 30
+            },
+            "description": "Minimum domain strength score filter.",
+            "example": 30
+          },
+          {
+            "name": "strength.max",
+            "in": "query",
+            "schema": {
+              "type": "number",
+              "format": "float",
+              "example": 90
+            },
+            "description": "Maximum domain strength score filter.",
+            "example": 90
+          },
+          {
+            "name": "monthlyPaidClicks.min",
+            "in": "query",
+            "schema": {
+              "type": "number",
+              "format": "float",
+              "example": 500
+            },
+            "description": "Minimum monthly paid clicks filter.",
+            "example": 500
+          },
+          {
+            "name": "monthlyPaidClicks.max",
+            "in": "query",
+            "schema": {
+              "type": "number",
+              "format": "float",
+              "example": 100000
+            },
+            "description": "Maximum monthly paid clicks filter.",
+            "example": 100000
+          },
+          {
+            "name": "averageOrganicRank.min",
+            "in": "query",
+            "schema": {
+              "type": "number",
+              "format": "float",
+              "example": 1
+            },
+            "description": "Minimum average organic rank filter.",
+            "example": 1
+          },
+          {
+            "name": "averageOrganicRank.max",
+            "in": "query",
+            "schema": {
+              "type": "number",
+              "format": "float",
+              "example": 50
+            },
+            "description": "Maximum average organic rank filter.",
+            "example": 50
+          },
+          {
+            "name": "averageAdRank.min",
+            "in": "query",
+            "schema": {
+              "type": "number",
+              "format": "float",
+              "example": 1
+            },
+            "description": "Minimum average ad position filter.",
+            "example": 1
+          },
+          {
+            "name": "averageAdRank.max",
+            "in": "query",
+            "schema": {
+              "type": "number",
+              "format": "float",
+              "example": 4
+            },
+            "description": "Maximum average ad position filter.",
+            "example": 4
+          },
+          {
             "name": "pageSize",
             "in": "query",
             "description": "The maximum number of rows returned.",
             "schema": {
-              "maximum": 550,
+              "maximum": 10000,
               "minimum": 1,
               "type": "integer",
               "format": "int32",
-              "default": 5,
-              "example": 5
+              "default": 100,
+              "example": 100
             },
-            "example": 5
+            "example": 100
           },
           {
             "name": "startingRow",
             "in": "query",
             "description": "Row number to start the results with.",
             "schema": {
-              "maximum": 550,
+              "maximum": 10000,
               "minimum": 1,
               "type": "integer",
               "format": "int32",
@@ -4114,383 +3635,23 @@
         ],
         "responses": {
           "200": {
-            "description": "Successfully retrieved SEO competitor data. Returns a paginated list of domains competing for shared organic keywords with overlap metrics and ranking strength indicators.",
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PublicApiCompetitorWrapperOutputDto"
+                  "$ref": "#/components/schemas/PublicApiBulkDomainStatsWrapperOutputDto"
                 }
               }
             }
           },
           "400": {
-            "description": "Bad Request - Invalid parameters provided (e.g., invalid domain format, pageSize exceeds maximum, or invalid country code)"
+            "description": "Bad Request"
           },
           "401": {
-            "description": "Unauthorized - Invalid API credentials or insufficient permissions to access SEO competitor data"
+            "description": "Unauthorized"
           },
           "500": {
-            "description": "Internal Server Error - A server-side error occurred while processing the request"
-          }
-        }
-      }
-    },
-    "/domain_stats_api/v2/getAllDomainStats": {
-      "get": {
-        "tags": [
-          "Domain Stats API"
-        ],
-        "summary": "Get All Domain Stats",
-        "description": "Returns comprehensive domain statistics for all available historical periods. This endpoint provides time-series data showing SEO and PPC performance trends to analyze domain growth, competitive positioning, and marketing effectiveness over time.\n\n",
-        "operationId": "DomainStatsApi_GetAllDomainStats_GET",
-        "parameters": [
-          {
-            "name": "domain",
-            "in": "query",
-            "description": "Domain to retrieve comprehensive statistics for.",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "example": "example.com"
-            },
-            "example": "example.com"
-          },
-          {
-            "name": "countryCode",
-            "in": "query",
-            "description": "Country market to search.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).",
-            "schema": {
-              "enum": [
-                "AR",
-                "AT",
-                "AU",
-                "BE",
-                "BR",
-                "CA",
-                "CH",
-                "DE",
-                "DK",
-                "ES",
-                "FR",
-                "IE",
-                "IN",
-                "IT",
-                "JP",
-                "MX",
-                "NL",
-                "NO",
-                "NZ",
-                "PT",
-                "SE",
-                "SG",
-                "UA",
-                "UK",
-                "US",
-                "ZA"
-              ],
-              "type": "string",
-              "default": "US",
-              "example": "US"
-            },
-            "example": "US"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successfully retrieved comprehensive domain statistics across all time periods. Returns historical data showing SEO/PPC trends, keyword counts, traffic estimates, and competitive metrics.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PublicApiDomainStatsWrapperOutputDto"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request - Invalid parameters provided (e.g., invalid domain format or invalid country code)"
-          },
-          "401": {
-            "description": "Unauthorized - Invalid API credentials or insufficient permissions to access domain statistics data"
-          },
-          "500": {
-            "description": "Internal Server Error - A server-side error occurred while processing the request"
-          }
-        }
-      }
-    },
-    "/domain_stats_api/v2/getLatestDomainStats": {
-      "get": {
-        "tags": [
-          "Domain Stats API"
-        ],
-        "summary": "Get Latest Domain Stats",
-        "description": "Returns the most recent domain statistics available in SpyFu's database. This endpoint provides current SEO and PPC performance metrics to analyze the domain's latest competitive position and marketing activity.\n\n",
-        "operationId": "DomainStatsApi_GetLatestDomainStats_GET",
-        "parameters": [
-          {
-            "name": "domain",
-            "in": "query",
-            "description": "Domain to retrieve latest statistics for.",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "example": "example.com"
-            },
-            "example": "example.com"
-          },
-          {
-            "name": "countryCode",
-            "in": "query",
-            "description": "Country market to search.  Specifically, this maps to the Google version to query against (google.de for Germany, etc).  Google.com (US) is the default. )",
-            "schema": {
-              "enum": [
-                "AR",
-                "AT",
-                "AU",
-                "BE",
-                "BR",
-                "CA",
-                "CH",
-                "DE",
-                "DK",
-                "ES",
-                "FR",
-                "IE",
-                "IN",
-                "IT",
-                "JP",
-                "MX",
-                "NL",
-                "NO",
-                "NZ",
-                "PT",
-                "SE",
-                "SG",
-                "UA",
-                "UK",
-                "US",
-                "ZA"
-              ],
-              "type": "string",
-              "default": "US",
-              "example": "US"
-            },
-            "example": "US"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successfully retrieved latest domain statistics. Returns the most recent SEO and PPC metrics including keyword counts, traffic estimates, and competitive positioning data.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PublicApiDomainStatsWrapperOutputDto"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request - Invalid parameters provided (e.g., invalid domain format or invalid country code)"
-          },
-          "401": {
-            "description": "Unauthorized - Invalid API credentials or insufficient permissions to access domain statistics data"
-          },
-          "500": {
-            "description": "Internal Server Error - A server-side error occurred while processing the request"
-          }
-        }
-      }
-    },
-    "/domain_stats_api/v2/getDomainStatsForExactDate": {
-      "get": {
-        "tags": [
-          "Domain Stats API"
-        ],
-        "summary": "Get Domain Stats For Exact Date",
-        "description": "Returns domain statistics for a specific month and year. This endpoint provides point-in-time snapshots of SEO and PPC performance metrics to analyze historical domain activity and compare performance across different time periods.\n\n",
-        "operationId": "DomainStatsApi_GetDomainStatsForExactDate_GET",
-        "parameters": [
-          {
-            "name": "domain",
-            "in": "query",
-            "description": "Domain to retrieve statistics for.",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "example": "example.com"
-            },
-            "example": "example.com"
-          },
-          {
-            "name": "countryCode",
-            "in": "query",
-            "description": "Country market to search.  Specifically, this maps to the Google version to query against (google.de for Germany, etc).  Google.com (US) is the default.",
-            "schema": {
-              "enum": [
-                "AR",
-                "AT",
-                "AU",
-                "BE",
-                "BR",
-                "CA",
-                "CH",
-                "DE",
-                "DK",
-                "ES",
-                "FR",
-                "IE",
-                "IN",
-                "IT",
-                "JP",
-                "MX",
-                "NL",
-                "NO",
-                "NZ",
-                "PT",
-                "SE",
-                "SG",
-                "UA",
-                "UK",
-                "US",
-                "ZA"
-              ],
-              "type": "string",
-              "default": "US",
-              "example": "US"
-            },
-            "example": "US"
-          },
-          {
-            "name": "year",
-            "in": "query",
-            "description": "Year to retrieve statistics for.",
-            "required": true,
-            "schema": {
-              "maximum": 2025,
-              "minimum": 2006,
-              "type": "integer",
-              "format": "int32",
-              "example": 2020
-            },
-            "example": 2020
-          },
-          {
-            "name": "month",
-            "in": "query",
-            "description": "Month to retrieve statistics for (1-12).",
-            "required": true,
-            "schema": {
-              "maximum": 12,
-              "minimum": 1,
-              "type": "integer",
-              "format": "int32",
-              "example": 6
-            },
-            "example": 6
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successfully retrieved domain statistics for the specified date. Returns SEO and PPC metrics including keyword counts, traffic estimates, and competitive positioning data.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PublicApiDomainStatsWrapperOutputDto"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request - Invalid parameters provided (e.g., invalid domain format, date out of range, or invalid country code)"
-          },
-          "401": {
-            "description": "Unauthorized - Invalid API credentials or insufficient permissions to access domain statistics data"
-          },
-          "500": {
-            "description": "Internal Server Error - A server-side error occurred while processing the request"
-          }
-        }
-      }
-    },
-    "/domain_stats_api/v2/getActiveDatesForDomain": {
-      "get": {
-        "tags": [
-          "Domain Stats API"
-        ],
-        "summary": "Get Active Dates For Domain",
-        "description": "Returns a chronological list of dates for which SpyFu has collected domain statistics data. This endpoint helps identify data coverage periods and historical tracking availability for domain analysis and competitive research.\n\n",
-        "operationId": "DomainStatsApi_GetActiveDatesForDomain_GET",
-        "parameters": [
-          {
-            "name": "domain",
-            "in": "query",
-            "description": "Domain to retrieve data coverage dates for.",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "example": "example.com"
-            },
-            "example": "example.com"
-          },
-          {
-            "name": "countryCode",
-            "in": "query",
-            "description": "Country market to search.  Specifically, this maps to the Google version to query against (google.de for Germany, etc).  Google.com (US) is the default.  ",
-            "schema": {
-              "enum": [
-                "AR",
-                "AT",
-                "AU",
-                "BE",
-                "BR",
-                "CA",
-                "CH",
-                "DE",
-                "DK",
-                "ES",
-                "FR",
-                "IE",
-                "IN",
-                "IT",
-                "JP",
-                "MX",
-                "NL",
-                "NO",
-                "NZ",
-                "PT",
-                "SE",
-                "SG",
-                "UA",
-                "UK",
-                "US",
-                "ZA"
-              ],
-              "type": "string",
-              "default": "US",
-              "example": "US"
-            },
-            "example": "US"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successfully retrieved list of active data collection dates for the domain. Returns chronological dates showing when SpyFu collected statistics data for historical analysis.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PublicApiSearchDateListOutputDto"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request - Invalid parameters provided (e.g., invalid domain format or invalid country code)"
-          },
-          "401": {
-            "description": "Unauthorized - Invalid API credentials or insufficient permissions to access domain statistics data"
-          },
-          "500": {
-            "description": "Internal Server Error - A server-side error occurred while processing the request"
+            "description": "Internal Server Error"
           }
         }
       }
@@ -4500,8 +3661,8 @@
         "tags": [
           "Domain Stats API"
         ],
-        "summary": "Get Bulk Domain Stats",
-        "description": "Enrich any domain list with machine-joinable web presence metrics at scale. This bulk endpoint returns per-domain intelligence across SEO and PPC for many domains in a single call -- either as a current snapshot or full historical time series. ",
+        "summary": "Get Bulk Domain Stats (Snapshot or History)",
+        "description": "Returns SEO (traffic, # keywords) and PPC (ad spend) metrics for multiple domains in one request. Suitable for batch enrichment, benchmarking, and portfolio monitoring. ",
         "operationId": "DomainStatsApi_GetBulkDomainStats_GET",
         "parameters": [
           {
@@ -4582,7 +3743,7 @@
             "description": "Bad Request"
           },
           "401": {
-            "description": "User failed authorization"
+            "description": "Unauthorized"
           },
           "500": {
             "description": "Internal Server Error"
@@ -4939,7 +4100,7 @@
           {
             "name": "onlyAdultKeywords",
             "in": "query",
-            "description": "Only include adult keywords considered unsafe for work.",
+            "description": "Include only NSFW keywords.",
             "schema": {
               "type": "boolean",
               "default": false,
@@ -4956,15 +4117,15 @@
               "minimum": 1,
               "type": "integer",
               "format": "int32",
-              "default": 5,
-              "example": 5
+              "default": 100,
+              "example": 100
             },
-            "example": 5
+            "example": 100
           },
           {
             "name": "countryCode",
             "in": "query",
-            "description": "Country market to search.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).",
+            "description": "Country code for Google market (e.g., DE → google.de).",
             "schema": {
               "enum": [
                 "AR",
@@ -5029,29 +4190,7 @@
               ],
               "type": "string",
               "default": "SearchVolume",
-              "example": "SearchVolume",
-              "x-enumDescriptions": {
-                "SearchVolume": "Monthly search volume",
-                "LiveSearchVolume": "Real-time search volume data",
-                "RankingDifficulty": "SEO competition difficulty score",
-                "TotalMonthlyClicks": "Estimated total monthly clicks",
-                "PercentMobileSearches": "Percentage of searches from mobile devices",
-                "PercentDesktopSearches": "Percentage of searches from desktop devices",
-                "PercentSearchesNotClicked": "Percentage of searches resulting in no clicks",
-                "PercentPaidClicks": "Percentage of clicks going to paid results",
-                "PercentOrganicClicks": "Percentage of clicks going to organic results",
-                "BroadCostPerClick": "Broad match cost per click estimate",
-                "PhraseCostPerClick": "Phrase match cost per click estimate",
-                "ExactCostPerClick": "Exact match cost per click estimate",
-                "BroadMonthlyClicks": "Estimated monthly clicks for broad match",
-                "PhraseMonthlyClicks": "Estimated monthly clicks for phrase match",
-                "ExactMonthlyClicks": "Estimated monthly clicks for exact match",
-                "BroadMonthlyCost": "Estimated monthly cost for broad match",
-                "PhraseMonthlyCost": "Estimated monthly cost for phrase match",
-                "ExactMonthlyCost": "Estimated monthly cost for exact match",
-                "PaidCompetitors": "Number of paid search competitors",
-                "RankingHomepages": "Number of homepages ranking organically"
-              }
+              "example": "SearchVolume"
             },
             "example": "SearchVolume"
           },
@@ -5087,7 +4226,7 @@
           {
             "name": "adultFilter",
             "in": "query",
-            "description": "Exclude adult keywords considered unsafe for work.",
+            "description": "Exclude NSFW keywords.",
             "schema": {
               "type": "boolean",
               "default": true,
@@ -5098,7 +4237,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Successfully retrieved competing PPC keywords. Returns keyword data with search metrics, cost estimates, and competitive intelligence for multiple domain analysis.",
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
@@ -5108,13 +4247,13 @@
             }
           },
           "400": {
-            "description": "Bad Request - Invalid parameters provided (e.g., malformed domain list, invalid boolean values, or invalid country code)"
+            "description": "Bad Request"
           },
           "401": {
-            "description": "Unauthorized - Invalid API credentials or insufficient permissions to access Kombat keyword data"
+            "description": "Unauthorized"
           },
           "500": {
-            "description": "Internal Server Error - A server-side error occurred while processing the request"
+            "description": "Internal Server Error"
           }
         }
       }
@@ -5468,7 +4607,7 @@
           {
             "name": "onlyAdultKeywords",
             "in": "query",
-            "description": "Only include adult keywords considered unsafe for work.",
+            "description": "Include only NSFW keywords.",
             "schema": {
               "type": "boolean",
               "default": false,
@@ -5485,15 +4624,15 @@
               "minimum": 1,
               "type": "integer",
               "format": "int32",
-              "default": 5,
-              "example": 5
+              "default": 100,
+              "example": 100
             },
-            "example": 5
+            "example": 100
           },
           {
             "name": "countryCode",
             "in": "query",
-            "description": "Country market to search.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.). ",
+            "description": "Country code for Google market (e.g., DE → google.de). ",
             "schema": {
               "enum": [
                 "AR",
@@ -5558,29 +4697,7 @@
               ],
               "type": "string",
               "default": "SearchVolume",
-              "example": "SearchVolume",
-              "x-enumDescriptions": {
-                "SearchVolume": "Monthly search volume",
-                "LiveSearchVolume": "Real-time search volume data",
-                "RankingDifficulty": "SEO competition difficulty score",
-                "TotalMonthlyClicks": "Estimated total monthly clicks",
-                "PercentMobileSearches": "Percentage of searches from mobile devices",
-                "PercentDesktopSearches": "Percentage of searches from desktop devices",
-                "PercentSearchesNotClicked": "Percentage of searches resulting in no clicks",
-                "PercentPaidClicks": "Percentage of clicks going to paid results",
-                "PercentOrganicClicks": "Percentage of clicks going to organic results",
-                "BroadCostPerClick": "Broad match cost per click estimate",
-                "PhraseCostPerClick": "Phrase match cost per click estimate",
-                "ExactCostPerClick": "Exact match cost per click estimate",
-                "BroadMonthlyClicks": "Estimated monthly clicks for broad match",
-                "PhraseMonthlyClicks": "Estimated monthly clicks for phrase match",
-                "ExactMonthlyClicks": "Estimated monthly clicks for exact match",
-                "BroadMonthlyCost": "Estimated monthly cost for broad match",
-                "PhraseMonthlyCost": "Estimated monthly cost for phrase match",
-                "ExactMonthlyCost": "Estimated monthly cost for exact match",
-                "PaidCompetitors": "Number of paid search competitors",
-                "RankingHomepages": "Number of homepages ranking organically"
-              }
+              "example": "SearchVolume"
             },
             "example": "SearchVolume"
           },
@@ -5616,7 +4733,7 @@
           {
             "name": "adultFilter",
             "in": "query",
-            "description": "Exclude adult keywords considered unsafe for work.",
+            "description": "Exclude NSFW keywords.",
             "schema": {
               "type": "boolean",
               "default": true,
@@ -5627,7 +4744,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Successfully retrieved competing SEO keywords. Returns keyword data with search metrics, ranking difficulty, and competitive intelligence for multiple domain analysis.",
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
@@ -5637,13 +4754,13 @@
             }
           },
           "400": {
-            "description": "Bad Request - Invalid parameters provided (e.g., malformed domain list, invalid boolean values, or invalid country code)"
+            "description": "Bad Request"
           },
           "401": {
-            "description": "Unauthorized - Invalid API credentials or insufficient permissions to access Kombat keyword data"
+            "description": "Unauthorized"
           },
           "500": {
-            "description": "Internal Server Error - A server-side error occurred while processing the request"
+            "description": "Internal Server Error"
           }
         }
       }
@@ -6019,15 +5136,15 @@
               "minimum": 1,
               "type": "integer",
               "format": "int32",
-              "default": 5,
-              "example": 5
+              "default": 100,
+              "example": 100
             },
-            "example": 5
+            "example": 100
           },
           {
             "name": "countryCode",
             "in": "query",
-            "description": "Country market to search.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).",
+            "description": "Country code for Google market (e.g., DE → google.de).",
             "schema": {
               "enum": [
                 "AR",
@@ -6092,29 +5209,7 @@
               ],
               "type": "string",
               "default": "SearchVolume",
-              "example": "SearchVolume",
-              "x-enumDescriptions": {
-                "SearchVolume": "Monthly search volume",
-                "LiveSearchVolume": "Real-time search volume data",
-                "RankingDifficulty": "SEO competition difficulty score",
-                "TotalMonthlyClicks": "Estimated total monthly clicks",
-                "PercentMobileSearches": "Percentage of searches from mobile devices",
-                "PercentDesktopSearches": "Percentage of searches from desktop devices",
-                "PercentSearchesNotClicked": "Percentage of searches resulting in no clicks",
-                "PercentPaidClicks": "Percentage of clicks going to paid results",
-                "PercentOrganicClicks": "Percentage of clicks going to organic results",
-                "BroadCostPerClick": "Broad match cost per click estimate",
-                "PhraseCostPerClick": "Phrase match cost per click estimate",
-                "ExactCostPerClick": "Exact match cost per click estimate",
-                "BroadMonthlyClicks": "Estimated monthly clicks for broad match",
-                "PhraseMonthlyClicks": "Estimated monthly clicks for phrase match",
-                "ExactMonthlyClicks": "Estimated monthly clicks for exact match",
-                "BroadMonthlyCost": "Estimated monthly cost for broad match",
-                "PhraseMonthlyCost": "Estimated monthly cost for phrase match",
-                "ExactMonthlyCost": "Estimated monthly cost for exact match",
-                "PaidCompetitors": "Number of paid search competitors",
-                "RankingHomepages": "Number of homepages ranking organically"
-              }
+              "example": "SearchVolume"
             },
             "example": "SearchVolume"
           },
@@ -6150,7 +5245,7 @@
           {
             "name": "adultFilter",
             "in": "query",
-            "description": "Exclude adult keywords considered unsafe for work.",
+            "description": "Exclude NSFW keywords.",
             "schema": {
               "type": "boolean",
               "default": true,
@@ -6161,7 +5256,7 @@
           {
             "name": "onlyAdultKeywords",
             "in": "query",
-            "description": "Only include adult keywords considered unsafe for work.",
+            "description": "Include only NSFW keywords.",
             "schema": {
               "type": "boolean",
               "default": false,
@@ -6172,7 +5267,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Successfully retrieved most successful PPC keywords. Returns keyword data with search metrics, cost estimates, and competitive intelligence showing the domain's highest-performing paid keywords.",
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
@@ -6182,558 +5277,13 @@
             }
           },
           "400": {
-            "description": "Bad Request - Invalid parameters provided (e.g., invalid domain format, search volume ranges, or invalid country code)"
+            "description": "Bad Request"
           },
           "401": {
-            "description": "Unauthorized - Invalid API credentials or insufficient permissions to access PPC keyword data"
+            "description": "Unauthorized"
           },
           "500": {
-            "description": "Internal Server Error - A server-side error occurred while processing the request"
-          }
-        }
-      }
-    },
-    "/keyword_api/v2/ppc/getNewKeywords": {
-      "get": {
-        "tags": [
-          "PPC Research API"
-        ],
-        "summary": "Get New PPC Keywords",
-        "description": "Returns newly acquired paid search keywords that a domain has started advertising on for the first time. This endpoint identifies recent keyword expansions and emerging advertising strategies to reveal new market opportunities and competitive moves.\n\n",
-        "operationId": "PaidSerpApi_GetNewKeywords_GET",
-        "parameters": [
-          {
-            "name": "query",
-            "in": "query",
-            "description": "Domain or URL to analyze for new PPC keywords.",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "example": "example.com"
-            },
-            "example": "example.com"
-          },
-          {
-            "name": "includeTerms",
-            "in": "query",
-            "description": "Comma-separated list of terms that must be present in the keyword.",
-            "schema": {
-              "type": "string",
-              "example": "hosting,domain,website"
-            }
-          },
-          {
-            "name": "includeAnyTerm",
-            "in": "query",
-            "description": "Used with includeTerms. If true: match any term (OR). If false: require all terms (AND).",
-            "schema": {
-              "type": "boolean",
-              "default": false,
-              "example": false
-            }
-          },
-          {
-            "name": "excludeTerms",
-            "in": "query",
-            "description": "Comma-separated list of terms to exclude from results (e.g., branded or irrelevant terms).",
-            "schema": {
-              "type": "string",
-              "example": "free,cheap,discount"
-            }
-          },
-          {
-            "name": "excludeDomain",
-            "in": "query",
-            "description": "Domain to exclude from keyword results.",
-            "schema": {
-              "type": "string",
-              "example": "yourdomain.com"
-            },
-            "example": "yourdomain.com"
-          },
-          {
-            "name": "searchVolume.min",
-            "in": "query",
-            "description": "Filter by the number of searches done this past month on Google.",
-            "schema": {
-              "type": "number",
-              "format": "float"
-            }
-          },
-          {
-            "name": "searchVolume.max",
-            "in": "query",
-            "description": "Filter by the number of searches done this past month on Google.",
-            "schema": {
-              "type": "number",
-              "format": "float"
-            }
-          },
-          {
-            "name": "liveSearchVolume.min",
-            "in": "query",
-            "description": "Filter by the number of searches done this past month on Google. This value is refreshed each month.",
-            "schema": {
-              "type": "number",
-              "format": "float"
-            }
-          },
-          {
-            "name": "liveSearchVolume.max",
-            "in": "query",
-            "description": "Filter by the number of searches done this past month on Google. This value is refreshed each month.",
-            "schema": {
-              "type": "number",
-              "format": "float"
-            }
-          },
-          {
-            "name": "adCount.min",
-            "in": "query",
-            "description": "Filter by the number of total advertisers",
-            "schema": {
-              "type": "number",
-              "format": "float"
-            }
-          },
-          {
-            "name": "adCount.max",
-            "in": "query",
-            "description": "Filter by the number of total advertisers",
-            "schema": {
-              "type": "number",
-              "format": "float"
-            }
-          },
-          {
-            "name": "keywordDifficulty.min",
-            "in": "query",
-            "description": "Filter by how difficult it is to rank on this keyword.  This can also be called Ranking Difficulty.",
-            "schema": {
-              "type": "number",
-              "format": "float"
-            }
-          },
-          {
-            "name": "keywordDifficulty.max",
-            "in": "query",
-            "description": "Filter by how difficult it is to rank on this keyword.  This can also be called Ranking Difficulty.",
-            "schema": {
-              "type": "number",
-              "format": "float"
-            }
-          },
-          {
-            "name": "costPerClick.min",
-            "in": "query",
-            "description": "Filter by the average cost per click.  This will use the keyword matching option selected in `costPerClickOption`",
-            "schema": {
-              "type": "number",
-              "format": "float"
-            }
-          },
-          {
-            "name": "costPerClick.max",
-            "in": "query",
-            "description": "Filter by the average cost per click.  This will use the keyword matching option selected in `costPerClickOption`",
-            "schema": {
-              "type": "number",
-              "format": "float"
-            }
-          },
-          {
-            "name": "costPerClickOption",
-            "in": "query",
-            "description": "Cost per click keyword matching option to filter results by.",
-            "schema": {
-              "enum": [
-                "Broad",
-                "Exact",
-                "Phrase"
-              ],
-              "type": "string",
-              "example": "Broad"
-            },
-            "example": "Broad"
-          },
-          {
-            "name": "clicks.min",
-            "in": "query",
-            "description": "Filter by the number of total monthly clicks on the SERP for this keyword--organic and paid.",
-            "schema": {
-              "type": "number",
-              "format": "float"
-            }
-          },
-          {
-            "name": "clicks.max",
-            "in": "query",
-            "description": "Filter by the number of total monthly clicks on the SERP for this keyword--organic and paid.",
-            "schema": {
-              "type": "number",
-              "format": "float"
-            }
-          },
-          {
-            "name": "isQuestion",
-            "in": "query",
-            "description": "Filter on if the keyword is a question.",
-            "schema": {
-              "type": "boolean",
-              "default": false,
-              "example": false
-            },
-            "example": false
-          },
-          {
-            "name": "isTransactionalIntent",
-            "in": "query",
-            "description": "Filter on if the keyword has transactional intent.",
-            "schema": {
-              "type": "boolean",
-              "default": false,
-              "example": false
-            },
-            "example": false
-          },
-          {
-            "name": "mobileSearchesPercentage.min",
-            "in": "query",
-            "description": "Filter by the percentage of searches that are done on mobile devices.",
-            "schema": {
-              "type": "number",
-              "format": "float"
-            }
-          },
-          {
-            "name": "mobileSearchesPercentage.max",
-            "in": "query",
-            "description": "Filter by the percentage of searches that are done on mobile devices.",
-            "schema": {
-              "type": "number",
-              "format": "float"
-            }
-          },
-          {
-            "name": "desktopSearchesPercentage.min",
-            "in": "query",
-            "description": "Filter by the percentage of searches that are done on desktop devices.",
-            "schema": {
-              "type": "number",
-              "format": "float"
-            }
-          },
-          {
-            "name": "desktopSearchesPercentage.max",
-            "in": "query",
-            "description": "Filter by the percentage of searches that are done on desktop devices.",
-            "schema": {
-              "type": "number",
-              "format": "float"
-            }
-          },
-          {
-            "name": "notClickedSearchesPercentage.min",
-            "in": "query",
-            "description": "Filter by the percentage of searches that are not clicked.\nSome keyword searches supply clear information in a featured snippet or similar displays. They don't require a click to get the information. Those will have higher percentages in this metric.",
-            "schema": {
-              "type": "number",
-              "format": "float"
-            }
-          },
-          {
-            "name": "notClickedSearchesPercentage.max",
-            "in": "query",
-            "description": "Filter by the percentage of searches that are not clicked.\nSome keyword searches supply clear information in a featured snippet or similar displays. They don't require a click to get the information. Those will have higher percentages in this metric.",
-            "schema": {
-              "type": "number",
-              "format": "float"
-            }
-          },
-          {
-            "name": "paidClickSearchPercentage.min",
-            "in": "query",
-            "description": "Filter by the percentage of clicks that go to ads.",
-            "schema": {
-              "type": "number",
-              "format": "float"
-            }
-          },
-          {
-            "name": "paidClickSearchPercentage.max",
-            "in": "query",
-            "description": "Filter by the percentage of clicks that go to ads.",
-            "schema": {
-              "type": "number",
-              "format": "float"
-            }
-          },
-          {
-            "name": "organicClicksSearchPercentage.min",
-            "in": "query",
-            "description": "Filter by the percentage of clicks that go to organic results, not ads.",
-            "schema": {
-              "type": "number",
-              "format": "float"
-            }
-          },
-          {
-            "name": "organicClicksSearchPercentage.max",
-            "in": "query",
-            "description": "Filter by the percentage of clicks that go to organic results, not ads.",
-            "schema": {
-              "type": "number",
-              "format": "float"
-            }
-          },
-          {
-            "name": "monthlyCost.min",
-            "in": "query",
-            "description": "Filter by the monthly cost of the keyword.  This will use the keyword matching option selected in `monthlyCostOption`",
-            "schema": {
-              "type": "number",
-              "format": "float"
-            }
-          },
-          {
-            "name": "monthlyCost.max",
-            "in": "query",
-            "description": "Filter by the monthly cost of the keyword.  This will use the keyword matching option selected in `monthlyCostOption`",
-            "schema": {
-              "type": "number",
-              "format": "float"
-            }
-          },
-          {
-            "name": "monthlyCostOption",
-            "in": "query",
-            "description": "Monthly Cost keyword matching option to filter results by.",
-            "schema": {
-              "enum": [
-                "Broad",
-                "Exact",
-                "Phrase"
-              ],
-              "type": "string",
-              "example": "Broad"
-            },
-            "example": "Broad"
-          },
-          {
-            "name": "rankingHomepages.min",
-            "in": "query",
-            "description": "Homepages on the SERP range to filter results by.",
-            "schema": {
-              "type": "number",
-              "format": "float"
-            }
-          },
-          {
-            "name": "rankingHomepages.max",
-            "in": "query",
-            "description": "Homepages on the SERP range to filter results by.",
-            "schema": {
-              "type": "number",
-              "format": "float"
-            }
-          },
-          {
-            "name": "wordCount.min",
-            "in": "query",
-            "description": "Filter by the number of words in the keyword.",
-            "schema": {
-              "type": "number",
-              "format": "float"
-            }
-          },
-          {
-            "name": "wordCount.max",
-            "in": "query",
-            "description": "Filter by the number of words in the keyword.",
-            "schema": {
-              "type": "number",
-              "format": "float"
-            }
-          },
-          {
-            "name": "pageSize",
-            "in": "query",
-            "description": "The maximum number of rows returned.",
-            "schema": {
-              "maximum": 10000,
-              "minimum": 1,
-              "type": "integer",
-              "format": "int32",
-              "default": 5,
-              "example": 5
-            },
-            "example": 5
-          },
-          {
-            "name": "countryCode",
-            "in": "query",
-            "description": "Country to get results for.",
-            "schema": {
-              "enum": [
-                "AR",
-                "AT",
-                "AU",
-                "BE",
-                "BR",
-                "CA",
-                "CH",
-                "DE",
-                "DK",
-                "ES",
-                "FR",
-                "IE",
-                "IN",
-                "IT",
-                "JP",
-                "MX",
-                "NL",
-                "NO",
-                "NZ",
-                "PT",
-                "SE",
-                "SG",
-                "UA",
-                "UK",
-                "US",
-                "ZA"
-              ],
-              "type": "string",
-              "default": "US",
-              "example": "US"
-            },
-            "example": "US"
-          },
-          {
-            "name": "sortBy",
-            "in": "query",
-            "description": "Column to sort by.",
-            "schema": {
-              "enum": [
-                "SearchVolume",
-                "LiveSearchVolume",
-                "RankingDifficulty",
-                "TotalMonthlyClicks",
-                "PercentMobileSearches",
-                "PercentDesktopSearches",
-                "PercentSearchesNotClicked",
-                "PercentPaidClicks",
-                "PercentOrganicClicks",
-                "BroadCostPerClick",
-                "PhraseCostPerClick",
-                "ExactCostPerClick",
-                "BroadMonthlyClicks",
-                "PhraseMonthlyClicks",
-                "ExactMonthlyClicks",
-                "BroadMonthlyCost",
-                "PhraseMonthlyCost",
-                "ExactMonthlyCost",
-                "PaidCompetitors",
-                "RankingHomepages"
-              ],
-              "type": "string",
-              "default": "SearchVolume",
-              "example": "SearchVolume",
-              "x-enumDescriptions": {
-                "SearchVolume": "Monthly search volume",
-                "LiveSearchVolume": "Real-time search volume data",
-                "RankingDifficulty": "SEO competition difficulty score",
-                "TotalMonthlyClicks": "Estimated total monthly clicks",
-                "PercentMobileSearches": "Percentage of searches from mobile devices",
-                "PercentDesktopSearches": "Percentage of searches from desktop devices",
-                "PercentSearchesNotClicked": "Percentage of searches resulting in no clicks",
-                "PercentPaidClicks": "Percentage of clicks going to paid results",
-                "PercentOrganicClicks": "Percentage of clicks going to organic results",
-                "BroadCostPerClick": "Broad match cost per click estimate",
-                "PhraseCostPerClick": "Phrase match cost per click estimate",
-                "ExactCostPerClick": "Exact match cost per click estimate",
-                "BroadMonthlyClicks": "Estimated monthly clicks for broad match",
-                "PhraseMonthlyClicks": "Estimated monthly clicks for phrase match",
-                "ExactMonthlyClicks": "Estimated monthly clicks for exact match",
-                "BroadMonthlyCost": "Estimated monthly cost for broad match",
-                "PhraseMonthlyCost": "Estimated monthly cost for phrase match",
-                "ExactMonthlyCost": "Estimated monthly cost for exact match",
-                "PaidCompetitors": "Number of paid search competitors",
-                "RankingHomepages": "Number of homepages ranking organically"
-              }
-            },
-            "example": "SearchVolume"
-          },
-          {
-            "name": "sortOrder",
-            "in": "query",
-            "description": "Sort direction for results.",
-            "schema": {
-              "enum": [
-                "Ascending",
-                "Descending"
-              ],
-              "type": "string",
-              "default": "Descending",
-              "example": "Descending"
-            },
-            "example": "Descending"
-          },
-          {
-            "name": "startingRow",
-            "in": "query",
-            "description": "Row number to start the results with.",
-            "schema": {
-              "maximum": 10000,
-              "minimum": 1,
-              "type": "integer",
-              "format": "int32",
-              "default": 1,
-              "example": 1
-            },
-            "example": 1
-          },
-          {
-            "name": "adultFilter",
-            "in": "query",
-            "description": "Exclude adult keywords considered unsafe for work.",
-            "schema": {
-              "type": "boolean",
-              "default": true,
-              "example": true
-            },
-            "example": true
-          },
-          {
-            "name": "onlyAdultKeywords",
-            "in": "query",
-            "description": "Only include adult keywords considered unsafe for work.",
-            "schema": {
-              "type": "boolean",
-              "default": false,
-              "example": false
-            },
-            "example": false
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successfully retrieved new PPC keywords. Returns keyword data with search metrics, cost estimates, and competitive intelligence showing recently acquired paid keywords for strategic expansion insights.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PublicApiKeywordOverviewOutputDto1"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request - Invalid parameters provided (e.g., invalid domain format, search volume ranges, or invalid country code)"
-          },
-          "401": {
-            "description": "Unauthorized - Invalid API credentials or insufficient permissions to access PPC keyword data"
-          },
-          "500": {
-            "description": "Internal Server Error - A server-side error occurred while processing the request"
+            "description": "Internal Server Error"
           }
         }
       }
@@ -7108,15 +5658,15 @@
               "minimum": 1,
               "type": "integer",
               "format": "int32",
-              "default": 5,
-              "example": 5
+              "default": 100,
+              "example": 100
             },
-            "example": 5
+            "example": 100
           },
           {
             "name": "countryCode",
             "in": "query",
-            "description": "Country market to search.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).",
+            "description": "Country code for Google market (e.g., DE → google.de).",
             "schema": {
               "enum": [
                 "AR",
@@ -7181,28 +5731,6 @@
               ],
               "type": "string",
               "example": "SearchVolume",
-              "x-enumDescriptions": {
-                "SearchVolume": "Monthly search volume",
-                "LiveSearchVolume": "Real-time search volume data",
-                "RankingDifficulty": "SEO competition difficulty score",
-                "TotalMonthlyClicks": "Estimated total monthly clicks",
-                "PercentMobileSearches": "Percentage of searches from mobile devices",
-                "PercentDesktopSearches": "Percentage of searches from desktop devices",
-                "PercentSearchesNotClicked": "Percentage of searches resulting in no clicks",
-                "PercentPaidClicks": "Percentage of clicks going to paid results",
-                "PercentOrganicClicks": "Percentage of clicks going to organic results",
-                "BroadCostPerClick": "Broad match cost per click estimate",
-                "PhraseCostPerClick": "Phrase match cost per click estimate",
-                "ExactCostPerClick": "Exact match cost per click estimate",
-                "BroadMonthlyClicks": "Estimated monthly clicks for broad match",
-                "PhraseMonthlyClicks": "Estimated monthly clicks for phrase match",
-                "ExactMonthlyClicks": "Estimated monthly clicks for exact match",
-                "BroadMonthlyCost": "Estimated monthly cost for broad match",
-                "PhraseMonthlyCost": "Estimated monthly cost for phrase match",
-                "ExactMonthlyCost": "Estimated monthly cost for exact match",
-                "PaidCompetitors": "Number of paid search competitors",
-                "RankingHomepages": "Number of homepages ranking organically"
-              },
               "default": null
             },
             "example": "SearchVolume"
@@ -7239,7 +5767,7 @@
           {
             "name": "adultFilter",
             "in": "query",
-            "description": "Exclude adult keywords considered unsafe for work.",
+            "description": "Exclude NSFW keywords.",
             "schema": {
               "type": "boolean",
               "default": true,
@@ -7250,7 +5778,7 @@
           {
             "name": "onlyAdultKeywords",
             "in": "query",
-            "description": "Only include adult keywords considered unsafe for work.",
+            "description": "Include only NSFW keywords.",
             "schema": {
               "type": "boolean",
               "default": false,
@@ -7261,7 +5789,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Successfully retrieved related keywords. Returns keyword data for thematically similar terms that share categories and themes, perfect for expanding content reach and competitive keyword targeting.",
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
@@ -7271,13 +5799,13 @@
             }
           },
           "400": {
-            "description": "Bad Request - Invalid parameters provided (e.g., malformed keyword query or invalid country code)"
+            "description": "Bad Request"
           },
           "401": {
-            "description": "Unauthorized - Invalid API credentials or insufficient permissions to access keyword research data"
+            "description": "Unauthorized"
           },
           "500": {
-            "description": "Internal Server Error - A server-side error occurred while processing the request"
+            "description": "Internal Server Error"
           }
         }
       }
@@ -7652,15 +6180,15 @@
               "minimum": 1,
               "type": "integer",
               "format": "int32",
-              "default": 5,
-              "example": 5
+              "default": 100,
+              "example": 100
             },
-            "example": 5
+            "example": 100
           },
           {
             "name": "countryCode",
             "in": "query",
-            "description": "Country market to search.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).",
+            "description": "Country code for Google market (e.g., DE → google.de).",
             "schema": {
               "enum": [
                 "AR",
@@ -7725,28 +6253,6 @@
               ],
               "type": "string",
               "example": "SearchVolume",
-              "x-enumDescriptions": {
-                "SearchVolume": "Monthly search volume",
-                "LiveSearchVolume": "Real-time search volume data",
-                "RankingDifficulty": "SEO competition difficulty score",
-                "TotalMonthlyClicks": "Estimated total monthly clicks",
-                "PercentMobileSearches": "Percentage of searches from mobile devices",
-                "PercentDesktopSearches": "Percentage of searches from desktop devices",
-                "PercentSearchesNotClicked": "Percentage of searches resulting in no clicks",
-                "PercentPaidClicks": "Percentage of clicks going to paid results",
-                "PercentOrganicClicks": "Percentage of clicks going to organic results",
-                "BroadCostPerClick": "Broad match cost per click estimate",
-                "PhraseCostPerClick": "Phrase match cost per click estimate",
-                "ExactCostPerClick": "Exact match cost per click estimate",
-                "BroadMonthlyClicks": "Estimated monthly clicks for broad match",
-                "PhraseMonthlyClicks": "Estimated monthly clicks for phrase match",
-                "ExactMonthlyClicks": "Estimated monthly clicks for exact match",
-                "BroadMonthlyCost": "Estimated monthly cost for broad match",
-                "PhraseMonthlyCost": "Estimated monthly cost for phrase match",
-                "ExactMonthlyCost": "Estimated monthly cost for exact match",
-                "PaidCompetitors": "Number of paid search competitors",
-                "RankingHomepages": "Number of homepages ranking organically"
-              },
               "default": null
             },
             "example": "SearchVolume"
@@ -7783,7 +6289,7 @@
           {
             "name": "adultFilter",
             "in": "query",
-            "description": "Exclude adult keywords considered unsafe for work.",
+            "description": "Exclude NSFW keywords.",
             "schema": {
               "type": "boolean",
               "default": true,
@@ -7794,7 +6300,7 @@
           {
             "name": "onlyAdultKeywords",
             "in": "query",
-            "description": "Only include adult keywords considered unsafe for work.",
+            "description": "Include only NSFW keywords.",
             "schema": {
               "type": "boolean",
               "default": false,
@@ -7805,7 +6311,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Successfully retrieved question keywords. Returns keyword data focused on interrogative phrases and user questions, ideal for content strategy and FAQ development to address common user inquiries.",
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
@@ -7815,13 +6321,13 @@
             }
           },
           "400": {
-            "description": "Bad Request - Invalid parameters provided (e.g., malformed keyword query or invalid country code)"
+            "description": "Bad Request"
           },
           "401": {
-            "description": "Unauthorized - Invalid API credentials or insufficient permissions to access keyword research data"
+            "description": "Unauthorized"
           },
           "500": {
-            "description": "Internal Server Error - A server-side error occurred while processing the request"
+            "description": "Internal Server Error"
           }
         }
       }
@@ -8196,15 +6702,15 @@
               "minimum": 1,
               "type": "integer",
               "format": "int32",
-              "default": 5,
-              "example": 5
+              "default": 100,
+              "example": 100
             },
-            "example": 5
+            "example": 100
           },
           {
             "name": "countryCode",
             "in": "query",
-            "description": "Country market to search.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).",
+            "description": "Country code for Google market (e.g., DE → google.de).",
             "schema": {
               "enum": [
                 "AR",
@@ -8269,28 +6775,6 @@
               ],
               "type": "string",
               "example": "SearchVolume",
-              "x-enumDescriptions": {
-                "SearchVolume": "Monthly search volume",
-                "LiveSearchVolume": "Real-time search volume data",
-                "RankingDifficulty": "SEO competition difficulty score",
-                "TotalMonthlyClicks": "Estimated total monthly clicks",
-                "PercentMobileSearches": "Percentage of searches from mobile devices",
-                "PercentDesktopSearches": "Percentage of searches from desktop devices",
-                "PercentSearchesNotClicked": "Percentage of searches resulting in no clicks",
-                "PercentPaidClicks": "Percentage of clicks going to paid results",
-                "PercentOrganicClicks": "Percentage of clicks going to organic results",
-                "BroadCostPerClick": "Broad match cost per click estimate",
-                "PhraseCostPerClick": "Phrase match cost per click estimate",
-                "ExactCostPerClick": "Exact match cost per click estimate",
-                "BroadMonthlyClicks": "Estimated monthly clicks for broad match",
-                "PhraseMonthlyClicks": "Estimated monthly clicks for phrase match",
-                "ExactMonthlyClicks": "Estimated monthly clicks for exact match",
-                "BroadMonthlyCost": "Estimated monthly cost for broad match",
-                "PhraseMonthlyCost": "Estimated monthly cost for phrase match",
-                "ExactMonthlyCost": "Estimated monthly cost for exact match",
-                "PaidCompetitors": "Number of paid search competitors",
-                "RankingHomepages": "Number of homepages ranking organically"
-              },
               "default": null
             },
             "example": "SearchVolume"
@@ -8327,7 +6811,7 @@
           {
             "name": "adultFilter",
             "in": "query",
-            "description": "Exclude adult keywords considered unsafe for work.",
+            "description": "Exclude NSFW keywords.",
             "schema": {
               "type": "boolean",
               "default": true,
@@ -8338,7 +6822,7 @@
           {
             "name": "onlyAdultKeywords",
             "in": "query",
-            "description": "Only include adult keywords considered unsafe for work.",
+            "description": "Include only NSFW keywords.",
             "schema": {
               "type": "boolean",
               "default": false,
@@ -8349,7 +6833,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Successfully retrieved related advertising keywords. Returns keyword data showing what other successful advertisers also target, revealing cross-campaign patterns and expansion opportunities.",
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
@@ -8359,13 +6843,13 @@
             }
           },
           "400": {
-            "description": "Bad Request - Invalid parameters provided (e.g., malformed keyword query or invalid country code)"
+            "description": "Bad Request"
           },
           "401": {
-            "description": "Unauthorized - Invalid API credentials or insufficient permissions to access keyword research data"
+            "description": "Unauthorized"
           },
           "500": {
-            "description": "Internal Server Error - A server-side error occurred while processing the request"
+            "description": "Internal Server Error"
           }
         }
       }
@@ -8740,15 +7224,15 @@
               "minimum": 1,
               "type": "integer",
               "format": "int32",
-              "default": 5,
-              "example": 5
+              "default": 100,
+              "example": 100
             },
-            "example": 5
+            "example": 100
           },
           {
             "name": "countryCode",
             "in": "query",
-            "description": "Country market to search.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).",
+            "description": "Country code for Google market (e.g., DE → google.de).",
             "schema": {
               "enum": [
                 "AR",
@@ -8813,28 +7297,6 @@
               ],
               "type": "string",
               "example": "SearchVolume",
-              "x-enumDescriptions": {
-                "SearchVolume": "Monthly search volume",
-                "LiveSearchVolume": "Real-time search volume data",
-                "RankingDifficulty": "SEO competition difficulty score",
-                "TotalMonthlyClicks": "Estimated total monthly clicks",
-                "PercentMobileSearches": "Percentage of searches from mobile devices",
-                "PercentDesktopSearches": "Percentage of searches from desktop devices",
-                "PercentSearchesNotClicked": "Percentage of searches resulting in no clicks",
-                "PercentPaidClicks": "Percentage of clicks going to paid results",
-                "PercentOrganicClicks": "Percentage of clicks going to organic results",
-                "BroadCostPerClick": "Broad match cost per click estimate",
-                "PhraseCostPerClick": "Phrase match cost per click estimate",
-                "ExactCostPerClick": "Exact match cost per click estimate",
-                "BroadMonthlyClicks": "Estimated monthly clicks for broad match",
-                "PhraseMonthlyClicks": "Estimated monthly clicks for phrase match",
-                "ExactMonthlyClicks": "Estimated monthly clicks for exact match",
-                "BroadMonthlyCost": "Estimated monthly cost for broad match",
-                "PhraseMonthlyCost": "Estimated monthly cost for phrase match",
-                "ExactMonthlyCost": "Estimated monthly cost for exact match",
-                "PaidCompetitors": "Number of paid search competitors",
-                "RankingHomepages": "Number of homepages ranking organically"
-              },
               "default": null
             },
             "example": "SearchVolume"
@@ -8871,7 +7333,7 @@
           {
             "name": "adultFilter",
             "in": "query",
-            "description": "Exclude adult keywords considered unsafe for work.",
+            "description": "Exclude NSFW keywords.",
             "schema": {
               "type": "boolean",
               "default": true,
@@ -8882,7 +7344,7 @@
           {
             "name": "onlyAdultKeywords",
             "in": "query",
-            "description": "Only include adult keywords considered unsafe for work.",
+            "description": "Include only NSFW keywords.",
             "schema": {
               "type": "boolean",
               "default": false,
@@ -8893,7 +7355,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Successfully retrieved related organic keywords. Returns keyword data showing what top-ranking domains also target, revealing SEO content opportunities and keyword expansion strategies.",
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
@@ -8903,13 +7365,13 @@
             }
           },
           "400": {
-            "description": "Bad Request - Invalid parameters provided (e.g., malformed keyword query or invalid country code)"
+            "description": "Bad Request"
           },
           "401": {
-            "description": "Unauthorized - Invalid API credentials or insufficient permissions to access keyword research data"
+            "description": "Unauthorized"
           },
           "500": {
-            "description": "Internal Server Error - A server-side error occurred while processing the request"
+            "description": "Internal Server Error"
           }
         }
       }
@@ -9284,10 +7746,10 @@
               "minimum": 1,
               "type": "integer",
               "format": "int32",
-              "default": 5,
-              "example": 5
+              "default": 100,
+              "example": 100
             },
-            "example": 5
+            "example": 100
           },
           {
             "name": "countryCode",
@@ -9357,28 +7819,6 @@
               ],
               "type": "string",
               "example": "SearchVolume",
-              "x-enumDescriptions": {
-                "SearchVolume": "Monthly search volume",
-                "LiveSearchVolume": "Real-time search volume data",
-                "RankingDifficulty": "SEO competition difficulty score",
-                "TotalMonthlyClicks": "Estimated total monthly clicks",
-                "PercentMobileSearches": "Percentage of searches from mobile devices",
-                "PercentDesktopSearches": "Percentage of searches from desktop devices",
-                "PercentSearchesNotClicked": "Percentage of searches resulting in no clicks",
-                "PercentPaidClicks": "Percentage of clicks going to paid results",
-                "PercentOrganicClicks": "Percentage of clicks going to organic results",
-                "BroadCostPerClick": "Broad match cost per click estimate",
-                "PhraseCostPerClick": "Phrase match cost per click estimate",
-                "ExactCostPerClick": "Exact match cost per click estimate",
-                "BroadMonthlyClicks": "Estimated monthly clicks for broad match",
-                "PhraseMonthlyClicks": "Estimated monthly clicks for phrase match",
-                "ExactMonthlyClicks": "Estimated monthly clicks for exact match",
-                "BroadMonthlyCost": "Estimated monthly cost for broad match",
-                "PhraseMonthlyCost": "Estimated monthly cost for phrase match",
-                "ExactMonthlyCost": "Estimated monthly cost for exact match",
-                "PaidCompetitors": "Number of paid search competitors",
-                "RankingHomepages": "Number of homepages ranking organically"
-              },
               "default": null
             },
             "example": "SearchVolume"
@@ -9415,7 +7855,7 @@
           {
             "name": "adultFilter",
             "in": "query",
-            "description": "Exclude adult keywords considered unsafe for work.",
+            "description": "Exclude NSFW keywords.",
             "schema": {
               "type": "boolean",
               "default": true,
@@ -9426,7 +7866,7 @@
           {
             "name": "onlyAdultKeywords",
             "in": "query",
-            "description": "Only include adult keywords considered unsafe for work.",
+            "description": "Include only NSFW keywords.",
             "schema": {
               "type": "boolean",
               "default": false,
@@ -9437,7 +7877,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Successfully retrieved transactional keywords. Returns high-intent keyword data with strong commercial signals, ideal for conversion-focused campaigns and capturing users ready to purchase or take action.",
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
@@ -9447,13 +7887,13 @@
             }
           },
           "400": {
-            "description": "Bad Request - Invalid parameters provided (e.g., malformed keyword query or invalid country code)"
+            "description": "Bad Request"
           },
           "401": {
-            "description": "Unauthorized - Invalid API credentials or insufficient permissions to access keyword research data"
+            "description": "Unauthorized"
           },
           "500": {
-            "description": "Internal Server Error - A server-side error occurred while processing the request"
+            "description": "Internal Server Error"
           }
         }
       }
@@ -9463,7 +7903,7 @@
         "tags": [
           "Keyword Research API"
         ],
-        "summary": "Get Keyword Information Bulk",
+        "summary": "Get Bulk Keyword Data",
         "description": "Returns comprehensive keyword metrics and intelligence for a list of exact keywords. This endpoint provides search volume, competition data, cost estimates, and performance insights for specific keywords you want to analyze in bulk.",
         "operationId": "RelatedKeywordsV2Api_GetKeywordsByBulkSearch_GET",
         "parameters": [
@@ -9660,93 +8100,6 @@
             }
           },
           {
-            "name": "notClickedSearchesPercentage.min",
-            "in": "query",
-            "description": "Filter by the percentage of searches that are not clicked.\nSome keyword searches supply clear information in a featured snippet or similar displays. They don't require a click to get the information. Those will have higher percentages in this metric.",
-            "schema": {
-              "type": "number",
-              "format": "float"
-            }
-          },
-          {
-            "name": "notClickedSearchesPercentage.max",
-            "in": "query",
-            "description": "Filter by the percentage of searches that are not clicked.\nSome keyword searches supply clear information in a featured snippet or similar displays. They don't require a click to get the information. Those will have higher percentages in this metric.",
-            "schema": {
-              "type": "number",
-              "format": "float"
-            }
-          },
-          {
-            "name": "paidClickSearchPercentage.min",
-            "in": "query",
-            "description": "Filter by the percentage of clicks that go to ads.",
-            "schema": {
-              "type": "number",
-              "format": "float"
-            }
-          },
-          {
-            "name": "paidClickSearchPercentage.max",
-            "in": "query",
-            "description": "Filter by the percentage of clicks that go to ads.",
-            "schema": {
-              "type": "number",
-              "format": "float"
-            }
-          },
-          {
-            "name": "organicClicksSearchPercentage.min",
-            "in": "query",
-            "description": "Filter by the percentage of clicks that go to organic results, not ads.",
-            "schema": {
-              "type": "number",
-              "format": "float"
-            }
-          },
-          {
-            "name": "organicClicksSearchPercentage.max",
-            "in": "query",
-            "description": "Filter by the percentage of clicks that go to organic results, not ads.",
-            "schema": {
-              "type": "number",
-              "format": "float"
-            }
-          },
-          {
-            "name": "monthlyCost.min",
-            "in": "query",
-            "description": "Filter by the monthly cost of the keyword.  This will use the keyword matching option selected in `monthlyCostOption`",
-            "schema": {
-              "type": "number",
-              "format": "float"
-            }
-          },
-          {
-            "name": "monthlyCost.max",
-            "in": "query",
-            "description": "Filter by the monthly cost of the keyword.  This will use the keyword matching option selected in `monthlyCostOption`",
-            "schema": {
-              "type": "number",
-              "format": "float"
-            }
-          },
-          {
-            "name": "monthlyCostOption",
-            "in": "query",
-            "description": "Monthly Cost keyword matching option to filter results by.",
-            "schema": {
-              "enum": [
-                "Broad",
-                "Exact",
-                "Phrase"
-              ],
-              "type": "string",
-              "example": "Broad"
-            },
-            "example": "Broad"
-          },
-          {
             "name": "rankingHomepages.min",
             "in": "query",
             "description": "Homepages on the SERP range to filter results by.",
@@ -9765,27 +8118,9 @@
             }
           },
           {
-            "name": "adCount.min",
-            "in": "query",
-            "description": "Filter by the number of total advertisers",
-            "schema": {
-              "type": "number",
-              "format": "float"
-            }
-          },
-          {
-            "name": "adCount.max",
-            "in": "query",
-            "description": "Filter by the number of total advertisers",
-            "schema": {
-              "type": "number",
-              "format": "float"
-            }
-          },
-          {
             "name": "countryCode",
             "in": "query",
-            "description": "Country market to search.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).",
+            "description": "Country code for Google market (e.g., DE → google.de).",
             "schema": {
               "enum": [
                 "AR",
@@ -9824,7 +8159,7 @@
           {
             "name": "adultFilter",
             "in": "query",
-            "description": "Exclude adult keywords considered unsafe for work.",
+            "description": "Exclude NSFW keywords.",
             "schema": {
               "type": "boolean",
               "default": true,
@@ -9835,7 +8170,7 @@
           {
             "name": "onlyAdultKeywords",
             "in": "query",
-            "description": "Only include adult keywords considered unsafe for work.",
+            "description": "Include only NSFW keywords.",
             "schema": {
               "type": "boolean",
               "default": false,
@@ -9846,7 +8181,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Successfully retrieved keyword information. Returns comprehensive metrics including search volume, competition levels, cost estimates, and performance data for each requested keyword.",
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
@@ -9856,63 +8191,13 @@
             }
           },
           "400": {
-            "description": "Bad Request - Invalid parameters provided (e.g., malformed keyword list or invalid country code)"
+            "description": "Bad Request"
           },
           "401": {
-            "description": "Unauthorized - Invalid API credentials or insufficient permissions to access keyword research data"
+            "description": "Unauthorized"
           },
           "500": {
-            "description": "Internal Server Error - A server-side error occurred while processing the request"
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "Keyword Research API"
-        ],
-        "summary": "Post Keyword Information Bulk",
-        "description": "Returns comprehensive keyword metrics and intelligence for a large list of exact keywords via POST request. This endpoint supports larger keyword lists and provides search volume, competition data, cost estimates, and performance insights for bulk keyword analysis.",
-        "operationId": "RelatedKeywordsV2Api_GetKeywordsByBulkSearchPost_POST",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/PublicApiBulkKeywordsInputDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/PublicApiBulkKeywordsInputDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/PublicApiBulkKeywordsInputDto"
-              }
-            }
-          },
-          "description": "Bulk keyword analysis request containing the list of keywords and country settings.",
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "Successfully retrieved bulk keyword information. Returns comprehensive metrics including search volume, competition levels, cost estimates, and performance data for each requested keyword in the payload.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PublicApiKeywordOverviewOutputDto2"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request - Invalid request body or parameters provided (e.g., malformed keyword list or invalid country code)"
-          },
-          "401": {
-            "description": "Unauthorized - Invalid API credentials or insufficient permissions to access keyword research data"
-          },
-          "500": {
-            "description": "Internal Server Error - A server-side error occurred while processing the request"
+            "description": "Internal Server Error"
           }
         }
       }
@@ -9957,7 +8242,7 @@
             "type": "string",
             "nullable": true,
             "description": "The complete landing page URL that the ad directed users to when clicked.",
-            "example": "https://example.com/running-shoes?utm_source=google\u0026utm_campaign=shoes"
+            "example": "https://example.com/running-shoes?utm_source=google&utm_campaign=shoes"
           },
           "term": {
             "type": "string",
@@ -10255,7 +8540,7 @@
             "type": "string",
             "nullable": true,
             "description": "The complete landing page URL that the ad directed users to when clicked.",
-            "example": "https://example.com/running-shoes?utm_source=google\u0026utm_campaign=shoes"
+            "example": "https://example.com/running-shoes?utm_source=google&utm_campaign=shoes"
           },
           "leaderboardCount": {
             "type": "integer",
@@ -10920,6 +9205,13 @@
             "format": "int32",
             "readOnly": true,
             "example": 1
+          },
+          "totalMatchingResults": {
+            "type": "integer",
+            "description": "The total number of results available that matches the query including\r\nitems that might not be included in the returned results/page.",
+            "format": "int64",
+            "nullable": true,
+            "readOnly": true
           },
           "results": {
             "type": "array",
@@ -11663,14 +9955,14 @@
           },
           "adultFilter": {
             "type": "boolean",
-            "description": "Exclude adult keywords considered unsafe for work.",
+            "description": "Exclude NSFW keywords.",
             "default": true,
             "nullable": true,
             "example": true
           },
           "onlyAdultKeywords": {
             "type": "boolean",
-            "description": "Only include adult keywords considered unsafe for work.",
+            "description": "Include only NSFW keywords.",
             "default": false,
             "nullable": true,
             "example": false
@@ -11723,95 +10015,95 @@
         },
         "additionalProperties": false
       },
-      "PublicApiKeywordOverviewOutputItemDto2": {
+       "PublicApiKeywordOverviewOutputItemDto2": {
         "type": "object",
         "properties": {
           "keyword": {
             "type": "string",
-            "description": "By looking at strong competitors in this niche and their most trusted keywords over time, we suggest similar keywords here that we found to be profitable for your competition.",
+            "description": "The keyword (query term).",
             "nullable": true,
             "example": "red shoes"
           },
           "searchVolume": {
             "type": "integer",
-            "description": "This is the estimated number of times this past month that people have searched this keyword. The numbers reflect searches done in the US on Google.com (or in the UK on Google.co.uk if you are looking at UK data). We blend data from multiple sources to give a truer snapshot of activity on this keyword.",
+            "description": "Est. searches last month (US: Google.com; UK: Google.co.uk).",
             "format": "int64",
             "nullable": true,
             "example": 266000
           },
           "liveSearchVolume": {
             "type": "integer",
-            "description": "This metric displays a more likely SV based on recent trends or out-of-date estimates. The original volume remains unchanged in any domain's rolled-up metrics.",
+            "description": "More current, trend-adjusted volume; does not change rolled-up metrics.",
             "format": "int64",
             "nullable": true,
             "example": 82000
           },
           "rankingDifficulty": {
             "type": "integer",
-            "description": "We've calculated how difficult it would be to rank on this keyword. The score is based on a scale of 0-100 (with 100 being the most difficult to rank for). Compare this number to other keywords you're targeting to get an idea of how to prioritize your SEO campaign.",
+            "description": "SEO difficulty (0-100; higher = harder).",
             "format": "int32",
             "nullable": true,
             "example": 98
           },
           "totalMonthlyClicks": {
             "type": "integer",
-            "description": "This is the total number of all clicks (organic and paid) made on the SERP over the past month.",
+            "description": "Total SERP clicks last month (organic + paid).",
             "format": "int64",
             "nullable": true,
             "example": 219000
           },
           "percentMobileSearches": {
             "type": "number",
-            "description": "When we have a breakdown of how many of the searches for this keyword come from mobile vs desktop, we will show it here.",
+            "description": "Share of searches from mobile (0-1).",
             "format": "double",
             "nullable": true,
             "example": 0.52009505
           },
           "percentDesktopSearches": {
             "type": "number",
-            "description": "When we have a breakdown of how many of the searches for this keyword come from desktop vs mobile, we will show it here.",
+            "description": "Share of searches from desktop (0-1).",
             "format": "double",
             "nullable": true,
             "example": 0.47990492
           },
           "percentSearchesNotClicked": {
             "type": "number",
-            "description": "Some SERPs return enough information that the user does not have to click any results. There might also be unexpected results that cause the user to abandon the SERP without any clicks. This is the rate that searchers leave the page without clicking any result.",
+            "description": "Share of searches with no clicks (0-1).",
             "format": "double",
             "nullable": true,
             "example": 0.1792681
           },
           "percentPaidClicks": {
             "type": "number",
-            "description": "Of all clicks made to this keyword's SERP, this percentage measures how many went to the paid ads.",
+            "description": "Share of clicks to ads (0-1).",
             "format": "double",
             "nullable": true,
             "example": 0.52188635
           },
           "percentOrganicClicks": {
             "type": "number",
-            "description": "Of all clicks made to this keyword's SERP, this percentage measures how many went to organic results.",
+            "description": "Share of clicks to organic results (0-1).",
             "format": "double",
             "nullable": true,
             "example": 0.47811362
           },
           "broadCostPerClick": {
             "type": "number",
-            "description": "This is the average amount an advertiser pays Google anytime someone clicks their ad on this keyword. These costs fluctuate depending on many factors, so keep that in mind when you are estimating larger budgets.\r\n\u003cp\u003eThese costs can vary depending on how specific (exact match vs. phrase match vs. broad match) the search is.\u003c/p\u003e",
+            "description": "Average cost per click (Broad match).",
             "format": "double",
             "nullable": true,
             "example": 0.73
           },
           "phraseCostPerClick": {
             "type": "number",
-            "description": "This is the average amount an advertiser pays Google anytime someone clicks their ad on this keyword. These costs fluctuate depending on many factors, so keep that in mind when you are estimating larger budgets.\r\n\u003cp\u003eThese costs can vary depending on how specific (exact match vs. phrase match vs. broad match) the search is.\u003c/p\u003e",
+            "description": "Average cost per click (Phrase match).",
             "format": "double",
             "nullable": true,
             "example": 0.67
           },
           "exactCostPerClick": {
             "type": "number",
-            "description": "This is the average amount an advertiser pays Google anytime someone clicks their ad on this keyword. These costs fluctuate depending on many factors, so keep that in mind when you are estimating larger budgets.\r\n\u003cp\u003eThese costs can vary depending on how specific (exact match vs. phrase match vs. broad match) the search is.\u003c/p\u003e",
+            "description": "Average cost per click (Exact match).",
             "format": "double",
             "nullable": true,
             "example": 0.65
@@ -11821,13 +10113,13 @@
             "format": "float",
             "nullable": true,
             "example": 57019.8,
-            "description": "Estimated monthly clicks for broad match advertising on this keyword, calculated from search volume and expected click-through rates."
+            "description": "Est. ad clicks per month (Broad match)."
           },
           "phraseMonthlyClicks": {
             "type": "number",
             "format": "float",
             "nullable": true,
-            "description": "Estimated monthly clicks for phrase match advertising on this keyword, calculated from search volume and expected click-through rates.",
+            "description": "Est. ad clicks per month (Phrase match).",
             "example": 42150.3
           },
           "exactMonthlyClicks": {
@@ -11835,32 +10127,32 @@
             "format": "float",
             "nullable": true,
             "example": 29094.6,
-            "description": "Estimated monthly clicks for exact match advertising on this keyword, calculated from search volume and expected click-through rates."
+            "description": "Est. ad clicks per month (Exact match)."
           },
           "broadMonthlyCost": {
             "type": "number",
-            "description": "Our estimate of what an advertiser would spend, on average, to advertise on this keyword each month.\r\n\u003cp\u003eThese costs can vary depending on how specific (exact match vs. phrase match vs. broad match) the search is.\u003c/p\u003e",
+            "description": "Est. monthly ad spend (Broad match).",
             "format": "double",
             "nullable": true,
             "example": 41604.9
           },
           "phraseMonthlyCost": {
             "type": "number",
-            "description": "Our estimate of what an advertiser would spend, on average, to advertise on this keyword each month.\r\n\u003cp\u003eThese costs can vary depending on how specific (exact match vs. phrase match vs. broad match) the search is.\u003c/p\u003e",
+            "description": "Est. monthly ad spend (Phrase match).",
             "format": "double",
             "nullable": true,
             "example": 25542
           },
           "exactMonthlyCost": {
             "type": "number",
-            "description": "Our estimate of what an advertiser would spend, on average, to advertise on this keyword each month.\r\n\u003cp\u003eThese costs can vary depending on how specific (exact match vs. phrase match vs. broad match) the search is.\u003c/p\u003e",
+            "description": "Est. monthly ad spend (Exact match).",
             "format": "double",
             "nullable": true,
             "example": 19041.6
           },
           "paidCompetitors": {
             "type": "integer",
-            "description": "This is the total number of advertisers we've seen over the last 14 months for this keyword. It's helpful to know how competitive the field is and how many advertisers have tested this keyword over time.",
+            "description": "Advertisers observed (last 14 months).",
             "format": "int32",
             "nullable": true,
             "example": 15
@@ -11870,37 +10162,37 @@
             "items": {
               "type": "string"
             },
-            "description": "This is the list of distinct advertisers we've seen over the last 14 months for this keyword.",
+            "description": "Distinct advertisers (last 14 months).",
             "nullable": true
           },
           "rankingHomepages": {
             "type": "integer",
-            "description": "We roll up the number of home pages that rank within the first 50 results for this keyword. (It doesn't count ads, only organic results.) A homepage might be \"https://webmd.com\" vs a longer path like \"https://www.webmd.com/fitness-exercise\".",
+            "description": "Count of homepages (vs deeper URLs) in top 50 organic results.",
             "format": "int32",
             "nullable": true,
             "example": 8
           },
           "serpFeaturesCsv": {
             "type": "string",
-            "description": "Comma-separated list of SERP features present for this keyword (e.g., Images, Videos, Maps, Shopping), indicating competition for organic real estate.",
+            "description": "CSV list of SERP features (e.g., Images, Videos, Maps, Shopping).",
             "nullable": true,
             "example": "Images,Maps"
           },
           "serpFirstResult": {
             "type": "string",
-            "description": "Domain name of the top-ranking organic result for this keyword, useful for identifying category leaders.",
+            "description": "Domain of the top organic result.",
             "nullable": true,
             "example": "example.com"
           },
           "isQuestion": {
             "type": "boolean",
             "example": false,
-            "description": "Indicates whether this keyword is phrased as a question (who, what, when, where, why, how)."
+            "description": "Whether the keyword is a question (who/what/when/where/why/how)."
           },
           "isNotSafeForWork": {
             "type": "boolean",
             "example": false,
-            "description": "Indicates whether this keyword is flagged as containing adult or inappropriate content."
+            "description": "Flag for adult/inappropriate content (NSFW)."
           }
         },
         "additionalProperties": false
@@ -11909,7 +10201,7 @@
     "securitySchemes": {
       "Basic_Authentication_Token": {
         "type": "http",
-        "description": "\u003ca href=\"https://en.wikipedia.org/wiki/Basic_access_authentication#Client_side\" target=\"_blank\"\u003eBasic Authentication\u003c/a\u003e is a standard that involves encoding your \u003ccode\u003eSPYFU_API_ID:SECRET_KEY\u003c/code\u003e into a Base64 string. Your \u003cb\u003eSpyFu API ID\u003c/b\u003e and \u003cb\u003eSecret Key\u003c/b\u003e can both be found under the \u003cb\u003e\u003ca href=\"https://www.spyfu.com/account/api\" target=\"_blank\"\u003eAccount Settings -\u003e API Usage\u003c/a\u003e\u003c/b\u003e page. Additionally, you can find the Base64 string has been pre-generated on the same page under \u003cb\u003eBase 64 Key\u003c/b\u003e. Finally, this encoded string is sent in the \"Authorization\" header prefixed with the keyword \"Basic\":\u003cbr\u003eFor example, to authorize as \u003ccode\u003e00000000-0000-0000-0000-000000000000:AB12WXYZ\u003c/code\u003e the client would send\u003cbr\u003e\u003cpre\u003e\u003ccode\u003eAuthorization: \u003cspan class=\"token keyword\"\u003eBasic\u003c/span\u003e \u003cspan class=\"token constructor-invocation class-name\"\u003eMDAwMDAwMDAtMDAwMC0wMDAwLTAwMDAtMDAwMDAwMDAwMDAwOkFCMTJXWFla\u003cspan\u003e\u003c/code\u003e\u003c/pre\u003e",
+        "description": "Basic Authentication",
         "scheme": "basic"
       }
     }
