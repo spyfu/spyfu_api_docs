@@ -5,3 +5,4 @@
 - relatedkeywordsv2api_gettransactionkeywords_get
 - relatedkeywordsv2api_getkeywordsbybulksearch_get
 - relatedkeywordsv2api_getkeywordsbybulksearchpost_post
+- relatedkeywordsv2api_getkeywordexpansions_get
