@@ -13,3 +13,5 @@
 - organicserpapi_getliveseostats_get
 - toppagesapi_getmosttraffictoppages_get
 - toppagesapi_getnewtoppages_get
+- organicserpapi_getorganicoutrankingkeywords_get
+- toppagesapi_gettoppages_get
