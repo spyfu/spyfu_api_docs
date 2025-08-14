@@ -11,6 +11,910 @@
     }
   ],
   "paths": {
+    "/v2/related/getKeywordExpansions": {
+      "get": {
+        "operationId": "RelatedKeywordsV2Api_GetKeywordExpansions_GET",
+        "summary": "Get Keywords, All Sorts",
+        "description": "Performs 5 types of keyword research via keywordSearchType parameter: PhraseMatch (thematic similarities), Questions (interrogative queries), AlsoBuysAdsFor (co-targeted PPC terms), AlsoRanksFor (co-ranking SEO terms), Transactions (commercial intent). Set keywordSearchType to select method.",
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "description": "The keyword to query for.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "examples": [
+                "shoes"
+              ]
+            },
+            "example": "shoes"
+          },
+          {
+            "name": "keywordSearchType",
+            "in": "query",
+            "description": "Required. Selects keyword research method: PhraseMatch=thematically related, Questions=interrogative forms, AlsoBuysAdsFor=keywords co-targeted in ads, AlsoRanksFor=keywords co-ranking organically, Transactions=purchase-intent keywords. Each returns different keyword relationships.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "AlsoBuysAdsFor",
+                "AlsoRanksFor",
+                "PhraseMatch",
+                "Questions",
+                "Transactions"
+              ],
+              "x-enum-descriptions": {
+                "AlsoBuysAdsFor": "Returns keywords that advertisers commonly target together with the query keyword in PPC campaigns. Analyzes co-targeting patterns in paid search advertising.",
+                "AlsoRanksFor": "Returns keywords that websites ranking for the query keyword also rank for organically. Analyzes co-ranking patterns in organic search results.",
+                "PhraseMatch": "Returns keywords thematically and semantically related to the query keyword. Finds terms with similar meaning, context, or category associations.",
+                "Questions": "Returns question-format keywords related to the query topic. Includes who, what, when, where, why, how queries that users search.",
+                "Transactions": "Returns keywords with commercial/transactional intent related to the query. Identifies buying-signal terms like buy, price, deal, discount, review."
+              }
+            }
+          },
+          {
+            "name": "includeTerms",
+            "in": "query",
+            "description": "Comma-separated list of terms that must be present in the keyword.",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "hosting,domain,website"
+              ]
+            }
+          },
+          {
+            "name": "includeAnyTerm",
+            "in": "query",
+            "description": "Used with includeTerms. If true: match any term (OR). If false: require all terms (AND).",
+            "schema": {
+              "type": "boolean",
+              "examples": [
+                false
+              ],
+              "default": false
+            }
+          },
+          {
+            "name": "excludeTerms",
+            "in": "query",
+            "description": "Comma-separated list of terms to exclude from results (e.g., branded or irrelevant terms).",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "free,cheap,discount"
+              ]
+            }
+          },
+          {
+            "name": "searchVolume.min",
+            "in": "query",
+            "description": "Filter by the number of searches done this past month on Google.",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "searchVolume.max",
+            "in": "query",
+            "description": "Filter by the number of searches done this past month on Google.",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "liveSearchVolume.min",
+            "in": "query",
+            "description": "Filter by the number of searches done this past month on Google. This value is refreshed each month.",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "liveSearchVolume.max",
+            "in": "query",
+            "description": "Filter by the number of searches done this past month on Google. This value is refreshed each month.",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "keywordDifficulty.min",
+            "in": "query",
+            "description": "Filter by how difficult it is to rank on this keyword.  This can also be called Ranking Difficulty.",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "keywordDifficulty.max",
+            "in": "query",
+            "description": "Filter by how difficult it is to rank on this keyword.  This can also be called Ranking Difficulty.",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "costPerClick.min",
+            "in": "query",
+            "description": "Filter by the average cost per click.  This will use the keyword matching option selected in `costPerClickOption`",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "costPerClick.max",
+            "in": "query",
+            "description": "Filter by the average cost per click.  This will use the keyword matching option selected in `costPerClickOption`",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "costPerClickOption",
+            "in": "query",
+            "description": "Cost per click keyword matching option to filter results by.",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "Broad"
+              ],
+              "enum": [
+                "Broad",
+                "Exact",
+                "Phrase"
+              ]
+            },
+            "example": "Broad"
+          },
+          {
+            "name": "wordCount.min",
+            "in": "query",
+            "description": "Filter by the number of words in the keyword.",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "wordCount.max",
+            "in": "query",
+            "description": "Filter by the number of words in the keyword.",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "clicks.min",
+            "in": "query",
+            "description": "Filter by the number of total monthly clicks on the SERP for this keyword--organic and paid.",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "clicks.max",
+            "in": "query",
+            "description": "Filter by the number of total monthly clicks on the SERP for this keyword--organic and paid.",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "isQuestion",
+            "in": "query",
+            "description": "Filter on if the keyword is a question.",
+            "schema": {
+              "type": "boolean",
+              "examples": [
+                false
+              ],
+              "default": false
+            },
+            "example": false
+          },
+          {
+            "name": "isTransactionalIntent",
+            "in": "query",
+            "description": "Filter on if the keyword has transactional intent.",
+            "schema": {
+              "type": "boolean",
+              "examples": [
+                false
+              ],
+              "default": false
+            },
+            "example": false
+          },
+          {
+            "name": "serpFirstResult",
+            "in": "query",
+            "description": "Filter to keywords where this specific domain ranks #1 in organic search results. Useful for identifying keywords where a particular competitor dominates.",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "example.com"
+              ]
+            }
+          },
+          {
+            "name": "mobileSearchesPercentage.min",
+            "in": "query",
+            "description": "Filter by the percentage of searches that are done on mobile devices.",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "mobileSearchesPercentage.max",
+            "in": "query",
+            "description": "Filter by the percentage of searches that are done on mobile devices.",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "desktopSearchesPercentage.min",
+            "in": "query",
+            "description": "Filter by the percentage of searches that are done on desktop devices.",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "desktopSearchesPercentage.max",
+            "in": "query",
+            "description": "Filter by the percentage of searches that are done on desktop devices.",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "notClickedSearchesPercentage.min",
+            "in": "query",
+            "description": "Filter by the percentage of searches that are not clicked.\nSome keyword searches supply clear information in a featured snippet or similar displays. They don't require a click to get the information. Those will have higher percentages in this metric.",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "notClickedSearchesPercentage.max",
+            "in": "query",
+            "description": "Filter by the percentage of searches that are not clicked.\nSome keyword searches supply clear information in a featured snippet or similar displays. They don't require a click to get the information. Those will have higher percentages in this metric.",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "paidClickSearchPercentage.min",
+            "in": "query",
+            "description": "Filter by the percentage of clicks that go to ads.",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "paidClickSearchPercentage.max",
+            "in": "query",
+            "description": "Filter by the percentage of clicks that go to ads.",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "organicClicksSearchPercentage.min",
+            "in": "query",
+            "description": "Filter by the percentage of clicks that go to organic results, not ads.",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "organicClicksSearchPercentage.max",
+            "in": "query",
+            "description": "Filter by the percentage of clicks that go to organic results, not ads.",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "monthlyCost.min",
+            "in": "query",
+            "description": "Filter by the monthly cost of the keyword.  This will use the keyword matching option selected in `monthlyCostOption`",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "monthlyCost.max",
+            "in": "query",
+            "description": "Filter by the monthly cost of the keyword.  This will use the keyword matching option selected in `monthlyCostOption`",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "monthlyCostOption",
+            "in": "query",
+            "description": "Monthly Cost keyword matching option to filter results by.",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "Broad"
+              ],
+              "enum": [
+                "Broad",
+                "Exact",
+                "Phrase"
+              ]
+            },
+            "example": "Broad"
+          },
+          {
+            "name": "rankingHomepages.min",
+            "in": "query",
+            "description": "Homepages on the SERP range to filter results by.",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "rankingHomepages.max",
+            "in": "query",
+            "description": "Homepages on the SERP range to filter results by.",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "adCount.min",
+            "in": "query",
+            "description": "Filter by the number of total advertisers",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "adCount.max",
+            "in": "query",
+            "description": "Filter by the number of total advertisers",
+            "schema": {
+              "type": "number",
+              "format": "float"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "The maximum number of rows returned.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "examples": [
+                5
+              ],
+              "default": 5,
+              "maximum": 10000,
+              "minimum": 1
+            },
+            "example": 5
+          },
+          {
+            "name": "countryCode",
+            "in": "query",
+            "description": "Country market to search.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).  <a href='https://developer.spyfu.com/reference/adhistoryapi_getdomainadhistory_get#/'>All Countries</a>",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "US"
+              ],
+              "default": "US",
+              "enum": [
+                "AR",
+                "AT",
+                "AU",
+                "BE",
+                "BR",
+                "CA",
+                "CH",
+                "DE",
+                "DK",
+                "ES",
+                "FR",
+                "IE",
+                "IN",
+                "IT",
+                "JP",
+                "MX",
+                "NL",
+                "NO",
+                "NZ",
+                "PT",
+                "SE",
+                "SG",
+                "UA",
+                "UK",
+                "US",
+                "ZA"
+              ]
+            },
+            "example": "US"
+          },
+          {
+            "name": "sortBy",
+            "in": "query",
+            "description": "Column to sort by.",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "SearchVolume"
+              ],
+              "default": null,
+              "enum": [
+                "SearchVolume",
+                "LiveSearchVolume",
+                "RankingDifficulty",
+                "TotalMonthlyClicks",
+                "PercentMobileSearches",
+                "PercentDesktopSearches",
+                "PercentSearchesNotClicked",
+                "PercentPaidClicks",
+                "PercentOrganicClicks",
+                "BroadCostPerClick",
+                "PhraseCostPerClick",
+                "ExactCostPerClick",
+                "BroadMonthlyClicks",
+                "PhraseMonthlyClicks",
+                "ExactMonthlyClicks",
+                "BroadMonthlyCost",
+                "PhraseMonthlyCost",
+                "ExactMonthlyCost",
+                "PaidCompetitors",
+                "RankingHomepages"
+              ],
+              "x-enumDescriptions": {
+                "SearchVolume": "Monthly search volume",
+                "LiveSearchVolume": "Real-time search volume data",
+                "RankingDifficulty": "SEO competition difficulty score",
+                "TotalMonthlyClicks": "Estimated total monthly clicks",
+                "PercentMobileSearches": "Percentage of searches from mobile devices",
+                "PercentDesktopSearches": "Percentage of searches from desktop devices",
+                "PercentSearchesNotClicked": "Percentage of searches resulting in no clicks",
+                "PercentPaidClicks": "Percentage of clicks going to paid results",
+                "PercentOrganicClicks": "Percentage of clicks going to organic results",
+                "BroadCostPerClick": "Broad match cost per click estimate",
+                "PhraseCostPerClick": "Phrase match cost per click estimate",
+                "ExactCostPerClick": "Exact match cost per click estimate",
+                "BroadMonthlyClicks": "Estimated monthly clicks for broad match",
+                "PhraseMonthlyClicks": "Estimated monthly clicks for phrase match",
+                "ExactMonthlyClicks": "Estimated monthly clicks for exact match",
+                "BroadMonthlyCost": "Estimated monthly cost for broad match",
+                "PhraseMonthlyCost": "Estimated monthly cost for phrase match",
+                "ExactMonthlyCost": "Estimated monthly cost for exact match",
+                "PaidCompetitors": "Number of paid search competitors",
+                "RankingHomepages": "Number of homepages ranking organically"
+              }
+            },
+            "example": "SearchVolume"
+          },
+          {
+            "name": "sortOrder",
+            "in": "query",
+            "description": "Order to sort the results.",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "Descending"
+              ],
+              "default": "Descending",
+              "enum": [
+                "Ascending",
+                "Descending"
+              ]
+            },
+            "example": "Descending"
+          },
+          {
+            "name": "startingRow",
+            "in": "query",
+            "description": "Row number to start the results with.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "examples": [
+                1
+              ],
+              "default": 1,
+              "maximum": 10000,
+              "minimum": 1
+            },
+            "example": 1
+          },
+          {
+            "name": "adultFilter",
+            "in": "query",
+            "description": "Exclude adult keywords considered unsafe for work.",
+            "schema": {
+              "type": "boolean",
+              "examples": [
+                true
+              ],
+              "default": true
+            },
+            "example": true
+          },
+          {
+            "name": "onlyAdultKeywords",
+            "in": "query",
+            "description": "Only include adult keywords considered unsafe for work.",
+            "schema": {
+              "type": "boolean",
+              "examples": [
+                false
+              ],
+              "default": false
+            },
+            "example": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "resultCount": {
+                      "description": "Number of results returned",
+                      "type": "integer",
+                      "format": "int32",
+                      "examples": [
+                        100
+                      ],
+                      "readOnly": true
+                    },
+                    "totalMatchingResults": {
+                      "description": "The total number of results available that matches the query including\r\nitems that might not be included in the returned results/page.",
+                      "type": "integer",
+                      "format": "int64",
+                      "readOnly": true
+                    },
+                    "results": {
+                      "type": [
+                        "array",
+                        "null"
+                      ],
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "keyword": {
+                            "description": "By looking at strong competitors in this niche and their most trusted keywords over time, we suggest similar keywords here that we found to be profitable for your competition.",
+                            "type": [
+                              "string",
+                              "null"
+                            ],
+                            "examples": [
+                              "red shoes"
+                            ]
+                          },
+                          "searchVolume": {
+                            "description": "This is the estimated number of times this past month that people have searched this keyword. The numbers reflect searches done in the US on Google.com (or in the UK on Google.co.uk if you are looking at UK data). We blend data from multiple sources to give a truer snapshot of activity on this keyword.",
+                            "type": [
+                              "integer",
+                              "null"
+                            ],
+                            "format": "int64",
+                            "examples": [
+                              266000
+                            ]
+                          },
+                          "liveSearchVolume": {
+                            "description": "This metric displays a more likely SV based on recent trends or out-of-date estimates. The original volume remains unchanged in any domain's rolled-up metrics.",
+                            "type": [
+                              "integer",
+                              "null"
+                            ],
+                            "format": "int64",
+                            "examples": [
+                              82000
+                            ]
+                          },
+                          "rankingDifficulty": {
+                            "description": "We've calculated how difficult it would be to rank on this keyword. The score is based on a scale of 0-100 (with 100 being the most difficult to rank for). Compare this number to other keywords you're targeting to get an idea of how to prioritize your SEO campaign.",
+                            "type": [
+                              "integer",
+                              "null"
+                            ],
+                            "format": "int32",
+                            "examples": [
+                              98
+                            ]
+                          },
+                          "totalMonthlyClicks": {
+                            "description": "This is the total number of all clicks (organic and paid) made on the SERP over the past month.",
+                            "type": [
+                              "integer",
+                              "null"
+                            ],
+                            "format": "int64",
+                            "examples": [
+                              219000
+                            ]
+                          },
+                          "percentMobileSearches": {
+                            "description": "When we have a breakdown of how many of the searches for this keyword come from mobile vs desktop, we will show it here.",
+                            "type": [
+                              "number",
+                              "null"
+                            ],
+                            "format": "double",
+                            "examples": [
+                              0.52009505
+                            ]
+                          },
+                          "percentDesktopSearches": {
+                            "description": "When we have a breakdown of how many of the searches for this keyword come from desktop vs mobile, we will show it here.",
+                            "type": [
+                              "number",
+                              "null"
+                            ],
+                            "format": "double",
+                            "examples": [
+                              0.47990492
+                            ]
+                          },
+                          "percentSearchesNotClicked": {
+                            "description": "Some SERPs return enough information that the user does not have to click any results. There might also be unexpected results that cause the user to abandon the SERP without any clicks. This is the rate that searchers leave the page without clicking any result.",
+                            "type": [
+                              "number",
+                              "null"
+                            ],
+                            "format": "double",
+                            "examples": [
+                              0.1792681
+                            ]
+                          },
+                          "percentPaidClicks": {
+                            "description": "Of all clicks made to this keyword's SERP, this percentage measures how many went to the paid ads.",
+                            "type": [
+                              "number",
+                              "null"
+                            ],
+                            "format": "double",
+                            "examples": [
+                              0.52188635
+                            ]
+                          },
+                          "percentOrganicClicks": {
+                            "description": "Of all clicks made to this keyword's SERP, this percentage measures how many went to organic results.",
+                            "type": [
+                              "number",
+                              "null"
+                            ],
+                            "format": "double",
+                            "examples": [
+                              0.47811362
+                            ]
+                          },
+                          "broadCostPerClick": {
+                            "description": "This is the average amount an advertiser pays Google anytime someone clicks their ad on this keyword. These costs fluctuate depending on many factors, so keep that in mind when you are estimating larger budgets.\r\n<p>These costs can vary depending on how specific (exact match vs. phrase match vs. broad match) the search is.</p>",
+                            "type": [
+                              "number",
+                              "null"
+                            ],
+                            "format": "double",
+                            "examples": [
+                              0.73
+                            ]
+                          },
+                          "phraseCostPerClick": {
+                            "description": "This is the average amount an advertiser pays Google anytime someone clicks their ad on this keyword. These costs fluctuate depending on many factors, so keep that in mind when you are estimating larger budgets.\r\n<p>These costs can vary depending on how specific (exact match vs. phrase match vs. broad match) the search is.</p>",
+                            "type": [
+                              "number",
+                              "null"
+                            ],
+                            "format": "double",
+                            "examples": [
+                              0.67
+                            ]
+                          },
+                          "exactCostPerClick": {
+                            "description": "This is the average amount an advertiser pays Google anytime someone clicks their ad on this keyword. These costs fluctuate depending on many factors, so keep that in mind when you are estimating larger budgets.\r\n<p>These costs can vary depending on how specific (exact match vs. phrase match vs. broad match) the search is.</p>",
+                            "type": [
+                              "number",
+                              "null"
+                            ],
+                            "format": "double",
+                            "examples": [
+                              0.65
+                            ]
+                          },
+                          "broadMonthlyClicks": {
+                            "description": "Estimated monthly clicks for broad match advertising on this keyword, calculated from search volume and expected click-through rates.",
+                            "type": [
+                              "number",
+                              "null"
+                            ],
+                            "format": "float",
+                            "examples": [
+                              57019.8
+                            ]
+                          },
+                          "phraseMonthlyClicks": {
+                            "description": "Estimated monthly clicks for phrase match advertising on this keyword, calculated from search volume and expected click-through rates.",
+                            "type": [
+                              "number",
+                              "null"
+                            ],
+                            "format": "float",
+                            "examples": [
+                              42150.3
+                            ]
+                          },
+                          "exactMonthlyClicks": {
+                            "description": "Estimated monthly clicks for exact match advertising on this keyword, calculated from search volume and expected click-through rates.",
+                            "type": [
+                              "number",
+                              "null"
+                            ],
+                            "format": "float",
+                            "examples": [
+                              29094.6
+                            ]
+                          },
+                          "broadMonthlyCost": {
+                            "description": "Our estimate of what an advertiser would spend, on average, to advertise on this keyword each month.\r\n<p>These costs can vary depending on how specific (exact match vs. phrase match vs. broad match) the search is.</p>",
+                            "type": [
+                              "number",
+                              "null"
+                            ],
+                            "format": "double",
+                            "examples": [
+                              41604.9
+                            ]
+                          },
+                          "phraseMonthlyCost": {
+                            "description": "Our estimate of what an advertiser would spend, on average, to advertise on this keyword each month.\r\n<p>These costs can vary depending on how specific (exact match vs. phrase match vs. broad match) the search is.</p>",
+                            "type": [
+                              "number",
+                              "null"
+                            ],
+                            "format": "double",
+                            "examples": [
+                              25542
+                            ]
+                          },
+                          "exactMonthlyCost": {
+                            "description": "Our estimate of what an advertiser would spend, on average, to advertise on this keyword each month.\r\n<p>These costs can vary depending on how specific (exact match vs. phrase match vs. broad match) the search is.</p>",
+                            "type": [
+                              "number",
+                              "null"
+                            ],
+                            "format": "double",
+                            "examples": [
+                              19041.6
+                            ]
+                          },
+                          "paidCompetitors": {
+                            "description": "This is the total number of advertisers we've seen over the last 14 months for this keyword. It's helpful to know how competitive the field is and how many advertisers have tested this keyword over time.",
+                            "type": [
+                              "integer",
+                              "null"
+                            ],
+                            "format": "int32",
+                            "examples": [
+                              15
+                            ]
+                          },
+                          "distinctCompetitors": {
+                            "description": "This is the list of distinct advertisers we've seen over the last 14 months for this keyword.",
+                            "type": [
+                              "array",
+                              "null"
+                            ],
+                            "items": {
+                              "type": "string"
+                            }
+                          },
+                          "rankingHomepages": {
+                            "description": "We roll up the number of home pages that rank within the first 50 results for this keyword. (It doesn't count ads, only organic results.) A homepage might be \"https://webmd.com\" vs a longer path like \"https://www.webmd.com/fitness-exercise\".",
+                            "type": [
+                              "integer",
+                              "null"
+                            ],
+                            "format": "int32",
+                            "examples": [
+                              8
+                            ]
+                          },
+                          "serpFeaturesCsv": {
+                            "description": "Comma-separated list of SERP features present for this keyword (e.g., Images, Videos, Maps, Shopping), indicating competition for organic real estate.",
+                            "type": [
+                              "string",
+                              "null"
+                            ],
+                            "examples": [
+                              "Images,Maps"
+                            ]
+                          },
+                          "serpFirstResult": {
+                            "description": "Domain name of the top-ranking organic result for this keyword, useful for identifying category leaders.",
+                            "type": [
+                              "string",
+                              "null"
+                            ],
+                            "examples": [
+                              "example.com"
+                            ]
+                          },
+                          "isQuestion": {
+                            "description": "Indicates whether this keyword is phrased as a question (who, what, when, where, why, how).",
+                            "type": "boolean",
+                            "examples": [
+                              false
+                            ]
+                          },
+                          "isNotSafeForWork": {
+                            "description": "Indicates whether this keyword is flagged as containing adult or inappropriate content.",
+                            "type": "boolean",
+                            "examples": [
+                              false
+                            ]
+                          }
+                        },
+                        "additionalProperties": false
+                      },
+                      "readOnly": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "User failed authorization"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "tags": [
+          "Keyword Research API"
+        ]
+      }
+    },
     "/v2/related/getRelatedKeywords": {
       "get": {
         "operationId": "RelatedKeywordsV2Api_GetRelatedKeywords_GET",
