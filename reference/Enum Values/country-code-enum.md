@@ -36,9 +36,11 @@ SpyFu continuously adds new country support based on demand.   Here are the coun
 | NL           | Netherlands    | google.nl     |
 | NO           | Norway         | google.no     |
 | NZ           | New Zealand    | google.co.nz  |
+| PL           | Poland         | google.pl     |
 | PT           | Portugal       | google.pt     |
 | SE           | Sweden         | google.se     |
 | SG           | Singapore      | google.com.sg |
+| TR           | Turkey         | google.com.tr |
 | UA           | Ukraine        | google.com.ua |
 | UK           | United Kingdom | google.co.uk  |
 | US           | United States  | google.com    |
