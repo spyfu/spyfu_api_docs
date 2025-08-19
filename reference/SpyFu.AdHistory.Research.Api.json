@@ -5,6 +5,11 @@
     "version": "v2",
     "description": "Access the world's most comprehensive advertising intelligence database with 18 years of historical ad data spanning tens of billions of ads across millions of advertisers. SpyFu's Ad History API provides complete campaign timelines from 2007 to present, covering 99.93% of advertisers who have ever run Google Ads campaigns.\n\nUnlike competitors who offer limited historical snapshots, SpyFu captures every ad variation, A/B test, and optimization iteration. See how competitors evolved their ad copy over time to maximize conversions, learn from early mistakes they made and later removed, and gain unmatched competitive intelligence that goes back nearly two decades.\n\nWith data updated every 15 seconds across 28 countries and processing 40,000 search results per second, SpyFu maintains 20x more paid keyword data than SEMRush or Ahrefs. The closest competitor offers only 5 years of history with 1/20th the data volume.\n\nThis API complements SpyFu's other research APIs by focusing specifically on ad creative and copy history, while the Competitors API handles ranking relationships and the Keyword Research API covers search volume and competition data.\n\nFor complete documentation and interactive examples, visit the [SpyFu Developer Portal](https://www.spyfu.com/apis)."
   },
+  "servers": [
+    {
+      "url": "https://api.spyfu.com/apis/cloud_ad_history_api"
+    }
+  ],
   "paths": {
     "/v2/domain/getDomainAdHistory": {
       "get": {
@@ -63,9 +68,11 @@
                 "NL",
                 "NO",
                 "NZ",
+                "PL",
                 "PT",
                 "SE",
                 "SG",
+                "TR",
                 "UA",
                 "UK",
                 "US",
@@ -305,9 +312,11 @@
                 "NL",
                 "NO",
                 "NZ",
+                "PL",
                 "PT",
                 "SE",
                 "SG",
+                "TR",
                 "UA",
                 "UK",
                 "US",
@@ -522,9 +531,11 @@
                 "NL",
                 "NO",
                 "NZ",
+                "PL",
                 "PT",
                 "SE",
                 "SG",
+                "TR",
                 "UA",
                 "UK",
                 "US",
