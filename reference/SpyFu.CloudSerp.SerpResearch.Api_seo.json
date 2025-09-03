@@ -749,6 +749,14 @@
               "default": false
             },
             "example": false
+          },
+          {
+            "name": "exactMatch",
+            "in": "query",
+            "description": "Indicates whether to apply exact match filtering for the query.\r\nThis parameter will result in **only** exact matches,\r\nmeaning protocols (http/https) and trailing slashes **must** be included.\r\nFor example, a query of \"https://example.com/blog\" will not match\r\n- \"example.com/blog\"\r\n- \"https://example.com/blog/\"",
+            "schema": {
+              "type": "boolean"
+            }
           }
         ],
         "responses": {
@@ -1838,6 +1846,14 @@
               "default": false
             },
             "example": false
+          },
+          {
+            "name": "exactMatch",
+            "in": "query",
+            "description": "Indicates whether to apply exact match filtering for the query.\r\nThis parameter will result in **only** exact matches,\r\nmeaning protocols (http/https) and trailing slashes **must** be included.\r\nFor example, a query of \"https://example.com/blog\" will not match\r\n- \"example.com/blog\"\r\n- \"https://example.com/blog/\"",
+            "schema": {
+              "type": "boolean"
+            }
           }
         ],
         "responses": {
@@ -2927,6 +2943,14 @@
               "default": false
             },
             "example": false
+          },
+          {
+            "name": "exactMatch",
+            "in": "query",
+            "description": "Indicates whether to apply exact match filtering for the query.\r\nThis parameter will result in **only** exact matches,\r\nmeaning protocols (http/https) and trailing slashes **must** be included.\r\nFor example, a query of \"https://example.com/blog\" will not match\r\n- \"example.com/blog\"\r\n- \"https://example.com/blog/\"",
+            "schema": {
+              "type": "boolean"
+            }
           }
         ],
         "responses": {
@@ -4045,6 +4069,14 @@
               "default": false
             },
             "example": false
+          },
+          {
+            "name": "exactMatch",
+            "in": "query",
+            "description": "Indicates whether to apply exact match filtering for the query.\r\nThis parameter will result in **only** exact matches,\r\nmeaning protocols (http/https) and trailing slashes **must** be included.\r\nFor example, a query of \"https://example.com/blog\" will not match\r\n- \"example.com/blog\"\r\n- \"https://example.com/blog/\"",
+            "schema": {
+              "type": "boolean"
+            }
           }
         ],
         "responses": {
@@ -5134,6 +5166,14 @@
               "default": false
             },
             "example": false
+          },
+          {
+            "name": "exactMatch",
+            "in": "query",
+            "description": "Indicates whether to apply exact match filtering for the query.\r\nThis parameter will result in **only** exact matches,\r\nmeaning protocols (http/https) and trailing slashes **must** be included.\r\nFor example, a query of \"https://example.com/blog\" will not match\r\n- \"example.com/blog\"\r\n- \"https://example.com/blog/\"",
+            "schema": {
+              "type": "boolean"
+            }
           }
         ],
         "responses": {
@@ -6252,6 +6292,14 @@
               "default": false
             },
             "example": false
+          },
+          {
+            "name": "exactMatch",
+            "in": "query",
+            "description": "Indicates whether to apply exact match filtering for the query.\r\nThis parameter will result in **only** exact matches,\r\nmeaning protocols (http/https) and trailing slashes **must** be included.\r\nFor example, a query of \"https://example.com/blog\" will not match\r\n- \"example.com/blog\"\r\n- \"https://example.com/blog/\"",
+            "schema": {
+              "type": "boolean"
+            }
           }
         ],
         "responses": {
@@ -7370,6 +7418,14 @@
               "default": false
             },
             "example": false
+          },
+          {
+            "name": "exactMatch",
+            "in": "query",
+            "description": "Indicates whether to apply exact match filtering for the query.\r\nThis parameter will result in **only** exact matches,\r\nmeaning protocols (http/https) and trailing slashes **must** be included.\r\nFor example, a query of \"https://example.com/blog\" will not match\r\n- \"example.com/blog\"\r\n- \"https://example.com/blog/\"",
+            "schema": {
+              "type": "boolean"
+            }
           }
         ],
         "responses": {
@@ -8488,6 +8544,14 @@
               "default": false
             },
             "example": false
+          },
+          {
+            "name": "exactMatch",
+            "in": "query",
+            "description": "Indicates whether to apply exact match filtering for the query.\r\nThis parameter will result in **only** exact matches,\r\nmeaning protocols (http/https) and trailing slashes **must** be included.\r\nFor example, a query of \"https://example.com/blog\" will not match\r\n- \"example.com/blog\"\r\n- \"https://example.com/blog/\"",
+            "schema": {
+              "type": "boolean"
+            }
           }
         ],
         "responses": {
@@ -9611,6 +9675,14 @@
               "default": false
             },
             "example": false
+          },
+          {
+            "name": "exactMatch",
+            "in": "query",
+            "description": "Indicates whether to apply exact match filtering for the query.\r\nThis parameter will result in **only** exact matches,\r\nmeaning protocols (http/https) and trailing slashes **must** be included.\r\nFor example, a query of \"https://example.com/blog\" will not match\r\n- \"example.com/blog\"\r\n- \"https://example.com/blog/\"",
+            "schema": {
+              "type": "boolean"
+            }
           }
         ],
         "responses": {
@@ -10723,6 +10795,14 @@
               "default": false
             },
             "example": false
+          },
+          {
+            "name": "exactMatch",
+            "in": "query",
+            "description": "Indicates whether to apply exact match filtering for the query.\r\nThis parameter will result in **only** exact matches,\r\nmeaning protocols (http/https) and trailing slashes **must** be included.\r\nFor example, a query of \"https://example.com/blog\" will not match\r\n- \"example.com/blog\"\r\n- \"https://example.com/blog/\"",
+            "schema": {
+              "type": "boolean"
+            }
           }
         ],
         "responses": {
@@ -11813,6 +11893,14 @@
               "default": false
             },
             "example": false
+          },
+          {
+            "name": "exactMatch",
+            "in": "query",
+            "description": "Indicates whether to apply exact match filtering for the query.\r\nThis parameter will result in **only** exact matches,\r\nmeaning protocols (http/https) and trailing slashes **must** be included.\r\nFor example, a query of \"https://example.com/blog\" will not match\r\n- \"example.com/blog\"\r\n- \"https://example.com/blog/\"",
+            "schema": {
+              "type": "boolean"
+            }
           }
         ],
         "responses": {
@@ -12903,6 +12991,14 @@
               "default": false
             },
             "example": false
+          },
+          {
+            "name": "exactMatch",
+            "in": "query",
+            "description": "Indicates whether to apply exact match filtering for the query.\r\nThis parameter will result in **only** exact matches,\r\nmeaning protocols (http/https) and trailing slashes **must** be included.\r\nFor example, a query of \"https://example.com/blog\" will not match\r\n- \"example.com/blog\"\r\n- \"https://example.com/blog/\"",
+            "schema": {
+              "type": "boolean"
+            }
           }
         ],
         "responses": {
