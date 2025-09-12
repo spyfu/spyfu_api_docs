@@ -106,6 +106,7 @@
           {
             "name": "startRank.min",
             "in": "query",
+            "description": "Filter by the starting rank of the keyword on the domain for the date range.",
             "schema": {
               "type": "number",
               "format": "float"
@@ -114,6 +115,7 @@
           {
             "name": "startRank.max",
             "in": "query",
+            "description": "Filter by the starting rank of the keyword on the domain for the date range.",
             "schema": {
               "type": "number",
               "format": "float"
@@ -122,6 +124,7 @@
           {
             "name": "endRank.min",
             "in": "query",
+            "description": "Filter by the ending rank of the keyword on the domain for the date range.",
             "schema": {
               "type": "number",
               "format": "float"
@@ -130,6 +133,7 @@
           {
             "name": "endRank.max",
             "in": "query",
+            "description": "Filter by the ending rank of the keyword on the domain for the date range.",
             "schema": {
               "type": "number",
               "format": "float"
@@ -138,6 +142,7 @@
           {
             "name": "endRankChange.min",
             "in": "query",
+            "description": "Filter by the change in rank for the date range.",
             "schema": {
               "type": "number",
               "format": "float"
@@ -146,6 +151,7 @@
           {
             "name": "endRankChange.max",
             "in": "query",
+            "description": "Filter by the change in rank for the date range.",
             "schema": {
               "type": "number",
               "format": "float"
@@ -154,6 +160,7 @@
           {
             "name": "seoClicks.min",
             "in": "query",
+            "description": "Filter by the number of organic clicks for this keyword.",
             "schema": {
               "type": "number",
               "format": "float"
@@ -162,6 +169,7 @@
           {
             "name": "seoClicks.max",
             "in": "query",
+            "description": "Filter by the number of organic clicks for this keyword.",
             "schema": {
               "type": "number",
               "format": "float"
@@ -170,6 +178,7 @@
           {
             "name": "seoClicksChange.min",
             "in": "query",
+            "description": "Filter by the change in organic clicks for this keyword.",
             "schema": {
               "type": "number",
               "format": "float"
@@ -178,6 +187,7 @@
           {
             "name": "seoClicksChange.max",
             "in": "query",
+            "description": "Filter by the change in organic clicks for this keyword.",
             "schema": {
               "type": "number",
               "format": "float"
@@ -186,6 +196,7 @@
           {
             "name": "searchVolume.min",
             "in": "query",
+            "description": "Filter by the number of searches done this past month on Google.com.",
             "schema": {
               "type": "number",
               "format": "float"
@@ -194,6 +205,7 @@
           {
             "name": "searchVolume.max",
             "in": "query",
+            "description": "Filter by the number of searches done this past month on Google.com.",
             "schema": {
               "type": "number",
               "format": "float"
