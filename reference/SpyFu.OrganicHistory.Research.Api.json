@@ -13,26 +13,26 @@
     "/v2/historic/getHistoricRankingsForDomain": {
       "get": {
         "operationId": "HistoricRanking_GetHistoricRankingsForDomain_GET",
-        "summary": "Find domains historic rankings for a date range",
-        "description": "Find domains historic rankings for a date range.",
+        "summary": "Get Domain Ranking History",
+        "description": "Returns historical organic ranking data for a domain across multiple keywords within a specified date range. Track position changes, click gains/losses, and ranking trends over time to analyze SEO performance.\n\n[Visualize this API live on SpyFu](https://www.spyfu.com/seo/ranking-history/domain?expandChart=false&searchType=MostValuable&includeAnyTerm=true&query=example.com&sidebarContext=topics) _(TODO – verify)_",
         "parameters": [
           {
             "name": "domain",
             "in": "query",
-            "description": "Domain to get ad history for.",
+            "description": "Domain to analyze ranking history for.",
             "required": true,
             "schema": {
               "type": "string",
               "examples": [
-                "domain.com"
+                "example.com"
               ]
             },
-            "example": "domain.com"
+            "example": "example.com"
           },
           {
             "name": "queryType",
             "in": "query",
-            "description": "Query type",
+            "description": "Type of ranking analysis to perform.",
             "schema": {
               "type": "string",
               "examples": [
@@ -250,7 +250,37 @@
                 "UK",
                 "US",
                 "ZA"
-              ]
+              ],
+              "x-enumDescriptions": {
+                "AR": "Argentina",
+                "AT": "Austria",
+                "AU": "Australia",
+                "BE": "Belgium",
+                "BR": "Brazil",
+                "CA": "Canada",
+                "CH": "Switzerland",
+                "DE": "Germany",
+                "DK": "Denmark",
+                "ES": "Spain",
+                "FR": "France",
+                "IE": "Ireland",
+                "IN": "India",
+                "IT": "Italy",
+                "JP": "Japan",
+                "MX": "Mexico",
+                "NL": "Netherlands",
+                "NO": "Norway",
+                "NZ": "New Zealand",
+                "PL": "Poland",
+                "PT": "Portugal",
+                "SE": "Sweden",
+                "SG": "Singapore",
+                "TR": "Turkey",
+                "UA": "Ukraine",
+                "UK": "United Kingdom",
+                "US": "United States",
+                "ZA": "South Africa"
+              }
             },
             "example": "US"
           },
@@ -316,7 +346,7 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "Successfully retrieved domain ranking history data",
             "content": {
               "application/json": {
                 "schema": {
@@ -438,13 +468,13 @@
             }
           },
           "400": {
-            "description": "Bad Request"
+            "description": "Invalid request parameters or date range"
           },
           "401": {
             "description": "User failed authorization"
           },
           "500": {
-            "description": "Internal Server Error"
+            "description": "Server error while processing ranking history data"
           }
         },
         "tags": [
@@ -455,23 +485,31 @@
     "/v2/historic/getHistoricRankingsForKeywordOnDomains": {
       "get": {
         "operationId": "HistoricRanking_GetHistoricRankingsForKeywordOnDomains_GET",
-        "summary": "Find historic rankings for a keyword on various domains for a date range",
-        "description": "Find domains historic rankings for a date range",
+        "summary": "Get Keyword Domain Rankings",
+        "description": "Returns historical organic ranking data for a specific keyword across multiple specified domains within a date range. Compare how different domains have performed for the same keyword over time.\n\n[Visualize this API live on SpyFu](https://www.spyfu.com/keyword/ranking-history?query=example%20keyword) _(TODO – verify)_",
         "parameters": [
           {
             "name": "keyword",
             "in": "query",
+            "description": "Keyword to analyze ranking history for.",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "examples": [
+                "best running shoes"
+              ]
             }
           },
           {
             "name": "domains",
             "in": "query",
+            "description": "Comma-separated list of domains to compare rankings for.",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "examples": [
+                "example.com,competitor1.com,competitor2.com"
+              ]
             }
           },
           {
@@ -539,14 +577,44 @@
                 "UK",
                 "US",
                 "ZA"
-              ]
+              ],
+              "x-enumDescriptions": {
+                "AR": "Argentina",
+                "AT": "Austria",
+                "AU": "Australia",
+                "BE": "Belgium",
+                "BR": "Brazil",
+                "CA": "Canada",
+                "CH": "Switzerland",
+                "DE": "Germany",
+                "DK": "Denmark",
+                "ES": "Spain",
+                "FR": "France",
+                "IE": "Ireland",
+                "IN": "India",
+                "IT": "Italy",
+                "JP": "Japan",
+                "MX": "Mexico",
+                "NL": "Netherlands",
+                "NO": "Norway",
+                "NZ": "New Zealand",
+                "PL": "Poland",
+                "PT": "Portugal",
+                "SE": "Sweden",
+                "SG": "Singapore",
+                "TR": "Turkey",
+                "UA": "Ukraine",
+                "UK": "United Kingdom",
+                "US": "United States",
+                "ZA": "South Africa"
+              }
             },
             "example": "US"
           }
         ],
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "Successfully retrieved keyword ranking history across specified domains",
             "content": {
               "application/json": {
                 "schema": {
@@ -602,13 +670,13 @@
             }
           },
           "400": {
-            "description": "Bad Request"
+            "description": "Invalid request parameters, keyword, or domain list"
           },
           "401": {
             "description": "User failed authorization"
           },
           "500": {
-            "description": "Internal Server Error"
+            "description": "Server error while processing ranking history data"
           }
         },
         "tags": [
@@ -619,23 +687,31 @@
     "/v2/historic/getHistoricRankingsForDomainOnKeywords": {
       "get": {
         "operationId": "HistoricRanking_GetHistoricRankingsForDomainOnKeywords_GET",
-        "summary": "Find historic rankings for a domain on various keywords for a date range",
-        "description": "Find domains historic rankings for a date range",
+        "summary": "Get Domain Keyword Rankings",
+        "description": "Returns historical organic ranking data for a specific domain across multiple specified keywords within a date range. Analyze how a domain's positions have changed over time for your target keyword list.\n\n[Visualize this API live on SpyFu](https://www.spyfu.com/seo/ranking-history/domain?expandChart=false&searchType=MostValuable&includeAnyTerm=true&query=example.com&sidebarContext=topics) _(TODO – verify)_",
         "parameters": [
           {
             "name": "domain",
             "in": "query",
+            "description": "Domain to analyze ranking history for.",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "examples": [
+                "example.com"
+              ]
             }
           },
           {
             "name": "keywords",
             "in": "query",
+            "description": "Comma-separated list of keywords to analyze rankings for.",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "examples": [
+                "best running shoes,nike shoes,athletic footwear"
+              ]
             }
           },
           {
@@ -703,14 +779,44 @@
                 "UK",
                 "US",
                 "ZA"
-              ]
+              ],
+              "x-enumDescriptions": {
+                "AR": "Argentina",
+                "AT": "Austria",
+                "AU": "Australia",
+                "BE": "Belgium",
+                "BR": "Brazil",
+                "CA": "Canada",
+                "CH": "Switzerland",
+                "DE": "Germany",
+                "DK": "Denmark",
+                "ES": "Spain",
+                "FR": "France",
+                "IE": "Ireland",
+                "IN": "India",
+                "IT": "Italy",
+                "JP": "Japan",
+                "MX": "Mexico",
+                "NL": "Netherlands",
+                "NO": "Norway",
+                "NZ": "New Zealand",
+                "PL": "Poland",
+                "PT": "Portugal",
+                "SE": "Sweden",
+                "SG": "Singapore",
+                "TR": "Turkey",
+                "UA": "Ukraine",
+                "UK": "United Kingdom",
+                "US": "United States",
+                "ZA": "South Africa"
+              }
             },
             "example": "US"
           }
         ],
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "Successfully retrieved domain ranking history for specified keywords",
             "content": {
               "application/json": {
                 "schema": {
@@ -766,13 +872,13 @@
             }
           },
           "400": {
-            "description": "Bad Request"
+            "description": "Invalid request parameters, domain, or keyword list"
           },
           "401": {
             "description": "User failed authorization"
           },
           "500": {
-            "description": "Internal Server Error"
+            "description": "Server error while processing ranking history data"
           }
         },
         "tags": [
