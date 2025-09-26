@@ -81,26 +81,35 @@
           {
             "name": "includeTerms",
             "in": "query",
-            "description": "CSV of terms that are required to be in the results.",
+            "description": "Comma-separated list of terms that must be present in the keyword.",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "examples": [
+                "hosting,domain,website"
+              ]
             }
           },
           {
             "name": "includeAnyTerm",
             "in": "query",
-            "description": "Include ANY or ALL terms.",
+            "description": "Used with includeTerms. If true: match any term (OR). If false: require all terms (AND).",
             "schema": {
               "type": "boolean",
+              "examples": [
+                false
+              ],
               "default": false
             }
           },
           {
             "name": "excludeTerms",
             "in": "query",
-            "description": "CSV of terms that are required to not be in the results.",
+            "description": "Comma-separated list of terms to exclude from results (e.g., branded or irrelevant terms).",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "examples": [
+                "free,cheap,discount"
+              ]
             }
           },
           {
@@ -160,7 +169,7 @@
           {
             "name": "seoClicks.min",
             "in": "query",
-            "description": "Filter by the number of organic clicks for this keyword.",
+            "description": "Filter to keywords where estimated monthly organic clicks (SEO clicks) to the domain/url are ≥ this value.",
             "schema": {
               "type": "number",
               "format": "float"
@@ -169,7 +178,7 @@
           {
             "name": "seoClicks.max",
             "in": "query",
-            "description": "Filter by the number of organic clicks for this keyword.",
+            "description": "Filter to keywords where estimated monthly organic clicks (SEO clicks) to the domain/url are ≤ this value.",
             "schema": {
               "type": "number",
               "format": "float"
@@ -178,7 +187,7 @@
           {
             "name": "seoClicksChange.min",
             "in": "query",
-            "description": "Filter by the change in organic clicks for this keyword.",
+            "description": "Filter to keywords where the month-over-month change in estimated organic clicks is ≥ this value. Positive values indicate click gains; negative values indicate click losses.",
             "schema": {
               "type": "number",
               "format": "float"
@@ -187,7 +196,7 @@
           {
             "name": "seoClicksChange.max",
             "in": "query",
-            "description": "Filter by the change in organic clicks for this keyword.",
+            "description": "Filter to keywords where the month-over-month change in estimated organic clicks is ≤ this value. Positive values indicate click gains; negative values indicate click losses.",
             "schema": {
               "type": "number",
               "format": "float"
@@ -196,7 +205,7 @@
           {
             "name": "searchVolume.min",
             "in": "query",
-            "description": "Filter by the number of searches done this past month on Google.com.",
+            "description": "Filter to keywords where monthly search volume (Google) is ≥ this value.",
             "schema": {
               "type": "number",
               "format": "float"
@@ -205,7 +214,7 @@
           {
             "name": "searchVolume.max",
             "in": "query",
-            "description": "Filter by the number of searches done this past month on Google.com.",
+            "description": "Filter to keywords where monthly search volume (Google) is ≤ this value.",
             "schema": {
               "type": "number",
               "format": "float"
@@ -214,7 +223,7 @@
           {
             "name": "countryCode",
             "in": "query",
-            "description": "Country to get results for.",
+            "description": "Country market to search.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).  <a href='https://developer.spyfu.com/reference/adhistoryapi_getdomainadhistory_get#/'>All Countries</a>",
             "schema": {
               "type": "string",
               "examples": [
@@ -250,37 +259,7 @@
                 "UK",
                 "US",
                 "ZA"
-              ],
-              "x-enumDescriptions": {
-                "AR": "Argentina",
-                "AT": "Austria",
-                "AU": "Australia",
-                "BE": "Belgium",
-                "BR": "Brazil",
-                "CA": "Canada",
-                "CH": "Switzerland",
-                "DE": "Germany",
-                "DK": "Denmark",
-                "ES": "Spain",
-                "FR": "France",
-                "IE": "Ireland",
-                "IN": "India",
-                "IT": "Italy",
-                "JP": "Japan",
-                "MX": "Mexico",
-                "NL": "Netherlands",
-                "NO": "Norway",
-                "NZ": "New Zealand",
-                "PL": "Poland",
-                "PT": "Portugal",
-                "SE": "Sweden",
-                "SG": "Singapore",
-                "TR": "Turkey",
-                "UA": "Ukraine",
-                "UK": "United Kingdom",
-                "US": "United States",
-                "ZA": "South Africa"
-              }
+              ]
             },
             "example": "US"
           },
@@ -541,7 +520,7 @@
           {
             "name": "countryCode",
             "in": "query",
-            "description": "Country to get results for.",
+            "description": "Country market to search.  Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.).  <a href='https://developer.spyfu.com/reference/adhistoryapi_getdomainadhistory_get#/'>All Countries</a>",
             "schema": {
               "type": "string",
               "examples": [
@@ -577,37 +556,7 @@
                 "UK",
                 "US",
                 "ZA"
-              ],
-              "x-enumDescriptions": {
-                "AR": "Argentina",
-                "AT": "Austria",
-                "AU": "Australia",
-                "BE": "Belgium",
-                "BR": "Brazil",
-                "CA": "Canada",
-                "CH": "Switzerland",
-                "DE": "Germany",
-                "DK": "Denmark",
-                "ES": "Spain",
-                "FR": "France",
-                "IE": "Ireland",
-                "IN": "India",
-                "IT": "Italy",
-                "JP": "Japan",
-                "MX": "Mexico",
-                "NL": "Netherlands",
-                "NO": "Norway",
-                "NZ": "New Zealand",
-                "PL": "Poland",
-                "PT": "Portugal",
-                "SE": "Sweden",
-                "SG": "Singapore",
-                "TR": "Turkey",
-                "UA": "Ukraine",
-                "UK": "United Kingdom",
-                "US": "United States",
-                "ZA": "South Africa"
-              }
+              ]
             },
             "example": "US"
           }
