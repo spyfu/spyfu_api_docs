@@ -1,4 +1,4 @@
 ---
-title: Ranking History API
+title: Ranking History Research API
 hidden: false
 ---
