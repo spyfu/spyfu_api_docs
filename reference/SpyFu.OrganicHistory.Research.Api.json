@@ -115,7 +115,7 @@
           {
             "name": "startRank.min",
             "in": "query",
-            "description": "Filter by the starting rank of the keyword on the domain for the date range.",
+            "description": "Filter to keywords where the domain/URL starting rank position is ≥ this value for the selected date range (1 = best/top organic result).",
             "schema": {
               "type": "number",
               "format": "float"
@@ -124,7 +124,7 @@
           {
             "name": "startRank.max",
             "in": "query",
-            "description": "Filter by the starting rank of the keyword on the domain for the date range.",
+            "description": "Filter to keywords where the domain/URL starting rank position is ≤ this value for the selected date range (1 = best/top organic result).",
             "schema": {
               "type": "number",
               "format": "float"
@@ -133,7 +133,7 @@
           {
             "name": "endRank.min",
             "in": "query",
-            "description": "Filter by the ending rank of the keyword on the domain for the date range.",
+            "description": "Filter to keywords where the domain/URL ending rank position is ≥ this value for the selected date range (1 = best/top organic result).",
             "schema": {
               "type": "number",
               "format": "float"
@@ -142,7 +142,7 @@
           {
             "name": "endRank.max",
             "in": "query",
-            "description": "Filter by the ending rank of the keyword on the domain for the date range.",
+            "description": "Filter to keywords where the domain/URL ending rank position is ≤ this value for the selected date range (1 = best/top organic result).",
             "schema": {
               "type": "number",
               "format": "float"
@@ -151,7 +151,7 @@
           {
             "name": "endRankChange.min",
             "in": "query",
-            "description": "Filter by the change in rank for the date range.",
+            "description": "Filter to keywords where the rank improved by at least this many positions between the start and end of the date range (end_rank_change ≥ value). Positive values mean moved up; negative values mean moved down.",
             "schema": {
               "type": "number",
               "format": "float"
@@ -160,7 +160,7 @@
           {
             "name": "endRankChange.max",
             "in": "query",
-            "description": "Filter by the change in rank for the date range.",
+            "description": "Filter to keywords where the rank change was at most this many positions between the start and end of the date range (end_rank_change ≤ value). Positive values mean moved up; negative values mean moved down.",
             "schema": {
               "type": "number",
               "format": "float"
