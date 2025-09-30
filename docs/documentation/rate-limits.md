@@ -35,112 +35,181 @@ Content-Type: application/json
 
 ***
 
-## Controller-Level Overview (Uniform Limits)
+## API-Level Overview (Uniform Limits)
 
-These controllers use the same limit across all listed methods.
+Some APIs have the same limit across all listed endpoints.
 
-| API                                                                                            | Requests / Sec |
-| ---------------------------------------------------------------------------------------------- | -------------- |
-| [AD History API](https://developer.spyfu.com/reference/domainstatsapi_getalldomainstats_get#/) | 10             |
-| SellableOrganicSerpApi                                                                         | 10             |
-| SellableCompetitorsApi                                                                         | 1000           |
-| SellableHistoricRankingApi                                                                     | 10             |
+| API                 | Requests / Sec |
+| ------------------- | -------------- |
+| Ad History API      | 10             |
+| SEO Research API*   | 10             |
+| Competitors API     | 1000           |
+| Ranking History API | 10             |
 
-> For all other controllers, see per‑endpoint limits below.
+*SEO Research API covers both Organic SERP and Top Pages endpoints.
 
 ***
 
 ## Endpoint-Specific Limits
 
-### SellableDomainStatsApi
+### Domain Stats API
 
 | Endpoint                   | Requests / Sec |
 | -------------------------- | -------------- |
-| GetAllDomainStats          | 1000           |
-| GetLatestDomainStats       | 1000           |
-| GetDomainStatsForExactDate | 1000           |
-| GetActiveDatesForDomain    | 1000           |
-| GetBulkDomainStats         | 333            |
-| GetMatchingDomains         | 10             |
+| getAllDomainStats          | 1000           |
+| getLatestDomainStats       | 1000           |
+| getDomainStatsForExactDate | 1000           |
+| getActiveDatesForDomain    | 1000           |
+| getBulkDomainStats         | 333            |
+| getMatchingDomains         | 10             |
 
-### SellablePaidSerpApi
+### Ad History API _(uniform: 10 r/s)_
+
+| Endpoint                  | Requests / Sec |
+| ------------------------- | -------------- |
+| getDomainAdHistory        | 10             |
+| getTermAdHistory          | 10             |
+| getTermAdHistoryWithStats | 10             |
+
+### PPC Research API
 
 | Endpoint          | Requests / Sec |
 | ----------------- | -------------- |
-| GetPaidSerps      | 12             |
-| GetMostSuccessful | 10             |
-| GetNewKeywords    | 10             |
+| getPaidSerps      | 12             |
+| getMostSuccessful | 10             |
+| getNewKeywords    | 10             |
 
-### SellableTopPagesApi
+### SEO Research API _(uniform: 10 r/s)_
 
-| Endpoint               | Requests / Sec |
-| ---------------------- | -------------- |
-| GetMostTrafficTopPages | 10             |
-| GetNewTopPages         | 10             |
-| GetTopPages            | 2              |
+| Endpoint                     | Requests / Sec |
+| ---------------------------- | -------------- |
+| getSeoKeywords               | 10             |
+| getMostValuableKeywords      | 10             |
+| getNewlyRankedKeywords       | 10             |
+| getGainedRanksKeywords       | 10             |
+| getLostRanksKeywords         | 10             |
+| getGainedClicksKeywords      | 10             |
+| getLostClicksKeywords        | 10             |
+| getJustMadeItKeywords        | 10             |
+| getJustFellOffKeywords       | 10             |
+| getSerpAnalysisKeywords      | 10             |
+| getWhereTheyOutRankYou       | 10             |
+| getWhereTheyJustSurpassedYou | 10             |
+| getLiveSeoStats              | 10             |
+| getOrganicOutrankingKeywords | 10             |
+| getMostTrafficTopPages       | 10             |
+| getNewTopPages               | 10             |
+| getTopPages                  | 2              |
 
-### SellableKombatApi
+### Competitors API _(uniform: 1000 r/s)_
+
+| Endpoint                  | Requests / Sec |
+| ------------------------- | -------------- |
+| getTopCompetitors         | 1000           |
+| getCombinedTopCompetitors | 1000           |
+
+### Kombat API
 
 | Endpoint                | Requests / Sec |
 | ----------------------- | -------------- |
-| GetCompetingPpcKeywords | 10             |
-| GetCompetingSeoKeywords | 8              |
+| getCompetingPpcKeywords | 10             |
+| getCompetingSeoKeywords | 8              |
 
-### SellableRelatedKeywordsV2Api
+### Keyword API
 
 | Endpoint                    | Requests / Sec |
 | --------------------------- | -------------- |
-| GetRelatedKeywords          | 5              |
-| GetQuestionKeywords         | 10             |
-| GetAlsoBuysAdsForKeywords   | 10             |
-| GetAlsoRanksForKeywords     | 10             |
-| GetTransactionKeywords      | 10             |
-| GetKeywordsByBulkSearch     | 100            |
-| GetKeywordsByBulkSearchPost | 10             |
-| GetKeywordExpansions        | 100            |
+| getRelatedKeywords          | 5              |
+| getQuestionKeywords         | 10             |
+| getAlsoBuysAdsForKeywords   | 10             |
+| getAlsoRanksForKeywords     | 10             |
+| getTransactionKeywords      | 10             |
+| getKeywordInformation       | 100            |
+| getKeywordsByBulkSearchPost | 10             |
+| getKeywordExpansions        | 100            |
 
-### SellableOrganicSerpApi _(uniform: 10 r/s)_
-
-| Endpoint                             | Requests / Sec |
-| ------------------------------------ | -------------- |
-| GetSeoKeywords                       | 10             |
-| GetMostValuableKeywords              | 10             |
-| GetNewlyRankedKeywords               | 10             |
-| GetGainedRanksKeywords               | 10             |
-| GetLostRanksKeywords                 | 10             |
-| GetGainedClicksKeywords              | 10             |
-| GetLostClicksKeywords                | 10             |
-| GetJustMadeItKeywords                | 10             |
-| GetJustFellOffKeywords               | 10             |
-| GetSerpAnalysisKeywords              | 10             |
-| GetKeywordsWhereTheyOutRankYou       | 10             |
-| GetKeywordsWhereTheyJustSurpassedYou | 10             |
-| GetLiveSeoStats                      | 10             |
-| GetOrganicOutrankingKeywords         | 10             |
-
-### [AD History API](https://developer.spyfu.com/reference/domainstatsapi_getalldomainstats_get#/) _(uniform: 10 r/s)_
-
-| Endpoint                  | Requests / Sec |
-| ------------------------- | -------------- |
-| GetDomainAdHistory        | 10             |
-| GetTermAdHistory          | 10             |
-| GetTermAdHistoryWithStats | 10             |
-
-### SellableHistoricRankingApi _(uniform: 10 r/s)_
+### Ranking History API _(uniform: 10 r/s)_
 
 | Endpoint                               | Requests / Sec |
 | -------------------------------------- | -------------- |
-| GetHistoricRankingsForDomain           | 10             |
-| GetHistoricRankingsForKeywordOnDomains | 10             |
-| GetHistoricRankingsForDomainOnKeywords | 10             |
+| getHistoricRankingsForDomain           | 10             |
+| getHistoricRankingsForKeywordOnDomains | 10             |
+| getHistoricRankingsForDomainOnKeywords | 10             |
 
-### SellableCompetitorsApi _(uniform: 1000 r/s)_
+***
 
-| Endpoint                  | Requests / Sec |
-| ------------------------- | -------------- |
-| GetTopPpcCompetitors      | 1000           |
-| GetTopSeoCompetitors      | 1000           |
-| GetCombinedTopCompetitors | 1000           |
+## Visual Overview
+
+```mermaid
+flowchart TD
+  subgraph DomainStats [Domain Stats API]
+    A1[getAllDomainStats 1000 r/s]
+    A2[getLatestDomainStats 1000 r/s]
+    A3[getDomainStatsForExactDate 1000 r/s]
+    A4[getActiveDatesForDomain 1000 r/s]
+    A5[getBulkDomainStats 333 r/s]
+    A6[getMatchingDomains 10 r/s]
+  end
+
+  subgraph AdHistory [Ad History API 10 r/s]
+    H1[getDomainAdHistory]
+    H2[getTermAdHistory]
+    H3[getTermAdHistoryWithStats]
+  end
+
+  subgraph PPC [PPC Research API]
+    P1[getPaidSerps 12 r/s]
+    P2[getMostSuccessful 10 r/s]
+    P3[getNewKeywords 10 r/s]
+  end
+
+  subgraph SEO [SEO Research API 10 r/s]
+    S1[getSeoKeywords]
+    S2[getMostValuableKeywords]
+    S3[getNewlyRankedKeywords]
+    S4[getGainedRanksKeywords]
+    S5[getLostRanksKeywords]
+    S6[getGainedClicksKeywords]
+    S7[getLostClicksKeywords]
+    S8[getJustMadeItKeywords]
+    S9[getJustFellOffKeywords]
+    S10[getSerpAnalysisKeywords]
+    S11[getWhereTheyOutRankYou]
+    S12[getWhereTheyJustSurpassedYou]
+    S13[getLiveSeoStats]
+    S14[getOrganicOutrankingKeywords]
+    S15[getMostTrafficTopPages]
+    S16[getNewTopPages]
+    S17[getTopPages 2 r/s]
+  end
+
+  subgraph Competitors [Competitors API 1000 r/s]
+    C1[getTopCompetitors]
+    C2[getCombinedTopCompetitors]
+  end
+
+  subgraph Kombat [Kombat API]
+    K1[getCompetingPpcKeywords 10 r/s]
+    K2[getCompetingSeoKeywords 8 r/s]
+  end
+
+  subgraph Keyword [Keyword API]
+    R1[getRelatedKeywords 5 r/s]
+    R2[getQuestionKeywords 10 r/s]
+    R3[getAlsoBuysAdsForKeywords 10 r/s]
+    R4[getAlsoRanksForKeywords 10 r/s]
+    R5[getTransactionKeywords 10 r/s]
+    R6[getKeywordInformation 100 r/s]
+    R7[getKeywordsByBulkSearchPost 10 r/s]
+    R8[getKeywordExpansions 100 r/s]
+  end
+
+  subgraph Ranking [Ranking History API 10 r/s]
+    RH1[getHistoricRankingsForDomain]
+    RH2[getHistoricRankingsForKeywordOnDomains]
+    RH3[getHistoricRankingsForDomainOnKeywords]
+  end
+```
 
 ***
 
@@ -157,6 +226,6 @@ These controllers use the same limit across all listed methods.
 
 If you need a higher limit for specific workloads, contact support with:
 
-* The controller/endpoint,
+* The API and endpoint,
 * Expected sustained RPS and burst behavior,
 * Use case and time window.
