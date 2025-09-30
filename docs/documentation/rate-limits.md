@@ -147,7 +147,7 @@ These controllers use the same limit across all listed methods.
 ## Visual Overview
 
 ```mermaid
-flowchart TD
+flowchart
   subgraph DomainStats [SellableDomainStatsApi]
     A1[GetAllDomainStats 1000 r/s]
     A2[GetLatestDomainStats 1000 r/s]
