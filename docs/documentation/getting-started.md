@@ -3,7 +3,7 @@ title: Getting Started with SpyFu
 excerpt: >-
   This page will help you get started with SpyFu. You'll be up and running in a
   jiffy!
-hidden: false
+hidden: true
 metadata:
   title: SpyFu Developer Documentation | SpyFu API
   description: >-
