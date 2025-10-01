@@ -2,6 +2,7 @@
 title: Rate Limits
 deprecated: false
 hidden: false
+icon: fad fa-0
 metadata:
   robots: index
 ---
