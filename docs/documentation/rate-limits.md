@@ -52,7 +52,7 @@ Some APIs have the same limit across all listed endpoints.
 
 ## Endpoint-Specific Limits
 
-### Domain Stats API
+### [Domain Stats API](https://developer.spyfu.com/reference/domainstatsapi_getalldomainstats_get#/)
 
 | Endpoint                   | Requests / Sec |
 | -------------------------- | -------------- |
@@ -63,7 +63,7 @@ Some APIs have the same limit across all listed endpoints.
 | getBulkDomainStats         | 333            |
 | getMatchingDomains         | 10             |
 
-### Ad History API _(uniform: 10 r/s)_
+### [Ad History API](https://developer.spyfu.com/reference/adhistoryapi_getdomainadhistory_get#/) _(uniform: 10 r/s)_
 
 | Endpoint                  | Requests / Sec |
 | ------------------------- | -------------- |
@@ -71,7 +71,7 @@ Some APIs have the same limit across all listed endpoints.
 | getTermAdHistory          | 10             |
 | getTermAdHistoryWithStats | 10             |
 
-### PPC Research API
+### [PPC Research API](https://developer.spyfu.com/reference/paidserpapi_getpaidserps_get#/)
 
 | Endpoint          | Requests / Sec |
 | ----------------- | -------------- |
@@ -79,7 +79,7 @@ Some APIs have the same limit across all listed endpoints.
 | getMostSuccessful | 10             |
 | getNewKeywords    | 10             |
 
-### SEO Research API _(uniform: 10 r/s)_
+### [SEO Research API](https://developer.spyfu.com/reference/organicserpapi_getseokeywords_get#/) _(uniform: 10 r/s)_
 
 | Endpoint                     | Requests / Sec |
 | ---------------------------- | -------------- |
@@ -101,21 +101,21 @@ Some APIs have the same limit across all listed endpoints.
 | getNewTopPages               | 10             |
 | getTopPages                  | 2              |
 
-### Competitors API _(uniform: 1000 r/s)_
+### [Competitors API](https://developer.spyfu.com/reference/competitorsapi_gettopppccompetitors_get#/) _(uniform: 1000 r/s)_
 
 | Endpoint                  | Requests / Sec |
 | ------------------------- | -------------- |
 | getTopCompetitors         | 1000           |
 | getCombinedTopCompetitors | 1000           |
 
-### Kombat API
+### [Kombat API](https://developer.spyfu.com/reference/kombatapi_getcompetingppckeywords_get#/)
 
 | Endpoint                | Requests / Sec |
 | ----------------------- | -------------- |
 | getCompetingPpcKeywords | 10             |
 | getCompetingSeoKeywords | 8              |
 
-### Keyword API
+### [Keyword Research API](https://developer.spyfu.com/reference/relatedkeywordsv2api_getrelatedkeywords_get#/)
 
 | Endpoint                    | Requests / Sec |
 | --------------------------- | -------------- |
@@ -128,7 +128,7 @@ Some APIs have the same limit across all listed endpoints.
 | getKeywordsByBulkSearchPost | 10             |
 | getKeywordExpansions        | 100            |
 
-### Ranking History API _(uniform: 10 r/s)_
+### [Ranking History API](https://developer.spyfu.com/reference/historicranking_gethistoricrankingsfordomain_get#/) _(uniform: 10 r/s)_
 
 | Endpoint                               | Requests / Sec |
 | -------------------------------------- | -------------- |
