@@ -5,6 +5,8 @@ hidden: true
 metadata:
   robots: index
 ---
+<br />
+
 # API Rate Limits
 
 To ensure fair usage and system stability, our API enforces **rate limits**. Each endpoint has a maximum number of requests allowed per second. When the limit is exceeded, requests are throttled and the API returns `429 Too Many Requests`.
@@ -54,14 +56,14 @@ Some APIs have the same limit across all listed endpoints.
 
 ### [Domain Stats API](https://developer.spyfu.com/reference/domainstatsapi_getalldomainstats_get#/)
 
-| Endpoint                                                                                                            | Requests / Sec |
-| ------------------------------------------------------------------------------------------------------------------- | -------------- |
-| [getAllDomainStats](https://developer.spyfu.com/reference/domainstatsapi_getalldomainstats_get#/)                   | 1000           |
-| [getLatestDomainStats](https://developer.spyfu.com/reference/domainstatsapi_getlatestdomainstats_get#/)             | 1000           |
-| [getDomainStatsForExactDate](https://developer.spyfu.com/reference/domainstatsapi_getdomainstatsforexactdate_get#/) | 1000           |
-| [getActiveDatesForDomain](https://developer.spyfu.com/reference/domainstatsapi_getactivedatesfordomain_get#/)       | 1000           |
-| [getBulkDomainStats](https://developer.spyfu.com/reference/domainstatsapi_getbulkdomainstats_get#/)                 | 333            |
-| [getMatchingDomains](https://developer.spyfu.com/reference/domainstatsapi_getmatchingdomains_get#/)                 | 10             |
+| Endpoint                                                                                                                                   | Requests / Sec |
+| ------------------------------------------------------------------------------------------------------------------------------------------ | -------------- |
+| [/domain\_stats\_api/v2/getAllDomainStats](https://developer.spyfu.com/reference/domainstatsapi_getalldomainstats_get#/)                   | 1000           |
+| [/domain\_stats\_api/v2/getLatestDomainStats](https://developer.spyfu.com/reference/domainstatsapi_getlatestdomainstats_get#/)             | 1000           |
+| [/domain\_stats\_api/v2/getDomainStatsForExactDate](https://developer.spyfu.com/reference/domainstatsapi_getdomainstatsforexactdate_get#/) | 1000           |
+| [/domain\_stats\_api/v2/getActiveDatesForDomain](https://developer.spyfu.com/reference/domainstatsapi_getactivedatesfordomain_get#/)       | 1000           |
+| [/domain\_stats\_api/v2/getBulkDomainStats](https://developer.spyfu.com/reference/domainstatsapi_getbulkdomainstats_get#/)                 | 333            |
+| [/domain\_stats\_api/v2/getMatchingDomains](https://developer.spyfu.com/reference/domainstatsapi_getmatchingdomains_get#/)                 | 10             |
 
 ### [Ad History API](https://developer.spyfu.com/reference/adhistoryapi_getdomainadhistory_get#/) _(uniform: 10 r/s)_
 
