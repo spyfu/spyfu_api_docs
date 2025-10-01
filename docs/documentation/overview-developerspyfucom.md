@@ -1,7 +1,7 @@
 ---
 title: Overview Developer.spyfu.com
 deprecated: false
-hidden: false
+hidden: true
 metadata:
   robots: index
 ---
