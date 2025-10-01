@@ -39,12 +39,12 @@ Content-Type: application/json
 
 Some APIs have the same limit across all listed endpoints.
 
-| API                 | Requests / Sec |
-| ------------------- | -------------- |
-| Ad History API      | 10             |
-| SEO Research API*   | 10             |
-| Competitors API     | 1000           |
-| Ranking History API | 10             |
+| API                                                                                                             | Requests / Sec |
+| --------------------------------------------------------------------------------------------------------------- | -------------- |
+| [Ad History API](https://developer.spyfu.com/reference/adhistoryapi_getdomainadhistory_get#/)                   | 10             |
+| [SEO Research API](https://developer.spyfu.com/reference/organicserpapi_getseokeywords_get#/)*                  | 10             |
+| [Competitors API](https://developer.spyfu.com/reference/competitorsapi_gettopppccompetitors_get#/)              | 1000           |
+| [Ranking History API](https://developer.spyfu.com/reference/historicranking_gethistoricrankingsfordomain_get#/) | 10             |
 
 *SEO Research API covers both Organic SERP and Top Pages endpoints.
 
@@ -54,87 +54,88 @@ Some APIs have the same limit across all listed endpoints.
 
 ### [Domain Stats API](https://developer.spyfu.com/reference/domainstatsapi_getalldomainstats_get#/)
 
-| Endpoint                   | Requests / Sec |
-| -------------------------- | -------------- |
-| getAllDomainStats          | 1000           |
-| getLatestDomainStats       | 1000           |
-| getDomainStatsForExactDate | 1000           |
-| getActiveDatesForDomain    | 1000           |
-| getBulkDomainStats         | 333            |
-| getMatchingDomains         | 10             |
+| Endpoint                                                                                                            | Requests / Sec |
+| ------------------------------------------------------------------------------------------------------------------- | -------------- |
+| [getAllDomainStats](https://developer.spyfu.com/reference/domainstatsapi_getalldomainstats_get#/)                   | 1000           |
+| [getLatestDomainStats](https://developer.spyfu.com/reference/domainstatsapi_getlatestdomainstats_get#/)             | 1000           |
+| [getDomainStatsForExactDate](https://developer.spyfu.com/reference/domainstatsapi_getdomainstatsforexactdate_get#/) | 1000           |
+| [getActiveDatesForDomain](https://developer.spyfu.com/reference/domainstatsapi_getactivedatesfordomain_get#/)       | 1000           |
+| [getBulkDomainStats](https://developer.spyfu.com/reference/domainstatsapi_getbulkdomainstats_get#/)                 | 333            |
+| [getMatchingDomains](https://developer.spyfu.com/reference/domainstatsapi_getmatchingdomains_get#/)                 | 10             |
 
 ### [Ad History API](https://developer.spyfu.com/reference/adhistoryapi_getdomainadhistory_get#/) _(uniform: 10 r/s)_
 
-| Endpoint                  | Requests / Sec |
-| ------------------------- | -------------- |
-| getDomainAdHistory        | 10             |
-| getTermAdHistory          | 10             |
-| getTermAdHistoryWithStats | 10             |
+| Endpoint                                                                                                        | Requests / Sec |
+| --------------------------------------------------------------------------------------------------------------- | -------------- |
+| [getDomainAdHistory](https://developer.spyfu.com/reference/adhistoryapi_getdomainadhistory_get#/)               | 10             |
+| [getTermAdHistory](https://developer.spyfu.com/reference/adhistoryapi_gettermadhistory_get#/)                   | 10             |
+| [getTermAdHistoryWithStats](https://developer.spyfu.com/reference/adhistoryapi_gettermadhistorywithstats_get#/) | 10             |
 
 ### [PPC Research API](https://developer.spyfu.com/reference/paidserpapi_getpaidserps_get#/)
 
-| Endpoint          | Requests / Sec |
-| ----------------- | -------------- |
-| getPaidSerps      | 12             |
-| getMostSuccessful | 10             |
-| getNewKeywords    | 10             |
+| Endpoint                                                                                       | Requests / Sec |
+| ---------------------------------------------------------------------------------------------- | -------------- |
+| [getPaidSerps](https://developer.spyfu.com/reference/paidserpapi_getpaidserps_get#/)           | 12             |
+| [getMostSuccessful](https://developer.spyfu.com/reference/paidserpapi_getmostsuccessful_get#/) | 10             |
+| [getNewKeywords](https://developer.spyfu.com/reference/paidserpapi_getnewkeywords_get#/)       | 10             |
 
 ### [SEO Research API](https://developer.spyfu.com/reference/organicserpapi_getseokeywords_get#/) _(uniform: 10 r/s)_
 
-| Endpoint                     | Requests / Sec |
-| ---------------------------- | -------------- |
-| getSeoKeywords               | 10             |
-| getMostValuableKeywords      | 10             |
-| getNewlyRankedKeywords       | 10             |
-| getGainedRanksKeywords       | 10             |
-| getLostRanksKeywords         | 10             |
-| getGainedClicksKeywords      | 10             |
-| getLostClicksKeywords        | 10             |
-| getJustMadeItKeywords        | 10             |
-| getJustFellOffKeywords       | 10             |
-| getSerpAnalysisKeywords      | 10             |
-| getWhereTheyOutRankYou       | 10             |
-| getWhereTheyJustSurpassedYou | 10             |
-| getLiveSeoStats              | 10             |
-| getOrganicOutrankingKeywords | 10             |
-| getMostTrafficTopPages       | 10             |
-| getNewTopPages               | 10             |
-| getTopPages                  | 2              |
+| Endpoint                                                                                                                        | Requests / Sec |
+| ------------------------------------------------------------------------------------------------------------------------------- | -------------- |
+| [getSeoKeywords](https://developer.spyfu.com/reference/organicserpapi_getseokeywords_get#/)                                     | 10             |
+| [getMostValuableKeywords](https://developer.spyfu.com/reference/organicserpapi_getmostvaluablekeywords_get#/)                   | 10             |
+| [getNewlyRankedKeywords](https://developer.spyfu.com/reference/organicserpapi_getnewlyrankedkeywords_get#/)                     | 10             |
+| [getGainedRanksKeywords](https://developer.spyfu.com/reference/organicserpapi_getgainedrankskeywords_get#/)                     | 10             |
+| [getLostRanksKeywords](https://developer.spyfu.com/reference/organicserpapi_getlostrankskeywords_get#/)                         | 10             |
+| [getGainedClicksKeywords](https://developer.spyfu.com/reference/organicserpapi_getgainedclickskeywords_get#/)                   | 10             |
+| [getLostClicksKeywords](https://developer.spyfu.com/reference/organicserpapi_getlostclickskeywords_get#/)                       | 10             |
+| [getJustMadeItKeywords](https://developer.spyfu.com/reference/organicserpapi_getjustmadeitkeywords_get#/)                       | 10             |
+| [getJustFellOffKeywords](https://developer.spyfu.com/reference/organicserpapi_getjustfelloffkeywords_get#/)                     | 10             |
+| [getSerpAnalysisKeywords](https://developer.spyfu.com/reference/organicserpapi_getserpanalysiskeywords_get#/)                   | 10             |
+| [getWhereTheyOutRankYou](https://developer.spyfu.com/reference/organicserpapi_getkeywordswheretheyoutrankyou_get#/)             | 10             |
+| [getWhereTheyJustSurpassedYou](https://developer.spyfu.com/reference/organicserpapi_getkeywordswheretheyjustsurpassedyou_get#/) | 10             |
+| [getLiveSeoStats](https://developer.spyfu.com/reference/organicserpapi_getliveseostats_get#/)                                   | 10             |
+| [getOrganicOutrankingKeywords](https://developer.spyfu.com/reference/organicserpapi_getorganicoutrankingkeywords_get#/)         | 10             |
+| [getMostTrafficTopPages](https://developer.spyfu.com/reference/toppagesapi_getmosttraffictoppages_get#/)                        | 10             |
+| [getNewTopPages](https://developer.spyfu.com/reference/toppagesapi_getnewtoppages_get#/)                                        | 10             |
+| [getTopPages](https://developer.spyfu.com/reference/toppagesapi_gettoppages_get#/)                                              | 2              |
 
 ### [Competitors API](https://developer.spyfu.com/reference/competitorsapi_gettopppccompetitors_get#/) _(uniform: 1000 r/s)_
 
-| Endpoint                  | Requests / Sec |
-| ------------------------- | -------------- |
-| getTopCompetitors         | 1000           |
-| getCombinedTopCompetitors | 1000           |
+| Endpoint                                                                                                                    | Requests / Sec |
+| --------------------------------------------------------------------------------------------------------------------------- | -------------- |
+| [/ppc/getTopCompetitors](https://developer.spyfu.com/reference/competitorsapi_gettopppccompetitors_get#/)                   | 1000           |
+| [/seo/getTopCompetitors](https://developer.spyfu.com/reference/competitorsapi_gettopseocompetitors_get#/)                   | 1000           |
+| [/combined/getCombinedTopCompetitors](https://developer.spyfu.com/reference/competitorsapi_getcombinedtopcompetitors_get#/) | 1000           |
 
 ### [Kombat API](https://developer.spyfu.com/reference/kombatapi_getcompetingppckeywords_get#/)
 
-| Endpoint                | Requests / Sec |
-| ----------------------- | -------------- |
-| getCompetingPpcKeywords | 10             |
-| getCompetingSeoKeywords | 8              |
+| Endpoint                                                                                                 | Requests / Sec |
+| -------------------------------------------------------------------------------------------------------- | -------------- |
+| [getCompetingPpcKeywords](https://developer.spyfu.com/reference/kombatapi_getcompetingppckeywords_get#/) | 10             |
+| [getCompetingSeoKeywords](https://developer.spyfu.com/reference/kombatapi_getcompetingseokeywords_get#/) | 8              |
 
 ### [Keyword Research API](https://developer.spyfu.com/reference/relatedkeywordsv2api_getrelatedkeywords_get#/)
 
-| Endpoint                    | Requests / Sec |
-| --------------------------- | -------------- |
-| getRelatedKeywords          | 5              |
-| getQuestionKeywords         | 10             |
-| getAlsoBuysAdsForKeywords   | 10             |
-| getAlsoRanksForKeywords     | 10             |
-| getTransactionKeywords      | 10             |
-| getKeywordInformation       | 100            |
-| getKeywordsByBulkSearchPost | 10             |
-| getKeywordExpansions        | 100            |
+| Endpoint                                                                                                                        | Requests / Sec |
+| ------------------------------------------------------------------------------------------------------------------------------- | -------------- |
+| [getRelatedKeywords](https://developer.spyfu.com/reference/relatedkeywordsv2api_getrelatedkeywords_get#/)                       | 5              |
+| [getQuestionKeywords](https://developer.spyfu.com/reference/relatedkeywordsv2api_getquestionkeywords_get#/)                     | 10             |
+| [getAlsoBuysAdsForKeywords](https://developer.spyfu.com/reference/relatedkeywordsv2api_getalsobuysadsforkeywords_get#/)         | 10             |
+| [getAlsoRanksForKeywords](https://developer.spyfu.com/reference/relatedkeywordsv2api_getalsoranksforkeywords_get#/)             | 10             |
+| [getTransactionKeywords](https://developer.spyfu.com/reference/relatedkeywordsv2api_gettransactionkeywords_get#/)               | 10             |
+| [getKeywordInformation \[GET\]](https://developer.spyfu.com/reference/relatedkeywordsv2api_getkeywordsbybulksearch_get#/)       | 100            |
+| [getKeywordInformation \[POST\]](https://developer.spyfu.com/reference/relatedkeywordsv2api_getkeywordsbybulksearchpost_post#/) | 10             |
+| [getKeywordExpansions](https://developer.spyfu.com/reference/relatedkeywordsv2api_getkeywordexpansions_get#/)                   | 100            |
 
 ### [Ranking History API](https://developer.spyfu.com/reference/historicranking_gethistoricrankingsfordomain_get#/) _(uniform: 10 r/s)_
 
-| Endpoint                               | Requests / Sec |
-| -------------------------------------- | -------------- |
-| getHistoricRankingsForDomain           | 10             |
-| getHistoricRankingsForKeywordOnDomains | 10             |
-| getHistoricRankingsForDomainOnKeywords | 10             |
+| Endpoint                                                                                                                                     | Requests / Sec |
+| -------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
+| [getHistoricRankingsForDomain](https://developer.spyfu.com/reference/historicranking_gethistoricrankingsfordomain_get#/)                     | 10             |
+| [getHistoricRankingsForKeywordOnDomains](https://developer.spyfu.com/reference/historicranking_gethistoricrankingsforkeywordondomains_get#/) | 10             |
+| [getHistoricRankingsForDomainOnKeywords](https://developer.spyfu.com/reference/historicranking_gethistoricrankingsfordomainonkeywords_get#/) | 10             |
 
 ***
 
