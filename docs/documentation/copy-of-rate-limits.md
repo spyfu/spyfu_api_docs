@@ -1,7 +1,7 @@
 ---
-title: Copy of Rate Limits
+title: API Costs
 deprecated: false
-hidden: false
+hidden: true
 metadata:
   robots: index
 ---
