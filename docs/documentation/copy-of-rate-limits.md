@@ -5,7 +5,7 @@ hidden: true
 metadata:
   robots: index
 ---
-# API Rate Limits
+# API Endpoint Costs
 
 To ensure fair usage and system stability, our API enforces **rate limits**. Each endpoint has a maximum number of requests allowed per second. When the limit is exceeded, requests are throttled and the API returns `429 Too Many Requests`.
 
@@ -41,7 +41,7 @@ Some APIs have the same limit across all listed endpoints.
 
 | API                                                                                                             | Requests / Sec |
 | --------------------------------------------------------------------------------------------------------------- | -------------- |
-| [Ad History API](https://developer.spyfu.com/reference/adhistoryapi_getdomainadhistory_get#/)                        | 10             |
+| [Ad History API](https://developer.spyfu.com/reference/adhistoryapi_getdomainadhistory_get#/)                   | 10             |
 | [SEO Research API](https://developer.spyfu.com/reference/organicserpapi_getseokeywords_get#/)*                  | 10             |
 | [Competitors API](https://developer.spyfu.com/reference/competitorsapi_gettopppccompetitors_get#/)              | 1000           |
 | [Ranking History API](https://developer.spyfu.com/reference/historicranking_gethistoricrankingsfordomain_get#/) | 10             |
