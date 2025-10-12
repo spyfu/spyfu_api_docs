@@ -7,9 +7,9 @@ metadata:
 ---
 # API Endpoint Pricing
 
-Access to the API is included with your **SpyFu Pro + AI and Team/Agency** subscription plan. The **Pro + AI** subscription includes a **$40 monthly API credit** and the **Team/Agency**subscription includes a **$100 monthly API credit**. 
+Access to the API is included with your **SpyFu Pro + AI and Team/Agency** subscription plan. The **Pro + AI** subscription includes a **$40 monthly API credit** and the **Team/Agency**subscription includes a **$100 monthly API credit**.
 
-<strong><u>Important:</u></strong> 
+<b><u><i>IMPORTANT:</i></u></b> 
 
 ***
 
