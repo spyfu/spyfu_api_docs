@@ -26,17 +26,16 @@ Access to the API is included with your **SpyFu Pro + AI and Team/Agency** subsc
 
 ### [Domain Stats API](https://developer.spyfu.com/reference/domainstatsapi_getalldomainstats_get#/)
 
-| Endpoint                                                                                                                                 | Rows Returned       | CPM         |
-| ---------------------------------------------------------------------------------------------------------------------------------------- | :------------------ | ----------- |
-| :--------------------------------------------------------------------------------                                                        | :-----------------: | :---------: |
-| [/domain_stats_api/v2/getAllDomainStats](https://developer.spyfu.com/reference/domainstatsapi_getalldomainstats_get#/)                   |                     | 1000        |
-| [/domain_stats_api/v2/getLatestDomainStats](https://developer.spyfu.com/reference/domainstatsapi_getlatestdomainstats_get#/)             |                     | 1000        |
-| [/domain_stats_api/v2/getDomainStatsForExactDate](https://developer.spyfu.com/reference/domainstatsapi_getdomainstatsforexactdate_get#/) |                     | 1000        |
-| [/domain_stats_api/v2/getActiveDatesForDomain](https://developer.spyfu.com/reference/domainstatsapi_getactivedatesfordomain_get#/)       |                     | 1000        |
-| [/domain_stats_api/v2/getBulkDomainStats](https://developer.spyfu.com/reference/domainstatsapi_getbulkdomainstats_get#/)                 |                     | 333         |
-| [/domain_stats_api/v2/getMatchingDomains](https://developer.spyfu.com/reference/domainstatsapi_getmatchingdomains_get#/)                 |                     |             |
+| Endpoint                                                                                                                                 | Rows Returned | CPM  |
+| ---------------------------------------------------------------------------------------------------------------------------------------- | :------------ | ---- |
+| [/domain_stats_api/v2/getAllDomainStats](https://developer.spyfu.com/reference/domainstatsapi_getalldomainstats_get#/)                   |               | 1000 |
+| [/domain_stats_api/v2/getLatestDomainStats](https://developer.spyfu.com/reference/domainstatsapi_getlatestdomainstats_get#/)             |               | 1000 |
+| [/domain_stats_api/v2/getDomainStatsForExactDate](https://developer.spyfu.com/reference/domainstatsapi_getdomainstatsforexactdate_get#/) |               | 1000 |
+| [/domain_stats_api/v2/getActiveDatesForDomain](https://developer.spyfu.com/reference/domainstatsapi_getactivedatesfordomain_get#/)       |               | 1000 |
+| [/domain_stats_api/v2/getBulkDomainStats](https://developer.spyfu.com/reference/domainstatsapi_getbulkdomainstats_get#/)                 |               | 333  |
+| [/domain_stats_api/v2/getMatchingDomains](https://developer.spyfu.com/reference/domainstatsapi_getmatchingdomains_get#/)                 |               |      |
 
-### [Ad History API](https://developer.spyfu.com/reference/adhistoryapi_getdomainadhistory_get#/) 
+### [Ad History API](https://developer.spyfu.com/reference/adhistoryapi_getdomainadhistory_get#/)
 
 | Endpoint                                                                                                                                      | Requests / Sec |
 | --------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
