@@ -1,13 +1,15 @@
 ---
-title: API Costs
+title: SpyFu API Pricing
 deprecated: false
 hidden: true
 metadata:
   robots: index
 ---
-# API Endpoint Costs
+# API Endpoint Pricing
 
-To ensure fair usage and system stability, our API enforces **rate limits**. Each endpoint has a maximum number of requests allowed per second. When the limit is exceeded, requests are throttled and the API returns `429 Too Many Requests`.
+Access to the API is included with your **SpyFu Pro + AI and Team/Agency** subscription plan. The **Pro + AI** subscription includes a **$40 monthly API credit** and the **Team/Agency**subscription includes a **$100 monthly API credit**. 
+
+<strong><u>Important:</u></strong> 
 
 ***
 
