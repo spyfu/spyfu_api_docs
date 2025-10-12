@@ -9,63 +9,34 @@ metadata:
 
 Access to the API is included with your **SpyFu Pro + AI and Team/Agency** subscription plan. The **Pro + AI** subscription includes a **$40 monthly API credit** and the **Team/Agency**subscription includes a **$100 monthly API credit**.
 
-<b><u><i>IMPORTANT:</i></u></b> API charges are based on the number of rows returned per request submitted to an API endpoint. Each API endpoint is priced individually based on the computational cost to return a row of data. Some endpoints have a higher cost than others and many of the endpoints return more than 1 result row per request. Please see the **API Endpoints Pricing Guide** below for the specific CPM (cost per thousand) result rows returned.  
+<b><u><i>IMPORTANT:</i></u></b> API charges are based on the number of rows returned per request submitted to an API endpoint. Each API endpoint is priced individually based on the computational cost to return a row of data. Some endpoints have a higher cost than others and many of the endpoints return more than 1 result row per request. Please see the **API Endpoints Pricing Guide** below for the specific **CPM** (cost per thousand) result rows returned.
 
 ***
 
-## How Rate Limits Work
+## How API Pricing Works
 
 * **Per‑endpoint limits**: Each API method has its own requests‑per‑second (RPS) allowance.
 * **Window**: Limits apply over a rolling **1‑second** window.
 * **Retry**: If you exceed the limit, wait **1 second** before retrying (see `Retry‑After` header).
 * **Why different limits?** Heavier endpoints allow fewer requests per second based on relative compute cost.
 
-**Example 429 response**
-
-```http
-HTTP/1.1 429 Too Many Requests
-Retry-After: 1
-Content-Type: application/json
-```
-
-```json
-{
-  "error": "rate_limited",
-  "message": "Too many requests. Please retry after 1 second."
-}
-```
-
 ***
 
-## API Endpoints Pricing Guide
-
-Some APIs have the same limit across all listed endpoints.
-
-| API                                                                                                             | Requests / Sec |
-| --------------------------------------------------------------------------------------------------------------- | -------------- |
-| [Ad History API](https://developer.spyfu.com/reference/adhistoryapi_getdomainadhistory_get#/)                   | 10             |
-| [SEO Research API](https://developer.spyfu.com/reference/organicserpapi_getseokeywords_get#/)*                  | 10             |
-| [Competitors API](https://developer.spyfu.com/reference/competitorsapi_gettopppccompetitors_get#/)              | 1000           |
-| [Ranking History API](https://developer.spyfu.com/reference/historicranking_gethistoricrankingsfordomain_get#/) | 10             |
-
-*SEO Research API covers both Organic SERP and Top Pages endpoints.
-
-***
-
-## Endpoint-Specific Limits
+## SpyFu API Endpoints Pricing Guide
 
 ### [Domain Stats API](https://developer.spyfu.com/reference/domainstatsapi_getalldomainstats_get#/)
 
-| Endpoint                                                                                                                                 | Requests / Sec |
-| ---------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
-| [/domain_stats_api/v2/getAllDomainStats](https://developer.spyfu.com/reference/domainstatsapi_getalldomainstats_get#/)                   | 1000           |
-| [/domain_stats_api/v2/getLatestDomainStats](https://developer.spyfu.com/reference/domainstatsapi_getlatestdomainstats_get#/)             | 1000           |
-| [/domain_stats_api/v2/getDomainStatsForExactDate](https://developer.spyfu.com/reference/domainstatsapi_getdomainstatsforexactdate_get#/) | 1000           |
-| [/domain_stats_api/v2/getActiveDatesForDomain](https://developer.spyfu.com/reference/domainstatsapi_getactivedatesfordomain_get#/)       | 1000           |
-| [/domain_stats_api/v2/getBulkDomainStats](https://developer.spyfu.com/reference/domainstatsapi_getbulkdomainstats_get#/)                 | 333            |
-| [/domain_stats_api/v2/getMatchingDomains](https://developer.spyfu.com/reference/domainstatsapi_getmatchingdomains_get#/)                 | 10             |
+| Endpoint                                                                                                                                 | Rows Returned       | CPM         |
+| ---------------------------------------------------------------------------------------------------------------------------------------- | :------------------ | ----------- |
+| :--------------------------------------------------------------------------------                                                        | :-----------------: | :---------: |
+| [/domain_stats_api/v2/getAllDomainStats](https://developer.spyfu.com/reference/domainstatsapi_getalldomainstats_get#/)                   |                     | 1000        |
+| [/domain_stats_api/v2/getLatestDomainStats](https://developer.spyfu.com/reference/domainstatsapi_getlatestdomainstats_get#/)             |                     | 1000        |
+| [/domain_stats_api/v2/getDomainStatsForExactDate](https://developer.spyfu.com/reference/domainstatsapi_getdomainstatsforexactdate_get#/) |                     | 1000        |
+| [/domain_stats_api/v2/getActiveDatesForDomain](https://developer.spyfu.com/reference/domainstatsapi_getactivedatesfordomain_get#/)       |                     | 1000        |
+| [/domain_stats_api/v2/getBulkDomainStats](https://developer.spyfu.com/reference/domainstatsapi_getbulkdomainstats_get#/)                 |                     | 333         |
+| [/domain_stats_api/v2/getMatchingDomains](https://developer.spyfu.com/reference/domainstatsapi_getmatchingdomains_get#/)                 |                     |             |
 
-### [Ad History API](https://developer.spyfu.com/reference/adhistoryapi_getdomainadhistory_get#/) _(uniform: 10 r/s)_
+### [Ad History API](https://developer.spyfu.com/reference/adhistoryapi_getdomainadhistory_get#/) 
 
 | Endpoint                                                                                                                                      | Requests / Sec |
 | --------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
