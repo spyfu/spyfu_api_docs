@@ -7,9 +7,9 @@ metadata:
 ---
 # API Endpoint Pricing
 
-Access to the API is included with your **SpyFu Pro + AI and Team/Agency** subscription plan. The **Pro + AI** subscription includes a **$40 monthly API credit** and the **Team/Agency**subscription includes a **$100 monthly API credit**. The SpyFu API operates on a Pay-as-you-Go pricing model. 
+Access to the API is included with your **SpyFu Pro + AI and Team/Agency** subscription plan. The **Pro + AI** subscription includes a **$40 monthly API credit** and the **Team/Agency**subscription includes a **$100 monthly API credit**. The SpyFu API operates on a Pay-as-you-Go pricing model.
 
-<b><u><i>IMPORTANT:</i></u></b> API charges are based on the number of rows returned per request submitted to an API endpoint. Each API endpoint is priced individually based on the computational cost to return a row of data. Many of the endpoints return more than 1 result row per request. Please see the **API Endpoints Pricing Guide** below for the specific **CPM** (cost per thousand) result rows returned.
+<b><u><i>IMPORTANT:</i></u></b> API charges are based on the number of rows returned per request submitted to an API endpoint. Each API endpoint is priced individually based on the computational cost to return a row of data. Many of the endpoints return more than 1 result row per request. Please see the **API Endpoints Pricing Guide** below for the specific **CPM** (cost per thousand) of each returned row.
 
 ***
 
@@ -24,16 +24,18 @@ Access to the API is included with your **SpyFu Pro + AI and Team/Agency** subsc
 
 ## SpyFu API Endpoints Pricing Guide
 
+**Single/Multiple* ** - Denotes the endpoint can return single or multiple rows, and by default will return multiple rows.
+
 ### [Domain Stats API](https://developer.spyfu.com/reference/domainstatsapi_getalldomainstats_get#/)
 
-| Endpoint                                                                                                                                 | Rows Returned   | CPM   |
-| ---------------------------------------------------------------------------------------------------------------------------------------- | :-------------- | ----- |
-| [/domain_stats_api/v2/getAllDomainStats](https://developer.spyfu.com/reference/domainstatsapi_getalldomainstats_get#/)                   | Multiple        | $0.50 |
-| [/domain_stats_api/v2/getLatestDomainStats](https://developer.spyfu.com/reference/domainstatsapi_getlatestdomainstats_get#/)             | Single/Multiple | $0.50 |
-| [/domain_stats_api/v2/getDomainStatsForExactDate](https://developer.spyfu.com/reference/domainstatsapi_getdomainstatsforexactdate_get#/) | Single          | $0.50 |
-| [/domain_stats_api/v2/getActiveDatesForDomain](https://developer.spyfu.com/reference/domainstatsapi_getactivedatesfordomain_get#/)       | Multiple        | $0.50 |
-| [/domain_stats_api/v2/getBulkDomainStats](https://developer.spyfu.com/reference/domainstatsapi_getbulkdomainstats_get#/)                 | Single/Multiple | $0.40 |
-| [/domain_stats_api/v2/getMatchingDomains](https://developer.spyfu.com/reference/domainstatsapi_getmatchingdomains_get#/)                 | Multiple        | $1.00 |
+| Endpoint                                                                                                                                 | Rows Returned    | CPM   |
+| ---------------------------------------------------------------------------------------------------------------------------------------- | :--------------- | ----- |
+| [/domain_stats_api/v2/getAllDomainStats](https://developer.spyfu.com/reference/domainstatsapi_getalldomainstats_get#/)                   | Multiple         | $0.50 |
+| [/domain_stats_api/v2/getLatestDomainStats](https://developer.spyfu.com/reference/domainstatsapi_getlatestdomainstats_get#/)             | Single/Multiple* | $0.50 |
+| [/domain_stats_api/v2/getDomainStatsForExactDate](https://developer.spyfu.com/reference/domainstatsapi_getdomainstatsforexactdate_get#/) | Single           | $0.50 |
+| [/domain_stats_api/v2/getActiveDatesForDomain](https://developer.spyfu.com/reference/domainstatsapi_getactivedatesfordomain_get#/)       | Multiple         | $0.50 |
+| [/domain_stats_api/v2/getBulkDomainStats](https://developer.spyfu.com/reference/domainstatsapi_getbulkdomainstats_get#/)                 | Single/Multiple  | $0.40 |
+| [/domain_stats_api/v2/getMatchingDomains](https://developer.spyfu.com/reference/domainstatsapi_getmatchingdomains_get#/)                 | Multiple         | $1.00 |
 
 ### [Ad History API](https://developer.spyfu.com/reference/adhistoryapi_getdomainadhistory_get#/)
 
@@ -45,11 +47,11 @@ Access to the API is included with your **SpyFu Pro + AI and Team/Agency** subsc
 
 ### [PPC Research API](https://developer.spyfu.com/reference/paidserpapi_getpaidserps_get#/)
 
-| Endpoint                                                                                                           | Rows Returned   | CPM   |
-| ------------------------------------------------------------------------------------------------------------------ | :-------------- | ----- |
-| [/serp_api/v2/ppc/getPaidSerps](https://developer.spyfu.com/reference/paidserpapi_getpaidserps_get)                | Single/Multiple | $2.00 |
-| [/keyword_api/v2/ppc/getMostSuccessful](https://developer.spyfu.com/reference/paidserpapi_getmostsuccessful_get#/) | Single/Multiple | $2.00 |
-| [/keyword_api/v2/ppc/getNewKeywords](https://developer.spyfu.com/reference/paidserpapi_getnewkeywords_get#/)       | Single/Multiple | $2.00 |
+| Endpoint                                                                                                           | Rows Returned    | CPM   |
+| ------------------------------------------------------------------------------------------------------------------ | :--------------- | ----- |
+| [/serp_api/v2/ppc/getPaidSerps](https://developer.spyfu.com/reference/paidserpapi_getpaidserps_get)                | Single/Multiple* | $2.00 |
+| [/keyword_api/v2/ppc/getMostSuccessful](https://developer.spyfu.com/reference/paidserpapi_getmostsuccessful_get#/) | Single/Multiple* | $2.00 |
+| [/keyword_api/v2/ppc/getNewKeywords](https://developer.spyfu.com/reference/paidserpapi_getnewkeywords_get#/)       | Single/Multiple* | $2.00 |
 
 ### [SEO Research API](https://developer.spyfu.com/reference/organicserpapi_getseokeywords_get#/)
 
