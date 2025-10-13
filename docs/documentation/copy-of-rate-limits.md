@@ -26,22 +26,22 @@ Access to the API is included with your **SpyFu Pro + AI and Team/Agency** subsc
 
 ### [Domain Stats API](https://developer.spyfu.com/reference/domainstatsapi_getalldomainstats_get#/)
 
-| Endpoint                                                                                                                                 | Rows Returned | CPM  |
-| ---------------------------------------------------------------------------------------------------------------------------------------- | :------------ | ---- |
-| [/domain_stats_api/v2/getAllDomainStats](https://developer.spyfu.com/reference/domainstatsapi_getalldomainstats_get#/)                   |               | 1000 |
-| [/domain_stats_api/v2/getLatestDomainStats](https://developer.spyfu.com/reference/domainstatsapi_getlatestdomainstats_get#/)             |               | 1000 |
-| [/domain_stats_api/v2/getDomainStatsForExactDate](https://developer.spyfu.com/reference/domainstatsapi_getdomainstatsforexactdate_get#/) |               | 1000 |
-| [/domain_stats_api/v2/getActiveDatesForDomain](https://developer.spyfu.com/reference/domainstatsapi_getactivedatesfordomain_get#/)       |               | 1000 |
-| [/domain_stats_api/v2/getBulkDomainStats](https://developer.spyfu.com/reference/domainstatsapi_getbulkdomainstats_get#/)                 |               | 333  |
-| [/domain_stats_api/v2/getMatchingDomains](https://developer.spyfu.com/reference/domainstatsapi_getmatchingdomains_get#/)                 |               |      |
+| Endpoint                                                                                                                                 | Rows Returned | CPM   |
+| ---------------------------------------------------------------------------------------------------------------------------------------- | :------------ | ----- |
+| [/domain_stats_api/v2/getAllDomainStats](https://developer.spyfu.com/reference/domainstatsapi_getalldomainstats_get#/)                   |               | $0.50 |
+| [/domain_stats_api/v2/getLatestDomainStats](https://developer.spyfu.com/reference/domainstatsapi_getlatestdomainstats_get#/)             |               | $0.50 |
+| [/domain_stats_api/v2/getDomainStatsForExactDate](https://developer.spyfu.com/reference/domainstatsapi_getdomainstatsforexactdate_get#/) |               | $0.50 |
+| [/domain_stats_api/v2/getActiveDatesForDomain](https://developer.spyfu.com/reference/domainstatsapi_getactivedatesfordomain_get#/)       |               | $0.50 |
+| [/domain_stats_api/v2/getBulkDomainStats](https://developer.spyfu.com/reference/domainstatsapi_getbulkdomainstats_get#/)                 |               | $0.40 |
+| [/domain_stats_api/v2/getMatchingDomains](https://developer.spyfu.com/reference/domainstatsapi_getmatchingdomains_get#/)                 |               | $1.00 |
 
 ### [Ad History API](https://developer.spyfu.com/reference/adhistoryapi_getdomainadhistory_get#/)
 
-| Endpoint                                                                                                                                      | Rows Returned | CPM |
-| --------------------------------------------------------------------------------------------------------------------------------------------- | :------------ | --- |
-| [/cloud_ad_history_api/v2/domain/getDomainAdHistory](https://developer.spyfu.com/reference/adhistoryapi_getdomainadhistory_get#/)             |               | 10  |
-| [/cloud_ad_history_api/v2/term/getTermAdHistory](https://developer.spyfu.com/reference/adhistoryapi_gettermadhistory_get#/)                   |               | 10  |
-| [/cloud_ad_history_api/v2/term/getTermAdHistoryWithStats](https://developer.spyfu.com/reference/adhistoryapi_gettermadhistorywithstats_get#/) |               | 10  |
+| Endpoint                                                                                                                                      | Rows Returned | CPM   |
+| --------------------------------------------------------------------------------------------------------------------------------------------- | :------------ | ----- |
+| [/cloud_ad_history_api/v2/domain/getDomainAdHistory](https://developer.spyfu.com/reference/adhistoryapi_getdomainadhistory_get#/)             |               | $3.00 |
+| [/cloud_ad_history_api/v2/term/getTermAdHistory](https://developer.spyfu.com/reference/adhistoryapi_gettermadhistory_get#/)                   |               | $3.00 |
+| [/cloud_ad_history_api/v2/term/getTermAdHistoryWithStats](https://developer.spyfu.com/reference/adhistoryapi_gettermadhistorywithstats_get#/) |               | $3.00 |
 
 ### [PPC Research API](https://developer.spyfu.com/reference/paidserpapi_getpaidserps_get#/)
 
