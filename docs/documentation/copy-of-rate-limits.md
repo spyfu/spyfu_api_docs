@@ -7,7 +7,7 @@ metadata:
 ---
 # API Endpoint Pricing
 
-Access to the API is included with your **SpyFu Pro + AI and Team/Agency** subscription plan. The **Pro + AI** subscription includes a **$40 monthly API credit** and the **Team/Agency**subscription includes a **$100 monthly API credit**. The SpyFu API operates on a Pay-as-you-Go pricing model.
+Access to the API is included with the **SpyFu Pro + AI**and **Team/Agency** subscription plan. The **Pro + AI** subscription includes a **$40 monthly API credit** and the **Team/Agency**subscription includes a **$100 monthly API credit**. The SpyFu API operates on a Pay-as-you-Go pricing model.
 
 <b><u><i>IMPORTANT:</i></u></b> API charges are based on the number of rows returned per request submitted to an API endpoint. Each API endpoint is priced individually based on the computational cost to return a row of data. Many of the endpoints return more than 1 result row per request. Please see the **API Endpoints Pricing Guide** below for the specific **CPM** (cost per thousand) of each returned row.
 
@@ -15,10 +15,15 @@ Access to the API is included with your **SpyFu Pro + AI and Team/Agency** subsc
 
 ## API Billing
 
-* **Per‑endpoint limits**: Each API method has its own requests‑per‑second (RPS) allowance.
-* **Window**: Limits apply over a rolling **1‑second** window.
-* **Retry**: If you exceed the limit, wait **1 second** before retrying (see `Retry‑After` header).
-* **Why different limits?** Heavier endpoints allow fewer requests per second based on relative compute cost.
+API billing is calculated on a monthly basis, starting the first day of each month at 00:00 AM UTC and ending on the last day of each month at 11:59 PM UTC. 
+
+The bill amount is calculated from the number of successful rows returned from each API endpoint, divided by 1000, multiplied by the CPM for that endpoint. Those individual endpoint totals are added together, any applicable API credit is then subtracted from the total, and the remaining balance is charged to the payment method on file with SpyFu. 
+
+THIS SECTION IS FOR EXPLANATION OF INCREMENTAL BILLING< IF USED
+
+API usage and billing can be monitored via the API Usage tab in the My Account section of the website: https://www.spyfu.com/account/api
+
+Live API usage can also be monitored via the Account API which is documented here: [Account API](ref:account-api)
 
 ***
 
@@ -113,19 +118,8 @@ Single/Multiple* - Denotes the endpoint can return single or multiple rows, and 
 
 ***
 
-## Checking Your API Usage and Billing
-
-* **Backoff on 429**: Retry after the number of seconds indicated by `Retry‑After` (typically `1`).
-* **Batch or paginate** where supported to reduce call volume.
-* **Cache** results to avoid redundant calls.
-* **Parallelism**: Cap concurrency so per‑endpoint RPS stays within limit.
-
-***
-
 ## Questions?
 
-If you need a higher limit for specific workloads, contact support with:
+If you need help understanding our API pricing or your API charges, please contact SpyFu support via Live Chat or support@spyfu.com.
 
-* The API and endpoint,
-* Expected sustained RPS and burst behavior,
-* Use case and time window.
+<br />
