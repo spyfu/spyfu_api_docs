@@ -9,9 +9,9 @@ metadata:
 
 Access to the API is included with the **SpyFu Pro + AI** and **Team/Agency** subscription plan. The **Pro + AI** subscription includes a **$40 monthly API credit** and the **Team/Agency** subscription includes a **$100 monthly API credit**. The SpyFu API operates on a Pay-as-you-Go pricing model.
 
-<b><u><i>IMPORTANT:</i></u></b> API charges are billed per row of data returned as a result of a request made to an API endpoint. Each API endpoint is priced individually based on the computational cost to return a row of data. Many of the endpoints return more than 1 result row per request. Please see the **API Endpoints Pricing Guide** below for the specific **CPM** (cost per thousand) applicable to each endpoint. 
+<b><u><i>IMPORTANT:</i></u></b> API charges are billed per row of data returned as a result of a request made to an API endpoint. Each API endpoint is priced individually based on the computational cost to return a row of data. Many of the endpoints return more than 1 result row per request. Please see the **API Endpoints Pricing Guide** below for the specific **CPM** (cost per thousand) applicable to each endpoint.
 
-API endpoints Rows Returned categories:
+API endpoints Rows Returned explained:
 
 * Single - Returns one result row by default.
 * Multiple - Returns multiple rows by default unless only one row is available.
