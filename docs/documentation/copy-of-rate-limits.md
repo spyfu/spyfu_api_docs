@@ -24,7 +24,7 @@ Access to the API is included with your **SpyFu Pro + AI and Team/Agency** subsc
 
 ## SpyFu API Endpoints Pricing Guide
 
-**Single/Multiple* ** - Denotes the endpoint can return single or multiple rows, and by default will return multiple rows.
+Single/Multiple* - Denotes the endpoint can return single or multiple rows, and by default will return multiple rows.
 
 ### [Domain Stats API](https://developer.spyfu.com/reference/domainstatsapi_getalldomainstats_get#/)
 
