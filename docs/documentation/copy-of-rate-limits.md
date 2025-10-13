@@ -24,7 +24,7 @@ API endpoints Rows Returned explained:
 
 API billing is calculated on a monthly basis, starting the first day of each month at 00:00 AM UTC and ending on the last day of each month at 11:59 PM UTC.
 
-The bill amount is calculated using the number of successful rows returned from each API endpoint, divided by 1000, multiplied by the CPM for that endpoint. Those individual endpoint totals are added together, any applicable API credit is then subtracted from the total, and the remaining balance is charged to the payment method on file with SpyFu.
+The bill amount is calculated using the number of successful rows returned from each API endpoint, divided by 1000, multiplied by the CPM for that endpoint. The individual endpoint totals are added together, any applicable API credit is then subtracted from the total, and the remaining balance is charged to the payment method on file with SpyFu.
 
 THIS SECTION IS FOR EXPLANATION OF INCREMENTAL BILLING\< IF USED
 
