@@ -15,13 +15,13 @@ Access to the API is included with the **SpyFu Pro + AI**and **Team/Agency** sub
 
 ## API Billing
 
-API billing is calculated on a monthly basis, starting the first day of each month at 00:00 AM UTC and ending on the last day of each month at 11:59 PM UTC. 
+API billing is calculated on a monthly basis, starting the first day of each month at 00:00 AM UTC and ending on the last day of each month at 11:59 PM UTC.
 
-The bill amount is calculated from the number of successful rows returned from each API endpoint, divided by 1000, multiplied by the CPM for that endpoint. Those individual endpoint totals are added together, any applicable API credit is then subtracted from the total, and the remaining balance is charged to the payment method on file with SpyFu. 
+The bill amount is calculated from the number of successful rows returned from each API endpoint, divided by 1000, multiplied by the CPM for that endpoint. Those individual endpoint totals are added together, any applicable API credit is then subtracted from the total, and the remaining balance is charged to the payment method on file with SpyFu.
 
-THIS SECTION IS FOR EXPLANATION OF INCREMENTAL BILLING< IF USED
+THIS SECTION IS FOR EXPLANATION OF INCREMENTAL BILLING\< IF USED
 
-API usage and billing can be monitored via the API Usage tab in the My Account section of the website: https://www.spyfu.com/account/api
+API usage and billing can be monitored via the API Usage tab in the My Account section of the website: [https://www.spyfu.com/account/api](https://www.spyfu.com/account/api)
 
 Live API usage can also be monitored via the Account API which is documented here: [Account API](ref:account-api)
 
@@ -120,6 +120,6 @@ Single/Multiple* - Denotes the endpoint can return single or multiple rows, and 
 
 ## Questions?
 
-If you need help understanding our API pricing or your API charges, please contact SpyFu support via Live Chat or support@spyfu.com.
+If you need help understanding our API pricing or your API charges, please contact SpyFu support via Live Chat or [support@spyfu.com](mailto:support@spyfu.com).
 
-<br />
+Need a custom data solution, or help setting up your account? [Pick a Time](https://go.oncehub.com/spyfu)
