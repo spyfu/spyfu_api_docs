@@ -128,5 +128,3 @@ Single/Multiple* - Denotes the endpoint can return single or multiple rows, and 
 ## Questions?
 
 If you need help understanding our API pricing or your API charges, please contact SpyFu support via Live Chat or [support@spyfu.com](mailto:support@spyfu.com).
-
-Need a custom data solution, or help setting up your account? [Pick a Time](https://go.oncehub.com/spyfu)
