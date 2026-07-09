@@ -2397,16 +2397,5 @@
         "in": "header"
       }
     }
-  },
-  "security": [
-    {
-      "Basic_Authentication_Token": []
-    },
-    {
-      "Query_Parameter_Token": []
-    },
-    {
-      "HMAC_Authentication_Header": []
-    }
-  ]
+  }
 }

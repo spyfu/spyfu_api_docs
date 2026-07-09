@@ -84,7 +84,7 @@
           {
             "name": "sortBy",
             "in": "query",
-            "description": "Sort order for ad history results.",
+            "description": "Sort order for grouped domain ad history results.",
             "schema": {
               "type": "string",
               "examples": [
@@ -94,13 +94,15 @@
                 "Best",
                 "Worst",
                 "KeywordAsc",
-                "KeywordDesc"
+                "KeywordDesc",
+                "SearchDateId"
               ],
               "x-enumDescriptions": {
                 "Best": "Best performing keywords based on longevity, CPC, and testing frequency",
                 "Worst": "Worst performing keywords that were tested and likely dropped",
                 "KeywordAsc": "Keywords A-Z",
-                "KeywordDesc": "Keywords Z-A"
+                "KeywordDesc": "Keywords Z-A",
+                "SearchDateId": "Most recently seen ads first"
               }
             },
             "example": "Best"
@@ -854,6 +856,408 @@
           },
           "400": {
             "description": "Bad Request - Invalid parameters provided (e.g., empty term, pageSize exceeds maximum, or invalid country code)"
+          },
+          "401": {
+            "description": "Unauthorized - Invalid API credentials or insufficient permissions to access ad history data"
+          },
+          "500": {
+            "description": "Internal Server Error - A server-side error occurred while processing the request"
+          }
+        },
+        "tags": [
+          "Ad History Research API"
+        ]
+      }
+    },
+    "/v2/domain/getDomainAdHistoryByDate": {
+      "get": {
+        "operationId": "AdHistoryApi_GetDomainAdHistoryByDate_GET",
+        "summary": "Get Domain Ad History by Date",
+        "description": "Returns one row per keyword, search date, and ad variation for a domain. Use the date bounds and paging fields to pull a controlled slice while still seeing the total matching result size.\n\n[Visualize this API live on SpyFu](https://www.spyfu.com/ppc/ad-history/domain?query=example.com)",
+        "parameters": [
+          {
+            "name": "domain",
+            "in": "query",
+            "description": "Advertiser's root domain.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "examples": [
+                "example.com"
+              ]
+            },
+            "example": "example.com"
+          },
+          {
+            "name": "keywordFilter",
+            "in": "query",
+            "description": "Only include keywords containing this text.",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "paint"
+              ]
+            },
+            "example": "paint"
+          },
+          {
+            "name": "minSearchDateId",
+            "in": "query",
+            "description": "Earliest ad capture date to include, formatted as YYYYMMDD.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "examples": [
+                20240101
+              ],
+              "maximum": 29991231,
+              "minimum": 19000101
+            },
+            "example": 20240101
+          },
+          {
+            "name": "maxSearchDateId",
+            "in": "query",
+            "description": "Latest ad capture date to include, formatted as YYYYMMDD.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "examples": [
+                20260601
+              ],
+              "maximum": 29991231,
+              "minimum": 19000101
+            },
+            "example": 20260601
+          },
+          {
+            "name": "startingRow",
+            "in": "query",
+            "description": "Starting row number for pagination.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "examples": [
+                1
+              ],
+              "default": 1,
+              "maximum": 2147483647,
+              "minimum": 1
+            },
+            "example": 1
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Number of flattened ad history rows to return per page.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "examples": [
+                100
+              ],
+              "default": 100,
+              "maximum": 10000,
+              "minimum": 1
+            },
+            "example": 100
+          },
+          {
+            "name": "keywordStartingRow",
+            "in": "query",
+            "description": "Keyword/domain document row number to start the backing query with before flattening date rows. KeywordStartingRow plus KeywordPageSize must fit within the first 10,000 keyword/domain documents.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "examples": [
+                1
+              ],
+              "default": 1,
+              "maximum": 2147483647,
+              "minimum": 1
+            },
+            "example": 1
+          },
+          {
+            "name": "keywordPageSize",
+            "in": "query",
+            "description": "Number of keyword/domain documents to fetch before flattening date rows. KeywordStartingRow plus KeywordPageSize must fit within the first 10,000 keyword/domain documents.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "examples": [
+                10000
+              ],
+              "default": 10000,
+              "maximum": 10000,
+              "minimum": 1
+            },
+            "example": 10000
+          },
+          {
+            "name": "countryCode",
+            "in": "query",
+            "description": "Country market to search. Specifically, this maps to the Google domain version to query against (e.g., google.com for US, google.de for Germany, etc.). <a href='https://developer.spyfu.com/reference/adhistoryapi_getdomainadhistorybydate_get#/'>All Countries</a>",
+            "schema": {
+              "type": "string",
+              "examples": [
+                "US"
+              ],
+              "default": "US",
+              "enum": [
+                "AR",
+                "AT",
+                "AU",
+                "BE",
+                "BR",
+                "CA",
+                "CH",
+                "DE",
+                "DK",
+                "ES",
+                "FR",
+                "IE",
+                "IN",
+                "IT",
+                "JP",
+                "MX",
+                "NL",
+                "NO",
+                "NZ",
+                "PL",
+                "PT",
+                "SE",
+                "SG",
+                "TR",
+                "UA",
+                "UK",
+                "US",
+                "ZA"
+              ]
+            },
+            "example": "US"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved flattened domain ad history rows and result-size metadata for the requested date range.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Response wrapper containing flattened domain ad history rows with paging and full-match metadata.",
+                  "type": "object",
+                  "properties": {
+                    "totalMatchingResults": {
+                      "description": "Total flattened keyword/date/ad rows found in the fetched keyword window after the date and keyword filters are applied.",
+                      "type": "integer",
+                      "format": "int32",
+                      "examples": [
+                        1240
+                      ],
+                      "readOnly": true
+                    },
+                    "totalMatchingResultsIsPartial": {
+                      "description": "True when more keyword/domain documents exist outside this response's backing query window, so totalMatchingResults is only the flattened count for this keyword window.",
+                      "type": "boolean",
+                      "examples": [
+                        false
+                      ],
+                      "readOnly": true
+                    },
+                    "resultCount": {
+                      "description": "Number of flattened keyword/date/ad rows returned in this response.",
+                      "type": "integer",
+                      "format": "int32",
+                      "examples": [
+                        100
+                      ],
+                      "readOnly": true
+                    },
+                    "startingRow": {
+                      "description": "Starting row number used for this page.",
+                      "type": "integer",
+                      "format": "int32",
+                      "examples": [
+                        1
+                      ],
+                      "readOnly": true
+                    },
+                    "pageSize": {
+                      "description": "Requested maximum number of rows returned in this page.",
+                      "type": "integer",
+                      "format": "int32",
+                      "examples": [
+                        100
+                      ],
+                      "readOnly": true
+                    },
+                    "hasMoreResults": {
+                      "description": "True when more flattened rows are available after this page.",
+                      "type": "boolean",
+                      "examples": [
+                        true
+                      ],
+                      "readOnly": true
+                    },
+                    "totalMatchingKeywords": {
+                      "description": "Total keyword/domain documents matched by the backing query before flattening date rows.",
+                      "type": [
+                        "integer",
+                        "null"
+                      ],
+                      "format": "int64",
+                      "examples": [
+                        85
+                      ],
+                      "readOnly": true
+                    },
+                    "keywordStartingRow": {
+                      "description": "Keyword/domain document row number used to start the backing query.",
+                      "type": "integer",
+                      "format": "int32",
+                      "examples": [
+                        1
+                      ],
+                      "readOnly": true
+                    },
+                    "keywordPageSize": {
+                      "description": "Requested maximum number of keyword/domain documents fetched by the backing query.",
+                      "type": "integer",
+                      "format": "int32",
+                      "examples": [
+                        10000
+                      ],
+                      "readOnly": true
+                    },
+                    "resultWindowKeywordCount": {
+                      "description": "Number of keyword/domain documents returned by the backing query for this response.",
+                      "type": "integer",
+                      "format": "int32",
+                      "examples": [
+                        85
+                      ],
+                      "readOnly": true
+                    },
+                    "hasMoreKeywordResults": {
+                      "description": "True when more keyword/domain documents are available after this backing query window.",
+                      "type": "boolean",
+                      "examples": [
+                        false
+                      ],
+                      "readOnly": true
+                    },
+                    "results": {
+                      "description": "Flattened keyword/date/ad rows for the requested page.",
+                      "type": [
+                        "array",
+                        "null"
+                      ],
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "keyword": {
+                            "description": "Keyword that triggered this ad for the requested domain.",
+                            "type": [
+                              "string",
+                              "null"
+                            ],
+                            "examples": [
+                              "paint sprayer"
+                            ]
+                          },
+                          "termId": {
+                            "description": "Internal SpyFu identifier for the keyword.",
+                            "type": "integer",
+                            "format": "int64",
+                            "examples": [
+                              123456789
+                            ]
+                          },
+                          "searchDateId": {
+                            "description": "Date when this ad was captured by SpyFu's crawling system, formatted as YYYYMMDD (e.g., 20240101 = January 1, 2024).",
+                            "type": "integer",
+                            "format": "int32",
+                            "examples": [
+                              20240101
+                            ]
+                          },
+                          "position": {
+                            "description": "Paid ad position observed for this ad on the search results page.",
+                            "type": "integer",
+                            "format": "int32",
+                            "examples": [
+                              1
+                            ]
+                          },
+                          "title": {
+                            "description": "Headline text used in the ad.",
+                            "type": [
+                              "string",
+                              "null"
+                            ],
+                            "examples": [
+                              "Paint Supplies and Tools"
+                            ]
+                          },
+                          "body": {
+                            "description": "Body copy used in the ad.",
+                            "type": [
+                              "string",
+                              "null"
+                            ],
+                            "examples": [
+                              "Shop paint sprayers, rollers, brushes, and supplies."
+                            ]
+                          },
+                          "domainName": {
+                            "description": "Advertiser domain that served the ad.",
+                            "type": [
+                              "string",
+                              "null"
+                            ],
+                            "examples": [
+                              "example.com"
+                            ]
+                          },
+                          "fullUrl": {
+                            "description": "Full final destination URL captured for this ad variation.",
+                            "type": [
+                              "string",
+                              "null"
+                            ],
+                            "examples": [
+                              "https://example.com/paint/tools?source=ads"
+                            ]
+                          },
+                          "adId": {
+                            "description": "SpyFu identifier for the ad creative.",
+                            "type": "integer",
+                            "format": "int32",
+                            "examples": [
+                              987654
+                            ]
+                          },
+                          "isLeaderboardAd": {
+                            "description": "Whether this ad was observed in a leaderboard placement.",
+                            "type": "boolean",
+                            "examples": [
+                              false
+                            ]
+                          }
+                        },
+                        "additionalProperties": false,
+                        "description": "A single flattened domain ad history row for one keyword, date, and ad variation."
+                      },
+                      "readOnly": true
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Invalid parameters provided (e.g., invalid date bounds, pageSize exceeds maximum, or invalid country code)"
           },
           "401": {
             "description": "Unauthorized - Invalid API credentials or insufficient permissions to access ad history data"
@@ -1816,6 +2220,312 @@
             "examples": [
               28.7
             ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "PublicApiDomainAdHistoryByDateOutputDto": {
+        "description": "A single flattened domain ad history row for one keyword, date, and ad variation.",
+        "type": "object",
+        "properties": {
+          "keyword": {
+            "description": "Keyword that triggered this ad for the requested domain.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "examples": [
+              "paint sprayer"
+            ]
+          },
+          "termId": {
+            "description": "Internal SpyFu identifier for the keyword.",
+            "type": "integer",
+            "format": "int64",
+            "examples": [
+              123456789
+            ]
+          },
+          "searchDateId": {
+            "description": "Date when this ad was captured by SpyFu's crawling system, formatted as YYYYMMDD (e.g., 20240101 = January 1, 2024).",
+            "type": "integer",
+            "format": "int32",
+            "examples": [
+              20240101
+            ]
+          },
+          "position": {
+            "description": "Paid ad position observed for this ad on the search results page.",
+            "type": "integer",
+            "format": "int32",
+            "examples": [
+              1
+            ]
+          },
+          "title": {
+            "description": "Headline text used in the ad.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "examples": [
+              "Paint Supplies and Tools"
+            ]
+          },
+          "body": {
+            "description": "Body copy used in the ad.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "examples": [
+              "Shop paint sprayers, rollers, brushes, and supplies."
+            ]
+          },
+          "domainName": {
+            "description": "Advertiser domain that served the ad.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "examples": [
+              "example.com"
+            ]
+          },
+          "fullUrl": {
+            "description": "Full final destination URL captured for this ad variation.",
+            "type": [
+              "string",
+              "null"
+            ],
+            "examples": [
+              "https://example.com/paint/tools?source=ads"
+            ]
+          },
+          "adId": {
+            "description": "SpyFu identifier for the ad creative.",
+            "type": "integer",
+            "format": "int32",
+            "examples": [
+              987654
+            ]
+          },
+          "isLeaderboardAd": {
+            "description": "Whether this ad was observed in a leaderboard placement.",
+            "type": "boolean",
+            "examples": [
+              false
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "PublicApiDomainAdHistoryByDateWrapperOutputDto": {
+        "description": "Response wrapper containing flattened domain ad history rows with paging and full-match metadata.",
+        "type": "object",
+        "properties": {
+          "totalMatchingResults": {
+            "description": "Total flattened keyword/date/ad rows found in the fetched keyword window after the date and keyword filters are applied.",
+            "type": "integer",
+            "format": "int32",
+            "examples": [
+              1240
+            ],
+            "readOnly": true
+          },
+          "totalMatchingResultsIsPartial": {
+            "description": "True when more keyword/domain documents exist outside this response's backing query window, so totalMatchingResults is only the flattened count for this keyword window.",
+            "type": "boolean",
+            "examples": [
+              false
+            ],
+            "readOnly": true
+          },
+          "resultCount": {
+            "description": "Number of flattened keyword/date/ad rows returned in this response.",
+            "type": "integer",
+            "format": "int32",
+            "examples": [
+              100
+            ],
+            "readOnly": true
+          },
+          "startingRow": {
+            "description": "Starting row number used for this page.",
+            "type": "integer",
+            "format": "int32",
+            "examples": [
+              1
+            ],
+            "readOnly": true
+          },
+          "pageSize": {
+            "description": "Requested maximum number of rows returned in this page.",
+            "type": "integer",
+            "format": "int32",
+            "examples": [
+              100
+            ],
+            "readOnly": true
+          },
+          "hasMoreResults": {
+            "description": "True when more flattened rows are available after this page.",
+            "type": "boolean",
+            "examples": [
+              true
+            ],
+            "readOnly": true
+          },
+          "totalMatchingKeywords": {
+            "description": "Total keyword/domain documents matched by the backing query before flattening date rows.",
+            "type": [
+              "integer",
+              "null"
+            ],
+            "format": "int64",
+            "examples": [
+              85
+            ],
+            "readOnly": true
+          },
+          "keywordStartingRow": {
+            "description": "Keyword/domain document row number used to start the backing query.",
+            "type": "integer",
+            "format": "int32",
+            "examples": [
+              1
+            ],
+            "readOnly": true
+          },
+          "keywordPageSize": {
+            "description": "Requested maximum number of keyword/domain documents fetched by the backing query.",
+            "type": "integer",
+            "format": "int32",
+            "examples": [
+              10000
+            ],
+            "readOnly": true
+          },
+          "resultWindowKeywordCount": {
+            "description": "Number of keyword/domain documents returned by the backing query for this response.",
+            "type": "integer",
+            "format": "int32",
+            "examples": [
+              85
+            ],
+            "readOnly": true
+          },
+          "hasMoreKeywordResults": {
+            "description": "True when more keyword/domain documents are available after this backing query window.",
+            "type": "boolean",
+            "examples": [
+              false
+            ],
+            "readOnly": true
+          },
+          "results": {
+            "description": "Flattened keyword/date/ad rows for the requested page.",
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": "object",
+              "properties": {
+                "keyword": {
+                  "description": "Keyword that triggered this ad for the requested domain.",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "examples": [
+                    "paint sprayer"
+                  ]
+                },
+                "termId": {
+                  "description": "Internal SpyFu identifier for the keyword.",
+                  "type": "integer",
+                  "format": "int64",
+                  "examples": [
+                    123456789
+                  ]
+                },
+                "searchDateId": {
+                  "description": "Date when this ad was captured by SpyFu's crawling system, formatted as YYYYMMDD (e.g., 20240101 = January 1, 2024).",
+                  "type": "integer",
+                  "format": "int32",
+                  "examples": [
+                    20240101
+                  ]
+                },
+                "position": {
+                  "description": "Paid ad position observed for this ad on the search results page.",
+                  "type": "integer",
+                  "format": "int32",
+                  "examples": [
+                    1
+                  ]
+                },
+                "title": {
+                  "description": "Headline text used in the ad.",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "examples": [
+                    "Paint Supplies and Tools"
+                  ]
+                },
+                "body": {
+                  "description": "Body copy used in the ad.",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "examples": [
+                    "Shop paint sprayers, rollers, brushes, and supplies."
+                  ]
+                },
+                "domainName": {
+                  "description": "Advertiser domain that served the ad.",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "examples": [
+                    "example.com"
+                  ]
+                },
+                "fullUrl": {
+                  "description": "Full final destination URL captured for this ad variation.",
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "examples": [
+                    "https://example.com/paint/tools?source=ads"
+                  ]
+                },
+                "adId": {
+                  "description": "SpyFu identifier for the ad creative.",
+                  "type": "integer",
+                  "format": "int32",
+                  "examples": [
+                    987654
+                  ]
+                },
+                "isLeaderboardAd": {
+                  "description": "Whether this ad was observed in a leaderboard placement.",
+                  "type": "boolean",
+                  "examples": [
+                    false
+                  ]
+                }
+              },
+              "additionalProperties": false,
+              "description": "A single flattened domain ad history row for one keyword, date, and ad variation."
+            },
+            "readOnly": true
           }
         },
         "additionalProperties": false
