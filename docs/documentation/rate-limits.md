@@ -68,7 +68,7 @@ Some APIs have the same limit across all listed endpoints.
 | Endpoint                                                                                                                                         | Requests / Sec |
 | ------------------------------------------------------------------------------------------------------------------------------------------------ | -------------- |
 | [/cloud\_ad\_history\_api/v2/domain/getDomainAdHistory](https://developer.spyfu.com/reference/adhistoryapi_getdomainadhistory_get#/)             | 10             |
-| [/cloud\_ad\_history\_api/v2/domain/getDomainAdHistoryByDate](https://developer.spyfu.com/reference/adhistoryapi_getdomainadhistorybydate_get)   | 10             |
+| [/cloud\_ad\_history\_api/v2/domain/getDomainAdHistoryByDate](https://developer.spyfu.com/reference/adhistoryapi_getdomainadhistorybydate_get#/) | 10             |
 | [/cloud\_ad\_history\_api/v2/term/getTermAdHistory](https://developer.spyfu.com/reference/adhistoryapi_gettermadhistory_get#/)                   | 10             |
 | [/cloud\_ad\_history\_api/v2/term/getTermAdHistoryWithStats](https://developer.spyfu.com/reference/adhistoryapi_gettermadhistorywithstats_get#/) | 10             |
 
