@@ -1139,7 +1139,7 @@
       "get": {
         "operationId": "DomainStatsApi_GetMatchingDomains_GET",
         "summary": "Find Domains by Pattern and Metrics",
-        "description": "Discovers domains matching wildcard patterns and performance criteria for lead generation and competitive prospecting. Use wildcards like `*car*` to find automotive domains or filter by traffic, budget, and ranking metrics to identify high-value prospects.",
+        "description": "Finds domains matching a wildcard pattern and metric filters in the current month or an inclusive historical month range. Set searchDateId.min and/or searchDateId.max in yyyyMM format; an omitted bound uses the earliest/latest available month. Omit both bounds for the current month, or use dateId for one exact month. Do not combine dateId with range bounds. Dates select monthly indices for a single search; unavailable months in a range are skipped. Filters and sorting use stored monthly values. Returned metrics use the same historical normalization as getAllDomainStats, including legacy, paid-keyword and budget formula adjustments. Pagination and totalMatchingResults count domain/month records, so a domain can appear more than once with one month per result. For example: query=*blog*&searchDateId.min=202608&searchDateId.max=202609.",
         "parameters": [
           {
             "name": "query",
@@ -1448,7 +1448,7 @@
           {
             "name": "pageSize",
             "in": "query",
-            "description": "The maximum number of rows returned.",
+            "description": "Maximum number of domain/month records returned.",
             "schema": {
               "type": "integer",
               "format": "int32",
@@ -1464,7 +1464,7 @@
           {
             "name": "startingRow",
             "in": "query",
-            "description": "Row number to start the results with.",
+            "description": "First domain/month record to return (1-based).",
             "schema": {
               "type": "integer",
               "format": "int32",
@@ -1476,6 +1476,33 @@
               "minimum": 1
             },
             "example": 1
+          },
+          {
+            "name": "dateId",
+            "in": "query",
+            "description": "One historical month in yyyyMM format. Omit for the current month. Cannot be combined with searchDateId.min or searchDateId.max. An unavailable exact month returns HTTP 404.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "202609"
+          },
+          {
+            "name": "searchDateId.min",
+            "in": "query",
+            "description": "Inclusive first historical month in yyyyMM format. Omit for the earliest available month when searchDateId.max is supplied. Cannot be combined with dateId. When both bounds are omitted, uses dateId if supplied; otherwise uses the current domain stats index.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "202608"
+          },
+          {
+            "name": "searchDateId.max",
+            "in": "query",
+            "description": "Inclusive last historical month in yyyyMM format. Omit for the latest available month when searchDateId.min is supplied. Must be greater than or equal to searchDateId.min. Cannot be combined with dateId. When both bounds are omitted, uses dateId if supplied; otherwise uses the current domain stats index.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "202609"
           }
         ],
         "responses": {
@@ -1656,6 +1683,9 @@
           },
           "500": {
             "description": "Internal Server Error"
+          },
+          "404": {
+            "description": "The exact historical month requested with dateId is unavailable. Missing months within a searchDateId range are skipped instead."
           }
         },
         "tags": [
